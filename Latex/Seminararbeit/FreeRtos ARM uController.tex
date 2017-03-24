@@ -1,0 +1,119 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Beispiel für ein LaTeX-Dokument im Format "seminarvorlage"
+\documentclass[ngerman]{seminarvorlage}
+% ngerman = Deutsch in neuer Rechtschreibung, alternativ english
+
+\usepackage[utf8]{inputenc} % Kodierung der Umlaute
+\usepackage{babel} % automatische Sprachanpassung, Sprache siehe oben
+\usepackage{cleveref} % für bequeme Referenzen, siehe \cref unten
+
+\begin{document}
+
+% Unbedingt angeben: Titel, Autoren, E-Mail
+% Freiwillig: Adresse
+\title{Embedded Realtime on ARM uC - FreeRTOS auf STM32F4}
+\numberofauthors{2}
+\author{
+  \alignauthor Michael Ebert\\
+    \affaddr{Rotdornweg 28}\\
+		\affaddr{Ad-hoc Networks GmbH}\\
+    \affaddr{25451 Quickborn}\\
+    \email{ebert@ad-hoc.network}
+  \alignauthor Christoph Bläßer\\
+    %\affaddr{FernUniversität in Hagen}\\
+		%\affaddr{Bonn}\\
+    %\affaddr{58084 Hagen}\\
+    \email{christph.blaesser@gmx.de}
+}
+
+\maketitle
+
+\abstract{Die Geschichte der Gummi\-bär\-chen ist voller
+Über\-raschun\-gen\ldots} % Trennhilfe \- manchmal nützlich
+
+\keywords{RTOS, ARM , STM32, Real Time.}
+
+% Section-Überschriften werden in GROSSBUCHSTABEN umgestellt
+\section{Einleitung}
+
+Das Gummibärchen war schon immer ein Quell der Freude für Jung
+und Alt, vgl. \cite{acmcategories,Ivory2001}.
+
+\section{Und Erwachsene ebenso?}
+
+Das ist die Frage, die interessanterweise bereits
+im 19.~Jahrhundert aufgeworfen wurde~\cite[S.~237f]{Ivory2001}.
+
+In \cref{niko} sehen wir ein Beispiel.
+
+\begin{figure}[hp]
+\begin{center}
+\unitlength8mm % heir skalieren, falls gewünscht
+\begin{picture}(4,6)
+%außen
+\put(0,0){\line(1,0){4}}
+\put(4,0){\line(0,1){4}}
+\put(4,4){\line(-1,1){2}}
+\put(2,6){\line(-1,-1){2}}
+\put(0,4){\line(0,-1){4}}
+%innen
+\put(0,0){\line(1,1){4}}
+\put(4,4){\line(-1,0){4}}
+\put(0,4){\line(1,-1){4}}
+\end{picture}
+\end{center}
+\caption{Das Haus des Nikolaus in seiner ersten, ursprünglichen Form,
+         siehe auch~\protect\cite[S.~93]{Ivory2001}.}
+\label{niko}
+\end{figure}
+
+Und in \cref{tttabelle} ist das Ganze tabellarisch dargestellt.
+
+\begin{table}[hp]\large
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Material & Tierart & essbar\\
+\hline
+Gummi & Bär & ja\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Eine Übersicht zu den Fachbegriffen.}
+\label{tttabelle}
+\end{table}
+
+\section{Zusammenfassung}
+In dieser Abhandlung wurde die Geschichte neu interpretiert.
+Es ergaben sich völlig neuartige Forschungsansätze, die so
+vielfältig sind, dass sich die Auswirkungen gegen\-wärtig %Trennhilfe \-
+kaum abschätzen lassen. Auch Artikel mit vielen Autoren~\cite{Black1988}
+befassen sich mit diesem Thema.
+
+% Eine neue Spalte anfangen mit
+\pagebreak
+
+% Bibliographie entweder direkt hier eingeben (nur im Notfall)...
+%
+\begin{thebibliography}{9}
+\bibitem{acmcategories}
+%How to classify works using ACM's computing classification system.
+\newblock \url{http://www.acm.org/class/how_to_use.html}.
+%
+\bibitem{Ivory2001}
+M.~Y. Ivory and M.~A. Hearst.
+\newblock The state of the art in automating usability evaluation of user
+  interfaces.
+\newblock {\em ACM Comput. Surv.}, 33(4):470--516, 2001.
+
+\end{thebibliography}
+
+% ... oder die Bibliographie mit Hilfe von BibTeX generieren,
+% dies ist auf jeden Fall die bessere Lösung und sollte nach
+% Möglichkeit immer verwendet werden:
+\bibliographystyle{abbrv}
+\bibliography{literatur} % Daten aus der Datei literatur.bib verwenden.
+
+\end{document}
+

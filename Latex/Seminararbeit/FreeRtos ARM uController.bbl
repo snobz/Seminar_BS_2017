@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+
+\bibitem{acmcategories}
+How to classify works using {ACM}'s computing classification system.
+\newblock \url{http://www.acm.org/class/how_to_use.html}.
+
+\bibitem{Black1988}
+D.~L. Black, D.~B. Golub, K.~Hauth, A.~Tevanian, and R.~Sanzi.
+\newblock The {Mach} exception handling facility.
+\newblock In {\em Proceedings of the 1988 ACM SIGPLAN and SIGOPS workshop on
+  Parallel and distributed debugging}, PADD '88, pages 45--56, 1988.
+
+\bibitem{Ivory2001}
+M.~Y. Ivory and M.~A. Hearst.
+\newblock The state of the art in automating usability evaluation of user
+  interfaces.
+\newblock {\em ACM Computing Surveys}, 33(4):470--516, 2001.
+
+\end{thebibliography}
