@@ -1409,7 +1409,7 @@ pdfauthor={},
 \usepackage{times}
 \usepackage{graphics}
 \usepackage{color}
-\usepackage[pdftex,pdfpagelabels=false]{hyperref}
+\usepackage[pdfpagelabels=false]{hyperref}
 \hypersetup{%
 bookmarksnumbered,
 pdfstartview={FitH},
