@@ -39,12 +39,10 @@
 
 Im Rahmen des vorliegenden Papers wird das Echtzeitbetriebssystem FreeRTos vorgestellt. Hierzu weerden zu Beginn die allgemeinen Vorgaben für Echtzeitbetriebssysteme beschrieben. Im Verlauf des Textes wird an ausgewählten Beispielen dargestellt, wie freeRTos diese Anforderungen berücksichtigt und durch geeignete Programmfunktionen umsetzt. \cite{acmcategories,Ivory2001}.
 
-\section{Und Erwachsene ebenso?}
+\section{Übersicht und Gründe für den Einsatz eines RTOS}
+Mit der steigenden Leistungsfähigkeit von modernen uProzessoren, steigen auch die Anfordernungen an die Software die auf diese Systeme aufsetzt.
+Viele dieser Anwendungen verlangen trotz ihrer Komplexität, dass der Programmablauf der Software oder zumindest einige Teile dieser Software in bestimmten zeitlichen Grenzen ausgeführt wird und somit vorhersehbar und deterministisch ist. Ein Echzeitbetriebssystem (RTOS) bietet einem Entwickler die Möglichkeit ein solches System zu entwerfen. Determinismus ist das Kennzeichen jedes Echzeitbetriebssystem, für viele Anwendung bietet ein Echtzeitbetriebsystem aber noch andere Vorzüge. 
 
-Das ist die Frage, die interessanterweise bereits
-im 19.~Jahrhundert aufgeworfen wurde~\cite[S.~237f]{Ivory2001}.
-
-In \cref{niko} sehen wir ein Beispiel.
 
 \begin{figure}[hp]
 \begin{center}
