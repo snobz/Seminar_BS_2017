@@ -41,53 +41,40 @@ Im Rahmen des vorliegenden Papers wird das Echtzeitbetriebssystem FreeRTos vorge
 
 \section{Übersicht und Gründe für den Einsatz eines RTOS}
 Mit der steigenden Leistungsfähigkeit von modernen uProzessoren, steigen auch die Anfordernungen an die Software die auf diese Systeme aufsetzt.
-Viele dieser Anwendungen verlangen trotz ihrer Komplexität, dass der Programmablauf der Software oder zumindest einige Teile dieser Software in bestimmten zeitlichen Grenzen ausgeführt wird und somit vorhersehbar und deterministisch ist. Ein Echzeitbetriebssystem (RTOS) bietet einem Entwickler die Möglichkeit ein solches System zu entwerfen. Determinismus ist das Kennzeichen jedes Echzeitbetriebssystem, für viele Anwendung bietet ein Echtzeitbetriebsystem aber noch andere Vorzüge. 
+Viele dieser Anwendungen verlangen trotz ihrer Komplexität, dass der Programmablauf der Software oder zumindest einige Teile dieser Software in bestimmten zeitlichen Grenzen ausgeführt wird und somit vorhersehbar und deterministisch ist.
+Ein Echzeitbetriebssystem (RTOS) bietet einem Entwickler die Möglichkeit ein solches System zu entwerfen. Neben der Echzeifähigkeit gibt es aber noch viele weitere Vorzüge für den Einsatz eines Echzeitbetriebssystems. Durch die Nebenläufigkeit etstehen viele kleine Module, die als seperate Anwendungen laufen (Hier ein Beispiel mit einem Board und Komponenten). Diese Module können in Teams entwickelt werden und eigenständigen Tests unterzogen werden. Ein häufiges Problem in embedded Systemen in die Problematik des Hardwarenahen Testens. Ein weiterer sehr wichtiger Punkt ist die Entwicklung von Energieeffizienten systemen. in einer anwendung die auf einem echzeitbetriebssystem aufsetzt, lässt sich durch die ereignisorientierte entwicklung sehr schnell feststellen, ob alle Aufgaben abgearbeitet wurden, so dass man ggf. das System schlafen legen kann. Wie so etwas in FreeRtos umgesetzt wurde und wie es für eine Beispielhafte Anwendung implementiert werden kann wird in Kapitel x detailiert erläutert.  
 
 
-\begin{figure}[hp]
-\begin{center}
-\unitlength8mm % heir skalieren, falls gewünscht
-\begin{picture}(4,6)
-%außen
-\put(0,0){\line(1,0){4}}
-\put(4,0){\line(0,1){4}}
-\put(4,4){\line(-1,1){2}}
-\put(2,6){\line(-1,-1){2}}
-\put(0,4){\line(0,-1){4}}
-%innen
-\put(0,0){\line(1,1){4}}
-\put(4,4){\line(-1,0){4}}
-\put(0,4){\line(1,-1){4}}
-\end{picture}
-\end{center}
-\caption{Das Haus des Nikolaus in seiner ersten, ursprünglichen Form,
-         siehe auch~\protect\cite[S.~93]{Ivory2001}.}
-\label{niko}
-\end{figure}
 
-Und in \cref{tttabelle} ist das Ganze tabellarisch dargestellt.
 
 \begin{table}[hp]\large
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|}
 \hline
-Material & Tierart & essbar\\
+Einhaltung von Prozessdeadline & Komplexität \\
 \hline
-Gummi & Bär & ja\\
+Skalierbarkeit & Einarbeitungszeit\\
+\hline
+Erweiterbarkeit & Performance bei aufwändigen Berechnungen\\
+\hline
+Timing Abstraktionl & Aufwändige Debugging\\
+\hline
+Einfache Teamarbeit & \\
+\hline
+effiziente Energieverwaltung & \\
+\hline
+3erd Party driver& \\
+\hline
+Gummi & Bär \\
 \hline
 \end{tabular}
 \end{center}
-\caption{Eine Übersicht zu den Fachbegriffen.}
+\caption{Vor und Nachteile eines Echzeitbetriebssystems}
 \label{tttabelle}
 \end{table}
 
-\section{Zusammenfassung}
-In dieser Abhandlung wurde die Geschichte neu interpretiert.
-Es ergaben sich völlig neuartige Forschungsansätze, die so
-vielfältig sind, dass sich die Auswirkungen gegen\-wärtig %Trennhilfe \-
-kaum abschätzen lassen. Auch Artikel mit vielen Autoren~\cite{Black1988}
-befassen sich mit diesem Thema.
 
+\section{Zusammenfassung}
 % Eine neue Spalte anfangen mit
 \pagebreak
 
