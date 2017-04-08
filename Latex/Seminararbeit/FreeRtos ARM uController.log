@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  8 APR 2017 22:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  8 APR 2017 22:50
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -714,110 +714,105 @@ Overfull \hbox (7.70499pt too wide) in paragraph at lines 35--37
 \OT1/ptm/m/n/10 me be-schrie-ben. Im Ver-lauf des Tex-tes wird an aus-gew[]ahlten
  []
 
-<Pictures/EmbeddedCom/cwrtos2f5c.jpg, id=106, 1186.4325pt x 739.26187pt>
+
+Overfull \hbox (7.53174pt too wide) in paragraph at lines 39--40
+\OT1/ptm/m/n/10 ren-den Zu-griff, bei-spiels-wei-se auf Netz-werk-kar-ten und Fest-
+ []
+
+<Pictures/EmbeddedCom/cwrtos2f5c.jpg, id=102, 1186.4325pt x 739.26187pt>
 File: Pictures/EmbeddedCom/cwrtos2f5c.jpg Graphic file (type jpg)
  <use Pictures/EmbeddedCom/cwrtos2f5c.jpg>
-Package pdftex.def Info: Pictures/EmbeddedCom/cwrtos2f5c.jpg used on input line 45.
+Package pdftex.def Info: Pictures/EmbeddedCom/cwrtos2f5c.jpg used on input line 48.
 (pdftex.def)             Requested size: 146.16534pt x 91.06516pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 47.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 49.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 50.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (4.05693pt too wide) in paragraph at lines 38--50
+Overfull \hbox (4.05693pt too wide) in paragraph at lines 41--53
 \OT1/ptm/m/n/10 Mit der stei-gen-den Leis-tungsf[]ahigkeit von mo-der-nen $\OML/cmm/m/it/10 $ \OT1/ptm/m/n/10 Pro-
  []
 
 
-Overfull \hbox (10.98172pt too wide) in paragraph at lines 38--50
+Overfull \hbox (10.98172pt too wide) in paragraph at lines 41--53
 \OT1/ptm/m/n/10 chun-gen) lau-fen oder aber in event-gesteuerten ne-benl[]aufigen
  []
 
 
-Overfull \hbox (9.45494pt too wide) in paragraph at lines 38--50
-\OT1/ptm/m/n/10 zung des Pro-zes-sors. Be-son-ders bei ak-ku-be-trie-be-nen Ger[]aten
+Overfull \hbox (5.26073pt too wide) in paragraph at lines 41--53
+\OT1/ptm/m/n/10 trie-be-nen Ger[]aten wie IoT De-vi-ce oder Mo-bil-te-le-fo-nen wird
  []
 
 
-Overfull \hbox (9.93959pt too wide) in paragraph at lines 38--50
-\OT1/ptm/m/n/10 nem ARM $\OML/cmm/m/it/10 $\OT1/ptm/m/n/10 Prozessor de-mons-triert. Ne-ben der Echt-zeitf[]ahig
- []
-
-
-Overfull \hbox (23.4606pt too wide) in paragraph at lines 38--50
-\OT1/ptm/m/n/10 je-weils ei-ne klei-ne Tei-lauf-ga-be des Ge-samt-sys-tems []ubernehmen.
- []
-
-
-Overfull \hbox (7.53174pt too wide) in paragraph at lines 53--54
-\OT1/ptm/m/n/10 ren-den Zu-griff, bei-spiels-wei-se auf Netz-werk-kar-ten und Fest-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--58
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
 
  []
 
 
-Overfull \hbox (9.74126pt too wide) in paragraph at lines 60--61
-[]\OT1/ptm/m/n/10 Start-zu-Start Jit-ter von Tasks und Software-Komponenten 
- []
+Underfull \vbox (badness 1533) has occurred while \output is active []
 
-[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+ [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 Non-PDF special ignored!
 
  <./Pictures/EmbeddedCom/cwrtos2f5c.jpg>]
-Overfull \hbox (2.05212pt too wide) in paragraph at lines 67--68
-[]\OT1/ptm/m/n/10 Wiederverwendung von Da-ten(gewollt oder un-be-ab-sich-
+Overfull \hbox (9.74126pt too wide) in paragraph at lines 61--62
+[]\OT1/ptm/m/n/10 Start-zu-Start Jit-ter von Tasks und Software-Komponenten 
  []
 
 
-Overfull \hbox (1.35112pt too wide) in paragraph at lines 74--76
+Overfull \hbox (1.35112pt too wide) in paragraph at lines 75--77
 \OT1/ptm/m/n/10 gie muss bei der Ent-wick-lung eben-falls ber[]ucksichtigt wer-
  []
 
 
-Overfull \hbox (5.87115pt too wide) in paragraph at lines 74--76
+Overfull \hbox (5.87115pt too wide) in paragraph at lines 75--77
 \OT1/ptm/m/n/10 sys-te-me nur we-nig Spei-cher-platz und im-ple-men-tie-ren Funk-
  []
 
 
-Overfull \hbox (6.75612pt too wide) in paragraph at lines 87--87
+Overfull \hbox (6.75612pt too wide) in paragraph at lines 92--92
 []\secfnt Sonstige Ma-nah-men zur Si-cher-stel-lung der Echt-
  []
 
 ("FreeRtos ARM uController.bbl")
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 108.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 111.
  [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 108.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 111.
  ("FreeRtos ARM uController.aux"
 Package cleveref Info: loaded `ngerman' language definitions on input line 20.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 108.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 108.
-Package rerunfilecheck Info: File `"FreeRtos ARM uController".out' has not changed.
-(rerunfilecheck)             Checksum: F5DB06A4172E02AEC8CDDCE83F73B09D;1831.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 108.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 111.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 111.
+
+
+Package rerunfilecheck Warning: File `"FreeRtos ARM uController".out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"FreeRtos ARM uController".out':
+(rerunfilecheck)             Before: E8D4DD6951E579333078F77809C1425D;1743
+(rerunfilecheck)             After:  F79D57CBDA209D903C4FBED670C7906B;1821.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
  ) 
 Here is how much of TeX's memory you used:
- 8461 strings out of 493333
- 130383 string characters out of 3139173
- 259030 words of memory out of 3000000
- 11831 multiletter control sequences out of 15000+200000
+ 8460 strings out of 493333
+ 130380 string characters out of 3139173
+ 260030 words of memory out of 3000000
+ 11830 multiletter control sequences out of 15000+200000
  27168 words of font info for 66 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,28p,2537b,399s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,12n,28p,2549b,399s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (2 pages, 228786 bytes).
+Output written on "FreeRtos ARM uController.pdf" (2 pages, 228161 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
+ 153 PDF objects out of 1000 (max. 8388607)
  32 named destinations out of 1000 (max. 500000)
- 206 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 198 words of extra memory for PDF output out of 10000 (max. 10000000)
 
