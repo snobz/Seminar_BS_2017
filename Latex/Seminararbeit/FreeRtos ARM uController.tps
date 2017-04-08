@@ -12,13 +12,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1570
-NormalPos.bottom=650
+NormalPos.bottom=615
 Class=LaTeXView
 Document=FreeRtos ARM uController.tex
 
 [Frame0_View0,0]
-TopLine=33
-Cursor=1468
+TopLine=0
+Cursor=0
 
 [Frame1]
 Flags=0
@@ -30,13 +30,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1570
-NormalPos.bottom=650
+NormalPos.bottom=615
 Class=BibTeXView
 Document=literatur.bib
 
 [Frame1_View0,0]
 TopLine=0
-Cursor=1300
+Cursor=0
 
 [SessionInfo]
 FrameCount=2

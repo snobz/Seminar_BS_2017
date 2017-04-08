@@ -3,14 +3,12 @@
 % Beispiel für ein LaTeX-Dokument im Format "seminarvorlage"
 \documentclass[ngerman]{seminarvorlage}
 % ngerman = Deutsch in neuer Rechtschreibung, alternativ english
-
 \usepackage[utf8]{inputenc} % Kodierung der Umlaute
 \usepackage{babel} % automatische Sprachanpassung, Sprache siehe oben
 \usepackage{cleveref} % für bequeme Referenzen, siehe \cref unten
 
-
+%Own Code
 \newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} \nameref*{#1}}} % One single link
-
 \newcommand*{\quelle}{% 
   \footnotesize Quelle: 
 } 
@@ -37,17 +35,12 @@
 \abstract{
 Im Rahmen des vorliegenden Papers wird das Echtzeitbetriebssystem FreeRtos vorgestellt. Hierzu werden zu Beginn die allgemeinen Vorgaben für Echtzeitbetriebssysteme beschrieben. Im Verlauf des Textes wird an ausgewählten Beispielen dargestellt, wie FreeRos diese Anforderungen berücksichtigt und durch geeignete Programmfunktionen umsetzt.
 }
-\section{Echtzeitbetriebssysteme}
-\subsection{Vorteile eines Echtzeitbetriebssysteme}
-Mit der steigenden Leistungsfähigkeit von modernen \muProzessoren, steigen auch die Anfordernungen an die Software die auf diese Systeme aufsetzt. Viele dieser Anwendungen verlangen trotz ihrer Komplexität, dass Teile des Programmablauf in bestimmten zeitlichen Grenzen ausgeführt wird und somit vorhersehbar und deterministisch sind. Es gibt prinzipiell drei verschiedene Modelle wie der Programmablauf einer embedded Anwendung gestaltet sein kann, siehe Abbildung \ref{fig:Programmablauf}. Anwendungen können in einer einzigen Schleife laufen oder aber in event-gesteuerten nebenläufigen eigenständigen Programmabschnitten (Thread oder Task) ausgeführt werden. Diese Nebenläufigkeit ist nur durch einen RTOS Kernel (Scheduler) möglich. Für viele kleine Anwendungen kann die Nutzung einer einzigen Schleife durchaus sinnvoll sein, sollten beispielsweise die Ressourcen so knapp sein, dass ein Overhead an Funktionalität ausgeschlossen werden muss. Ein großer Nachteil der "`einschleifen Variante"' ist die permanente Nutzung des Prozessors. Besonders bei neuen akkubetrieben Geräten z.B. IoT Device wird sehr genau auf die Energieaufnahme geachtet. Ein RTOS bietet hingegen Funktionen mit denen sehr leicht ermittelt werden kann, ob ein Gerät in einen Schlafmodus wechseln kann, dies wird in Abschnitt \ref{sec:Low Power Modes} an Beispielen von FreeRtos und einem ARM uProzessor demonstriert. 
+\section{Echtzeitsysteme}
+Mit der steigenden Leistungsfähigkeit von modernen $\mu$ Prozessoren, steigen auch die Anforderungen an die Software die auf diese Systeme aufsetzt. Viele dieser Systeme verlangen trotz ihrer Komplexität, dass Teile des Programmablauf in bestimmten zeitlichen Grenzen ausgeführt wird und somit vorhersehbar und deterministisch sind. Systeme die eine solche Anforderung unterliegen werden Echtzeitsysteme genannt. Echtzeitsysteme unterliegen einer weiteren Unterteilung in weiche und harte Echtzeitsysteme (soft / hard realtime systems). Ein weiches Echtzeitsysteme soll eine Aufgabe in den vorgegeben zeitlichen Grenzen ausführen, ein überschreiten ist aber erlaubt und führt nicht unmittelbar zu einem Fehler. Ein hartes Echtzeitsystem hingegen muss die gestellte Aufgabe in den vorgegebenen Grenzen ausführen. Eine Überschreitung macht das System unbrauchbar. Der Programmablauf eingebetteter Systeme lässt sich auf drei Grundmodelle zurückführen, siehe Abbildung \ref{fig:Programmablauf}. Eingebettete Anwendungen können in einer einzigen Schleife (mit und ohne Interrupt Unterbrechungen) laufen oder aber in event-gesteuerten nebenläufigen eigenständigen Programmabschnitten (Thread oder Task) ausgeführt werden. Diese Nebenläufigkeit ist nur durch einen RTOS Kernel (Scheduler) möglich. Ein RTOS Kernel abstrahiert Timing Informationen und kümmert sich darum, dass die nächste Task rechtzeitig ausgeführt wird. Der Entwickler ist dafür verantwortlich, dass die Task die gewünschte Aufgabe im zeitlichen Rahmen ausführt. Wie sichergestellt werden kann, dass Task  harten bzw. weichen Echtzeitanforderungen entsprichet wird Abschnitt \ref{sec:Echtzeitanalyse} Für viele kleine Anwendungen kann die Nutzung einer einzigen Schleife durchaus sinnvoll sein, sollten beispielsweise die Ressourcen so knapp sein, dass ein Overhead an Funktionalität ausgeschlossen werden muss. Ein großer Nachteil der "`einschleifen Variante"' ist die permanente Nutzung des Prozessors. Besonders bei akkubetriebenen Geräten wie IoT Device oder Mobiltelefonen wird sehr genau auf die Energieaufnahme geachtet. Ein RTOS bietet hingegen Funktionen mit denen sehr leicht ermittelt werden kann, ob ein Gerät in einen Schlafmodus wechseln kann, dies wird in Abschnitt \ref{sec:Low Power Modes} an Beispielen von FreeRtos und einem ARM $\mu$Prozessor demonstriert. Neben der Echtzeitfähig gibt es aber noch viele weitere Vorzüge für den Einsatz eines Echtzeitbetriebssystems.  
+Durch das Herunterbrechen der Anwendung in Task entstehen viele kleine Module, die jeweils eine kleine Teilaufgabe des Gesamtsystems übernehmen. Die Anwendungen werden so skalierbar und erweiterbar. Die Entwicklungsarbeit lässt sich leicht auf Teams verteilen, die unabhängig ihre Module (Tasks) entwickeln und testen. Dies ermöglicht auch den Einsatz von agilen Entwicklungsmethoden wie Scrum in der Entwicklung von eingebetteten Systemen. 
 \newline
-!TODO!
-\newline
-Neben der Echtzeitfähig gibt es aber noch viele weitere Vorzüge für den Einsatz eines Echtzeitbetriebssystems.  
-Durch das Herunterbrechen der Anwendung in Task entstehen viele kleine Module, die jeweils eine kleine Teilaufgabe des Gesamtsystems übernehmen. Die Anwendungen werden so skalierbar und erweiterbar. Die Entwicklungsarbeit lässt sich leicht auf Teams verteilen, die unabhängig ihre Module (Tasks) entwickeln und testen. Dies ermöglicht auch den Einsatz von agilen Entwicklungsmethoden wie Scrum in der embedded Enticklung.   
-\fullref{sec:Echtzeitanalyse} detailliert erläutert.    
-
-RTOS aufsetzt, erfüllt somit nicht sofort Harten oder Weichen Echtzeitkriterien. Diese Kreterien zu erfüllen liegt beim Entwickler selbst, das Echtzeit Betriebssystem stellt nur die nötigen Werkzeuge zur Verfügung. Wie geprüft werden kann ob Echtzeitkriterien erfüllt werden, wird in Kapitel X näher erleutert.  
+TODO Überleitung FreeRtos
+\newline  
 \begin{figure}
 	\centering
 		\includegraphics[width=0.3\textwidth]{Pictures/EmbeddedCom/cwrtos2f5c.jpg}
@@ -72,28 +65,9 @@ RTOS aufsetzt, erfüllt somit nicht sofort Harten oder Weichen Echtzeitkriterien
 \label{sec:Echtzeitanalyse} 
 \section{Debugging von Echtzeitsystemen} 
 \section{Echzeit Pattern} 
-\section{Coding Hindernisse} 
+\section{Komplexität durch Nebenläufigkeit} 
 \section{Zusammenfassung}
-% Eine neue Spalte anfangen mit
 \pagebreak
-
-% Bibliographie entweder direkt hier eingeben (nur im Notfall)...
-%
-%\begin{thebibliography}{9}
-%\bibitem{acmcategories}
-%How to classify works using ACM's computing classification system.
-%\newblock \url{http://www.acm.org/class/how_to_use.html}.
-%
-%\bibitem{Ivory2001}
-%M.~Y. Ivory and M.~A. Hearst.
-%\newblock The state of the art in automating usability evaluation of user
-%  interfaces.
-%\newblock {\em ACM Comput. Surv.}, 33(4):470--516, 2001.
-%\end{thebibliography}
-
-% ... oder die Bibliographie mit Hilfe von BibTeX generieren,
-% dies ist auf jeden Fall die bessere Lösung und sollte nach
-% Möglichkeit immer verwendet werden:
 \bibliographystyle{abbrv}
 \bibliography{literatur} % Daten aus der Datei literatur.bib verwenden.
 
