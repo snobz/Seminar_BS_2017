@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  8 APR 2017 22:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  8 APR 2017 22:38
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -636,21 +636,21 @@ LaTeX Info: Redefining \labelcpageref on input line 2230.
 ) ("FreeRtos ARM uController.aux")
 \openout1 = `"FreeRtos ARM uController.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 16.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -679,7 +679,7 @@ Package grfext Info: Graphics extension search list:
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 \AtBeginShipoutBox=\box31
-Package hyperref Info: Link coloring ON on input line 18.
+Package hyperref Info: Link coloring ON on input line 16.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -689,60 +689,80 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count125
 )
-LaTeX Info: Redefining \ref on input line 18.
-LaTeX Info: Redefining \pageref on input line 18.
-LaTeX Info: Redefining \nameref on input line 18.
+LaTeX Info: Redefining \ref on input line 16.
+LaTeX Info: Redefining \pageref on input line 16.
+LaTeX Info: Redefining \nameref on input line 16.
  ("FreeRtos ARM uController.out")
 ("FreeRtos ARM uController.out")
 \@outlinefile=\write3
 \openout3 = `"FreeRtos ARM uController.out"'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 33.
+LaTeX Font Info:    Try loading font information for U+msa on input line 32.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 33.
+LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 33.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 32.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Overfull \hbox (7.70499pt too wide) in paragraph at lines 38--40
+Overfull \hbox (7.70499pt too wide) in paragraph at lines 35--37
 \OT1/ptm/m/n/10 me be-schrie-ben. Im Ver-lauf des Tex-tes wird an aus-gew[]ahlten
  []
 
-<Pictures/EmbeddedCom/cwrtos2f5c.jpg, id=74, 1186.4325pt x 739.26187pt>
+<Pictures/EmbeddedCom/cwrtos2f5c.jpg, id=106, 1186.4325pt x 739.26187pt>
 File: Pictures/EmbeddedCom/cwrtos2f5c.jpg Graphic file (type jpg)
  <use Pictures/EmbeddedCom/cwrtos2f5c.jpg>
-Package pdftex.def Info: Pictures/EmbeddedCom/cwrtos2f5c.jpg used on input line 48.
+Package pdftex.def Info: Pictures/EmbeddedCom/cwrtos2f5c.jpg used on input line 45.
 (pdftex.def)             Requested size: 146.16534pt x 91.06516pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 49.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 50.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 47.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (4.05693pt too wide) in paragraph at lines 41--53
+Overfull \hbox (4.05693pt too wide) in paragraph at lines 38--50
 \OT1/ptm/m/n/10 Mit der stei-gen-den Leis-tungsf[]ahigkeit von mo-der-nen $\OML/cmm/m/it/10 $ \OT1/ptm/m/n/10 Pro-
  []
 
 
-Overfull \hbox (10.98172pt too wide) in paragraph at lines 41--53
+Overfull \hbox (10.98172pt too wide) in paragraph at lines 38--50
 \OT1/ptm/m/n/10 chun-gen) lau-fen oder aber in event-gesteuerten ne-benl[]aufigen
  []
 
 
-Overfull \hbox (9.45494pt too wide) in paragraph at lines 41--53
+Overfull \hbox (9.45494pt too wide) in paragraph at lines 38--50
 \OT1/ptm/m/n/10 zung des Pro-zes-sors. Be-son-ders bei ak-ku-be-trie-be-nen Ger[]aten
  []
 
 
-Overfull \hbox (1.68915pt too wide) in paragraph at lines 64--64
-[]\secfnt Low Power Mo-des auf STM32F4 (ARM Cor-tex M3) 
+Overfull \hbox (9.93959pt too wide) in paragraph at lines 38--50
+\OT1/ptm/m/n/10 nem ARM $\OML/cmm/m/it/10 $\OT1/ptm/m/n/10 Prozessor de-mons-triert. Ne-ben der Echt-zeitf[]ahig
+ []
+
+
+Overfull \hbox (23.4606pt too wide) in paragraph at lines 38--50
+\OT1/ptm/m/n/10 je-weils ei-ne klei-ne Tei-lauf-ga-be des Ge-samt-sys-tems []ubernehmen.
+ []
+
+
+Overfull \hbox (7.53174pt too wide) in paragraph at lines 53--54
+\OT1/ptm/m/n/10 ren-den Zu-griff, bei-spiels-wei-se auf Netz-werk-kar-ten und Fest-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--58
+
+ []
+
+
+Overfull \hbox (9.74126pt too wide) in paragraph at lines 60--61
+[]\OT1/ptm/m/n/10 Start-zu-Start Jit-ter von Tasks und Software-Komponenten 
  []
 
 [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
@@ -750,37 +770,54 @@ Overfull \hbox (1.68915pt too wide) in paragraph at lines 64--64
 
 Non-PDF special ignored!
 
- <./Pictures/EmbeddedCom/cwrtos2f5c.jpg>] ("FreeRtos ARM uController.bbl")
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 95.
- [2
+ <./Pictures/EmbeddedCom/cwrtos2f5c.jpg>]
+Overfull \hbox (2.05212pt too wide) in paragraph at lines 67--68
+[]\OT1/ptm/m/n/10 Wiederverwendung von Da-ten(gewollt oder un-be-ab-sich-
+ []
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 95.
 
-("FreeRtos ARM uController.aux"
+Overfull \hbox (1.35112pt too wide) in paragraph at lines 74--76
+\OT1/ptm/m/n/10 gie muss bei der Ent-wick-lung eben-falls ber[]ucksichtigt wer-
+ []
+
+
+Overfull \hbox (5.87115pt too wide) in paragraph at lines 74--76
+\OT1/ptm/m/n/10 sys-te-me nur we-nig Spei-cher-platz und im-ple-men-tie-ren Funk-
+ []
+
+
+Overfull \hbox (6.75612pt too wide) in paragraph at lines 87--87
+[]\secfnt Sonstige Ma-nah-men zur Si-cher-stel-lung der Echt-
+ []
+
+("FreeRtos ARM uController.bbl")
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 108.
+ [2]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 108.
+ ("FreeRtos ARM uController.aux"
 Package cleveref Info: loaded `ngerman' language definitions on input line 20.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 95.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 95.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 108.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 108.
 Package rerunfilecheck Info: File `"FreeRtos ARM uController".out' has not changed.
-(rerunfilecheck)             Checksum: 2E11DB759DDEBC360F662A9E47422721;1150.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 95.
+(rerunfilecheck)             Checksum: F5DB06A4172E02AEC8CDDCE83F73B09D;1831.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 108.
  ) 
 Here is how much of TeX's memory you used:
- 8445 strings out of 493333
- 130163 string characters out of 3139173
+ 8461 strings out of 493333
+ 130383 string characters out of 3139173
  259030 words of memory out of 3000000
- 11823 multiletter control sequences out of 15000+200000
+ 11831 multiletter control sequences out of 15000+200000
  27168 words of font info for 66 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,28p,2537b,390s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,12n,28p,2537b,399s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/h
-elvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/urw/times/utmr8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (2 pages, 214655 bytes).
+mmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
+Output written on "FreeRtos ARM uController.pdf" (2 pages, 228786 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
- 24 named destinations out of 1000 (max. 500000)
- 142 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 156 PDF objects out of 1000 (max. 8388607)
+ 32 named destinations out of 1000 (max. 500000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 
