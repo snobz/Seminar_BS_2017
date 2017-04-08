@@ -16,14 +16,9 @@
 \numberofauthors{2}
 \author{
   \alignauthor Michael Ebert\\
-    \affaddr{Rotdornweg 28}\\
 		\affaddr{Ad-hoc Networks GmbH}\\
-    \affaddr{25451 Quickborn}\\
     \email{ebert@ad-hoc.network}
   \alignauthor Christoph Bläßer\\
-    %\affaddr{FernUniversität in Hagen}\\
-		%\affaddr{Bonn}\\
-    %\affaddr{58084 Hagen}\\
     \email{christph.blaesser@gmx.de}
 }
 
@@ -32,57 +27,32 @@
 
 \keywords{RTOS, ARM , STM32, Real Time.}
 
-% Section-Überschriften werden in GROSSBUCHSTABEN umgestellt
-\section{Einführung Echzeitbetriebsysteme}
-\section{Vorteile eines Echzeitbetriebssystems}
-\section{FreeRtos Grundlange} 
-\subsection{Ordner und Dateistrukturen} 
-\subsection{Scheduling}
-\subsection{Interprozess Kommunikation}
-\subsection{Memory Management}
-\section{FreeRtos Implementierung} 
-\section{Echtzeitanalyse} 
-\section{Debugging von Echzeitsystemen} 
-
-
 \abstract{
 Im Rahmen des vorliegenden Papers wird das Echtzeitbetriebssystem FreeRTos vorgestellt. Hierzu weerden zu Beginn die allgemeinen Vorgaben für Echtzeitbetriebssysteme beschrieben. Im Verlauf des Textes wird an ausgewählten Beispielen dargestellt, wie freeRTos diese Anforderungen berücksichtigt und durch geeignete Programmfunktionen umsetzt. \cite{acmcategories,Ivory2001}.
 }
-\section{Übersicht und Gründe für den Einsatz eines RTOS}
+% Section-Überschriften werden in GROSSBUCHSTABEN umgestellt
+\section{Echzeitbetriebsysteme}
+\subsection{Vorteile eines Echzeitbetriebssystems}
 Mit der steigenden Leistungsfähigkeit von modernen uProzessoren, steigen auch die Anfordernungen an die Software die auf diese Systeme aufsetzt.
 Viele dieser Anwendungen verlangen trotz ihrer Komplexität, dass der Programmablauf der Software oder zumindest einige Teile dieser Software in bestimmten zeitlichen Grenzen ausgeführt wird und somit vorhersehbar und deterministisch ist.
-Ein Echzeitbetriebssystem (RTOS) bietet einem Entwickler die Möglichkeit ein solches System zu entwerfen. Neben der Echzeifähigkeit gibt es aber noch viele weitere Vorzüge für den Einsatz eines Echzeitbetriebssystems. Durch die Nebenläufigkeit etstehen viele kleine Module, die als seperate Anwendungen laufen (Hier ein Beispiel mit einem Board und Komponenten). Diese Module können in Teams entwickelt werden und eigenständigen Tests unterzogen werden. Ein häufiges Problem in embedded Systemen in die Problematik des Hardwarenahen Testens. Ein weiterer sehr wichtiger Punkt ist die Entwicklung von Energieeffizienten systemen. in einer anwendung die auf einem echzeitbetriebssystem aufsetzt, lässt sich durch die ereignisorientierte entwicklung sehr schnell feststellen, ob alle Aufgaben abgearbeitet wurden, so dass man ggf. das System schlafen legen kann. Wie so etwas in FreeRtos umgesetzt wurde und wie es für eine Beispielhafte Anwendung implementiert werden kann wird in Kapitel x detailiert erläutert.  
-
-
-
-
-\begin{table}[hp]\large
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-Einhaltung von Prozessdeadline & Komplexität \\
-\hline
-Skalierbarkeit & Einarbeitungszeit\\
-\hline
-Erweiterbarkeit & Performance bei aufwändigen Berechnungen\\
-\hline
-Timing Abstraktionl & Aufwändige Debugging\\
-\hline
-Einfache Teamarbeit & \\
-\hline
-effiziente Energieverwaltung & \\
-\hline
-3erd Party driver& \\
-\hline
-Gummi & Bär \\
-\hline
-\end{tabular}
-\end{center}
-\caption{Vor und Nachteile eines Echzeitbetriebssystems}
-\label{tttabelle}
-\end{table}
-
-
+Ein Echzeitbetriebssystem (RTOS) bietet einem Entwickler die Möglichkeit ein solches System zu entwerfen. Eine Anwendung die auf ein Echzeitbetriebsystem aufsetzt, eerfüllt somit nicht sofort Harten oder Weichen Echzeitkriterien. Diese Kreterien zu erfüllen liegt beim Entwickler selbst, das Echtzeit Betriebsysstem stellt nur die nötigen Werkzeuge zur verfügung. Wie geprüft werden kann ob Echtzeitkriterien erfüllt werden, wird in Kapitel X näher erleutert.  
+Neben der Echzeifähigkeit gibt es aber noch viele weitere Vorzüge für den Einsatz eines Echzeitbetriebssystems.  
+Durch die Nebenläufigkeit etstehen viele kleine Module, die als seperate Anwendungen laufen (Hier ein Beispiel mit einem Board und Komponenten). Diese Module können in Teams entwickelt werden und eigenständigen Tests unterzogen werden. Ein häufiges Problem in embedded Systemen in die Problematik des Hardwarenahen Testens. Ein weiterer sehr wichtiger Punkt ist die Entwicklung von Energieeffizienten systemen. in einer anwendung die auf einem echzeitbetriebssystem aufsetzt, lässt sich durch die ereignisorientierte entwicklung sehr schnell feststellen, ob alle Aufgaben abgearbeitet wurden, so dass man ggf. das System schlafen legen kann. Wie so etwas in FreeRtos umgesetzt wurde und wie es für eine Beispielhafte Anwendung implementiert werden kann wird in Kapitel x detailiert erläutert.  
+ 
+\section{FreeRtos} 
+\subsection{Geschichte}
+\subsection{Zielsysteme}
+\subsection{Entwicklungumgebung}
+\subsection{Ordner und Dateistrukturen} 
+\subsection{Scheduling}
+\subsection{Memory Management}
+\subsection{Interprozess Kommunikation}
+\subsection{Software Timer}
+\subsection{Low Power Modes auf STM32F4 (ARM Cortex M3)}
+\section{Echtzeitanalyse} 
+\section{Debugging von Echzeitsystemen} 
+\section{Echzeit Pattern} 
+\section{Coding Hindernisse} 
 \section{Zusammenfassung}
 % Eine neue Spalte anfangen mit
 \pagebreak
@@ -90,15 +60,15 @@ Gummi & Bär \\
 % Bibliographie entweder direkt hier eingeben (nur im Notfall)...
 %
 \begin{thebibliography}{9}
-\bibitem{acmcategories}
+%\bibitem{acmcategories}
 %How to classify works using ACM's computing classification system.
-\newblock \url{http://www.acm.org/class/how_to_use.html}.
+%\newblock \url{http://www.acm.org/class/how_to_use.html}.
 %
-\bibitem{Ivory2001}
-M.~Y. Ivory and M.~A. Hearst.
-\newblock The state of the art in automating usability evaluation of user
-  interfaces.
-\newblock {\em ACM Comput. Surv.}, 33(4):470--516, 2001.
+%\bibitem{Ivory2001}
+%M.~Y. Ivory and M.~A. Hearst.
+%\newblock The state of the art in automating usability evaluation of user
+%  interfaces.
+%\newblock {\em ACM Comput. Surv.}, 33(4):470--516, 2001.
 
 \end{thebibliography}
 
