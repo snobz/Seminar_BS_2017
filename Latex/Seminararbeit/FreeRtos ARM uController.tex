@@ -8,11 +8,18 @@
 \usepackage{babel} % automatische Sprachanpassung, Sprache siehe oben
 \usepackage{cleveref} % für bequeme Referenzen, siehe \cref unten
 
+
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} \nameref*{#1}}} % One single link
+
+\newcommand*{\quelle}{% 
+  \footnotesize Quelle: 
+} 
+
 \begin{document}
 
 % Unbedingt angeben: Titel, Autoren, E-Mail
 % Freiwillig: Adresse
-\title{Embedded Realtime on ARM uC - FreeRTOS auf STM32F4}
+\title{Embedded Realtime OS FreeRTOS auf STM32F4}
 \numberofauthors{2}
 \author{
   \alignauthor Michael Ebert\\
@@ -28,29 +35,42 @@
 \keywords{RTOS, ARM , STM32, Real Time.}
 
 \abstract{
-Im Rahmen des vorliegenden Papers wird das Echtzeitbetriebssystem FreeRTos vorgestellt. Hierzu weerden zu Beginn die allgemeinen Vorgaben für Echtzeitbetriebssysteme beschrieben. Im Verlauf des Textes wird an ausgewählten Beispielen dargestellt, wie freeRTos diese Anforderungen berücksichtigt und durch geeignete Programmfunktionen umsetzt. \cite{acmcategories,Ivory2001}.
+Im Rahmen des vorliegenden Papers wird das Echtzeitbetriebssystem FreeRtos vorgestellt. Hierzu werden zu Beginn die allgemeinen Vorgaben für Echtzeitbetriebssysteme beschrieben. Im Verlauf des Textes wird an ausgewählten Beispielen dargestellt, wie FreeRos diese Anforderungen berücksichtigt und durch geeignete Programmfunktionen umsetzt.
 }
-% Section-Überschriften werden in GROSSBUCHSTABEN umgestellt
-\section{Echzeitbetriebsysteme}
-\subsection{Vorteile eines Echzeitbetriebssystems}
-Mit der steigenden Leistungsfähigkeit von modernen uProzessoren, steigen auch die Anfordernungen an die Software die auf diese Systeme aufsetzt.
-Viele dieser Anwendungen verlangen trotz ihrer Komplexität, dass der Programmablauf der Software oder zumindest einige Teile dieser Software in bestimmten zeitlichen Grenzen ausgeführt wird und somit vorhersehbar und deterministisch ist.
-Ein Echzeitbetriebssystem (RTOS) bietet einem Entwickler die Möglichkeit ein solches System zu entwerfen. Eine Anwendung die auf ein Echzeitbetriebsystem aufsetzt, eerfüllt somit nicht sofort Harten oder Weichen Echzeitkriterien. Diese Kreterien zu erfüllen liegt beim Entwickler selbst, das Echtzeit Betriebsysstem stellt nur die nötigen Werkzeuge zur verfügung. Wie geprüft werden kann ob Echtzeitkriterien erfüllt werden, wird in Kapitel X näher erleutert.  
-Neben der Echzeifähigkeit gibt es aber noch viele weitere Vorzüge für den Einsatz eines Echzeitbetriebssystems.  
-Durch die Nebenläufigkeit etstehen viele kleine Module, die als seperate Anwendungen laufen (Hier ein Beispiel mit einem Board und Komponenten). Diese Module können in Teams entwickelt werden und eigenständigen Tests unterzogen werden. Ein häufiges Problem in embedded Systemen in die Problematik des Hardwarenahen Testens. Ein weiterer sehr wichtiger Punkt ist die Entwicklung von Energieeffizienten systemen. in einer anwendung die auf einem echzeitbetriebssystem aufsetzt, lässt sich durch die ereignisorientierte entwicklung sehr schnell feststellen, ob alle Aufgaben abgearbeitet wurden, so dass man ggf. das System schlafen legen kann. Wie so etwas in FreeRtos umgesetzt wurde und wie es für eine Beispielhafte Anwendung implementiert werden kann wird in Kapitel x detailiert erläutert.  
- 
+\section{Echtzeitbetriebssysteme}
+\subsection{Vorteile eines Echtzeitbetriebssysteme}
+Mit der steigenden Leistungsfähigkeit von modernen \muProzessoren, steigen auch die Anfordernungen an die Software die auf diese Systeme aufsetzt. Viele dieser Anwendungen verlangen trotz ihrer Komplexität, dass Teile des Programmablauf in bestimmten zeitlichen Grenzen ausgeführt wird und somit vorhersehbar und deterministisch sind. Es gibt prinzipiell drei verschiedene Modelle wie der Programmablauf einer embedded Anwendung gestaltet sein kann, siehe Abbildung \ref{fig:Programmablauf}. Anwendungen können in einer einzigen Schleife laufen oder aber in event-gesteuerten nebenläufigen eigenständigen Programmabschnitten (Thread oder Task) ausgeführt werden. Diese Nebenläufigkeit ist nur durch einen RTOS Kernel (Scheduler) möglich. Für viele kleine Anwendungen kann die Nutzung einer einzigen Schleife durchaus sinnvoll sein, sollten beispielsweise die Ressourcen so knapp sein, dass ein Overhead an Funktionalität ausgeschlossen werden muss. Ein großer Nachteil der "`einschleifen Variante"' ist die permanente Nutzung des Prozessors. Besonders bei neuen akkubetrieben Geräten z.B. IoT Device wird sehr genau auf die Energieaufnahme geachtet. Ein RTOS bietet hingegen Funktionen mit denen sehr leicht ermittelt werden kann, ob ein Gerät in einen Schlafmodus wechseln kann, dies wird in Abschnitt \ref{sec:Low Power Modes} an Beispielen von FreeRtos und einem ARM uProzessor demonstriert. 
+\newline
+!TODO!
+\newline
+Neben der Echtzeitfähig gibt es aber noch viele weitere Vorzüge für den Einsatz eines Echtzeitbetriebssystems.  
+Durch das Herunterbrechen der Anwendung in Task entstehen viele kleine Module, die jeweils eine kleine Teilaufgabe des Gesamtsystems übernehmen. Die Anwendungen werden so skalierbar und erweiterbar. Die Entwicklungsarbeit lässt sich leicht auf Teams verteilen, die unabhängig ihre Module (Tasks) entwickeln und testen. Dies ermöglicht auch den Einsatz von agilen Entwicklungsmethoden wie Scrum in der embedded Enticklung.   
+\fullref{sec:Echtzeitanalyse} detailliert erläutert.    
+
+RTOS aufsetzt, erfüllt somit nicht sofort Harten oder Weichen Echtzeitkriterien. Diese Kreterien zu erfüllen liegt beim Entwickler selbst, das Echtzeit Betriebssystem stellt nur die nötigen Werkzeuge zur Verfügung. Wie geprüft werden kann ob Echtzeitkriterien erfüllt werden, wird in Kapitel X näher erleutert.  
+\begin{figure}
+	\centering
+		\includegraphics[width=0.3\textwidth]{Pictures/EmbeddedCom/cwrtos2f5c.jpg}
+	\caption{Übersicht Programmabläufe}
+	\quelle\url{http://www.embedded.com/}
+	\label{fig:Programmablauf}
+\end{figure}
+
 \section{FreeRtos} 
 \subsection{Geschichte}
 \subsection{Zielsysteme}
-\subsection{Entwicklungumgebung}
+\subsection{Entwicklungsumgebung}
 \subsection{Ordner und Dateistrukturen} 
 \subsection{Scheduling}
 \subsection{Memory Management}
 \subsection{Interprozess Kommunikation}
 \subsection{Software Timer}
+\subsection{Interrupt Handling}
 \subsection{Low Power Modes auf STM32F4 (ARM Cortex M3)}
-\section{Echtzeitanalyse} 
-\section{Debugging von Echzeitsystemen} 
+\label{sec:Low Power Modes} 
+\section{Echtzeitanalyse}
+\label{sec:Echtzeitanalyse} 
+\section{Debugging von Echtzeitsystemen} 
 \section{Echzeit Pattern} 
 \section{Coding Hindernisse} 
 \section{Zusammenfassung}
@@ -59,7 +79,7 @@ Durch die Nebenläufigkeit etstehen viele kleine Module, die als seperate Anwend
 
 % Bibliographie entweder direkt hier eingeben (nur im Notfall)...
 %
-\begin{thebibliography}{9}
+%\begin{thebibliography}{9}
 %\bibitem{acmcategories}
 %How to classify works using ACM's computing classification system.
 %\newblock \url{http://www.acm.org/class/how_to_use.html}.
@@ -69,8 +89,7 @@ Durch die Nebenläufigkeit etstehen viele kleine Module, die als seperate Anwend
 %\newblock The state of the art in automating usability evaluation of user
 %  interfaces.
 %\newblock {\em ACM Comput. Surv.}, 33(4):470--516, 2001.
-
-\end{thebibliography}
+%\end{thebibliography}
 
 % ... oder die Bibliographie mit Hilfe von BibTeX generieren,
 % dies ist auf jeden Fall die bessere Lösung und sollte nach
