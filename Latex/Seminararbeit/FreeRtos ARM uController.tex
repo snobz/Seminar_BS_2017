@@ -33,13 +33,16 @@
 
 \abstract{
 Im Rahmen des vorliegenden Papers wird das Echtzeitbetriebssystem FreeRtos vorgestellt. Hierzu werden zu Beginn die allgemeinen Vorgaben für Echtzeitbetriebssysteme beschrieben. Im Verlauf des Textes wird an ausgewählten Beispielen dargestellt, wie FreeRos diese Anforderungen berücksichtigt und durch geeignete Programmfunktionen umsetzt.
+
 }
 \section{Grundlagen}
 \subsection{Allgemeine Anforderungen an Betriebssysteme}
 Betriebssysteme verwalten den Hardwarezugriff und stellen sicher, dass eingesetzte Software die benötigte Rechenzeit zur Verfügung gestellt bekommt. Gleichzeitig regeln Sie den Hardwarezugriff und organiseren den konkurierenden Zugriff, beispielsweise auf Netzwerkkarten und Festplatten. Sie stellen Funktionen für die Interprozesskommunikation bereit udn übernehmen grundlegende Aufgaben wie die Organisation von Arbeitsspeicher.
+
+%%Brauchen wir das ? trifft auf ein RTOs im prinzip nicht zu, konkurierender Zugriff auf externe Ressourcen muss bei einem RTOS durch den Entwickler sichergestellt werden. Die einzigen Resourcen die ein RTOS verwaltet ist Zeit + Heap(teilweise) 
 \subsection{Echtzeitsysteme}
-Mit der steigenden Leistungsfähigkeit von modernen $\mu$ Prozessoren, steigen auch die Anforderungen an die Software die auf diese Systeme aufsetzt. Viele dieser Systeme verlangen trotz ihrer Komplexität, dass Teile des Programmablauf in bestimmten zeitlichen Grenzen ausgeführt wird und somit vorhersehbar und deterministisch sind. Systeme die eine solche Anforderung unterliegen werden Echtzeitsysteme genannt. Echtzeitsysteme unterliegen einer weiteren Unterteilung in weiche und harte Echtzeitsysteme (soft / hard realtime systems). Ein weiches Echtzeitsysteme soll eine Aufgabe in den vorgegeben zeitlichen Grenzen ausführen, ein überschreiten ist aber erlaubt und führt nicht unmittelbar zu einem Fehler. Ein hartes Echtzeitsystem hingegen muss die gestellte Aufgabe in den vorgegebenen Grenzen ausführen. Eine Überschreitung macht das System unbrauchbar. Der Programmablauf eingebetteter Systeme lässt sich auf drei Grundmodelle zurückführen, siehe Abbildung \ref{fig:Programmablauf}. Eingebettete Anwendungen können in einer einzigen Schleife (mit und ohne Interrupt Unterbrechungen) laufen oder aber in event-gesteuerten nebenläufigen eigenständigen Programmabschnitten (Thread oder Task) ausgeführt werden. Diese Nebenläufigkeit ist nur durch einen RTOS Kernel (Scheduler) möglich. Ein RTOS Kernel abstrahiert Timing Informationen und kümmert sich darum, dass die nächste Task rechtzeitig ausgeführt wird. Der Entwickler ist dafür verantwortlich, dass die Task die gewünschte Aufgabe im zeitlichen Rahmen ausführt. Wie sichergestellt werden kann, dass Task  harten bzw. weichen Echtzeitanforderungen entspricht wird Abschnitt \ref{sec:Echtzeitanalyse} beschrieben. Für viele kleine Anwendungen kann die Nutzung einer einzigen Schleife durchaus sinnvoll sein, sollten beispielsweise die Ressourcen so knapp sein, dass ein Overhead an Funktionalität ausgeschlossen werden muss. Ein großer Nachteil der "`einschleifen Variante"' ist die permanente Nutzung des Prozessors. Besonders bei akkubetriebenen Geräten wie IoT Device oder Mobiltelefonen wird sehr genau auf die Energieaufnahme geachtet. Ein RTOS bietet hingegen Funktionen mit denen sehr leicht ermittelt werden kann, ob ein Gerät in einen Schlafmodus wechseln kann, dies wird in Abschnitt \ref{sec:Low Power Modes} an Beispielen von FreeRtos und einem ARM $\mu$Prozessor demonstriert. Neben der Echtzeitfähig gibt es aber noch viele weitere Vorzüge für den Einsatz eines Echtzeitbetriebssystems.  
-Durch das Herunterbrechen der Anwendung in Task entstehen viele kleine Module, die jeweils eine kleine Teilaufgabe des Gesamtsystems übernehmen. Die Anwendungen werden so skalierbar und erweiterbar. Die Entwicklungsarbeit lässt sich leicht auf Teams verteilen, die unabhängig ihre Module (Tasks) entwickeln und testen. Dies ermöglicht auch den Einsatz von agilen Entwicklungsmethoden wie Scrum in der Entwicklung von eingebetteten Systemen. 
+Mit der steigenden Leistungsfähigkeit von modernen $\mu$ Prozessoren, steigen auch die Anforderungen an die Software die auf diese Systeme aufsetzt. Viele dieser Systeme verlangen trotz ihrer Komplexität, dass Teile des Programmablauf in bestimmten zeitlichen Grenzen ausgeführt wird und somit vorhersehbar und deterministisch sind. Systeme die eine solche Anforderung unterliegen werden Echtzeitsysteme genannt. Echtzeitsysteme unterliegen einer weiteren Unterteilung in weiche Echtzeitsystem (soft realtime systems) und harte Echtzeitsysteme (hard realtime systems). Ein weiches Echtzeitsysteme soll eine Aufgabe in den vorgegeben zeitlichen Grenzen ausführen, ein über\-schreiten ist aber erlaubt und führt nicht unmittelbar zu einem Fehler. Ein hartes Echtzeitsystem hingegen muss die gestellte Aufgabe in den vorgegebenen Grenzen ausführen. Eine Überschreitung macht das System unbrauchbar. Einige Beispielsysteme und deren Echtzeitzuordnung wir in Tabelle \ref{tab:BeispieleEchzeitsystem} gezeigt. Um die grundsätzliche Funktionalität eines Echtzeitbetriebssystems zu erläutern, müssen zu erst die Grundmodelle für den Programmablauf eingebetter Systeme beschrieben werden. Der Programmablauf eingebetteter Systeme lässt sich auf drei Modelle zurückführen (Abbildung \ref{fig:Programmablauf}). Eingebettete Anwendungen können in einer einzigen Schleife (mit oder ohne Interrupt Unterbrechungen) laufen oder aber in event-gesteuerten nebenläufigen eigenständigen Programmabschnitten (Thread oder Task\footnote{Nachfolgenden wird Task benutzt, da dies der geläufige Begriff bei FreeRtos ist. In der Literatur zu Echtzeitsystemen ist der Begriff nicht exakt definiert.}) ausgeführt werden. Die nebenläufige Ausführung der unterschiedlichen Programmsegmente ist nur durch einen RTOS Kernel (Scheduler) zu erreichen. Ein RTOS Kernel abstrahiert Timing Informationen und kümmert sich darum, dass die nächste Task rechtzeitig ausgeführt wird. Der Entwickler ist dafür verantwortlich, dass die Task die gewünschte Aufgabe im zeitlichen Rahmen ausführt. Wie sichergestellt werden kann, dass eine Task  harten oder weichen Echtzeitanforderungen entspricht wird Abschnitt \ref{sec:Echtzeitanalyse} beschrieben. Für viele kleine Anwendungen kann die Nutzung einer einzigen Schleife durchaus sinnvoll sein, sollten beispielsweise die Ressourcen so knapp sein, dass ein Overhead an Funktionalität ausgeschlossen werden muss. Ein großer Nachteil der "`einschleifen Variante"' ist die permanente Nutzung des Prozessors. Besonders bei akkubetriebenen Geräten wie IoT Devices oder Mobiltelefonen wird sehr genau auf die Energieaufnahme geachtet. Ein RTOS bietet hingegen Funktionen mit denen sehr leicht ermittelt werden kann, ob ein Gerät in einen Schlafmodus wechseln kann, dies wird in Abschnitt \ref{sec:Low Power Modes} an Beispielen von FreeRtos und einem ARM $\mu$Prozessor demonstriert. Neben der Echtzeitfähig gibt es aber noch viele weitere Vorzüge für den Einsatz eines Echtzeitbetriebssystems.  
+Durch das Herunterbrechen der Anwendung in Task entstehen viele kleine Module, die jeweils eine kleine Teilaufgabe des Gesamtsystems übernehmen.Durch ein sauber definiertes Interface zur Kommunikation der Tasks, lässt sich die Entwicklungsarbeit leicht auf mehrere Entwickler-Teams verteilen. Dies ermöglicht auch den Einsatz von agilen Entwicklungsmethoden wie Scrum in der Entwicklung von eingebetteten Systemen.  
 \newline
 TODO Überleitung FreeRtos
 \newline  
@@ -51,6 +54,24 @@ TODO Überleitung FreeRtos
 	\label{fig:Programmablauf}
 \end{figure}
 
+\begin{table*}
+	\centering
+		\begin{tabular}{|l|l|}
+		\hline
+			   Beispiel & Echtzeit Typ \\
+				\hline
+  Tastatur Controller & Soft Realtime \\
+	\hline
+  Echtzeit Media Streaming  & Soft Realtime \\
+	\hline
+	Controller CD Laufwerk  & Hard Realtime \\
+	\hline
+	Airbag System  & Hard Realtime\\
+	\hline
+		\end{tabular}
+	\caption{Beispiele Echzeitsystem}
+	\label{tab:BeispieleEchzeitsystem}
+\end{table*}
 
 
 \subsection{Anforderungen an Echtzeitbetriebssysteme}
@@ -77,27 +98,21 @@ Vor diesem Hintergrund benötigen Echtzeitbetriebssysteme nur wenig Speicherplat
 
 \section{FreeRtos} 
 \subsection{Geschichte}
-\subsection{Zielsysteme}
+\subsection{Zielsysteme STM32F4 (ARM Cortex M3)}
 \subsection{Entwicklungsumgebung}
-
-\subsection{Fokus bei der Entwicklung}
 \subsection{Ordner und Dateistrukturen} 
-\subsection{Installation}
+\subsection{Einrichten und Konfiguration}
 %nicht unbedingt eine Detailierte Beschreibung, jedoch genug Information, damit ein Dritter die Umgebung nachbauen und die Ergebnisse verifizieren kann.
+%Michael: Ich habe Installation in Einrichten und Konfiguration umbenannt, da ein Echzeitbetriebsystem ja nicht wie ein gewöhnliches OS installiert wird.
 \subsection{Scheduling}
 \subsection{Memory Management}
 \subsection{Interprozess Kommunikation}
 \subsection{Software Timer}
 \subsection{Interrupt Handling}
-\subsection{Sonstige Maßnahmen zur Sicherstellung der Echtzeitfunktionalität}
-
-\section{Entwicklungsumgebung}
-\subsection{Eingesetzte Komponenten}
-\subsection{Low Power Modes auf STM32F4 (ARM Cortex M3)}
+\subsection{Low Power Modes auf Stm32F4}
 \label{sec:Low Power Modes} 
-%Hier nur, wenn es Teil der Umgebung ist, sonst weiter nach hinten.
-
-
+%%Hier müssen wir uns auf eine Überschrift einigen
+\section{Maßnahmen zur Sicherstellung der Echtzeitfunktionalität}
 \section{Echtzeitanalyse}
 \label{sec:Echtzeitanalyse} 
 \section{Debugging von Echtzeitsystemen} 
@@ -107,6 +122,5 @@ Vor diesem Hintergrund benötigen Echtzeitbetriebssysteme nur wenig Speicherplat
 \pagebreak
 \bibliographystyle{abbrv}
 \bibliography{literatur} % Daten aus der Datei literatur.bib verwenden.
-
 \end{document}
 
