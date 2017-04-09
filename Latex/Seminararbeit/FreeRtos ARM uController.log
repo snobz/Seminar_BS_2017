@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  8 APR 2017 22:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  9 APR 2017 12:08
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -719,7 +719,7 @@ Overfull \hbox (7.53174pt too wide) in paragraph at lines 39--40
 \OT1/ptm/m/n/10 ren-den Zu-griff, bei-spiels-wei-se auf Netz-werk-kar-ten und Fest-
  []
 
-<Pictures/EmbeddedCom/cwrtos2f5c.jpg, id=102, 1186.4325pt x 739.26187pt>
+<Pictures/EmbeddedCom/cwrtos2f5c.jpg, id=106, 1186.4325pt x 739.26187pt>
 File: Pictures/EmbeddedCom/cwrtos2f5c.jpg Graphic file (type jpg)
  <use Pictures/EmbeddedCom/cwrtos2f5c.jpg>
 Package pdftex.def Info: Pictures/EmbeddedCom/cwrtos2f5c.jpg used on input line 48.
@@ -787,22 +787,15 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 20.
 )
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 111.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 111.
-
-
-Package rerunfilecheck Warning: File `"FreeRtos ARM uController".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"FreeRtos ARM uController".out':
-(rerunfilecheck)             Before: E8D4DD6951E579333078F77809C1425D;1743
-(rerunfilecheck)             After:  F79D57CBDA209D903C4FBED670C7906B;1821.
+Package rerunfilecheck Info: File `"FreeRtos ARM uController".out' has not changed.
+(rerunfilecheck)             Checksum: F79D57CBDA209D903C4FBED670C7906B;1821.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
  ) 
 Here is how much of TeX's memory you used:
- 8460 strings out of 493333
- 130380 string characters out of 3139173
+ 8461 strings out of 493333
+ 130397 string characters out of 3139173
  260030 words of memory out of 3000000
- 11830 multiletter control sequences out of 15000+200000
+ 11831 multiletter control sequences out of 15000+200000
  27168 words of font info for 66 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,12n,28p,2549b,399s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -810,9 +803,9 @@ Here is how much of TeX's memory you used:
 mmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (2 pages, 228161 bytes).
+Output written on "FreeRtos ARM uController.pdf" (2 pages, 228421 bytes).
 PDF statistics:
- 153 PDF objects out of 1000 (max. 8388607)
+ 156 PDF objects out of 1000 (max. 8388607)
  32 named destinations out of 1000 (max. 500000)
- 198 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 
