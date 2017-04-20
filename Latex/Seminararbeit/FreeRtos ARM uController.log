@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  18 APR 2017 13:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  20 APR 2017 11:23
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -719,7 +719,7 @@ Overfull \hbox (7.53174pt too wide) in paragraph at lines 40--41
 \OT1/ptm/m/n/10 ren-den Zu-griff, bei-spiels-wei-se auf Netz-werk-kar-ten und Fest-
  []
 
-<Pictures/EmbeddedCom/cwrtos2f5c.jpg, id=96, 1186.4325pt x 739.26187pt>
+<Pictures/EmbeddedCom/cwrtos2f5c.jpg, id=80, 1186.4325pt x 739.26187pt>
 File: Pictures/EmbeddedCom/cwrtos2f5c.jpg Graphic file (type jpg)
  <use Pictures/EmbeddedCom/cwrtos2f5c.jpg>
 Package pdftex.def Info: Pictures/EmbeddedCom/cwrtos2f5c.jpg used on input line 51.
@@ -751,8 +751,8 @@ Overfull \hbox (2.98093pt too wide) in paragraph at lines 44--56
  []
 
 
-Overfull \hbox (12.1612pt too wide) in paragraph at lines 44--56
-\OT1/ptm/m/n/10 ter-schied-li-chen Pro-gramm-seg-men-te ist nur durch einen RTOS
+Overfull \hbox (15.49115pt too wide) in paragraph at lines 44--56
+\OT1/ptm/m/n/10 ter-schied-li-chen Pro-gramm-seg-men-te ist nur durch einen RTOS-
  []
 
 
@@ -761,8 +761,23 @@ Overfull \hbox (1.0645pt too wide) in paragraph at lines 44--56
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--80
+Overfull \hbox (8.02051pt too wide) in paragraph at lines 104--105
+\OT1/ptm/m/n/10 FreeRtos ist im Prin-zip nicht an ei-ne spe-zi-el-le Entwicklungs-
+ []
 
+
+Overfull \hbox (8.3716pt too wide) in paragraph at lines 104--105
+\OT1/ptm/m/n/10 es den-noch rat-sam sich einen []Uber-blick []uber die verf[]ugbaren
+ []
+
+
+Overfull \hbox (6.97452pt too wide) in paragraph at lines 104--105
+\OT1/ptm/m/n/10 nOCD un-ter-su-chen. Vie-le der marktg[]angigen Ent-wick-lungs-
+ []
+
+
+Overfull \hbox (3.725pt too wide) in paragraph at lines 104--105
+\OT1/ptm/m/n/10 lic) zu nen-nen. Die-se Ent-wick-lungs-um-ge-bun-gen las-sen sich
  []
 
 [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
@@ -770,80 +785,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 78--80
 
 Non-PDF special ignored!
 
- <./Pictures/EmbeddedCom/cwrtos2f5c.jpg>]
-Overfull \hbox (9.74126pt too wide) in paragraph at lines 82--83
-[]\OT1/ptm/m/n/10 Start-zu-Start Jit-ter von Tasks und Software-Komponenten 
- []
-
-
-Overfull \hbox (1.35112pt too wide) in paragraph at lines 96--98
-\OT1/ptm/m/n/10 gie muss bei der Ent-wick-lung eben-falls ber[]ucksichtigt wer-
- []
-
-
-Overfull \hbox (5.87115pt too wide) in paragraph at lines 96--98
-\OT1/ptm/m/n/10 sys-te-me nur we-nig Spei-cher-platz und im-ple-men-tie-ren Funk-
- []
-
-
-Overfull \hbox (4.3759pt too wide) in paragraph at lines 103--104
-\OT1/ptm/m/n/10 lungs-um-ge-bung ge-bun-den. Be-vor ei-ne Ent-wick-lung be-ginnt
- []
-
-
-Overfull \hbox (19.7213pt too wide) in paragraph at lines 103--104
-\OT1/ptm/m/n/10 ist es den-noch rat-sam sich einen []Uberblick []uber die verf[]ugbaren
- []
-
-
-Overfull \hbox (5.21138pt too wide) in paragraph at lines 103--104
-\OT1/ptm/m/n/10 Plug-ins die ei-nem Ent-wick-ler da-bei hel-fen den Ab-lauf nach-
- []
-
-
-Overfull \hbox (4.66519pt too wide) in paragraph at lines 103--104
-\OT1/ptm/m/n/10 zu-voll-zie-hen. Fol-gen-de Er-wei-te-run-gen wer-den f[]ur die meis-
- []
-
-
-Overfull \hbox (24.62042pt too wide) in paragraph at lines 103--104
-\OT1/ptm/m/n/10 priet[]aren Sei-ten steht im Prin-zip nur Eclip-se CDT zur Verf[]ugung,
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2] ("FreeRtos ARM uController.bbl")
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 126.
- [3
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 126.
+ <./Pictures/EmbeddedCom/cwrtos2f5c.jpg>] ("FreeRtos ARM uController.bbl")
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 125.
+ [2]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 125.
 
 ("FreeRtos ARM uController.aux"
 Package cleveref Info: loaded `ngerman' language definitions on input line 20.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 126.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 126.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 125.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 125.
 Package rerunfilecheck Info: File `"FreeRtos ARM uController".out' has not changed.
-(rerunfilecheck)             Checksum: 69CD372DFB2756DB29310EDA89ED93E6;1601.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 126.
+(rerunfilecheck)             Checksum: 447D9870864E5F8FF5CB5F7382B1F251;1311.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 125.
  ) 
 Here is how much of TeX's memory you used:
- 8465 strings out of 493333
- 130444 string characters out of 3139173
- 262030 words of memory out of 3000000
+ 8460 strings out of 493333
+ 130486 string characters out of 3139173
+ 263030 words of memory out of 3000000
  11833 multiletter control sequences out of 15000+200000
  30338 words of font info for 70 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,12n,28p,3094b,390s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (3 pages, 231091 bytes).
+mmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/h
+elvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/urw/times/utmr8a.pfb>
+Output written on "FreeRtos ARM uController.pdf" (2 pages, 220489 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
- 32 named destinations out of 1000 (max. 500000)
- 182 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 129 PDF objects out of 1000 (max. 8388607)
+ 27 named destinations out of 1000 (max. 500000)
+ 150 words of extra memory for PDF output out of 10000 (max. 10000000)
 
