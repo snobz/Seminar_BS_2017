@@ -1,3 +1,8 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{MasteringFreeRtos}
+R.~Barry.
+\newblock {\em Mastering the FreeRtos Real time Kernel}.
+\newblock Real time Engineers Ltd., pre-release 161204 edition edition, 2016.
 
 \end{thebibliography}

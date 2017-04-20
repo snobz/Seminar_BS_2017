@@ -73,7 +73,7 @@ TODO Überleitung FreeRtos
 	\label{tab:BeispieleEchzeitsystem}
 \end{table*}
 
-%%Einsatzgebeiete und Beispielanwendung ?
+
 
 \subsection{Einsatzgebiet und Beispielanwendung}
 %Echtzeitbetriebssysteme kommen zum Einsatz wenn neben den oben genannten Anforderungen an ein normales Betriebssystem weitere Anforderungen gestellt werden, die ein normales Betriebssystem nicht berücksichtigt. Dies können beispielsweise garantiert berechenbare Reaktionszeiten sein wie sie in der Fabrikation oder im Automobilbereich gefordert werden oder geringe Leistungsaufnahmen wie bei Komponenten des Internet of Things (IoT). Insgesamt wird zwischen Harten und Weichen Echtzeitkriterien unterschieden. Diese Gliedern sich wie folgt:\newline
@@ -105,8 +105,20 @@ FreeRtos ist im Prinzip nicht an eine spezielle Entwicklungs\-umgebung gebunden.
 \subsection{Einrichten und Konfiguration}
 \label{sec:Einrichtung und Konfiguration}
 %%Ordner und Dateistruktur
-\subsection{Scheduling}
 \subsection{Memory Allocation}
+Beim erzeugen von Rtos Objekten wie Tasks, Queues oder Semaphore wird Speicher im RAM benötigt. Für dynamische Speicherzuweisung wird in einfachen Embedded Anwendungen die Standard C Funktion malloc() und free() verwendet. Für Echtzeitsysteme die auf einem RTOS aufsetzen sind diese Funktionen aber nicht zu empfehlen. Folgende Eigenschaften\cite{MasteringFreeRtos} machen Sie unbrauchbar:
+\begin{itemize}
+	\item nicht thread safe
+	\item nicht deterministisch
+	\item tendieren zur Fragmentierung des RAM
+	\item schwer zu debuggen
+	\item Bibliotheksfunktionen benötigen viel Speicher
+\end{itemize}
+Des Weiteren verlangen viele embedded Anwendungen Zertifikate (z.B. Militärische Anwendungen) die ein dynamische Speicherverwaltung durch malloc() und free() verbieten, oder aber sogar nur statische Speicherverwaltung zur Compilezeit zulassen. In FreeRtos werden die Echtzeitanforderungen an die Speicherverwaltung dadurch erreicht, dass malloc() und free() durch die Funktionen pvPortMalloc() und pvPortFree() ersetzt werden. Die Funktionsdefinition kann vielfältig sein, zum Einen bietet FreeRtos fünf Basis Heap (Heap1.c bis Heap5.c) Implementierungen und zum Anderen ist es auch möglich diese Funktionen selbst auszuimplementieren. TODO    
+
+\subsubsection{Memory Protection}
+\subsection{Scheduling}
+
 \subsection{Intertask Kommunikation}
 \subsection{Interrupt Handling}
 \subsection{Low Power Modes auf Stm32F4}
