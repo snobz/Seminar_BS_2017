@@ -1,6 +1,6 @@
 % Encoding: UTF-8
 
-@Book{MasteringFreeRtos,
+@Book{Barry2016,
   title     = {Mastering the FreeRtos Real time Kernel},
   publisher = {Real time Engineers Ltd.},
   year      = {2016},
@@ -10,14 +10,14 @@
   url       = {www.FreeRtos.org},
 }
 
-@Article{,
+@Article{Lee2013,
   author  = {Jie Liu Edward A. Lee},
   title   = {Timed Multitaskin for Real-time Embedded Software},
   journal = {Palo Alto Research Center - Darpa},
   year    = {2013},
 }
 
-@Conference{,
+@Conference{Stewart2006,
   author    = {David B. Stewart},
   title     = {Measuring Execution Time and Real-Time Performance},
   booktitle = {Embedded System Conference},
@@ -64,7 +64,7 @@
   url       = {http://www.ebook.de/de/product/13836634/hermann_kopetz_real_time_systems.html},
 }
 
-@Article{,
+@Article{Walls2016-2017,
   author      = {Colln Walls},
   title       = {RTOS Revealed},
   journal     = {Embedded.com},
@@ -72,7 +72,7 @@
   institution = {Embedded.com},
 }
 
-@Article{,
+@Article{Thang2012,
   author  = {Le Trung Thang},
   title   = {Comparing real-time scheduling on the Linux kernel and an RTOS},
   journal = {Embedded.com},
@@ -99,7 +99,7 @@
   url        = {http://dx.doi.org/10.1109/32.48943},
 }
 
-@Article{,
+@Article{Juvva1998,
   author  = {Kanaka Juvva},
   title   = {Real-Time Systems Carnegie Mellon University 18-849b Dependable Embedded Systems},
   journal = {https://users.ece.cmu.edu/~koopman/des_s99/real_time/},
@@ -118,13 +118,13 @@
   url       = {http://www.ebook.de/de/product/20060149/joseph_yiu_the_definitive_guide_to_arm_cortex_m3_and_cortex_m4_processors.html},
 }
 
-@Misc{,
+@Misc{Barry,
   author = {Richard Barry},
   title  = {FreeRtos Implemenation - Advanced},
   url    = {http://www.freertos.org/implementation/a00003.html},
 }
 
-@Misc{,
+@Misc{Walls,
   author = {Colin Walls},
   title  = {Colin Walls Blog},
   url    = {https://blogs.mentor.com/colinwalls/},
@@ -138,6 +138,50 @@
 @Misc{gdb,
   title = {GNU GDB},
   url   = {https://www.gnu.org/software/gdb/},
+}
+
+@InBook{Lilge1994,
+  pages     = {73--89},
+  title     = {Drei Echtzeitbetriebssysteme f{\"u}r die digitale Regelung im Vergleich},
+  publisher = {Vieweg+Teubner Verlag},
+  year      = {1994},
+  author    = {Lilge, T. and Gralla, C.},
+  editor    = {Rzehak, Helmut},
+  address   = {Wiesbaden},
+  isbn      = {978-3-322-85506-0},
+  booktitle = {Echtzeitsysteme und Fuzzy Control: Konzepte, Werkzeuge, Anwendungen},
+  doi       = {10.1007/978-3-322-85506-0_5},
+  url       = {http://dx.doi.org/10.1007/978-3-322-85506-0_5},
+}
+
+@Article{Poledna1997,
+  author        = {Poledna, S. and Mocken, T. and Schiemann, J.},
+  title         = {Prozessorzuteilungsstrategie und Interprozeßkommunikation in ERCOS, einem Echtzeitbetriebssystem für Automobilanwendungen},
+  journal       = {Informatik Forschung und Entwicklung},
+  year          = {1997},
+  volume        = {12},
+  number        = {4},
+  pages         = {206--219},
+  issn          = {0178-3564},
+  __markedentry = {[MichaelEbert:]},
+  abstract      = {Dieser Artikel beschreibt grundlegende Konzepte des Betriebssystems ERCOS (Embedded Real-time Control Operating System). ERCOS wurde speziell für die Anforderungen der Automobilelektronik bezüglich Funktionalität und Effizienz entworfen. Die bezüglich Funktionalität immer weiter steigenden Ansprüche an moderne elektronische Steuergeräte können nur durch sehr komplexe Echtzeitsoftware erfüllt werden. Echtzeitbetriebssysteme stellen ein geeignetes Mittel zur Verwaltung komplexer Funktionen unter Echtzeitanforderungen dar. Allerdings hat sich in der Vergangenheit gezeigt, daß die Effizienz und Flexibilität von Betriebssystemen für die Anforderungen der Automobilelektronik unzureichend waren. Anhand zweier konkreter Probleme wird aufgezeigt, warum die notwendige Flexibilität und Effizienz bisher nicht erreicht wurde und welcher Lösungsansatz bei ERCOS gewählt wurde. Das erste Problem betrifft den Zusammenhang zwischen der Prozessorzuteilungsstrategie auf der einen Seite sowie Speicherplatzbedarf und Antwortzeitverhalten auf der anderen Seite. Das zweite behandelte Problem ist das der Datenkonsistenz, oder wie sichergestellt werden kann, daß die Daten eines Prozesses während der Abarbeitung nicht durch einen anderen Prozeß geändert werden können. Für beide Probleme werden in ERCOS neue Lösungen eingesetzt, die den hohen Effizienzanforderungen im Bereich der Automobilelektronik genügen. Die Firma Bosch wird ERCOS1 als Standardbetriebssystemplattform für Steuergeräte der Automobilelektronik einsetzen.},
+  refid         = {Poledna1997},
+  url           = {http://dx.doi.org/10.1007/s004500050089},
+}
+
+@InBook{Hilbrich2012,
+  pages         = {29--38},
+  title         = {Modellbasierte Generierung statischer Schedules f{\"u}r sicherheitskritische, eingebettete Systeme mit Multicore-Prozessoren und harten Echtzeitanforderungen},
+  publisher     = {Springer Berlin Heidelberg},
+  year          = {2012},
+  author        = {Hilbrich, Robert and van Kampenhout, J. Reinier and Goltz, Hans-Joachim},
+  editor        = {Halang, Wolfgang A.},
+  address       = {Berlin, Heidelberg},
+  isbn          = {978-3-642-24658-6},
+  __markedentry = {[MichaelEbert:6]},
+  booktitle     = {Herausforderungen durch Echtzeitbetrieb: Echtzeit 2011},
+  doi           = {10.1007/978-3-642-24658-6_4},
+  url           = {http://dx.doi.org/10.1007/978-3-642-24658-6_4},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
