@@ -1,5 +1,9 @@
 \begin{thebibliography}{1}
 
+\bibitem{FreeRtosAdvanced}
+R.~Barry.
+\newblock Freertos implemenation - advanced.
+
 \bibitem{MasteringFreeRtos}
 R.~Barry.
 \newblock {\em Mastering the FreeRtos Real time Kernel}.
