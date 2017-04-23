@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  23 APR 2017 12:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  23 APR 2017 13:47
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -763,8 +763,18 @@ LaTeX Font Info:    Try loading font information for U+lasy on input line 47.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Overfull \hbox (7.53174pt too wide) in paragraph at lines 58--59
-\OT1/ptm/m/n/10 ren-den Zu-griff, bei-spiels-wei-se auf Netz-werk-kar-ten und Fest-
+Overfull \hbox (5.21057pt too wide) in paragraph at lines 58--59
+\OT1/ptm/m/n/10 vom Echt-zeit-be-triebs-sys-tem be-reit-ge-stell-ten Funk-tio-nen de-
+ []
+
+
+Overfull \hbox (2.97401pt too wide) in paragraph at lines 60--61
+\OT1/ptm/m/n/10 de-run-gen an ein Dest-kop Be-triebs-sys-tem ?? Ech-zeit-be-trieb-
+ []
+
+
+Overfull \hbox (10.26488pt too wide) in paragraph at lines 60--61
+\OT1/ptm/m/n/10 triebs-sys-te-men. Wie schon an-ge-spro-chen ver-wal-tet ein RTOS
  []
 
 
@@ -797,23 +807,23 @@ Overfull \hbox (1.0645pt too wide) in paragraph at lines 63--65
 \OT1/ptm/m/n/10 Auf-ga-be im zeit-li-chen Rah-men ausf[]uhrt. Wie si-cher-ge-stellt
  []
 
-<Pictures/EmbeddedCom/cwrtos2f5c.jpg, id=92, 1186.4325pt x 739.26187pt>
+[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+
+Non-PDF special ignored!
+
+] <Pictures/EmbeddedCom/cwrtos2f5c.jpg, id=106, 1186.4325pt x 739.26187pt>
 File: Pictures/EmbeddedCom/cwrtos2f5c.jpg Graphic file (type jpg)
- <use Pictures/EmbeddedCom/cwrtos2f5c.jpg>
+
+<use Pictures/EmbeddedCom/cwrtos2f5c.jpg>
 Package pdftex.def Info: Pictures/EmbeddedCom/cwrtos2f5c.jpg used on input line 70.
 (pdftex.def)             Requested size: 146.16534pt x 91.06516pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 71.
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 72.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
-
-
-Non-PDF special ignored!
-
- <./Pictures/EmbeddedCom/cwrtos2f5c.jpg>]
+)
 Overfull \hbox (4.5258pt too wide) in paragraph at lines 108--109
 \OT1/ptm/m/n/10 lungs-um-ge-bung ge-bun-den. Be-vor ei-ne Ent-wick-lung be-ginnt
  []
@@ -834,7 +844,7 @@ Overfull \hbox (17.91191pt too wide) in paragraph at lines 114--115
  free()
  []
 
-<Pictures/Eclipse/Heaps.png, id=115, 117.43875pt x 169.8345pt>
+<Pictures/Eclipse/Heaps.png, id=114, 117.43875pt x 169.8345pt>
 File: Pictures/Eclipse/Heaps.png Graphic file (type png)
  <use Pictures/Eclipse/Heaps.png>
 Package pdftex.def Info: Pictures/Eclipse/Heaps.png used on input line 125.
@@ -856,7 +866,7 @@ File: omlptm.fd
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 147.
 
-<Pictures/EmbeddedCom/addressSpace.jpg, id=122, 681.29532pt x 831.105pt>
+<Pictures/EmbeddedCom/addressSpace.jpg, id=121, 681.29532pt x 831.105pt>
 File: Pictures/EmbeddedCom/addressSpace.jpg Graphic file (type jpg)
  <use Pictures/EmbeddedCom/addressSpace.jpg>
 Package pdftex.def Info: Pictures/EmbeddedCom/addressSpace.jpg used on input line 156.
@@ -892,57 +902,68 @@ Overfull \hbox (8.33488pt too wide) in paragraph at lines 122--161
  []
 
 
-Overfull \hbox (40.96233pt too wide) in paragraph at lines 122--161
-\OT1/ptm/m/n/10 funk-tio-nen al-lo-ziert, in dem in-tern die Funk-ti-on []\OT1/pcr/m/n/10 pvPortMalloc()
+Overfull \hbox (5.58589pt too wide) in paragraph at lines 122--161
+\OT1/ptm/m/it/10 Mal-loc() \OT1/ptm/m/n/10 auf-ge-ru-fen wird. Die Funk-ti-on []\OT1/pcr/m/n/10 xTaskCreate()
  []
 
-
-Overfull \hbox (2.0832pt too wide) in paragraph at lines 122--161
-[]\OT1/pcr/m/n/10 xTaskCreate() \OT1/ptm/m/n/10 die Funk-ti-on []\OT1/pcr/m/n/10 pvPortMalloc() \OT1/ptm/m/n/10 ver-
- []
-
-[2 <./Pictures/Eclipse/Heaps.png>] <Pictures/FreeRtosOrg/heap1Alg.png, id=133, 216.81pt x 159.59625pt>
+[2 <./Pictures/EmbeddedCom/cwrtos2f5c.jpg>]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 172.
+ <Pictures/FreeRtosOrg/heap1Alg.png, id=136, 216.81pt x 159.59625pt>
 File: Pictures/FreeRtosOrg/heap1Alg.png Graphic file (type png)
 
 <use Pictures/FreeRtosOrg/heap1Alg.png>
 Package pdftex.def Info: Pictures/FreeRtosOrg/heap1Alg.png used on input line 175.
-(pdftex.def)             Requested size: 97.44109pt x 71.72752pt.
+(pdftex.def)             Requested size: 146.16534pt x 107.5986pt.
 
-Overfull \hbox (4.03549pt too wide) in paragraph at lines 163--180
+Overfull \hbox (4.03549pt too wide) in paragraph at lines 163--181
 []\OT1/pcr/m/n/10 configTOTAL_HEAP_SIZE  \OT1/ptm/m/n/10 kon-fi-gu-riert. Die Ge-samt-
  []
 
 
-Overfull \hbox (8.75603pt too wide) in paragraph at lines 163--180
-\OML/cmm/m/it/10 HeapSize \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 Wortbreite$\OT1/ptm/m/n/10 . 
+Overfull \hbox (30.54884pt too wide) in paragraph at lines 163--181
+\OML/cmm/m/it/10 MaxHeapSize \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 Wortbreite$\OT1/ptm/m/n/10 . 
  []
 
-[3 <./Pictures/EmbeddedCom/addressSpace.jpg> <./Pictures/FreeRtosOrg/heap1Alg.png>] ("FreeRtos ARM uController.bbl")
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 210.
+[3 <./Pictures/Eclipse/Heaps.png> <./Pictures/EmbeddedCom/addressSpace.jpg> <./Pictures/FreeRtosOrg/heap1Alg.png>]
+Overfull \hbox (15.53146pt too wide) in paragraph at lines 185--186
+[]\OT1/ptm/m/n/10 Heap5 - Glei-cher Al-go-rith-mus wie Heap4 al-ler-dings k[]onnen
+ []
 
-[4
+<Pictures/EmbeddedCom/addressSpaceMMU.jpg, id=170, 1163.0953pt x 981.6675pt>
+File: Pictures/EmbeddedCom/addressSpaceMMU.jpg Graphic file (type jpg)
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 210.
+<use Pictures/EmbeddedCom/addressSpaceMMU.jpg>
+Package pdftex.def Info: Pictures/EmbeddedCom/addressSpaceMMU.jpg used on input line 192.
+(pdftex.def)             Requested size: 146.16534pt x 123.35223pt.
+
+Overfull \hbox (1.10216pt too wide) in paragraph at lines 211--212
+\OT1/ptm/m/n/10 Probleme die bei der Ent-wick-lung auf-tre-ten, H[]aufige Bugs,
+ []
+
+("FreeRtos ARM uController.bbl")
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 224.
+ [4 <./Pictures/EmbeddedCom/addressSpaceMMU.jpg>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 224.
  ("FreeRtos ARM uController.aux"
 Package cleveref Info: loaded `ngerman' language definitions on input line 20.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 210.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 210.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 224.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 224.
 Package rerunfilecheck Info: File `"FreeRtos ARM uController".out' has not changed.
-(rerunfilecheck)             Checksum: A33F8BC6E2C5AFDEC9F7BE78155E9F22;1586.
+(rerunfilecheck)             Checksum: A1409A476F59A4D3153159FDF9BB2329;1619.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 210.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 224.
  ) 
 Here is how much of TeX's memory you used:
- 10777 strings out of 493333
- 160810 string characters out of 3139173
- 371463 words of memory out of 3000000
- 14068 multiletter control sequences out of 15000+200000
- 37617 words of font info for 84 fonts, out of 3000000 for 9000
+ 10788 strings out of 493333
+ 161100 string characters out of 3139173
+ 372463 words of memory out of 3000000
+ 14076 multiletter control sequences out of 15000+200000
+ 39243 words of font info for 86 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,12n,58p,3094b,1533s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
@@ -952,9 +973,9 @@ iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/
 rogram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8
 a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
 tmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (4 pages, 410161 bytes).
+Output written on "FreeRtos ARM uController.pdf" (4 pages, 559834 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 61 named destinations out of 1000 (max. 500000)
- 189 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 228 PDF objects out of 1000 (max. 8388607)
+ 62 named destinations out of 1000 (max. 500000)
+ 194 words of extra memory for PDF output out of 10000 (max. 10000000)
 
