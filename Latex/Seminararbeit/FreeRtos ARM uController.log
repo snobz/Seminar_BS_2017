@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  22 APR 2017 21:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  23 APR 2017 12:16
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -797,7 +797,7 @@ Overfull \hbox (1.0645pt too wide) in paragraph at lines 63--65
 \OT1/ptm/m/n/10 Auf-ga-be im zeit-li-chen Rah-men ausf[]uhrt. Wie si-cher-ge-stellt
  []
 
-<Pictures/EmbeddedCom/cwrtos2f5c.jpg, id=84, 1186.4325pt x 739.26187pt>
+<Pictures/EmbeddedCom/cwrtos2f5c.jpg, id=92, 1186.4325pt x 739.26187pt>
 File: Pictures/EmbeddedCom/cwrtos2f5c.jpg Graphic file (type jpg)
  <use Pictures/EmbeddedCom/cwrtos2f5c.jpg>
 Package pdftex.def Info: Pictures/EmbeddedCom/cwrtos2f5c.jpg used on input line 70.
@@ -829,52 +829,19 @@ Overfull \hbox (1.3707pt too wide) in paragraph at lines 108--109
  []
 
 
-Overfull \hbox (21.33092pt too wide) in paragraph at lines 115--116
-\OT1/ptm/m/n/10 dy-na-mi-sche Spei-cher-ver-wal-tung wird in C und C++ gew[]ohnlich
+Overfull \hbox (17.91191pt too wide) in paragraph at lines 114--115
+\OT1/ptm/m/n/10 w[]ohnlich die Stan-dard C Funk-tio-nen []\OT1/pcr/m/n/10 malloc() \OT1/ptm/m/n/10 und []\OT1/pcr/m/n/10
+ free()
  []
 
-<Pictures/Eclipse/Heaps.png, id=108, 117.43875pt x 169.8345pt>
+<Pictures/Eclipse/Heaps.png, id=115, 117.43875pt x 169.8345pt>
 File: Pictures/Eclipse/Heaps.png Graphic file (type png)
  <use Pictures/Eclipse/Heaps.png>
-Package pdftex.def Info: Pictures/Eclipse/Heaps.png used on input line 126.
+Package pdftex.def Info: Pictures/Eclipse/Heaps.png used on input line 125.
 (pdftex.def)             Requested size: 97.44109pt x 140.91594pt.
-
-Overfull \hbox (4.21172pt too wide) in paragraph at lines 123--131
-\OT1/ptm/m/n/10 Dies hat den Vor-teil, dass die Im-ple-men-tie-rung die-ser Funk-
- []
-
-
-Overfull \hbox (3.89172pt too wide) in paragraph at lines 123--131
-\OT1/ptm/m/n/10 tio-nen an die je-wei-li-ge An-wen-dung an-ge-passt wer-den kann.
- []
-
-
-Overfull \hbox (1.20494pt too wide) in paragraph at lines 123--131
-\OT1/ptm/m/n/10 Im-ple-men-tie-run-gen zur Spei-cher-ver-wal-tung. Es bleibt aber
- []
-
-
-Overfull \hbox (27.0806pt too wide) in paragraph at lines 123--131
-\OT1/ptm/m/n/10 Heap1 et-was tiefer be-trach-ten um ein grunds[]atzliches Verst[]andnis
- []
-
-
-Overfull \hbox (8.33488pt too wide) in paragraph at lines 123--131
-\OT1/ptm/m/n/10 f[]ur die Fre-eR-TOS Spei-cher-ver-wal-tung zu be-kom-men. Heap2
- []
-
-
-Overfull \hbox (40.96233pt too wide) in paragraph at lines 123--131
-\OT1/ptm/m/n/10 funk-tio-nen al-lo-ziert, in dem in-tern die Funk-ti-on []\OT1/pcr/m/n/10 pvPortMalloc()
- []
-
-
-Overfull \hbox (9.14502pt too wide) in paragraph at lines 123--131
-\OT1/ptm/m/n/10 auf-ge-ru-fen wird. Lis-ting [][]1[][] zeigt wie die Funk-ti-on xTaskCrea-
- []
-
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 131.
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 132.
+
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
@@ -882,48 +849,112 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 132.
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 133.
- [2]
 LaTeX Font Info:    Try loading font information for OML+ptm on input line 147.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlptm.fd"
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 147.
- ("FreeRtos ARM uController.bbl")
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 182.
- [3 <./Pictures/Eclipse/Heaps.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 182.
+
+<Pictures/EmbeddedCom/addressSpace.jpg, id=122, 681.29532pt x 831.105pt>
+File: Pictures/EmbeddedCom/addressSpace.jpg Graphic file (type jpg)
+ <use Pictures/EmbeddedCom/addressSpace.jpg>
+Package pdftex.def Info: Pictures/EmbeddedCom/addressSpace.jpg used on input line 156.
+(pdftex.def)             Requested size: 97.44109pt x 118.86487pt.
+
+Overfull \hbox (7.25473pt too wide) in paragraph at lines 122--161
+\OT1/ptm/m/n/10 ses Ab-schnitts be-trach-ten. In Fre-eR-TOS wer-den []\OT1/pcr/m/n/10 malloc()
+ []
+
+
+Overfull \hbox (4.21172pt too wide) in paragraph at lines 122--161
+\OT1/ptm/m/n/10 Dies hat den Vor-teil, dass die Im-ple-men-tie-rung die-ser Funk-
+ []
+
+
+Overfull \hbox (3.89172pt too wide) in paragraph at lines 122--161
+\OT1/ptm/m/n/10 tio-nen an die je-wei-li-ge An-wen-dung an-ge-passt wer-den kann.
+ []
+
+
+Overfull \hbox (1.20494pt too wide) in paragraph at lines 122--161
+\OT1/ptm/m/n/10 Im-ple-men-tie-run-gen zur Spei-cher-ver-wal-tung. Es bleibt aber
+ []
+
+
+Overfull \hbox (27.0806pt too wide) in paragraph at lines 122--161
+\OT1/ptm/m/n/10 Heap1 et-was tiefer be-trach-ten um ein grunds[]atzliches Verst[]andnis
+ []
+
+
+Overfull \hbox (8.33488pt too wide) in paragraph at lines 122--161
+\OT1/ptm/m/n/10 f[]ur die Fre-eR-TOS Spei-cher-ver-wal-tung zu be-kom-men. Heap2
+ []
+
+
+Overfull \hbox (40.96233pt too wide) in paragraph at lines 122--161
+\OT1/ptm/m/n/10 funk-tio-nen al-lo-ziert, in dem in-tern die Funk-ti-on []\OT1/pcr/m/n/10 pvPortMalloc()
+ []
+
+
+Overfull \hbox (2.0832pt too wide) in paragraph at lines 122--161
+[]\OT1/pcr/m/n/10 xTaskCreate() \OT1/ptm/m/n/10 die Funk-ti-on []\OT1/pcr/m/n/10 pvPortMalloc() \OT1/ptm/m/n/10 ver-
+ []
+
+[2 <./Pictures/Eclipse/Heaps.png>] <Pictures/FreeRtosOrg/heap1Alg.png, id=133, 216.81pt x 159.59625pt>
+File: Pictures/FreeRtosOrg/heap1Alg.png Graphic file (type png)
+
+<use Pictures/FreeRtosOrg/heap1Alg.png>
+Package pdftex.def Info: Pictures/FreeRtosOrg/heap1Alg.png used on input line 175.
+(pdftex.def)             Requested size: 97.44109pt x 71.72752pt.
+
+Overfull \hbox (4.03549pt too wide) in paragraph at lines 163--180
+[]\OT1/pcr/m/n/10 configTOTAL_HEAP_SIZE  \OT1/ptm/m/n/10 kon-fi-gu-riert. Die Ge-samt-
+ []
+
+
+Overfull \hbox (8.75603pt too wide) in paragraph at lines 163--180
+\OML/cmm/m/it/10 HeapSize \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 Wortbreite$\OT1/ptm/m/n/10 . 
+ []
+
+[3 <./Pictures/EmbeddedCom/addressSpace.jpg> <./Pictures/FreeRtosOrg/heap1Alg.png>] ("FreeRtos ARM uController.bbl")
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 210.
+
+[4
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 210.
  ("FreeRtos ARM uController.aux"
 Package cleveref Info: loaded `ngerman' language definitions on input line 20.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 182.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 182.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 210.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 210.
 Package rerunfilecheck Info: File `"FreeRtos ARM uController".out' has not changed.
-(rerunfilecheck)             Checksum: D8D3D27EA58C517F7D114477525C168B;1402.
+(rerunfilecheck)             Checksum: A33F8BC6E2C5AFDEC9F7BE78155E9F22;1586.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 182.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 210.
  ) 
 Here is how much of TeX's memory you used:
- 10741 strings out of 493333
- 160048 string characters out of 3139173
- 323463 words of memory out of 3000000
- 14043 multiletter control sequences out of 15000+200000
+ 10777 strings out of 493333
+ 160810 string characters out of 3139173
+ 371463 words of memory out of 3000000
+ 14068 multiletter control sequences out of 15000+200000
  37617 words of font info for 84 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,58p,3094b,1994s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,12n,58p,3094b,1533s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.p
-fb>
-Output written on "FreeRtos ARM uController.pdf" (3 pages, 282793 bytes).
+/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8
+a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
+tmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on "FreeRtos ARM uController.pdf" (4 pages, 410161 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
- 53 named destinations out of 1000 (max. 500000)
- 163 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 225 PDF objects out of 1000 (max. 8388607)
+ 61 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 

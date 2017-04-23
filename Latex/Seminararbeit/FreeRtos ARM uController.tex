@@ -105,14 +105,13 @@ WIP: Christoph
 \subsection{Zielsysteme STM32F4 (ARM Cortex M3)}
 32 bit Prozessor - Funktionsübersicht, Hinweis Port Teil von FreeRtos
 \subsection{Entwicklungsumgebung}
-FreeRTOS ist im Prinzip nicht an eine spezielle Entwicklungsumgebung gebunden. Bevor eine Entwicklung be\-ginnt ist es dennoch ratsam sich einen Überblick über die ver\-fügbaren IDEs\footnote{Integrated Development Environment} zu machen. Der wichtigste Punkt der hier zu nennen ist, ist das Debugging. Da ein Echtzeitbetriebssystem eine weitere Abstraktionsebene hinzufügt und wie eine Art Middleware fungiert, lassen Sich viele RTOS spezifische Funktionen und Eigenschaften wie Queues, Task Stacks etc. nur mühsam mit einem Debugger wie GDB oder OpenOCD untersuchen. Viele der marktgängigen Entwicklungsumgebungen bieten daher spezielle RTOS aware Pakete, so dass ein einfacherer Zugriff auf RTOS Objekte und Eigenschaften möglich ist. Wie die RTOS awareness beim Debugging eingesetzt wird und welche Funktionalitäten sie einem Entwickler bietet wird in Abschnitt \ref{sec:Debugging von Echtzeitsystemen} aufgezeigt. Ein weiterer Punkt der bei der Auswahl der IDE getroffen werden muss sind die Kosten. Bei Propritäre IDEs können oft mehrere tausend Euro Lizenzkosten anfallen, bieten aber den Vorteil der nahtlosen Einbindungen von $\mu$Prozessoren und Echtzeitbetriebssystem (RTOS awareness). Bei der Entwicklung von ARM uProzessoren sind hier Keil (Arm), IAR Workbench und True Studio (Atollic) zu nennen. Diese Entwicklungsumgebungen lassen sich zum Teil auch frei verwenden, allerdings mit starken Einschränkungen wie z.B. maximal Codesize. Auf der nicht proprietären Seiten steht Eclipse CDT zur Verfügung, es ist komplett frei in der Verwendung und hat keine Beschränkungen. Nachteil ist hier das die Integration nicht so einfach ist wie bei den proprietären IDEs. RTOS awarness wird bei Eclipse durch die Installation weiterer Plugins erreicht. Ein weiterer Nachteil ist, dass es keine Beispielprojekte für Eclipse CDT und FreeRtos zur Verfügung stehen, daher müssen Projekte von Grund auf selbst konfiguriert und installiert werden. Da im Laufe dieser Arbeit Eclipse CDT für alle Beispiele verwendet wird, wird in Abschnitt \ref{sec:Einrichtung und Konfiguration} das Aufsetzen einer Basiskonfiguration erklärt. 
+FreeRTOS ist im Prinzip nicht an eine spezielle Entwicklungsumgebung gebunden. Bevor eine Entwicklung be\-ginnt ist es dennoch ratsam sich einen Überblick über die ver\-fügbaren IDEs\footnote{Integrated Development Environment} zu machen. Der wichtigste Punkt der hier zu nennen ist, ist das Debugging. Da ein Echtzeitbetriebssystem eine weitere Abstraktionsebene hinzufügt und wie eine Art Middleware fungiert, lassen Sich viele RTOS spezifische Funktionen und Eigenschaften wie Queues, Task Stacks etc. nur mühsam mit einem Debugger wie GDB oder OpenOCD untersuchen. Viele der marktgängigen Entwicklungsumgebungen bieten daher spezielle RTOS aware Pakete, so dass ein einfacherer Zugriff auf RTOS Objekte und Eigenschaften möglich ist. Wie die RTOS awareness beim Debugging eingesetzt wird und welche Funktionalitäten sie einem Entwickler bietet wird in Abschnitt \ref{sec:Debugging von Echtzeitsystemen} aufgezeigt. Ein weiterer Punkt der bei der Auswahl der IDE getroffen werden muss sind die Kosten. Bei Propritäre IDEs können oft mehrere tausend Euro Lizenzkosten anfallen, bieten aber den Vorteil der nahtlosen Einbindungen von $\mu$Prozessoren und Echtzeitbetriebssystem (RTOS awareness). Bei der Entwicklung von ARM uProzessoren sind hier Keil (Arm), IAR Workbench und True Studio (Atollic) zu nennen. Diese Entwicklungsumgebungen lassen sich zum Teil auch frei verwenden, allerdings mit starken Einschränkungen wie z.B. maximal Codesize. Auf der nicht proprietären Seiten steht Eclipse CDT zur Verfügung, es ist komplett frei in der Verwendung und hat keine Beschränkungen. Nachteil ist hier, dass die Integration nicht so einfach ist wie bei den proprietären IDEs. RTOS awarness wird bei Eclipse durch die Installation weiterer Plugins erreicht. Ein weiterer Nachteil ist, dass es keine Beispielprojekte für Eclipse CDT und FreeRtos zur Verfügung stehen, daher müssen Projekte von Grund auf selbst konfiguriert und installiert werden. Da im Laufe dieser Arbeit Eclipse CDT für alle Beispiele verwendet wird, wird in Abschnitt \ref{sec:Einrichtung und Konfiguration} das Aufsetzen einer Basiskonfiguration erklärt. 
 
-WIP: COCOOX, Link CDT       
 \subsection{Einrichten und Konfiguration}
 \label{sec:Einrichtung und Konfiguration}
 %%Ordner und Dateistruktur
 \subsection{Memory Allocation}
-Beim Erzeugen von RTOS Objekten wie Tasks, Queues oder Semaphore wird Speicher im RAM benötigt. Für die dynamische Speicherverwaltung wird in C und C++ gewöhnlich die Standard C Funktionen \verb|malloc()| und \verb|free()| verwendet. \verb|malloc()| dient zur Allokierung von Speicher und \verb|free()| zur Freigabe von alloziertem Speicher. Für Echtzeitsysteme die auf einem RTOS aufsetzen und es somit zu Nebenläufigkeit kommt, sind diese Funktionen aber nicht zu empfehlen. Folgende Eigenschaften\cite{MasteringFreeRtos} zeigen die Gründe warum die Standard Funktionen eher ungeeignet sind:
+Beim Erzeugen von RTOS Objekten wie Tasks, Queues oder Semaphore wird Speicher im RAM benötigt. Für die dynamische Speicherverwaltung wird in C und C++ ge\-wöhnlich die Standard C Funktionen \verb|malloc()| und \verb|free()| verwendet. Die Funktion \verb|malloc()| dient zur Allozierung von freiem Speicher und \verb|free()| zur Freigabe von alloziertem Speicher. Für Echtzeitsysteme die auf einem RTOS aufsetzen sind diese Funktionen aufgrund der folgende Eigenschaften\cite{MasteringFreeRtos} ungeeignet\footnote{Heap3 stellt hier eine Ausnahme dar}:
 \begin{itemize}
 	\item nicht thread safe
 	\item nicht deterministisch
@@ -120,15 +119,16 @@ Beim Erzeugen von RTOS Objekten wie Tasks, Queues oder Semaphore wird Speicher i
 	\item schwer zu debuggen
 	\item Bibliotheksfunktionen benötigen viel Speicher
 \end{itemize}
-Des Weiteren sind für einige Einsatzgebiete von embedded Anwendungen Zertifikate erforderlich. In vielen dieser Anwendungen ist die dynamische Speicherverwaltung eine potentielle Fehlerquelle und ist nur mit gewissen Einschränkungen oder aber gar nicht erlaubt. Für einen solchen Fall bietet FreeRTOS ab Version 9.0 die Möglichkeit der statischen Speicherallozierung, diese werden wir am Ende dieses Abschnitts betrachten. In FreeRTOS werden  \verb|malloc()| und \verb|free()| durch die Funktionen \newline \verb|void *pvPortMalloc( size_t xSize )|\newline und\newline \verb|void vPortFree( void *pv )| ersetzt.\newline Dies hat den Vorteil, dass die Implementierung dieser Funktionen an die jeweilige Anwendung angepasst werden kann. Grundsätzlich bietet FreeRTOS fünf unterschiedliche Beispiel Implementierungen (Heap1.c bis Heap5.c), siehe Abbildung \ref{fig:HeapsEclipse} . Diese stellen prinzipiell schon die geläufigsten Implementierungen zur Speicherverwaltung. Es bleibt aber auch weiterhin die Möglichkeit seine eigene Speicherverwaltung zu implementieren. In dieser Arbeit werden wir Heap1 etwas tiefer betrachten um ein grundsätzliches Verständnis für die FreeRTOS Speicherverwaltung zu bekommen. Heap2 - Heap 5 werden nur kurz beschrieben und können im Detail in \cite{MasteringFreeRtos}\cite{FreeRtosAdvanced} nachgelesen werden.      
-\begin{figure}
+Des Weiteren sind für einige Einsatzgebiete von embedded Anwendungen Zertifikate erforderlich. Speziell in sicherheitskritischen Anwendungen (medical, military) ist die dynamische Speicherverwaltung als eine potentielle Fehlerquelle auszuschließen. Für einen solchen Fall bietet FreeRTOS ab Version 9.0 die Möglichkeit der statischen Speicherallozierung, diese werden wir am Ende dieses Abschnitts betrachten. In FreeRTOS werden  \verb|malloc()| und \verb|free()| durch die Funktionen \newline \verb|void *pvPortMalloc( size_t xSize )|\newline und\newline \verb|void vPortFree( void *pv )| ersetzt.\newline Dies hat den Vorteil, dass die Implementierung dieser Funktionen an die jeweilige Anwendung angepasst werden kann. Grundsätzlich bietet FreeRTOS fünf unterschiedliche Beispiel Implementierungen (Heap1.c bis Heap5.c), siehe Abbildung \ref{fig:HeapsEclipse}. 
+\begin{figure}[hb!]
 	\centering
 		\includegraphics[width=0.2\textwidth]{Pictures/Eclipse/Heaps.png}
 	\caption{Einbindung von Heap1. Heap2 bis Heap5 sind vom Build ausgeschlossen}
 	\label{fig:HeapsEclipse}
 \end{figure}   
-Wie schon am Anfang dieses Abschnitts beschrieben, werden für alle RTOS Objekte Speicher benötigt, der Speicher für Objekte wie Semaphore und Tasks wird automatisch in den Erzeugerfunktionen alloziert, in dem intern die Funktion \verb|pvPortMalloc()| aufgerufen wird. Listing \ref{lst:xTaskCreate} zeigt wie die Funktion xTaskCreate(), pvPortMalloc() verwendet (Zeile 5, 11) um den Stack und den Task Control Block für die Task zu erzeugen.   
-\begin{lstlisting}[caption={xTaskCreate() memory allocation},captionpos=b, label=lst:xTaskCreate]
+Diese stellen prinzipiell schon die geläufigsten Implementierungen zur Speicherverwaltung. Es bleibt aber auch weiterhin die Möglichkeit seine eigene Speicherverwaltung zu implementieren. In dieser Arbeit werden wir Heap1 etwas tiefer betrachten um ein grundsätzliches Verständnis für die FreeRTOS Speicherverwaltung zu bekommen. Heap2 - Heap 5 werden nur kurz beschrieben und können im Detail in \cite{MasteringFreeRtos}\cite{FreeRtosAdvanced} nachgelesen werden.      
+Wie schon am Anfang dieses Abschnitts beschrieben, werden für alle RTOS Objekte Speicher benötigt, der Speicher für Objekte wie Semaphore und Tasks wird automatisch in den Erzeugerfunktionen alloziert, in dem intern die Funktion \verb|pvPortMalloc()| aufgerufen wird. Die Funktion \verb|xTaskCreate()| dient zum Erzeugen einer FreeRTOS Task. Listing \ref{lst:xTaskCreate} zeigt wie \verb|xTaskCreate()| die Funktion \verb|pvPortMalloc()| verwendet (Zeile 5, 11) um Speicher für den Stack und den Task Control Block zu allozieren.
+\begin{lstlisting}[caption={xTaskCreate() memory allocation. Aus Task.c},captionpos=b, label=lst:xTaskCreate, float=hbt]
 StackType_t *pxStack;
 /* Allocate space for the stack 
 used by the task being created. */
@@ -148,12 +148,40 @@ if( pxStack != NULL )
 	}
 //...
 }
-\end{lstlisting}
- 
 
+\end{lstlisting}
+Alle erzeugten Objekte, darunter auch der Kernel selbst teilen sich einen gemeinsamen Adressraum, siehe Abbildung \ref{fig:AddressSpace}. Eine Speicherzugriffsverletzung ist somit durchaus möglich. In Abschnitt \ref{sec:Memory Protection} wird gezeigt welche Möglichkeit der STM32F4 und FreeRTOS bieten um Speicherzugriffe sicherer zu gestalten.    
+\begin{figure}[hb!]
+	\centering
+		\includegraphics[width=0.2\textwidth]{Pictures/EmbeddedCom/addressSpace.jpg}
+	\caption{Adressraum FreeRtos und Tasks}
+	\quelle{Colin Walls - Embedded.com}
+	\label{fig:AddressSpace}
+\end{figure}    
+
+\subsubsection{Beispiel Implementierungen}
+Bevor Objekte erzeugt werden können, muss ein Pool an Speicher für die Objekte definiert werden. Die einfachste Form einen Memory Pool zu erzeugen ist ein Array. In FreeRTOS nennt sich dieses Array ucHeap. 
+\begin{lstlisting}[caption={xTaskCreate() memory allocation},captionpos=b, label=lst:ucHeap, float=hbt, numbers = none]
+static uint8_t ucHeap[ configTOTAL_HEAP_SIZE ];
+\end{lstlisting}
+\newline
+Die Größe des Heaps wird durch das Präprozessor-Define \verb|configTOTAL_HEAP_SIZE | konfiguriert. Die Gesamtgröße berechnet sich also wie folgt
+\newline
+$HeapSize = \verb|configTOTAL_HEAP_SIZE| \ast Wortbreite$. 
+\newline
+In unserem Fall ist die Wortbreite 32 bit. Heap1 ist sehr einfach, es deklariert lediglich die Funktion pvPortMalloc(), pvPortFree() wird nicht ausimplementiert. Bei vielen embedded Anwendungen wird der Speicher für alle Objekte vor dem Start des Schedulers erzeugt, eine spätere Freigabe von diesen Resourcen ist nicht nötig, da die Objekte über die gesamte Laufzeit des Programms bestehen sollen. Genau für solche Anwendungen steht Heap1 zur Verfügung.    
+\begin{figure}[hb!]
+	\centering
+		\includegraphics[width=0.2\textwidth]{Pictures/FreeRtosOrg/heap1Alg.png}
+	\caption{Beispiel Speicherbelegung nach drei Instanziierung von Tasks}
+	\quelle{FreeRtos.org}
+	\label{fig:Heap1}
+\end{figure}    
 
 \subsubsection{Memory Protection}
-STM32F4 spezifisch, MPU vorhand
+\label{sec:Memory Protection}
+STM32F4 spezifisch, MMU vorhand
+\subsubsection{Static Memory Allocation}
 \subsection{Scheduling}
 Blocked - Running :D FSM fertig
 \subsection{Intertask Kommunikation}
