@@ -119,7 +119,13 @@ Beim Erzeugen von RTOS Objekten wie Tasks, Queues oder Semaphore wird Speicher i
 	\item schwer zu debuggen
 	\item Bibliotheksfunktionen benötigen viel Speicher
 \end{itemize}
-Des Weiteren sind für einige Einsatzgebiete von embedded Anwendungen Zertifikate erforderlich. Speziell in sicherheitskritischen Anwendungen (medical, military) ist die dynamische Speicherverwaltung als eine potentielle Fehlerquelle auszuschließen. Für einen solchen Fall bietet FreeRTOS ab Version 9.0 die Möglichkeit der statischen Speicherallozierung, diese werden wir am Ende dieses Abschnitts betrachten. In FreeRTOS werden  \verb|malloc()| und \verb|free()| durch die Funktionen \newline \verb|void *pvPortMalloc( size_t xSize )|\newline und\newline \verb|void vPortFree( void *pv )| ersetzt.\newline Dies hat den Vorteil, dass die Implementierung dieser Funktionen an die jeweilige Anwendung angepasst werden kann. Grundsätzlich bietet FreeRTOS fünf unterschiedliche Beispiel Implementierungen (Heap1.c bis Heap5.c), siehe Abbildung \ref{fig:HeapsEclipse}. 
+Des Weiteren sind für einige Einsatzgebiete von embedded Anwendungen Zertifikate erforderlich. Speziell in sicherheitskritischen Anwendungen (medical, military) ist die dynamische Speicherverwaltung als eine potentielle Fehlerquelle auszuschließen. Für einen solchen Fall bietet FreeRTOS ab Version 9.0 die Möglichkeit der statischen Speicherallozierung, diese werden wir am Ende dieses Abschnitts betrachten. In FreeRTOS werden  \verb|malloc()| und \verb|free()| durch die Funktionen  
+\begin{lstlisting}[label=lst:vPortMallocFree, numbers = none]
+void *pvPortMalloc( size_t xSize );
+und
+void vPortFree( void *pv );
+\end{lstlisting}
+ersetzt. Dies hat den Vorteil, dass die Implementierung dieser Funktionen an die jeweilige Anwendung angepasst werden kann. Grundsätzlich bietet FreeRTOS fünf unterschiedliche Beispiel Implementierungen (Heap1.c bis Heap5.c), siehe Abbildung \ref{fig:HeapsEclipse}. 
 \begin{figure}[hb!]
 	\centering
 		\includegraphics[width=0.2\textwidth]{Pictures/Eclipse/Heaps.png}
@@ -159,7 +165,7 @@ Alle Objekte die mittels pvPortMalloc() alloziert werden, darunter auch der Kern
 	\label{fig:AddressSpace}
 \end{figure}    
 
-\subsubsection{Beispiel Implementierungen}
+\subsubsection{FreeRTOS Heap Implementierungen}
 Bevor Objekte erzeugt werden können, muss ein Pool an Speicher für die Objekte definiert werden. Die einfachste Form einen Memory Pool zu erzeugen ist ein Array. In FreeRTOS nennt sich dieses Array ucHeap. 
 \begin{lstlisting}[label=lst:ucHeap, float=hbt, numbers = none]
 static uint8_t ucHeap[ configTOTAL_HEAP_SIZE ];
@@ -169,8 +175,9 @@ Die Größe des Heaps wird durch das Präprozessor-Define \verb|configTOTAL_HEAP
 \newline
 $MaxHeapSize = \verb|configTOTAL_HEAP_SIZE| \ast Wortbreite$. 
 \newline
-In unserem Fall ist die Wortbreite 32 bit. \textbf{Heap1} ist sehr einfach, es deklariert lediglich die Funktion pvPortMalloc(). Die Funktion pvPortFree() wird nicht ausimplementiert. Bei vielen embedded Anwendungen wird der Speicher für die benötigten Objekte vor dem Start des Schedulers erzeugt. Eine spätere Freigabe von diesen Resourcen ist nicht nötig, da die Objekte über die gesamte Laufzeit des Programms bestehen sollen. Genau für solche Anwendungen steht Heap1 zur Verfügung. Abbildung \ref{fig:Heap1} zeigt wie sich der Speicher nach dem Erzeugen von zwei Tasks aussieht. Für jede Task wird ein TCB und ein Stack erzeugt, die Speicherobjekte liegen direkt hintereinander, da pvPortFree() nicht implementiert ist, kommt es auch nicht zu einer Fragmentierung des Speichers. Diese lineare Speicherzuweisung gilt für alle Objekte die mittels pvPortMalloc() alloziert werden, dazu gehören sowohl RTOS spezifische Objekte als auch Objekte die durch den Benutzer erzeugt werden.      
-\begin{figure}[hb!]
+In unserem Fall ist die Wortbreite 32 bit. Heap1 ist sehr einfach, es deklariert lediglich die Funktion pvPortMalloc(). Die Funktion pvPortFree() wird nicht ausimplementiert. Bei vielen embedded Anwendungen wird der Speicher für die benötigten Objekte vor dem Start des Schedulers erzeugt. Eine spätere Freigabe von diesen Resourcen ist nicht nötig, da die Objekte über die gesamte Laufzeit des Programms bestehen sollen. Genau für solche Anwendungen steht Heap1 zur Verfügung. Abbildung \ref{fig:Heap1} zeigt wie sich der Speicher nach dem Erzeugen von zwei Tasks aussieht. Für jede Task wird ein TCB und ein Stack erzeugt, die Speicherobjekte liegen direkt hintereinander, da pvPortFree() nicht implementiert ist, kommt es auch nicht zu einer Fragmentierung des Speichers. Diese lineare Speicherzuweisung gilt für alle Objekte die mittels pvPortMalloc() alloziert werden, dazu gehören sowohl RTOS spezifische Objekte als auch Objekte die durch den Benutzer erzeugt werden. 
+
+\begin{figure}[ht!]
 	\centering
 		\includegraphics[width=0.3\textwidth]{Pictures/FreeRtosOrg/heap1Alg.png}
 	\caption{Beispiel Speicherbelegung nach drei Instanziierung von Tasks}
@@ -178,15 +185,17 @@ In unserem Fall ist die Wortbreite 32 bit. \textbf{Heap1} ist sehr einfach, es d
 	\label{fig:Heap1}
 \end{figure}
 Nachfolgend ein Kurzüberblick über die nicht beschriebenen Beispiel Implementierungen.  
+
 \begin{itemize}
 	\item Heap2 - Ähnlich Heap1. Erlaubt Speicherfreigabe. Best Fit Algorithmus zur Speicherallozierung.
 	\item Heap3 - Verwendet C Library Malloc() und free() und deaktiviert den Scheduler zur Speicherallozierung.
 	\item Heap4 - Ähnlich Heap1 und Heap2. Verwendet First Fit Algorithmus zur Speicherallozierung. Verbindet mehrer kleinere Speicherblöcke in einen großen. Minimiert Speicherfragmentierung
 	\item Heap5 - Gleicher Algorithmus wie Heap4 allerdings können mehrere Memory Pools erzeugt werden.
 \end{itemize}
+
 \subsubsection{Memory Protection}
 \label{sec:Memory Protection}
-STM32F4 spezifisch, MMU vorhanden
+STM32F4 spezifisch, MPU vorhanden
 \begin{figure}[hb!]
 	\centering
 		\includegraphics[width=0.3\textwidth]{Pictures/EmbeddedCom/addressSpaceMMU}
@@ -203,8 +212,24 @@ Queues, Semaphore, Notify, Event Groups
 \subsection{Interrupt Handling}
 Deamon Task,
 \subsection{Low Power Modes auf Stm32F4}
-Tickless Idle, Idle Task, Nvic System Power Down
 \label{sec:Low Power Modes}
+Viele der heutigen embedded Systeme sind akkubetriebene Geräte wie IOT\footnote{internet of things} Devices oder Mobile Sensorknoten. Solche Systeme verlangen eine effiziente Nutzung der Energieresourcen um einen möglichst langen Betrieb zu gewährleisten. In einfachen Anwendung ist der Zustand in dem ein Gerät schlafen gehen kann, relativ leicht zu ermitteln. In komplexen Systemen die auf einem Echtzeitbetriebssystem wie FreeRTOS aufsetzen und mehrere Task auf unterschiedliche Ressourcen warten, wird es schon schwierig. In diesem Abschnitt wird gezeigt welche Möglichkeiten FreeRTOS zur Verfügung stellt um einen energieeffizienten Betrieb zu gewährleisten.     
+\begin{lstlisting}[caption={Präprozessor define für Idle Hook. Aus FreeRTOSconfig.h},captionpos=b,label=lst:vPortMallocFree, numbers = none]
+#define configUSE_IDLE_HOOK  1; 
+\end{lstlisting}
+\begin{lstlisting}[caption={Aufruf der IdleTask Hook Funktion. Aus Task.c},captionpos=b, label=lst:xIdleTaskHook, float=hbt!]
+#if ( configUSE_IDLE_HOOK == 1 )
+{
+	extern void vApplicationIdleHook( void );
+
+	/* Call the user defined function from within the idle task.  This
+	allows the application designer to add background functionality
+	without the overhead of a separate task.
+	NOTE: vApplicationIdleHook() MUST NOT, UNDER ANY CIRCUMSTANCES,
+	CALL A FUNCTION THAT MIGHT BLOCK. */
+	vApplicationIdleHook();
+}     
+\end{lstlisting}    
 \subsection{FreeRtos in der Praxis - Ein real System}
 Ad-hoc System? 
 \section{Komplexität durch Nebenläufigkeit}
