@@ -206,6 +206,7 @@ STM32F4 spezifisch, MPU vorhanden
    
 \subsubsection{Static Memory Allocation}
 \subsection{Scheduling}
+\label{Scheduling}
 Blocked - Running :D FSM fertig
 \subsection{Intertask Kommunikation}
 Queues, Semaphore, Notify, Event Groups
@@ -213,7 +214,7 @@ Queues, Semaphore, Notify, Event Groups
 Deamon Task,
 \subsection{Low Power Modes auf Stm32F4}
 \label{sec:Low Power Modes}
-Viele der heutigen embedded Systeme sind akkubetriebene Geräte wie IOT\footnote{internet of things} Devices oder Mobile Sensorknoten. Solche Systeme verlangen eine effiziente Nutzung der Energieresourcen um einen möglichst langen Betrieb zu gewährleisten. In einfachen Anwendung ist der Zustand in dem ein Gerät schlafen gehen kann, relativ leicht zu ermitteln. In komplexen Systemen die auf einem Echtzeitbetriebssystem wie FreeRTOS aufsetzen und mehrere Task auf unterschiedliche Ressourcen warten, wird es schon schwierig. In diesem Abschnitt wird gezeigt welche Möglichkeiten FreeRTOS zur Verfügung stellt um einen energieeffizienten Betrieb zu gewährleisten.     
+Viele der heutigen embedded Systeme sind akkubetriebene Geräte wie IOT\footnote{internet of things} Devices oder Mobile Sensorknoten. Solche Systeme verlangen eine effiziente Nutzung der Energieresourcen um einen möglichst langen Betrieb zu gewährleisten. In einfachen Anwendung ist der Zustand in dem ein Gerät schlafen gehen kann, relativ leicht zu ermitteln. In komplexen Systemen die auf einem Echtzeitbetriebssystem wie FreeRTOS aufsetzen und mehrere Task auf unterschiedliche Ressourcen warten, wird es schon schwierig. In diesem Abschnitt wird gezeigt welche Möglichkeiten FreeRTOS zur Verfügung stellt um einen energieeffizienten Betrieb zu gewährleisten. Die einfachste Möglichkeit power saving zu implementieren, ist durch die Idle-Hook Funktion. Wie bereits in Abschnitt \ref{Scheduling} beschrieben, wird automatisch die IDLE Task von FreeRTOS aktiviert, sobald alle User Tasks im Blocked Zustand sind. Durch aktivieren der IDLE Hook Funktion. Da keine weiteren Aufgaben anstehen, kann in den Schlafmodus gewechselt werden.        
 \begin{lstlisting}[caption={Präprozessor define für Idle Hook. Aus FreeRTOSconfig.h},captionpos=b,label=lst:vPortMallocFree, numbers = none]
 #define configUSE_IDLE_HOOK  1; 
 \end{lstlisting}
@@ -230,6 +231,14 @@ Viele der heutigen embedded Systeme sind akkubetriebene Geräte wie IOT\footnote
 	vApplicationIdleHook();
 }     
 \end{lstlisting}    
+\begin{figure}[hb!]
+	\centering
+		\includegraphics[width=0.4\textwidth]{Pictures/STM32F4/powerConsumption.png}
+	\caption{Energieaufnahme für STM32F4 in SleepModes}
+	\quelle{STM32F4 - Power Modes}
+	\label{fig:AddressSpaceMMU}
+\end{figure} 
+
 \subsection{FreeRtos in der Praxis - Ein real System}
 Ad-hoc System? 
 \section{Komplexität durch Nebenläufigkeit}

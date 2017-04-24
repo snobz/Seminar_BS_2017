@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  24 APR 2017 12:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  24 APR 2017 14:14
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -692,6 +692,12 @@ LaTeX Warning: Label `lst:vPortMallocFree' multiply defined.
 
 LaTeX Warning: Label `lst:vPortMallocFree@cref' multiply defined.
 
+
+LaTeX Warning: Label `fig:AddressSpaceMMU' multiply defined.
+
+
+LaTeX Warning: Label `fig:AddressSpaceMMU@cref' multiply defined.
+
 )
 \openout1 = `"FreeRtos ARM uController.aux"'.
 
@@ -939,38 +945,46 @@ File: Pictures/EmbeddedCom/addressSpaceMMU.jpg Graphic file (type jpg)
 <use Pictures/EmbeddedCom/addressSpaceMMU.jpg>
 Package pdftex.def Info: Pictures/EmbeddedCom/addressSpaceMMU.jpg used on input line 201.
 (pdftex.def)             Requested size: 146.16534pt x 123.35223pt.
- [3 <./Pictures/Eclipse/Heaps.png> <./Pictures/EmbeddedCom/addressSpace.jpg>]
-Overfull \hbox (1.10216pt too wide) in paragraph at lines 236--237
+ [3 <./Pictures/Eclipse/Heaps.png> <./Pictures/EmbeddedCom/addressSpace.jpg>] <Pictures/STM32F4/powerConsumption.png, id
+=176, 505.89pt x 348.55219pt>
+File: Pictures/STM32F4/powerConsumption.png Graphic file (type png)
+ <use Pictures/STM32F4/powerConsumption.png>
+Package pdftex.def Info: Pictures/STM32F4/powerConsumption.png used on input line 236.
+(pdftex.def)             Requested size: 194.88219pt x 134.27011pt.
+
+Overfull \hbox (1.10216pt too wide) in paragraph at lines 245--246
 \OT1/ptm/m/n/10 Probleme die bei der Ent-wick-lung auf-tre-ten, H[]aufige Bugs,
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4 <./Pictures/FreeRtosOrg/heap1Alg.png> <./Pictures/EmbeddedCom/addressSpaceMMU.jpg>] ("FreeRtos ARM uController.bbl")
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 249.
+ [4 <./Pictures/FreeRtosOrg/heap1Alg.png> <./Pictures/EmbeddedCom/addressSpaceMMU.jpg> <./Pictures/STM32F4/powerConsumpt
+ion.png>] ("FreeRtos ARM uController.bbl")
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 258.
  [5
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 249.
- ("FreeRtos ARM uController.aux"
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 258.
+
+("FreeRtos ARM uController.aux"
 Package cleveref Info: loaded `ngerman' language definitions on input line 20.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 249.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 249.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 258.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 258.
 Package rerunfilecheck Info: File `"FreeRtos ARM uController".out' has not changed.
 (rerunfilecheck)             Checksum: 93F2906CC46D6ED82CCACEC389B7DCDC;1624.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 249.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 258.
  ) 
 Here is how much of TeX's memory you used:
- 10824 strings out of 493333
- 161616 string characters out of 3139173
+ 10833 strings out of 493333
+ 161857 string characters out of 3139173
  371463 words of memory out of 3000000
- 14093 multiletter control sequences out of 15000+200000
+ 14099 multiletter control sequences out of 15000+200000
  37617 words of font info for 84 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,12n,58p,3094b,1435s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -981,9 +995,9 @@ iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/
 rogram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8
 a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
 tmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (5 pages, 568476 bytes).
+Output written on "FreeRtos ARM uController.pdf" (5 pages, 760534 bytes).
 PDF statistics:
- 256 PDF objects out of 1000 (max. 8388607)
- 82 named destinations out of 1000 (max. 500000)
- 194 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 260 PDF objects out of 1000 (max. 8388607)
+ 83 named destinations out of 1000 (max. 500000)
+ 199 words of extra memory for PDF output out of 10000 (max. 10000000)
 
