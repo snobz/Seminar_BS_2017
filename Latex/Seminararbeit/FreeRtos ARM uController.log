@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  24 APR 2017 15:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  24 APR 2017 20:17
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -851,144 +851,144 @@ Overfull \hbox (1.3707pt too wide) in paragraph at lines 108--109
  []
 
 
-Overfull \hbox (17.91191pt too wide) in paragraph at lines 114--115
+Overfull \hbox (17.91191pt too wide) in paragraph at lines 128--129
 \OT1/ptm/m/n/10 w[]ohnlich die Stan-dard C Funk-tio-nen []\OT1/pcr/m/n/10 malloc() \OT1/ptm/m/n/10 und []\OT1/pcr/m/n/10
  free()
  []
 
 
-Overfull \hbox (7.25473pt too wide) in paragraph at lines 122--123
+Overfull \hbox (7.25473pt too wide) in paragraph at lines 136--137
 \OT1/ptm/m/n/10 ses Ab-schnitts be-trach-ten. In Fre-eR-TOS wer-den []\OT1/pcr/m/n/10 malloc()
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 124.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 138.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 124.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 138.
 
 <Pictures/Eclipse/Heaps.png, id=114, 117.43875pt x 169.8345pt>
 File: Pictures/Eclipse/Heaps.png Graphic file (type png)
  <use Pictures/Eclipse/Heaps.png>
-Package pdftex.def Info: Pictures/Eclipse/Heaps.png used on input line 131.
+Package pdftex.def Info: Pictures/Eclipse/Heaps.png used on input line 145.
 (pdftex.def)             Requested size: 97.44109pt x 140.91594pt.
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 137.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 151.
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 139.
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 153.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 153.
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 167.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlptm.fd"
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <8> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 153.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 167.
 
 <Pictures/EmbeddedCom/addressSpace.jpg, id=121, 681.29532pt x 831.105pt>
 File: Pictures/EmbeddedCom/addressSpace.jpg Graphic file (type jpg)
  <use Pictures/EmbeddedCom/addressSpace.jpg>
-Package pdftex.def Info: Pictures/EmbeddedCom/addressSpace.jpg used on input line 162.
+Package pdftex.def Info: Pictures/EmbeddedCom/addressSpace.jpg used on input line 176.
 (pdftex.def)             Requested size: 97.44109pt x 118.86487pt.
 
-Overfull \hbox (20.89081pt too wide) in paragraph at lines 128--167
+Overfull \hbox (20.89081pt too wide) in paragraph at lines 142--181
 \OT1/ptm/m/n/10 schied-li-che Bei-spiel Im-ple-men-tie-run-gen (Heap1.c bis Heap5.c),
  []
 
 
-Overfull \hbox (28.29425pt too wide) in paragraph at lines 128--167
+Overfull \hbox (28.29425pt too wide) in paragraph at lines 142--181
 \OT1/ptm/m/n/10 sie-he Ab-bil-dung [][]2[][]. Die-se stel-len prin-zi-pi-ell schon die gel[]aufigsten
  []
 
 
-Overfull \hbox (1.20494pt too wide) in paragraph at lines 128--167
+Overfull \hbox (1.20494pt too wide) in paragraph at lines 142--181
 \OT1/ptm/m/n/10 Im-ple-men-tie-run-gen zur Spei-cher-ver-wal-tung. Es bleibt aber
  []
 
 
-Overfull \hbox (27.0806pt too wide) in paragraph at lines 128--167
+Overfull \hbox (27.0806pt too wide) in paragraph at lines 142--181
 \OT1/ptm/m/n/10 Heap1 et-was tiefer be-trach-ten um ein grunds[]atzliches Verst[]andnis
  []
 
 
-Overfull \hbox (8.33488pt too wide) in paragraph at lines 128--167
+Overfull \hbox (8.33488pt too wide) in paragraph at lines 142--181
 \OT1/ptm/m/n/10 f[]ur die Fre-eR-TOS Spei-cher-ver-wal-tung zu be-kom-men. Heap2
  []
 
 
-Overfull \hbox (5.58589pt too wide) in paragraph at lines 128--167
+Overfull \hbox (5.58589pt too wide) in paragraph at lines 142--181
 \OT1/ptm/m/it/10 Mal-loc() \OT1/ptm/m/n/10 auf-ge-ru-fen wird. Die Funk-ti-on []\OT1/pcr/m/n/10 xTaskCreate()
  []
 
 [2 <./Pictures/EmbeddedCom/cwrtos2f5c.jpg>]
-Overfull \hbox (4.03549pt too wide) in paragraph at lines 169--179
+Overfull \hbox (4.03549pt too wide) in paragraph at lines 183--193
 []\OT1/pcr/m/n/10 configTOTAL_HEAP_SIZE  \OT1/ptm/m/n/10 kon-fi-gu-riert. Die Ge-samt-
  []
 
 
-Overfull \hbox (30.54884pt too wide) in paragraph at lines 169--179
+Overfull \hbox (30.54884pt too wide) in paragraph at lines 183--193
 \OML/cmm/m/it/10 MaxHeapSize \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 Wortbreite$\OT1/ptm/m/n/10 . 
  []
 
-<Pictures/FreeRtosOrg/heap1Alg.png, id=141, 216.81pt x 159.59625pt>
+<Pictures/FreeRtosOrg/heap1Alg.png, id=137, 216.81pt x 159.59625pt>
 File: Pictures/FreeRtosOrg/heap1Alg.png Graphic file (type png)
  <use Pictures/FreeRtosOrg/heap1Alg.png>
-Package pdftex.def Info: Pictures/FreeRtosOrg/heap1Alg.png used on input line 182.
+Package pdftex.def Info: Pictures/FreeRtosOrg/heap1Alg.png used on input line 196.
 (pdftex.def)             Requested size: 146.16534pt x 107.5986pt.
-
-Overfull \hbox (15.53146pt too wide) in paragraph at lines 193--194
+ [3 <./Pictures/Eclipse/Heaps.png> <./Pictures/EmbeddedCom/addressSpace.jpg>]
+Overfull \hbox (15.53146pt too wide) in paragraph at lines 207--208
 []\OT1/ptm/m/n/10 Heap5 - Glei-cher Al-go-rith-mus wie Heap4 al-ler-dings k[]onnen
  []
 
-<Pictures/EmbeddedCom/addressSpaceMMU.jpg, id=142, 1163.0953pt x 981.6675pt>
+<Pictures/EmbeddedCom/addressSpaceMMU.jpg, id=173, 1163.0953pt x 981.6675pt>
 File: Pictures/EmbeddedCom/addressSpaceMMU.jpg Graphic file (type jpg)
 
 <use Pictures/EmbeddedCom/addressSpaceMMU.jpg>
-Package pdftex.def Info: Pictures/EmbeddedCom/addressSpaceMMU.jpg used on input line 201.
+Package pdftex.def Info: Pictures/EmbeddedCom/addressSpaceMMU.jpg used on input line 215.
 (pdftex.def)             Requested size: 146.16534pt x 123.35223pt.
- [3 <./Pictures/Eclipse/Heaps.png> <./Pictures/EmbeddedCom/addressSpace.jpg>]
-Overfull \hbox (7.64133pt too wide) in paragraph at lines 217--218
+
+Overfull \hbox (7.64133pt too wide) in paragraph at lines 231--232
 \OT1/ptm/m/n/10 ef-fi-zi-en-te Nut-zung der Ener-gie-re-sour-cen um einen m[]oglichst
  []
 
 
-Overfull \hbox (4.61456pt too wide) in paragraph at lines 222--224
+Overfull \hbox (4.61456pt too wide) in paragraph at lines 236--238
 \OT1/ptm/m/n/10 rig. In die-sem Ab-schnitt wird ge-zeigt wel-che M[]oglichkeiten
  []
 
 <Pictures/STM32F4/powerConsumption.png, id=175, 505.89pt x 348.55219pt>
 File: Pictures/STM32F4/powerConsumption.png Graphic file (type png)
  <use Pictures/STM32F4/powerConsumption.png>
-Package pdftex.def Info: Pictures/STM32F4/powerConsumption.png used on input line 243.
+Package pdftex.def Info: Pictures/STM32F4/powerConsumption.png used on input line 258.
 (pdftex.def)             Requested size: 194.88219pt x 134.27011pt.
 
-Overfull \hbox (1.10216pt too wide) in paragraph at lines 252--253
+Overfull \hbox (1.10216pt too wide) in paragraph at lines 267--268
 \OT1/ptm/m/n/10 Probleme die bei der Ent-wick-lung auf-tre-ten, H[]aufige Bugs,
  []
 
-[4 <./Pictures/FreeRtosOrg/heap1Alg.png> <./Pictures/EmbeddedCom/addressSpaceMMU.jpg> <./Pictures/STM32F4/powerConsumpti
-on.png>] ("FreeRtos ARM uController.bbl")
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 265.
- [5
+[4 <./Pictures/FreeRtosOrg/heap1Alg.png> <./Pictures/EmbeddedCom/addressSpaceMMU.jpg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 265.
+ ("FreeRtos ARM uController.bbl")
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 280.
+ [5 <./Pictures/STM32F4/powerConsumption.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 280.
  ("FreeRtos ARM uController.aux"
 Package cleveref Info: loaded `ngerman' language definitions on input line 20.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 265.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 265.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 280.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 280.
 Package rerunfilecheck Info: File `"FreeRtos ARM uController".out' has not changed.
 (rerunfilecheck)             Checksum: 93F2906CC46D6ED82CCACEC389B7DCDC;1624.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 265.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 280.
  ) 
 Here is how much of TeX's memory you used:
- 10832 strings out of 493333
- 161846 string characters out of 3139173
- 371463 words of memory out of 3000000
+ 10833 strings out of 493333
+ 161860 string characters out of 3139173
+ 340463 words of memory out of 3000000
  14099 multiletter control sequences out of 15000+200000
  37617 words of font info for 84 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1000,9 +1000,9 @@ iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/
 rogram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8
 a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
 tmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (5 pages, 760565 bytes).
+Output written on "FreeRtos ARM uController.pdf" (5 pages, 761373 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 82 named destinations out of 1000 (max. 500000)
+ 259 PDF objects out of 1000 (max. 8388607)
+ 83 named destinations out of 1000 (max. 500000)
  199 words of extra memory for PDF output out of 10000 (max. 10000000)
 

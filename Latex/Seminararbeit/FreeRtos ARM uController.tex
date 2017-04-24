@@ -110,6 +110,20 @@ FreeRTOS ist im Prinzip nicht an eine spezielle Entwicklungsumgebung gebunden. B
 \subsection{Einrichten und Konfiguration}
 \label{sec:Einrichtung und Konfiguration}
 WIP: Eclipse CTD, RTOS AwareNess , Debugger, FileStructure
+\begin{itemize}
+	\item https://eclipse.org/cdt/
+	\item https://launchpad.net/gcc-arm-embedded
+\item http://gnuarmeclipse.github.io/plugins/download/
+\item http://gnuarmeclipse.github.io/windows-build-tools/
+\item http://gnuarmeclipse.github.io/debug/jlink/
+\item http://gnuarmeclipse.github.io/debug/openocd/
+\item http://freescale.com/lgfiles/updates/Eclipse/KDS
+\item Thread Aware 
+\item Beispiel Projekt
+\item STM32 Cube MX
+\item FreeRtos.org
+\end{itemize}
+
 \subsection{Memory Allocation}
 Beim Erzeugen von RTOS Objekten wie Tasks, Queues oder Semaphore wird Speicher im RAM benötigt. Für die dynamische Speicherverwaltung wird in C und C++ ge\-wöhnlich die Standard C Funktionen \verb|malloc()| und \verb|free()| verwendet. Die Funktion \verb|malloc()| dient zur Allozierung von freiem Speicher und \verb|free()| zur Freigabe von alloziertem Speicher. Für Echtzeitsysteme die auf einem RTOS aufsetzen, sind diese Funktionen aufgrund der folgende Eigenschaften\cite{MasteringFreeRtos} ungeeignet\footnote{Heap3 stellt hier eine Ausnahme dar}:
 \begin{itemize}
@@ -235,6 +249,7 @@ kann die Idle-Hook Funktion aktiviert werden. Diese wird immer aufgerufen, wenn 
 	without the overhead of a separate task.
 	NOTE: vApplicationIdleHook() MUST NOT, UNDER ANY CIRCUMSTANCES,
 	CALL A FUNCTION THAT MIGHT BLOCK. */
+	
 	vApplicationIdleHook();
 }     
 \end{lstlisting}    
