@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  24 APR 2017 20:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  25 APR 2017 21:54
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -687,12 +687,6 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 ) ("FreeRtos ARM uController.aux"
 
-LaTeX Warning: Label `lst:vPortMallocFree' multiply defined.
-
-
-LaTeX Warning: Label `lst:vPortMallocFree@cref' multiply defined.
-
-
 LaTeX Warning: Label `fig:AddressSpaceMMU' multiply defined.
 
 
@@ -701,21 +695,21 @@ LaTeX Warning: Label `fig:AddressSpaceMMU@cref' multiply defined.
 )
 \openout1 = `"FreeRtos ARM uController.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 35.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
@@ -743,7 +737,7 @@ Package grfext Info: Graphics extension search list:
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 \AtBeginShipoutBox=\box33
-Package hyperref Info: Link coloring ON on input line 30.
+Package hyperref Info: Link coloring ON on input line 35.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -753,69 +747,69 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count133
 )
-LaTeX Info: Redefining \ref on input line 30.
-LaTeX Info: Redefining \pageref on input line 30.
-LaTeX Info: Redefining \nameref on input line 30.
+LaTeX Info: Redefining \ref on input line 35.
+LaTeX Info: Redefining \pageref on input line 35.
+LaTeX Info: Redefining \nameref on input line 35.
  ("FreeRtos ARM uController.out")
 ("FreeRtos ARM uController.out")
 \@outlinefile=\write3
 \openout3 = `"FreeRtos ARM uController.out"'.
 
 \c@lstlisting=\count134
-LaTeX Font Info:    Try loading font information for U+msa on input line 47.
+LaTeX Font Info:    Try loading font information for U+msa on input line 52.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 47.
+LaTeX Font Info:    Try loading font information for U+msb on input line 52.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 47.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 52.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Overfull \hbox (5.21057pt too wide) in paragraph at lines 58--59
+Overfull \hbox (5.21057pt too wide) in paragraph at lines 63--64
 \OT1/ptm/m/n/10 vom Echt-zeit-be-triebs-sys-tem be-reit-ge-stell-ten Funk-tio-nen de-
  []
 
 
-Overfull \hbox (2.97401pt too wide) in paragraph at lines 60--61
+Overfull \hbox (2.97401pt too wide) in paragraph at lines 65--66
 \OT1/ptm/m/n/10 de-run-gen an ein Dest-kop Be-triebs-sys-tem ?? Ech-zeit-be-trieb-
  []
 
 
-Overfull \hbox (10.26488pt too wide) in paragraph at lines 60--61
+Overfull \hbox (10.26488pt too wide) in paragraph at lines 65--66
 \OT1/ptm/m/n/10 triebs-sys-te-men. Wie schon an-ge-spro-chen ver-wal-tet ein RTOS
  []
 
 
-Overfull \hbox (4.05693pt too wide) in paragraph at lines 63--65
+Overfull \hbox (4.05693pt too wide) in paragraph at lines 68--70
 \OT1/ptm/m/n/10 Mit der stei-gen-den Leis-tungsf[]ahigkeit von mo-der-nen $\OML/cmm/m/it/10 $ \OT1/ptm/m/n/10 Pro-
  []
 
 
-Overfull \hbox (1.08206pt too wide) in paragraph at lines 63--65
+Overfull \hbox (1.08206pt too wide) in paragraph at lines 68--70
 \OT1/ptm/m/n/10 ge-stell-te Auf-ga-be in den vor-ge-ge-be-nen Gren-zen ausf[]uhren.
  []
 
 
-Overfull \hbox (5.30136pt too wide) in paragraph at lines 63--65
+Overfull \hbox (5.30136pt too wide) in paragraph at lines 68--70
 \OT1/ptm/m/n/10 die Grund-mo-del-le f[]ur den Pro-gram-ma-b-lauf ein-ge-bet-ter Sys-
  []
 
 
-Overfull \hbox (2.98093pt too wide) in paragraph at lines 63--65
+Overfull \hbox (2.98093pt too wide) in paragraph at lines 68--70
 \OT1/ptm/m/n/10 te-ter Sys-te-me l[]asst sich auf drei Mo-del-le zur[]uckf[]uhren (Ab-
  []
 
 
-Overfull \hbox (15.49115pt too wide) in paragraph at lines 63--65
+Overfull \hbox (15.49115pt too wide) in paragraph at lines 68--70
 \OT1/ptm/m/n/10 ter-schied-li-chen Pro-gramm-seg-men-te ist nur durch einen RTOS-
  []
 
 
-Overfull \hbox (1.0645pt too wide) in paragraph at lines 63--65
+Overfull \hbox (1.0645pt too wide) in paragraph at lines 68--70
 \OT1/ptm/m/n/10 Auf-ga-be im zeit-li-chen Rah-men ausf[]uhrt. Wie si-cher-ge-stellt
  []
 
@@ -828,114 +822,277 @@ Non-PDF special ignored!
 File: Pictures/EmbeddedCom/cwrtos2f5c.jpg Graphic file (type jpg)
 
 <use Pictures/EmbeddedCom/cwrtos2f5c.jpg>
-Package pdftex.def Info: Pictures/EmbeddedCom/cwrtos2f5c.jpg used on input line 70.
+Package pdftex.def Info: Pictures/EmbeddedCom/cwrtos2f5c.jpg used on input line 75.
 (pdftex.def)             Requested size: 146.16534pt x 91.06516pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 71.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 72.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 76.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 77.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (4.5258pt too wide) in paragraph at lines 108--109
+Overfull \hbox (4.5258pt too wide) in paragraph at lines 113--114
 \OT1/ptm/m/n/10 lungs-um-ge-bung ge-bun-den. Be-vor ei-ne Ent-wick-lung be-ginnt
  []
 
 
-Overfull \hbox (2.19476pt too wide) in paragraph at lines 108--109
+Overfull \hbox (2.19476pt too wide) in paragraph at lines 113--114
 \OT1/ptm/m/n/10 oder Ope-nOCD un-ter-su-chen. Vie-le der marktg[]angigen Ent-
  []
 
 
-Overfull \hbox (1.3707pt too wide) in paragraph at lines 108--109
+Overfull \hbox (1.3707pt too wide) in paragraph at lines 113--114
 \OT1/ptm/m/n/10 nicht pro-priet[]aren Sei-ten steht Eclip-se CDT zur Verf[]ugung,
  []
 
 
-Overfull \hbox (17.91191pt too wide) in paragraph at lines 128--129
+Overfull \hbox (17.91191pt too wide) in paragraph at lines 133--134
 \OT1/ptm/m/n/10 w[]ohnlich die Stan-dard C Funk-tio-nen []\OT1/pcr/m/n/10 malloc() \OT1/ptm/m/n/10 und []\OT1/pcr/m/n/10
  free()
  []
 
 
-Overfull \hbox (7.25473pt too wide) in paragraph at lines 136--137
+Overfull \hbox (7.25473pt too wide) in paragraph at lines 141--142
 \OT1/ptm/m/n/10 ses Ab-schnitts be-trach-ten. In Fre-eR-TOS wer-den []\OT1/pcr/m/n/10 malloc()
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 138.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 143.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 138.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 143.
 
 <Pictures/Eclipse/Heaps.png, id=114, 117.43875pt x 169.8345pt>
 File: Pictures/Eclipse/Heaps.png Graphic file (type png)
  <use Pictures/Eclipse/Heaps.png>
-Package pdftex.def Info: Pictures/Eclipse/Heaps.png used on input line 145.
+Package pdftex.def Info: Pictures/Eclipse/Heaps.png used on input line 150.
 (pdftex.def)             Requested size: 97.44109pt x 140.91594pt.
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 151.
-LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 153.
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 167.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 156.
 
+
+Package xcolor Warning: Incompatible color definition on input line 158.
+
+
+Package xcolor Warning: Incompatible color definition on input line 158.
+
+
+Package xcolor Warning: Incompatible color definition on input line 158.
+
+
+Package xcolor Warning: Incompatible color definition on input line 158.
+
+
+Package xcolor Warning: Incompatible color definition on input line 158.
+
+
+Package xcolor Warning: Incompatible color definition on input line 158.
+
+
+Package xcolor Warning: Incompatible color definition on input line 158.
+
+
+Package xcolor Warning: Incompatible color definition on input line 158.
+
+
+Package xcolor Warning: Incompatible color definition on input line 158.
+
+
+Package xcolor Warning: Incompatible color definition on input line 158.
+
+
+Package xcolor Warning: Incompatible color definition on input line 158.
+
+
+Package xcolor Warning: Incompatible color definition on input line 159.
+
+
+Package xcolor Warning: Incompatible color definition on input line 159.
+
+
+Package xcolor Warning: Incompatible color definition on input line 159.
+
+
+Package xcolor Warning: Incompatible color definition on input line 159.
+
+
+Package xcolor Warning: Incompatible color definition on input line 159.
+
+
+Package xcolor Warning: Incompatible color definition on input line 159.
+
+
+Package xcolor Warning: Incompatible color definition on input line 159.
+
+
+Package xcolor Warning: Incompatible color definition on input line 159.
+
+
+Package xcolor Warning: Incompatible color definition on input line 159.
+
+
+Package xcolor Warning: Incompatible color definition on input line 159.
+
+
+Package xcolor Warning: Incompatible color definition on input line 159.
+
+
+Package xcolor Warning: Incompatible color definition on input line 159.
+
+
+Package xcolor Warning: Incompatible color definition on input line 159.
+
+
+Package xcolor Warning: Incompatible color definition on input line 159.
+
+
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+
+Package xcolor Warning: Incompatible color definition on input line 171.
+
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 172.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlptm.fd"
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <8> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 167.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 172.
 
-<Pictures/EmbeddedCom/addressSpace.jpg, id=121, 681.29532pt x 831.105pt>
-File: Pictures/EmbeddedCom/addressSpace.jpg Graphic file (type jpg)
- <use Pictures/EmbeddedCom/addressSpace.jpg>
-Package pdftex.def Info: Pictures/EmbeddedCom/addressSpace.jpg used on input line 176.
-(pdftex.def)             Requested size: 97.44109pt x 118.86487pt.
 
-Overfull \hbox (20.89081pt too wide) in paragraph at lines 142--181
+Package xcolor Warning: Incompatible color definition on input line 174.
+
+
+Package xcolor Warning: Incompatible color definition on input line 174.
+
+
+Overfull \hbox (20.89081pt too wide) in paragraph at lines 147--178
 \OT1/ptm/m/n/10 schied-li-che Bei-spiel Im-ple-men-tie-run-gen (Heap1.c bis Heap5.c),
  []
 
 
-Overfull \hbox (28.29425pt too wide) in paragraph at lines 142--181
-\OT1/ptm/m/n/10 sie-he Ab-bil-dung [][]2[][]. Die-se stel-len prin-zi-pi-ell schon die gel[]aufigsten
+Overfull \hbox (25.08087pt too wide) in paragraph at lines 147--178
+\OT1/ptm/m/n/10 wer-den wir Heap1 et-was tiefer be-trach-ten um ein grunds[]atzliches
  []
 
 
-Overfull \hbox (1.20494pt too wide) in paragraph at lines 142--181
-\OT1/ptm/m/n/10 Im-ple-men-tie-run-gen zur Spei-cher-ver-wal-tung. Es bleibt aber
+Overfull \hbox (49.46547pt too wide) in paragraph at lines 147--178
+\OT1/ptm/m/n/10 ti-on \OT1/ptm/m/it/10 pv-Port-Mal-loc() \OT1/ptm/m/n/10 auf-ge-ru-fen wird. Die Funk-ti-on []\OT1/pcr/m
+/n/10 xTaskCreate()
  []
 
+[2 <./Pictures/EmbeddedCom/cwrtos2f5c.jpg>] <Pictures/EmbeddedCom/addressSpace.jpg, id=135, 681.29532pt x 831.105pt>
+File: Pictures/EmbeddedCom/addressSpace.jpg Graphic file (type jpg)
 
-Overfull \hbox (27.0806pt too wide) in paragraph at lines 142--181
-\OT1/ptm/m/n/10 Heap1 et-was tiefer be-trach-ten um ein grunds[]atzliches Verst[]andnis
- []
+<use Pictures/EmbeddedCom/addressSpace.jpg>
+Package pdftex.def Info: Pictures/EmbeddedCom/addressSpace.jpg used on input line 183.
+(pdftex.def)             Requested size: 97.44109pt x 118.86487pt.
 
-
-Overfull \hbox (8.33488pt too wide) in paragraph at lines 142--181
-\OT1/ptm/m/n/10 f[]ur die Fre-eR-TOS Spei-cher-ver-wal-tung zu be-kom-men. Heap2
- []
-
-
-Overfull \hbox (5.58589pt too wide) in paragraph at lines 142--181
-\OT1/ptm/m/it/10 Mal-loc() \OT1/ptm/m/n/10 auf-ge-ru-fen wird. Die Funk-ti-on []\OT1/pcr/m/n/10 xTaskCreate()
- []
-
-[2 <./Pictures/EmbeddedCom/cwrtos2f5c.jpg>]
-Overfull \hbox (4.03549pt too wide) in paragraph at lines 183--193
+Overfull \hbox (4.03549pt too wide) in paragraph at lines 190--200
 []\OT1/pcr/m/n/10 configTOTAL_HEAP_SIZE  \OT1/ptm/m/n/10 kon-fi-gu-riert. Die Ge-samt-
  []
 
 
-Overfull \hbox (30.54884pt too wide) in paragraph at lines 183--193
+Overfull \hbox (30.54884pt too wide) in paragraph at lines 190--200
 \OML/cmm/m/it/10 MaxHeapSize \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 Wortbreite$\OT1/ptm/m/n/10 . 
  []
 
-<Pictures/FreeRtosOrg/heap1Alg.png, id=137, 216.81pt x 159.59625pt>
+[3 <./Pictures/Eclipse/Heaps.png> <./Pictures/EmbeddedCom/addressSpace.jpg>]
+<Pictures/FreeRtosOrg/heap1Alg.png, id=172, 216.81pt x 159.59625pt>
 File: Pictures/FreeRtosOrg/heap1Alg.png Graphic file (type png)
  <use Pictures/FreeRtosOrg/heap1Alg.png>
-Package pdftex.def Info: Pictures/FreeRtosOrg/heap1Alg.png used on input line 196.
+Package pdftex.def Info: Pictures/FreeRtosOrg/heap1Alg.png used on input line 203.
 (pdftex.def)             Requested size: 146.16534pt x 107.5986pt.
- [3 <./Pictures/Eclipse/Heaps.png> <./Pictures/EmbeddedCom/addressSpace.jpg>]
-Overfull \hbox (15.53146pt too wide) in paragraph at lines 207--208
+
+Overfull \hbox (15.53146pt too wide) in paragraph at lines 214--215
 []\OT1/ptm/m/n/10 Heap5 - Glei-cher Al-go-rith-mus wie Heap4 al-ler-dings k[]onnen
  []
 
@@ -943,56 +1100,551 @@ Overfull \hbox (15.53146pt too wide) in paragraph at lines 207--208
 File: Pictures/EmbeddedCom/addressSpaceMMU.jpg Graphic file (type jpg)
 
 <use Pictures/EmbeddedCom/addressSpaceMMU.jpg>
-Package pdftex.def Info: Pictures/EmbeddedCom/addressSpaceMMU.jpg used on input line 215.
+Package pdftex.def Info: Pictures/EmbeddedCom/addressSpaceMMU.jpg used on input line 222.
 (pdftex.def)             Requested size: 146.16534pt x 123.35223pt.
 
-Overfull \hbox (7.64133pt too wide) in paragraph at lines 231--232
-\OT1/ptm/m/n/10 ef-fi-zi-en-te Nut-zung der Ener-gie-re-sour-cen um einen m[]oglichst
+Overfull \hbox (10.01105pt too wide) in paragraph at lines 238--239
+\OT1/ptm/m/n/10 sour-cen um einen m[]oglichst lan-gen Be-trieb zu gew[]ahrleisten.
  []
 
 
-Overfull \hbox (4.61456pt too wide) in paragraph at lines 236--238
-\OT1/ptm/m/n/10 rig. In die-sem Ab-schnitt wird ge-zeigt wel-che M[]oglichkeiten
+Overfull \hbox (32.02094pt too wide) in paragraph at lines 238--239
+\OT1/ptm/m/n/10 Be-zo-gen auf den uPro-zes-sor gibt es im Prin-zip zwei M[]oglichkeiten
  []
 
-<Pictures/STM32F4/powerConsumption.png, id=175, 505.89pt x 348.55219pt>
+<Pictures/STM32F4/powerConsumption.png, id=174, 505.89pt x 348.55219pt>
 File: Pictures/STM32F4/powerConsumption.png Graphic file (type png)
  <use Pictures/STM32F4/powerConsumption.png>
-Package pdftex.def Info: Pictures/STM32F4/powerConsumption.png used on input line 258.
+Package pdftex.def Info: Pictures/STM32F4/powerConsumption.png used on input line 246.
 (pdftex.def)             Requested size: 194.88219pt x 134.27011pt.
 
-Overfull \hbox (1.10216pt too wide) in paragraph at lines 267--268
+Overfull \hbox (12.89436pt too wide) in paragraph at lines 243--252
+\OT1/ptm/m/n/10 ener-gie-ef-fi-zi-en-ten Be-trieb zu gew[]ahrleisten. Ei-ne M[]oglichkeit
+ []
+
+
+Overfull \hbox (5.18478pt too wide) in paragraph at lines 255--256
+\OT1/ptm/m/n/10 n[]achsten Tick In-ter-rupt wie-der die Id-le Task ak-ti-viert. Nach-
+ []
+
+[4 <./Pictures/FreeRtosOrg/heap1Alg.png> <./Pictures/EmbeddedCom/addressSpaceMMU.jpg> <./Pictures/STM32F4/powerConsumpti
+on.png>]
+
+Package xcolor Warning: Incompatible color definition on input line 261.
+
+
+Package xcolor Warning: Incompatible color definition on input line 261.
+
+
+Package xcolor Warning: Incompatible color definition on input line 261.
+
+
+Package xcolor Warning: Incompatible color definition on input line 261.
+
+
+Package xcolor Warning: Incompatible color definition on input line 261.
+
+
+Package xcolor Warning: Incompatible color definition on input line 261.
+
+
+Package xcolor Warning: Incompatible color definition on input line 261.
+
+
+Package xcolor Warning: Incompatible color definition on input line 261.
+
+
+Package xcolor Warning: Incompatible color definition on input line 261.
+
+
+Package xcolor Warning: Incompatible color definition on input line 263.
+
+
+Package xcolor Warning: Incompatible color definition on input line 263.
+
+
+Package xcolor Warning: Incompatible color definition on input line 263.
+
+
+Package xcolor Warning: Incompatible color definition on input line 263.
+
+
+Package xcolor Warning: Incompatible color definition on input line 265.
+
+
+Package xcolor Warning: Incompatible color definition on input line 265.
+
+
+Package xcolor Warning: Incompatible color definition on input line 265.
+
+
+Package xcolor Warning: Incompatible color definition on input line 265.
+
+
+Package xcolor Warning: Incompatible color definition on input line 265.
+
+
+Package xcolor Warning: Incompatible color definition on input line 265.
+
+
+Package xcolor Warning: Incompatible color definition on input line 265.
+
+
+Package xcolor Warning: Incompatible color definition on input line 265.
+
+
+Package xcolor Warning: Incompatible color definition on input line 265.
+
+
+Package xcolor Warning: Incompatible color definition on input line 265.
+
+
+Package xcolor Warning: Incompatible color definition on input line 267.
+
+
+Package xcolor Warning: Incompatible color definition on input line 267.
+
+
+Package xcolor Warning: Incompatible color definition on input line 267.
+
+
+Package xcolor Warning: Incompatible color definition on input line 267.
+
+
+Package xcolor Warning: Incompatible color definition on input line 267.
+
+
+Package xcolor Warning: Incompatible color definition on input line 267.
+
+
+Package xcolor Warning: Incompatible color definition on input line 267.
+
+
+Package xcolor Warning: Incompatible color definition on input line 267.
+
+
+Package xcolor Warning: Incompatible color definition on input line 267.
+
+
+Package xcolor Warning: Incompatible color definition on input line 267.
+
+
+Package xcolor Warning: Incompatible color definition on input line 271.
+
+
+Package xcolor Warning: Incompatible color definition on input line 271.
+
+
+Package xcolor Warning: Incompatible color definition on input line 271.
+
+
+Package xcolor Warning: Incompatible color definition on input line 271.
+
+
+Package xcolor Warning: Incompatible color definition on input line 271.
+
+
+Package xcolor Warning: Incompatible color definition on input line 271.
+
+
+Package xcolor Warning: Incompatible color definition on input line 271.
+
+
+Package xcolor Warning: Incompatible color definition on input line 271.
+
+
+Package xcolor Warning: Incompatible color definition on input line 271.
+
+
+Package xcolor Warning: Incompatible color definition on input line 271.
+
+
+Package xcolor Warning: Incompatible color definition on input line 273.
+
+
+Package xcolor Warning: Incompatible color definition on input line 273.
+
+
+Package xcolor Warning: Incompatible color definition on input line 273.
+
+
+Package xcolor Warning: Incompatible color definition on input line 273.
+
+
+Package xcolor Warning: Incompatible color definition on input line 273.
+
+
+Package xcolor Warning: Incompatible color definition on input line 273.
+
+
+Package xcolor Warning: Incompatible color definition on input line 273.
+
+
+Package xcolor Warning: Incompatible color definition on input line 273.
+
+
+Package xcolor Warning: Incompatible color definition on input line 273.
+
+
+Package xcolor Warning: Incompatible color definition on input line 273.
+
+
+Package xcolor Warning: Incompatible color definition on input line 273.
+
+
+Package xcolor Warning: Incompatible color definition on input line 273.
+
+
+Package xcolor Warning: Incompatible color definition on input line 274.
+
+
+Package xcolor Warning: Incompatible color definition on input line 274.
+
+
+Package xcolor Warning: Incompatible color definition on input line 274.
+
+
+Package xcolor Warning: Incompatible color definition on input line 274.
+
+
+Package xcolor Warning: Incompatible color definition on input line 276.
+
+
+Package xcolor Warning: Incompatible color definition on input line 276.
+
+
+Package xcolor Warning: Incompatible color definition on input line 276.
+
+
+Package xcolor Warning: Incompatible color definition on input line 276.
+
+
+Package xcolor Warning: Incompatible color definition on input line 276.
+
+
+Package xcolor Warning: Incompatible color definition on input line 276.
+
+
+Package xcolor Warning: Incompatible color definition on input line 278.
+
+
+Package xcolor Warning: Incompatible color definition on input line 278.
+
+
+Package xcolor Warning: Incompatible color definition on input line 278.
+
+
+Package xcolor Warning: Incompatible color definition on input line 278.
+
+
+Package xcolor Warning: Incompatible color definition on input line 278.
+
+
+Package xcolor Warning: Incompatible color definition on input line 278.
+
+
+Package xcolor Warning: Incompatible color definition on input line 278.
+
+
+Package xcolor Warning: Incompatible color definition on input line 278.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 289.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 290.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 291.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Package xcolor Warning: Incompatible color definition on input line 293.
+
+
+Overfull \hbox (1.10216pt too wide) in paragraph at lines 303--304
 \OT1/ptm/m/n/10 Probleme die bei der Ent-wick-lung auf-tre-ten, H[]aufige Bugs,
  []
 
-[4 <./Pictures/FreeRtosOrg/heap1Alg.png> <./Pictures/EmbeddedCom/addressSpaceMMU.jpg>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- ("FreeRtos ARM uController.bbl")
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 280.
- [5 <./Pictures/STM32F4/powerConsumption.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 280.
+("FreeRtos ARM uController.bbl")
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 316.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 316.
  ("FreeRtos ARM uController.aux"
 Package cleveref Info: loaded `ngerman' language definitions on input line 20.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 280.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 280.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 316.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 316.
 Package rerunfilecheck Info: File `"FreeRtos ARM uController".out' has not changed.
 (rerunfilecheck)             Checksum: 93F2906CC46D6ED82CCACEC389B7DCDC;1624.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 280.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 316.
  ) 
 Here is how much of TeX's memory you used:
- 10833 strings out of 493333
- 161860 string characters out of 3139173
- 340463 words of memory out of 3000000
- 14099 multiletter control sequences out of 15000+200000
- 37617 words of font info for 84 fonts, out of 3000000 for 9000
+ 10884 strings out of 493333
+ 162836 string characters out of 3139173
+ 429504 words of memory out of 3000000
+ 14130 multiletter control sequences out of 15000+200000
+ 36481 words of font info for 83 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,58p,3094b,1435s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,12n,58p,3094b,1437s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/M
@@ -1000,9 +1652,9 @@ iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/
 rogram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8
 a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
 tmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (5 pages, 761373 bytes).
+Output written on "FreeRtos ARM uController.pdf" (5 pages, 762971 bytes).
 PDF statistics:
- 259 PDF objects out of 1000 (max. 8388607)
- 83 named destinations out of 1000 (max. 500000)
+ 285 PDF objects out of 1000 (max. 8388607)
+ 104 named destinations out of 1000 (max. 500000)
  199 words of extra memory for PDF output out of 10000 (max. 10000000)
 

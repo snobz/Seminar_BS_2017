@@ -8,10 +8,12 @@
 \usepackage{cleveref} % für bequeme Referenzen, siehe \cref unten
 
 %Own Code
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \usepackage{listings}
 \usepackage{xcolor}
 \lstset { %
     language=C++,
+		commentstyle=\color{mygray},
     backgroundcolor= \color{black!4}, % set backgroundcolor
     basicstyle= \small,%\tiny,%\footnotesize,% basic font setting
 		showtabs=false,
@@ -19,6 +21,9 @@
 		breaklines=true,
 		numbers=left,
 		 showspaces=false,
+		showtabs=false,
+		keepspaces=true,
+				 numbersep=1pt,
   showstringspaces=false
 }
 
@@ -140,15 +145,15 @@ und
 void vPortFree( void *pv );
 \end{lstlisting}
 ersetzt. Dies hat den Vorteil, dass die Implementierung dieser Funktionen an die jeweilige Anwendung angepasst werden kann. Grundsätzlich bietet FreeRTOS fünf unterschiedliche Beispiel Implementierungen (Heap1.c bis Heap5.c), siehe Abbildung \ref{fig:HeapsEclipse}. 
-\begin{figure}[hb!]
+\begin{figure}[htb!]
 	\centering
 		\includegraphics[width=0.2\textwidth]{Pictures/Eclipse/Heaps.png}
 	\caption{Einbindung von Heap1. Heap2 bis Heap5 sind vom Build ausgeschlossen}
 	\label{fig:HeapsEclipse}
 \end{figure}   
-Diese stellen prinzipiell schon die geläufigsten Implementierungen zur Speicherverwaltung. Es bleibt aber auch weiterhin die Möglichkeit seine eigene Speicherverwaltung zu implementieren. In dieser Arbeit werden wir Heap1 etwas tiefer betrachten um ein grundsätzliches Verständnis für die FreeRTOS Speicherverwaltung zu bekommen. Heap2 - Heap 5 werden nur kurz beschrieben und können im Detail in \cite{MasteringFreeRtos}\cite{FreeRtosAdvanced} nachgelesen werden.      
+Diese stellen prinzipiell schon die ge\-läu\-figsten Implementierungen zur Speicherverwaltung. Es bleibt aber auch weiterhin die Möglichkeit seine eigene Speicherverwaltung zu implementieren. In dieser Arbeit werden wir Heap1 etwas tiefer betrachten um ein grundsätzliches Verständnis für die FreeRTOS Speicherverwaltung zu bekommen. Heap2 - Heap 5 werden nur kurz beschrieben und können im Detail in \cite{MasteringFreeRtos}\cite{FreeRtosAdvanced} nachgelesen werden.      
 Wie schon am Anfang dieses Abschnitts beschrieben, werden für alle RTOS Objekte Speicher benötigt, der Speicher für Objekte wie Semaphore und Tasks wird automatisch in den Erzeugerfunktionen alloziert, in dem intern die Funktion \textit{pvPortMalloc()} aufgerufen wird. Die Funktion \verb|xTaskCreate()| dient zum Erzeugen einer FreeRTOS Task. Listing \ref{lst:xTaskCreate} zeigt wie \verb|xTaskCreate()| die Funktion \verb|pvPortMalloc()| verwendet (Zeile 5, 11) um Speicher für den Stack und den Task Control Block zu allozieren.
-\begin{lstlisting}[caption={xTaskCreate() memory allocation. Aus Task.c},captionpos=b, label=lst:xTaskCreate, float=hbt]
+\begin{lstlisting}[caption={xTaskCreate() memory allocation. Aus Task.c}, linewidth=8cm,captionpos=b, label=lst:xTaskCreate, float=hbt]
 StackType_t *pxStack;
 /* Allocate space for the stack 
 used by the task being created. */
@@ -170,8 +175,10 @@ if( pxStack != NULL )
 }
 
 \end{lstlisting}
+
+
 Alle Objekte die mittels pvPortMalloc() alloziert werden, darunter auch der Kernel selbst, teilen sich einen gemeinsamen Adressraum, siehe Abbildung \ref{fig:AddressSpace}. Eine Speicherzugriffsverletzung ist somit durchaus möglich. In Abschnitt \ref{sec:Memory Protection} wird gezeigt welche Möglichkeit der STM32F4 und FreeRTOS bieten um Speicherzugriffe sicherer zu gestalten.    
-\begin{figure}[hb!]
+\begin{figure}[htb!]
 	\centering
 		\includegraphics[width=0.2\textwidth]{Pictures/EmbeddedCom/addressSpace.jpg}
 	\caption{Adressraum FreeRtos und Tasks}
@@ -228,22 +235,57 @@ Queues, Semaphore, Notify, Event Groups
 Deamon Task,
 \subsection{Low Power Modes auf Stm32F4}
 \label{sec:Low Power Modes}
-Viele der heutigen Zielsysteme für embedded Anwendungen sind akkubetrieben. Solche Systeme verlangen eine effiziente Nutzung der Energieresourcen um einen möglichst langen Betrieb zu gewährleisten. Bezogen auf den uProzessor gibt es im Prinzip zwei Möglichkeiten Energie einzusparen:
+Echtzeitbetriebssysteme kommen immer häufiger in akkubetriebenen embedded Systemen zum Einsatz. Solche Systeme verlangen eine effiziente Nutzung der Energieressourcen um einen möglichst langen Betrieb zu gewährleisten. Bezogen auf den uProzessor gibt es im Prinzip zwei Möglichkeiten Energie einzusparen:
 \begin{itemize}
 	\item Heruntertakten des uProzessors.
 	\item Das System schlafenlegen, wenn keine weiteren Aufgaben anstehen.
 \end{itemize}
-Das Heruntertakten des uProzessors ist unabhängig vom Einsatz eines RTOS, daher werden wir hier nur den zweiten Punkt genauer betrachten, das Schlafenlegen des uProzessors.   
-In einfachen Anwendung ist der Zustand in dem ein Gerät schlafen gehen kann, relativ leicht zu ermitteln. In komplexen Systemen die auf einem Echtzeitbetriebssystem wie FreeRTOS aufsetzen und mehrere Task auf unterschiedliche Ressourcen warten, wird es schon schwierig. In diesem Abschnitt wird gezeigt welche Möglichkeiten FreeRTOS zur Verfügung stellt, um einen energieeffizienten Betrieb zu gewährleisten. Eine Möglichkeit ist die Idle - Hook Funktion. Wie bereits in Abschnitt \ref{Scheduling} beschrieben, wird die IDLE Task von FreeRTOS aktiviert, sobald sich alle User-Tasks im Blocked Zustand befinden. Durch konfigurieren des Präprozessor-Defines        
-\begin{lstlisting}[caption={Präprozessor define für Idle Hook. Aus FreeRTOSconfig.h},captionpos=b,label=lst:vPortMallocFree, numbers = none]
+Das Heruntertakten des uProzessors ist unabhängig vom Einsatz eines RTOS, daher werden wir hier nur den zweiten Punkt genauer betrachten, das Schlafenlegen des uProzessors. 
+\begin{figure}[htb!]
+	\centering
+		\includegraphics[width=0.4\textwidth]{Pictures/STM32F4/powerConsumption.png}
+	\caption{Energieaufnahme für STM32F4 in SleepModes}
+	\quelle{STM32F4 - Power Modes}
+	\label{fig:AddressSpaceMMU}
+\end{figure}   
+In einfachen Anwendung ist der Zustand in dem ein Gerät schlafen gehen kann, relativ leicht zu ermitteln. In komplexen Systemen die auf einem Echtzeitbetriebssystem wie FreeRTOS aufsetzen und mehrere Task mög\-li\-cherweise auf unterschiedliche Ressourcen warten, wird es schon schwierig. In diesem Abschnitt wird gezeigt welche Funktionen FreeRTOS zur Verfügung stellt, um einen energieeffizienten Betrieb zu gewährleisten. Eine Möglichkeit ist die Idle - Hook Funktion. Wie bereits in Abschnitt \ref{Scheduling} beschrieben, wird die IDLE Task von FreeRTOS aktiviert, sobald sich alle User-Tasks im Blocked Zustand befinden. Durch konfigurieren des Präprozessor-Defines        
+\begin{lstlisting}[label=lst:defineIdleHook, numbers = none]
 #define configUSE_IDLE_HOOK  1; 
 \end{lstlisting}
-kann die Idle-Hook Funktion aktiviert werden. Diese wird immer aufgerufen, wenn die Idle Task in den Zustand Running wechselt. Die Funktionalität der Funktion kann frei vom Entwickler implementiert werden.  
+kann die Idle-Hook Funktion aktiviert werden. Diese wird immer aufgerufen, sobald die Idle Task in den Zustand Running wechselt. Die Funktionalität der Idle-Hook Funktion kann frei vom Entwickler implementiert werden. Listing \ref{lst:xIdleHookExamp} zeigt Pseudocode zu einer beispielhaften Implementierung der Idle Hook Funktion. Bevor das System schlafen gelegt werden kann müssen alle GPIOS und IRQs konfiguriert werden, so dass das System nicht unnötiger weise aufwacht. Des Weiteren werden alle nicht benötigten GPIOS auf Analog gestellt um Energie zu sparen. Als einzige Interrupt-Quelle wird hier eine externe RTC konfiguriert. Mit dem Aufruf von HAL\_PWR\_EnterSTOPMode() wird der uProzessor in den Schlafmodus versetzt. Die Funktion wird erst wieder verlassen sobald der externe Interrupt der RTC ausgelöst wurde. Danach werden alle GPIOs rekonfiguriert. Ein weiterer Schritt der noch unternommen werden muss, ist das informieren einer User-Task z.B. mittels Notify oder Message, so dass das System nicht beim nächsten Tick Interrupt wieder die Idle Task aktiviert. Nachteil dieser Variante ist, dass die Nutzung von Software Timer nicht mehr möglich ist. FreeRTOS würde die Idle Hook Funktion auch aufrufen und sich schlafen legen, wenn noch Software Timer aktiv sind. Die Nutzung von absoluten Zeiten ist ebenfalls nicht mehr möglich, da nach der Deaktivierung des Tick Interrupts der Tickcount nicht mehr korrekt ist. Abhilfe schafft hier eine weitere Funktionalität die FreeRTOS zur Verfügung stell, den sogenannten Tickless Idle Mode. To be continued ....
+
+       
+
+\begin{lstlisting}[caption={Beispiel Implementierung der Idle Hook Funktion},captionpos=b, label=lst:xIdleHookExamp, float=hbt!]
+extern "C" void vApplicationIdleHook( void ){
+	/* Systick Interrupt deaktivieren */
+	SysTick->CTRL &= ~SysTick_CTRL_TICKINT_Msk;
+	//RTC konfigurieren
+	setRTCWakeupTime();
+	//externen Interrupt durch RTC aktivieren
+	enableRTCInterrupt();
+	//deaktiviere alle anderen Interrupt Quellen
+	deactivateExternalDevices();
+	setAllGPIOsToAnalog(); 
+	disableGPIOClocks();
+	//MCU stoppen und schlafen ZzZZz
+	HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI); 
+	//Aufgewacht...the show must go on
+	//aktiviere Systick
+	SysTick->CTRL |= SysTick_CTRL_TICKINT_Msk;
+	//reaktiviere GPIO Clocks
+	enableGPIOClocks();
+	//reaktiviere Externe Interrupt Quellen
+	enableExternalInterrupts();	
+}
+\end{lstlisting}
+
+
+	
 \begin{lstlisting}[caption={Aufruf der IdleTask Hook Funktion. Aus Task.c},captionpos=b, label=lst:xIdleTaskHook, float=hbt!]
 #if ( configUSE_IDLE_HOOK == 1 )
 {
 	extern void vApplicationIdleHook( void );
-
 	/* Call the user defined function from within the idle task.  This
 	allows the application designer to add background functionality
 	without the overhead of a separate task.
@@ -253,13 +295,7 @@ kann die Idle-Hook Funktion aktiviert werden. Diese wird immer aufgerufen, wenn 
 	vApplicationIdleHook();
 }     
 \end{lstlisting}    
-\begin{figure}[hb!]
-	\centering
-		\includegraphics[width=0.4\textwidth]{Pictures/STM32F4/powerConsumption.png}
-	\caption{Energieaufnahme für STM32F4 in SleepModes}
-	\quelle{STM32F4 - Power Modes}
-	\label{fig:AddressSpaceMMU}
-\end{figure} 
+
 
 \subsection{FreeRtos in der Praxis - Ein real System}
 Ad-hoc System? 
