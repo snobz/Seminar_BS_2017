@@ -8,12 +8,12 @@
 \usepackage{cleveref} % für bequeme Referenzen, siehe \cref unten
 
 %Own Code
-\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+
 \usepackage{listings}
 \usepackage{xcolor}
 \lstset { %
     language=C++,
-		commentstyle=\color{mygray},
+		commentstyle=\color{gray},
     backgroundcolor= \color{black!4}, % set backgroundcolor
     basicstyle= \small,%\tiny,%\footnotesize,% basic font setting
 		showtabs=false,
@@ -175,8 +175,6 @@ if( pxStack != NULL )
 }
 
 \end{lstlisting}
-
-
 Alle Objekte die mittels pvPortMalloc() alloziert werden, darunter auch der Kernel selbst, teilen sich einen gemeinsamen Adressraum, siehe Abbildung \ref{fig:AddressSpace}. Eine Speicherzugriffsverletzung ist somit durchaus möglich. In Abschnitt \ref{sec:Memory Protection} wird gezeigt welche Möglichkeit der STM32F4 und FreeRTOS bieten um Speicherzugriffe sicherer zu gestalten.    
 \begin{figure}[htb!]
 	\centering
@@ -185,7 +183,6 @@ Alle Objekte die mittels pvPortMalloc() alloziert werden, darunter auch der Kern
 	\quelle{Colin Walls - Embedded.com}
 	\label{fig:AddressSpace}
 \end{figure}    
-
 \subsubsection{FreeRTOS Heap Implementierungen}
 Bevor Objekte erzeugt werden können, muss ein Pool an Speicher für die Objekte definiert werden. Die einfachste Form einen Memory Pool zu erzeugen ist ein Array. In FreeRTOS nennt sich dieses Array ucHeap. 
 \begin{lstlisting}[label=lst:ucHeap, float=hbt, numbers = none]
@@ -197,7 +194,6 @@ Die Größe des Heaps wird durch das Präprozessor-Define \verb|configTOTAL_HEAP
 $MaxHeapSize = \verb|configTOTAL_HEAP_SIZE| \ast Wortbreite$. 
 \newline
 In unserem Fall ist die Wortbreite 32 bit. Heap1 ist sehr einfach, es deklariert lediglich die Funktion pvPortMalloc(). Die Funktion pvPortFree() wird nicht ausimplementiert. Bei vielen embedded Anwendungen wird der Speicher für die benötigten Objekte vor dem Start des Schedulers erzeugt. Eine spätere Freigabe von diesen Resourcen ist nicht nötig, da die Objekte über die gesamte Laufzeit des Programms bestehen sollen. Genau für solche Anwendungen steht Heap1 zur Verfügung. Abbildung \ref{fig:Heap1} zeigt wie sich der Speicher nach dem Erzeugen von zwei Tasks aussieht. Für jede Task wird ein TCB und ein Stack erzeugt, die Speicherobjekte liegen direkt hintereinander, da pvPortFree() nicht implementiert ist, kommt es auch nicht zu einer Fragmentierung des Speichers. Diese lineare Speicherzuweisung gilt für alle Objekte die mittels pvPortMalloc() alloziert werden, dazu gehören sowohl RTOS spezifische Objekte als auch Objekte die durch den Benutzer erzeugt werden. 
-
 \begin{figure}[ht!]
 	\centering
 		\includegraphics[width=0.3\textwidth]{Pictures/FreeRtosOrg/heap1Alg.png}
@@ -206,14 +202,12 @@ In unserem Fall ist die Wortbreite 32 bit. Heap1 ist sehr einfach, es deklariert
 	\label{fig:Heap1}
 \end{figure}
 Nachfolgend ein Kurzüberblick über die nicht beschriebenen Beispiel Implementierungen.  
-
 \begin{itemize}
 	\item Heap2 - Ähnlich Heap1. Erlaubt Speicherfreigabe. Best Fit Algorithmus zur Speicherallozierung.
 	\item Heap3 - Verwendet C Library Malloc() und free() und deaktiviert den Scheduler zur Speicherallozierung.
 	\item Heap4 - Ähnlich Heap1 und Heap2. Verwendet First Fit Algorithmus zur Speicherallozierung. Verbindet mehrer kleinere Speicherblöcke in einen großen. Minimiert Speicherfragmentierung
 	\item Heap5 - Gleicher Algorithmus wie Heap4 allerdings können mehrere Memory Pools erzeugt werden.
 \end{itemize}
-
 \subsubsection{Memory Protection}
 \label{sec:Memory Protection}
 STM32F4 spezifisch, MPU vorhanden
@@ -252,6 +246,31 @@ In einfachen Anwendung ist der Zustand in dem ein Gerät schlafen gehen kann, re
 \begin{lstlisting}[label=lst:defineIdleHook, numbers = none]
 #define configUSE_IDLE_HOOK  1; 
 \end{lstlisting}
+\begin{lstlisting}[caption={Aufruf der IdleTask Hook Funktion. Aus Task.c},captionpos=b, label=lst:xIdleTaskHook, float=htb!]
+static portTASK_FUNCTION( prvIdleTask, pvParameters )
+{
+	/* Stop warnings. */
+	( void ) pvParameters;
+
+	/** THIS IS THE RTOS IDLE TASK - WHICH IS CREATED AUTOMATICALLY WHEN THE
+	SCHEDULER IS STARTED. **/
+
+	for( ;; )	{
+//skipped some code
+#if ( configUSE_IDLE_HOOK == 1 )
+{
+	extern void vApplicationIdleHook( void );
+	/* Call the user defined function from within the idle task.  This
+	allows the application designer to add background functionality
+	without the overhead of a separate task.
+	NOTE: vApplicationIdleHook() MUST NOT, UNDER ANY CIRCUMSTANCES,
+	CALL A FUNCTION THAT MIGHT BLOCK. */
+	
+	vApplicationIdleHook();
+}
+//guess what.. skiepped more code
+}     
+\end{lstlisting}
 kann die Idle-Hook Funktion aktiviert werden. Diese wird immer aufgerufen, sobald die Idle Task in den Zustand Running wechselt. Die Funktionalität der Idle-Hook Funktion kann frei vom Entwickler implementiert werden. Listing \ref{lst:xIdleHookExamp} zeigt Pseudocode zu einer beispielhaften Implementierung der Idle Hook Funktion. Bevor das System schlafen gelegt werden kann müssen alle GPIOS und IRQs konfiguriert werden, so dass das System nicht unnötiger weise aufwacht. Des Weiteren werden alle nicht benötigten GPIOS auf Analog gestellt um Energie zu sparen. Als einzige Interrupt-Quelle wird hier eine externe RTC konfiguriert. Mit dem Aufruf von HAL\_PWR\_EnterSTOPMode() wird der uProzessor in den Schlafmodus versetzt. Die Funktion wird erst wieder verlassen sobald der externe Interrupt der RTC ausgelöst wurde. Danach werden alle GPIOs rekonfiguriert. Ein weiterer Schritt der noch unternommen werden muss, ist das informieren einer User-Task z.B. mittels Notify oder Message, so dass das System nicht beim nächsten Tick Interrupt wieder die Idle Task aktiviert. Nachteil dieser Variante ist, dass die Nutzung von Software Timer nicht mehr möglich ist. FreeRTOS würde die Idle Hook Funktion auch aufrufen und sich schlafen legen, wenn noch Software Timer aktiv sind. Die Nutzung von absoluten Zeiten ist ebenfalls nicht mehr möglich, da nach der Deaktivierung des Tick Interrupts der Tickcount nicht mehr korrekt ist. Abhilfe schafft hier eine weitere Funktionalität die FreeRTOS zur Verfügung stell, den sogenannten Tickless Idle Mode. To be continued ....
 
        
@@ -279,24 +298,6 @@ extern "C" void vApplicationIdleHook( void ){
 	enableExternalInterrupts();	
 }
 \end{lstlisting}
-
-
-	
-\begin{lstlisting}[caption={Aufruf der IdleTask Hook Funktion. Aus Task.c},captionpos=b, label=lst:xIdleTaskHook, float=hbt!]
-#if ( configUSE_IDLE_HOOK == 1 )
-{
-	extern void vApplicationIdleHook( void );
-	/* Call the user defined function from within the idle task.  This
-	allows the application designer to add background functionality
-	without the overhead of a separate task.
-	NOTE: vApplicationIdleHook() MUST NOT, UNDER ANY CIRCUMSTANCES,
-	CALL A FUNCTION THAT MIGHT BLOCK. */
-	
-	vApplicationIdleHook();
-}     
-\end{lstlisting}    
-
-
 \subsection{FreeRtos in der Praxis - Ein real System}
 Ad-hoc System? 
 \section{Komplexität durch Nebenläufigkeit}

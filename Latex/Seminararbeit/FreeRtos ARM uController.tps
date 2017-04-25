@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=FreeRtos ARM uController.tex
 
 [Frame0_View0,0]
-TopLine=354
-Cursor=22723
+TopLine=345
+Cursor=21224
 
 [Frame1]
 Flags=0
@@ -35,7 +35,7 @@ Class=BibTeXView
 Document=literatur.bib
 
 [Frame1_View0,0]
-TopLine=119
+TopLine=123
 Cursor=4134
 
 [SessionInfo]
