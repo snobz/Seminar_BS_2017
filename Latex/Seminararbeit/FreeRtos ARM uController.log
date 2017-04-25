@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  25 APR 2017 21:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  25 APR 2017 22:03
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -1054,19 +1054,8 @@ Package xcolor Warning: Incompatible color definition on input line 174.
 Package xcolor Warning: Incompatible color definition on input line 174.
 
 
-Overfull \hbox (20.89081pt too wide) in paragraph at lines 147--178
-\OT1/ptm/m/n/10 schied-li-che Bei-spiel Im-ple-men-tie-run-gen (Heap1.c bis Heap5.c),
- []
-
-
-Overfull \hbox (25.08087pt too wide) in paragraph at lines 147--178
-\OT1/ptm/m/n/10 wer-den wir Heap1 et-was tiefer be-trach-ten um ein grunds[]atzliches
- []
-
-
-Overfull \hbox (49.46547pt too wide) in paragraph at lines 147--178
-\OT1/ptm/m/n/10 ti-on \OT1/ptm/m/it/10 pv-Port-Mal-loc() \OT1/ptm/m/n/10 auf-ge-ru-fen wird. Die Funk-ti-on []\OT1/pcr/m
-/n/10 xTaskCreate()
+Overfull \hbox (7.01093pt too wide) in paragraph at lines 147--178
+\OT1/ptm/m/n/10 schied-li-che Bei-spiel Im-ple-men-tie-run-gen (Heap1 bis Heap5),
  []
 
 [2 <./Pictures/EmbeddedCom/cwrtos2f5c.jpg>] <Pictures/EmbeddedCom/addressSpace.jpg, id=135, 681.29532pt x 831.105pt>
@@ -1107,19 +1096,14 @@ Overfull \hbox (10.01105pt too wide) in paragraph at lines 238--239
 \OT1/ptm/m/n/10 sour-cen um einen m[]oglichst lan-gen Be-trieb zu gew[]ahrleisten.
  []
 
-
-Overfull \hbox (32.02094pt too wide) in paragraph at lines 238--239
-\OT1/ptm/m/n/10 Be-zo-gen auf den uPro-zes-sor gibt es im Prin-zip zwei M[]oglichkeiten
- []
-
 <Pictures/STM32F4/powerConsumption.png, id=174, 505.89pt x 348.55219pt>
 File: Pictures/STM32F4/powerConsumption.png Graphic file (type png)
  <use Pictures/STM32F4/powerConsumption.png>
 Package pdftex.def Info: Pictures/STM32F4/powerConsumption.png used on input line 246.
 (pdftex.def)             Requested size: 194.88219pt x 134.27011pt.
 
-Overfull \hbox (12.89436pt too wide) in paragraph at lines 243--252
-\OT1/ptm/m/n/10 ener-gie-ef-fi-zi-en-ten Be-trieb zu gew[]ahrleisten. Ei-ne M[]oglichkeit
+Overfull \hbox (1.32458pt too wide) in paragraph at lines 243--252
+\OT1/ptm/m/n/10 ener-gie-ef-fi-zi-en-ten Be-trieb zu gew[]ahrleisten. Ei-ne M[]og-lich-
  []
 
 
@@ -1652,7 +1636,7 @@ iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/
 rogram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8
 a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
 tmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (5 pages, 762971 bytes).
+Output written on "FreeRtos ARM uController.pdf" (5 pages, 762993 bytes).
 PDF statistics:
  285 PDF objects out of 1000 (max. 8388607)
  104 named destinations out of 1000 (max. 500000)
