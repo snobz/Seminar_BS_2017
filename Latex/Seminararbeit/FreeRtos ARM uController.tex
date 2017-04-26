@@ -50,10 +50,10 @@
 
 \maketitle
 
-\keywords{RTOS, FreeRtos, ARM , STM32, Real Time.}
+\keywords{RTOS, FreeRTOS, ARM , STM32, Real Time.}
 
 \abstract{
-Im Rahmen dieser Arbeit wird das Echtzeitbetriebssystem FreeRtos vorgestellt. Hierzu werden zu Beginn die allgemeinen Eigenschaften für Echtzeitbetriebssysteme beschrieben. Im Verlauf des Textes wird an ausgewählten Beispielen dargestellt, wie FreeRos diese Anforderungen berücksichtigt und durch geeignete Programmfunktionen umsetzt.
+Im Rahmen dieser Arbeit wird das Echtzeitbetriebssystem FreeRTOS vorgestellt. Hierzu werden zu Beginn die allgemeinen Eigenschaften für Echtzeitbetriebssysteme beschrieben. Im Verlauf des Textes wird an ausgewählten Beispielen dargestellt, wie FreeRos diese Anforderungen berücksichtigt und durch geeignete Programmfunktionen umsetzt.
 
 
 WIP: Gliederung hat sich geändert
@@ -65,10 +65,10 @@ Desktop Betriebssysteme verwalten den Hardwarezugriff und stellen sicher, dass e
 WIP: Gefällt insgesamt noch nicht, benötigen wir Anforderungen an ein Destkop Betriebssystem ?? Echzeitbetriebsysteme unterscheiden sich erheblich von normalen Betriebssystemen. Wie schon angesprochen verwaltet ein RTOS nur die Zeit (Scheduler) + Speicher (Memory Allocation) 
 
 \subsection{Echtzeitsysteme und Echtzeitbetriebssysteme}
-Mit der steigenden Leistungsfähigkeit von modernen $\mu$ Prozessoren, steigen auch die Anforderungen an die Software die auf diese Systeme aufsetzt. Viele dieser Systeme verlangen trotz ihrer Komplexität, dass Teile des Programmablauf in bestimmten zeitlichen Grenzen ausgeführt wird und somit vorhersehbar und deterministisch sind. Systeme die eine solche Anforderung unterliegen werden Echtzeitsysteme genannt. Echtzeitsysteme unterliegen einer weiteren Unterteilung in weiche Echtzeitsystem (soft realtime systems) und harte Echtzeitsysteme (hard realtime systems). Ein weiches Echtzeitsysteme soll eine Aufgabe in den vorgegeben zeitlichen Grenzen ausführen, ein über\-schreiten ist aber erlaubt und führt nicht unmittelbar zu einem Fehler. Ein hartes Echtzeitsystem hingegen muss die gestellte Aufgabe in den vorgegebenen Grenzen ausführen. Eine Überschreitung macht das System unbrauchbar. Einige Beispielsysteme und deren Echtzeitzuordnung wir in Tabelle \ref{tab:BeispieleEchzeitsystem} gezeigt. Um die grundsätzliche Funktionalität eines Echtzeitbetriebssystems zu erläutern, müssen zu erst die Grundmodelle für den Programmablauf eingebetter Systeme beschrieben werden. Der Programmablauf eingebetteter Systeme lässt sich auf drei Modelle zurückführen (Abbildung \ref{fig:Programmablauf}). Eingebettete Anwendungen können in einer einzigen Schleife (mit oder ohne Interrupt Unterbrechungen) laufen oder aber in event-gesteuerten nebenläufigen eigenständigen Programmabschnitten (Thread oder Task\footnote{Nachfolgenden wird Task benutzt, da dies der geläufige Begriff bei FreeRtos ist. In der Literatur zu Echtzeitsystemen ist der Begriff nicht exakt definiert.}) ausgeführt werden. Die nebenläufige Ausführung der unterschiedlichen Programmsegmente ist nur durch einen RTOS-Kernel (Scheduler) zu erreichen. Ein RTOS Kernel abstrahiert Timing Informationen und kümmert sich darum, dass die nächste Task rechtzeitig ausgeführt wird. Der Entwickler ist dafür verantwortlich, dass die Task die gewünschte Aufgabe im zeitlichen Rahmen ausführt. Wie sichergestellt werden kann, dass eine Task  harten oder weichen Echtzeitanforderungen entspricht wird Abschnitt \ref{sec:Echtzeitanalyse} beschrieben. Für viele kleine Anwendungen kann die Nutzung einer einzigen Schleife durchaus sinnvoll sein, sollten beispielsweise die Ressourcen so knapp sein, dass ein Overhead an Funktionalität ausgeschlossen werden muss. Ein großer Nachteil der "`einschleifen Variante"' ist die permanente Nutzung des Prozessors. Besonders bei akkubetriebenen Geräten wie IoT Devices oder Mobiltelefonen wird sehr genau auf die Energieaufnahme geachtet. Ein RTOS bietet hingegen Funktionen mit denen sehr leicht ermittelt werden kann, ob ein Gerät in einen Schlafmodus wechseln kann, dies wird in Abschnitt \ref{sec:Low Power Modes} an Beispielen von FreeRtos und einem ARM $\mu$Prozessor demonstriert. Neben der Echtzeitfähig gibt es aber noch viele weitere Vorzüge für den Einsatz eines Echtzeitbetriebssystems.  
+Mit der steigenden Leistungsfähigkeit von modernen $\mu$ Prozessoren, steigen auch die Anforderungen an die Software die auf diese Systeme aufsetzt. Viele dieser Systeme verlangen trotz ihrer Komplexität, dass Teile des Programmablauf in bestimmten zeitlichen Grenzen ausgeführt wird und somit vorhersehbar und deterministisch sind. Systeme die eine solche Anforderung unterliegen werden Echtzeitsysteme genannt. Echtzeitsysteme unterliegen einer weiteren Unterteilung in weiche Echtzeitsystem (soft realtime systems) und harte Echtzeitsysteme (hard realtime systems). Ein weiches Echtzeitsysteme soll eine Aufgabe in den vorgegeben zeitlichen Grenzen ausführen, ein über\-schreiten ist aber erlaubt und führt nicht unmittelbar zu einem Fehler. Ein hartes Echtzeitsystem hingegen muss die gestellte Aufgabe in den vorgegebenen Grenzen ausführen. Eine Überschreitung macht das System unbrauchbar. Einige Beispielsysteme und deren Echtzeitzuordnung wir in Tabelle \ref{tab:BeispieleEchzeitsystem} gezeigt. Um die grundsätzliche Funktionalität eines Echtzeitbetriebssystems zu erläutern, müssen zu erst die Grundmodelle für den Programmablauf eingebetter Systeme beschrieben werden. Der Programmablauf eingebetteter Systeme lässt sich auf drei Modelle zurückführen (Abbildung \ref{fig:Programmablauf}). Eingebettete Anwendungen können in einer einzigen Schleife (mit oder ohne Interrupt Unterbrechungen) laufen oder aber in event-gesteuerten nebenläufigen eigenständigen Programmabschnitten (Thread oder Task\footnote{Nachfolgenden wird Task benutzt, da dies der geläufige Begriff bei FreeRTOS ist. In der Literatur zu Echtzeitsystemen ist der Begriff nicht exakt definiert.}) ausgeführt werden. Die nebenläufige Ausführung der unterschiedlichen Programmsegmente ist nur durch einen RTOS-Kernel (Scheduler) zu erreichen. Ein RTOS Kernel abstrahiert Timing Informationen und kümmert sich darum, dass die nächste Task rechtzeitig ausgeführt wird. Der Entwickler ist dafür verantwortlich, dass die Task die gewünschte Aufgabe im zeitlichen Rahmen ausführt. Wie sichergestellt werden kann, dass eine Task  harten oder weichen Echtzeitanforderungen entspricht wird Abschnitt \ref{sec:Echtzeitanalyse} beschrieben. Für viele kleine Anwendungen kann die Nutzung einer einzigen Schleife durchaus sinnvoll sein, sollten beispielsweise die Ressourcen so knapp sein, dass ein Overhead an Funktionalität ausgeschlossen werden muss. Ein großer Nachteil der "`einschleifen Variante"' ist die permanente Nutzung des Prozessors. Besonders bei akkubetriebenen Geräten wie IoT Devices oder Mobiltelefonen wird sehr genau auf die Energieaufnahme geachtet. Ein RTOS bietet hingegen Funktionen mit denen sehr leicht ermittelt werden kann, ob ein Gerät in einen Schlafmodus wechseln kann, dies wird in Abschnitt \ref{sec:Low Power Modes} an Beispielen von FreeRTOS und einem ARM $\mu$Prozessor demonstriert. Neben der Echtzeitfähig gibt es aber noch viele weitere Vorzüge für den Einsatz eines Echtzeitbetriebssystems.  
 Durch das Herunterbrechen der Anwendung in Task entstehen viele kleine Module, die jeweils eine kleine Teilaufgabe des Gesamtsystems übernehmen.Durch ein sauber definiertes Interface zur Kommunikation der Tasks, lässt sich die Entwicklungsarbeit leicht auf mehrere Entwickler-Teams verteilen. Dies ermöglicht auch den Einsatz von agilen Entwicklungsmethoden wie Scrum in der Entwicklung von eingebetteten Systemen. 
 
-WIP: Christophs Part integrieren, Überleitung FreeRtos  
+WIP: Christophs Part integrieren, Überleitung FreeRTOS  
 \newline  
 \begin{figure}
 	\centering
@@ -79,20 +79,19 @@ WIP: Christophs Part integrieren, Überleitung FreeRtos
 \end{figure}
 
 \begin{table*}
-	\centering
-		\begin{tabular}{|l|l|}
+	\begin{tabular}{|l|l|}
 		\hline
-			   Beispiel & Echtzeit Typ \\
-				\hline
-  Tastatur Controller & Soft Realtime \\
-	\hline
-  Echtzeit Media Streaming  & Soft Realtime \\
-	\hline
-	Controller CD Laufwerk  & Hard Realtime \\
-	\hline
-	Airbag System  & Hard Realtime\\
-	\hline
-		\end{tabular}
+		\textbf{Beispiel} & \textbf{Echtzeit Typ} \\
+		\hline
+		Tastatur Controller & Soft Realtime \\
+		\hline
+		Echtzeit Media Streaming  & Soft Realtime \\
+		\hline
+		Controller CD Laufwerk  & Hard Realtime \\
+		\hline
+		Airbag System  & Hard Realtime\\
+		\hline
+	\end{tabular}
 	\caption{Beispiele Echzeitsystem}
 	\label{tab:BeispieleEchzeitsystem}
 \end{table*}
@@ -108,9 +107,9 @@ WIP: Christophs Part integrieren, Überleitung FreeRtos
 \subsection{Geschichte}
 WIP: Christoph
 \subsection{Zielsysteme STM32F4 (ARM Cortex M3)}
-32 bit Prozessor - Funktionsübersicht, Hinweis Port Teil von FreeRtos
+32 bit Prozessor - Funktionsübersicht, Hinweis Port Teil von FreeRTOS
 \subsection{Entwicklungsumgebung}
-FreeRTOS ist im Prinzip nicht an eine spezielle Entwicklungsumgebung gebunden. Bevor eine Entwicklung be\-ginnt ist es dennoch ratsam sich einen Überblick über die ver\-fügbaren IDEs\footnote{Integrated Development Environment} zu machen. Der wichtigste Punkt der hier zu nennen ist, ist das Debugging. Da ein Echtzeitbetriebssystem eine weitere Abstraktionsebene hinzufügt und wie eine Art Middleware fungiert, lassen Sich viele RTOS spezifische Funktionen und Eigenschaften wie Queues, Task Stacks etc. nur mühsam mit einem Debugger wie GDB oder OpenOCD untersuchen. Viele der marktgängigen Entwicklungsumgebungen bieten daher spezielle RTOS aware Pakete, so dass ein einfacherer Zugriff auf RTOS Objekte und Eigenschaften möglich ist. Wie die RTOS awareness beim Debugging eingesetzt wird und welche Funktionalitäten sie einem Entwickler bietet wird in Abschnitt \ref{sec:Debugging von Echtzeitsystemen} aufgezeigt. Ein weiterer Punkt der bei der Auswahl der IDE getroffen werden muss sind die Kosten. Bei Propritäre IDEs können oft mehrere tausend Euro Lizenzkosten anfallen, bieten aber den Vorteil der nahtlosen Einbindungen von $\mu$Prozessoren und Echtzeitbetriebssystem (RTOS awareness). Bei der Entwicklung von ARM uProzessoren sind hier Keil (Arm), IAR Workbench und True Studio (Atollic) zu nennen. Diese Entwicklungsumgebungen lassen sich zum Teil auch frei verwenden, allerdings mit starken Einschränkungen wie z.B. maximal Codesize. Auf der nicht proprietären Seiten steht Eclipse CDT zur Verfügung, es ist komplett frei in der Verwendung und hat keine Beschränkungen. Nachteil ist hier, dass die Integration nicht so einfach ist wie bei den proprietären IDEs. RTOS awarness wird bei Eclipse durch die Installation weiterer Plugins erreicht. Ein weiterer Nachteil ist, dass es keine Beispielprojekte für Eclipse CDT und FreeRtos zur Verfügung stehen, daher müssen Projekte von Grund auf selbst konfiguriert und installiert werden. Da im Laufe dieser Arbeit Eclipse CDT für alle Beispiele verwendet wird, wird in Abschnitt \ref{sec:Einrichtung und Konfiguration} das Aufsetzen einer Basiskonfiguration erklärt. 
+FreeRTOS ist im Prinzip nicht an eine spezielle Entwicklungsumgebung gebunden. Bevor eine Entwicklung be\-ginnt ist es dennoch ratsam sich einen Überblick über die ver\-fügbaren IDEs\footnote{Integrated Development Environment} zu machen. Der wichtigste Punkt der hier zu nennen ist, ist das Debugging. Da ein Echtzeitbetriebssystem eine weitere Abstraktionsebene hinzufügt und wie eine Art Middleware fungiert, lassen Sich viele RTOS spezifische Funktionen und Eigenschaften wie Queues, Task Stacks etc. nur mühsam mit einem Debugger wie GDB oder OpenOCD untersuchen. Viele der marktgängigen Entwicklungsumgebungen bieten daher spezielle RTOS aware Pakete, so dass ein einfacherer Zugriff auf RTOS Objekte und Eigenschaften möglich ist. Wie die RTOS awareness beim Debugging eingesetzt wird und welche Funktionalitäten sie einem Entwickler bietet wird in Abschnitt \ref{sec:Debugging von Echtzeitsystemen} aufgezeigt. Ein weiterer Punkt der bei der Auswahl der IDE getroffen werden muss sind die Kosten. Bei Propritäre IDEs können oft mehrere tausend Euro Lizenzkosten anfallen, bieten aber den Vorteil der nahtlosen Einbindungen von $\mu$Prozessoren und Echtzeitbetriebssystem (RTOS awareness). Bei der Entwicklung von ARM uProzessoren sind hier Keil (Arm), IAR Workbench und True Studio (Atollic) zu nennen. Diese Entwicklungsumgebungen lassen sich zum Teil auch frei verwenden, allerdings mit starken Einschränkungen wie z.B. maximal Codesize. Auf der nicht proprietären Seiten steht Eclipse CDT zur Verfügung, es ist komplett frei in der Verwendung und hat keine Beschränkungen. Nachteil ist hier, dass die Integration nicht so einfach ist wie bei den proprietären IDEs. RTOS awarness wird bei Eclipse durch die Installation weiterer Plugins erreicht. Ein weiterer Nachteil ist, dass es keine Beispielprojekte für Eclipse CDT und FreeRTOS zur Ver\-fü\-gung stehen, daher müssen Projekte von Grund auf selbst konfiguriert und installiert werden. Da im Laufe dieser Arbeit Eclipse CDT für alle Beispiele verwendet wird, wird in Abschnitt \ref{sec:Einrichtung und Konfiguration} das Aufsetzen einer Basiskonfiguration erklärt. 
 
 \subsection{Einrichten und Konfiguration}
 \label{sec:Einrichtung und Konfiguration}
@@ -126,11 +125,11 @@ WIP: Eclipse CTD, RTOS AwareNess , Debugger, FileStructure
 \item Thread Aware 
 \item Beispiel Projekt
 \item STM32 Cube MX
-\item FreeRtos.org
+\item FreeRTOS.org
 \end{itemize}
 
 \subsection{Memory Allocation}
-Beim Erzeugen von RTOS Objekten wie Tasks, Queues oder Semaphore wird Speicher im RAM benötigt. Für die dynamische Speicherverwaltung wird in C und C++ ge\-wöhnlich die Standard C Funktionen \verb|malloc()| und \verb|free()| verwendet. Die Funktion \verb|malloc()| dient zur Allozierung von freiem Speicher und \verb|free()| zur Freigabe von alloziertem Speicher. Für Echtzeitsysteme die auf einem RTOS aufsetzen, sind diese Funktionen aufgrund der folgende Eigenschaften\cite{MasteringFreeRtos} ungeeignet\footnote{Heap3 stellt hier eine Ausnahme dar}:
+Beim Erzeugen von RTOS Objekten wie Tasks, Queues oder Semaphore wird Speicher im RAM benötigt. Für die dynamische Speicherverwaltung wird in C und C++ ge\-wöhnlich die Standard C Funktionen \verb|malloc()| und \verb|free()| verwendet. Die Funktion \verb|malloc()| dient zur Allozierung von freiem Speicher und \verb|free()| zur Freigabe von alloziertem Speicher. Für Echtzeitsysteme die auf einem RTOS aufsetzen, sind diese Funktionen aufgrund der folgende Eigenschaften\cite{MasteringFreeRTOS} ungeeignet\footnote{Heap3 stellt hier eine Ausnahme dar}:
 \begin{itemize}
 	\item nicht thread safe
 	\item nicht deterministisch
@@ -151,7 +150,7 @@ ersetzt. Dies hat den Vorteil, dass die Implementierung dieser Funktionen an die
 	\caption{Einbindung von Heap1. Heap2 bis Heap5 sind vom Build ausgeschlossen}
 	\label{fig:HeapsEclipse}
 \end{figure}   
-Diese stellen prinzipiell schon die ge\-läu\-figsten Implementierungen zur Speicherverwaltung. Es bleibt aber auch weiterhin die Möglichkeit seine eigene Speicherverwaltung zu implementieren. In dieser Arbeit werden wir Heap1 etwas tiefer betrachten um ein grund\-sätz\-liches Verständnis für die FreeRTOS Speicherverwaltung zu bekommen. Heap2 - Heap 5 werden nur kurz beschrieben und können im Detail in \cite{MasteringFreeRtos}\cite{FreeRtosAdvanced} nachgelesen werden.      
+Diese stellen prinzipiell schon die ge\-läu\-figsten Implementierungen zur Speicherverwaltung. Es bleibt aber auch weiterhin die Möglichkeit seine eigene Speicherverwaltung zu implementieren. In dieser Arbeit werden wir Heap1 etwas tiefer betrachten um ein grund\-sätz\-liches Verständnis für die FreeRTOS Speicherverwaltung zu bekommen. Heap2 - Heap 5 werden nur kurz beschrieben und können im Detail in \cite{MasteringFreeRTOS}\cite{FreeRTOSAdvanced} nachgelesen werden.      
 Wie schon am Anfang dieses Abschnitts beschrieben, werden für alle RTOS Objekte Speicher benötigt, der Speicher für Objekte wie Semaphore und Tasks wird automatisch in den Erzeugerfunktionen alloziert, in dem intern die Funktion \textit{pvPortMalloc()} aufgerufen wird. Die Funktion \verb|xTaskCreate()| dient zum Erzeugen einer FreeRTOS Task. Listing \ref{lst:xTaskCreate} zeigt wie \verb|xTaskCreate()| die Funktion \verb|pvPortMalloc()| verwendet (Zeile 5, 11) um Speicher für den Stack und den Task Control Block zu allozieren.
 \begin{lstlisting}[caption={xTaskCreate() memory allocation. Aus Task.c}, linewidth=8cm,captionpos=b, label=lst:xTaskCreate, float=hbt]
 StackType_t *pxStack;
@@ -179,7 +178,7 @@ Alle Objekte die mittels pvPortMalloc() alloziert werden, darunter auch der Kern
 \begin{figure}[htb!]
 	\centering
 		\includegraphics[width=0.2\textwidth]{Pictures/EmbeddedCom/addressSpace.jpg}
-	\caption{Adressraum FreeRtos und Tasks}
+	\caption{Adressraum FreeRTOS und Tasks}
 	\quelle{Colin Walls - Embedded.com}
 	\label{fig:AddressSpace}
 \end{figure}    
@@ -196,9 +195,9 @@ $MaxHeapSize = \verb|configTOTAL_HEAP_SIZE| \ast Wortbreite$.
 In unserem Fall ist die Wortbreite 32 bit. Heap1 ist sehr einfach, es deklariert lediglich die Funktion pvPortMalloc(). Die Funktion pvPortFree() wird nicht ausimplementiert. Bei vielen embedded Anwendungen wird der Speicher für die benötigten Objekte vor dem Start des Schedulers erzeugt. Eine spätere Freigabe von diesen Resourcen ist nicht nötig, da die Objekte über die gesamte Laufzeit des Programms bestehen sollen. Genau für solche Anwendungen steht Heap1 zur Verfügung. Abbildung \ref{fig:Heap1} zeigt wie sich der Speicher nach dem Erzeugen von zwei Tasks aussieht. Für jede Task wird ein TCB und ein Stack erzeugt, die Speicherobjekte liegen direkt hintereinander, da pvPortFree() nicht implementiert ist, kommt es auch nicht zu einer Fragmentierung des Speichers. Diese lineare Speicherzuweisung gilt für alle Objekte die mittels pvPortMalloc() alloziert werden, dazu gehören sowohl RTOS spezifische Objekte als auch Objekte die durch den Benutzer erzeugt werden. 
 \begin{figure}[ht!]
 	\centering
-		\includegraphics[width=0.3\textwidth]{Pictures/FreeRtosOrg/heap1Alg.png}
+		\includegraphics[width=0.3\textwidth]{Pictures/FreeRTOSOrg/heap1Alg.png}
 	\caption{Beispiel Speicherbelegung nach drei Instanziierung von Tasks}
-	\quelle{FreeRtos.org}
+	\quelle{FreeRTOS.org}
 	\label{fig:Heap1}
 \end{figure}
 Nachfolgend ein Kurzüberblick über die nicht beschriebenen Beispiel Implementierungen.  
@@ -214,7 +213,7 @@ STM32F4 spezifisch, MPU vorhanden
 \begin{figure}[hb!]
 	\centering
 		\includegraphics[width=0.3\textwidth]{Pictures/EmbeddedCom/addressSpaceMMU}
-	\caption{Adressraum FreeRtos und Tasks mit Memory Protection}
+	\caption{Adressraum FreeRTOS und Tasks mit Memory Protection}
 	\quelle{Colin Walls - Embedded.com}
 	\label{fig:AddressSpaceMMU}
 \end{figure} 
@@ -240,9 +239,10 @@ Das Heruntertakten des uProzessors ist unabhängig vom Einsatz eines RTOS, daher
 		\includegraphics[width=0.4\textwidth]{Pictures/STM32F4/powerConsumption.png}
 	\caption{Energieaufnahme für STM32F4 in SleepModes}
 	\quelle{STM32F4 - Power Modes}
-	\label{fig:AddressSpaceMMU}
-\end{figure}   
-In einfachen Anwendung ist der Zustand in dem ein Gerät schlafen gehen kann, relativ leicht zu ermitteln. In komplexen Systemen die auf einem Echtzeitbetriebssystem wie FreeRTOS aufsetzen und mehrere Task mög\-li\-cherweise auf unterschiedliche Ressourcen warten, wird es schon schwierig. In diesem Abschnitt wird gezeigt welche Funktionen FreeRTOS zur Verfügung stellt, um einen energieeffizienten Betrieb zu gewährleisten. Eine Mög\-lich\-keit ist die Idle - Hook Funktion. Wie bereits in Abschnitt \ref{Scheduling} beschrieben, wird die IDLE Task von FreeRTOS aktiviert, sobald sich alle User-Tasks im Blocked Zustand befinden. Durch konfigurieren des Präprozessor-Defines        
+	\label{fig:powerconsum}
+\end{figure}
+Abbildung \ref{fig:powerconsum} zeigt wie sich die Stromaufnahme beim STM32F4 von 40mA (@168 MHz) auf 2,2$\mu$A im Tiefschlafmodus reduzieren lässt. 
+In einfachen Anwendung ist der Zustand in dem ein Gerät schlafen gehen kann, relativ leicht zu ermitteln. In komplexen Systemen die auf einem Echtzeitbetriebssystem wie FreeRTOS aufsetzen und mehrere Task mög\-li\-cherweise auf unterschiedliche Ressourcen warten, wird es schon schwierig. In diesem Abschnitt wird gezeigt welche Funktionen FreeRTOS zur Ver\-fü\-gung stellt, um einen energieeffizienten Betrieb zu gewährleisten. Eine Mög\-lich\-keit ist die Idle - Hook Funktion. Wie bereits in Abschnitt \ref{Scheduling} beschrieben, wird die IDLE Task von FreeRTOS aktiviert, sobald sich alle User-Tasks im Blocked Zustand befinden. Durch konfigurieren des Präprozessor-Defines        
 \begin{lstlisting}[label=lst:defineIdleHook, numbers = none]
 #define configUSE_IDLE_HOOK  1; 
 \end{lstlisting}
@@ -268,13 +268,10 @@ static portTASK_FUNCTION( prvIdleTask, pvParameters )
 	
 	vApplicationIdleHook();
 }
-//guess what.. skiepped more code
+//guess what.. skipped more code
 }     
 \end{lstlisting}
 kann die Idle-Hook Funktion aktiviert werden. Diese wird immer aufgerufen, sobald die Idle Task in den Zustand Running wechselt. Die Funktionalität der Idle-Hook Funktion kann frei vom Entwickler implementiert werden. Listing \ref{lst:xIdleHookExamp} zeigt Pseudocode zu einer beispielhaften Implementierung der Idle Hook Funktion. Bevor das System schlafen gelegt werden kann müssen alle GPIOS und IRQs konfiguriert werden, so dass das System nicht unnötiger weise aufwacht. Des Weiteren werden alle nicht benötigten GPIOS auf Analog gestellt um Energie zu sparen. Als einzige Interrupt-Quelle wird hier eine externe RTC konfiguriert. Mit dem Aufruf von HAL\_PWR\_EnterSTOPMode() wird der uProzessor in den Schlafmodus versetzt. Die Funktion wird erst wieder verlassen sobald der externe Interrupt der RTC ausgelöst wurde. Danach werden alle GPIOs rekonfiguriert. Ein weiterer Schritt der noch unternommen werden muss, ist das informieren einer User-Task z.B. mittels Notify oder Message, so dass das System nicht beim nächsten Tick Interrupt wieder die Idle Task aktiviert. Nachteil dieser Variante ist, dass die Nutzung von Software Timer nicht mehr möglich ist. FreeRTOS würde die Idle Hook Funktion auch aufrufen und sich schlafen legen, wenn noch Software Timer aktiv sind. Die Nutzung von absoluten Zeiten ist ebenfalls nicht mehr möglich, da nach der Deaktivierung des Tick Interrupts der Tickcount nicht mehr korrekt ist. Abhilfe schafft hier eine weitere Funktionalität die FreeRTOS zur Verfügung stell, den sogenannten Tickless Idle Mode. To be continued ....
-
-       
-
 \begin{lstlisting}[caption={Beispiel Implementierung der Idle Hook Funktion},captionpos=b, label=lst:xIdleHookExamp, float=hbt!]
 extern "C" void vApplicationIdleHook( void ){
 	/* Systick Interrupt deaktivieren */
@@ -298,7 +295,7 @@ extern "C" void vApplicationIdleHook( void ){
 	enableExternalInterrupts();	
 }
 \end{lstlisting}
-\subsection{FreeRtos in der Praxis - Ein real System}
+\subsection{FreeRTOS in der Praxis - Ein real System}
 Ad-hoc System? 
 \section{Komplexität durch Nebenläufigkeit}
 Probleme die bei der Entwicklung auftreten, Häufige Bugs, Speicherüberlauf (Stacktools)
