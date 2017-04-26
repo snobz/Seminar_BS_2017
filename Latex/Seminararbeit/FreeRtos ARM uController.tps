@@ -35,7 +35,7 @@ Class=BibTeXView
 Document=literatur.bib
 
 [Frame1_View0,0]
-TopLine=109
+TopLine=110
 Cursor=4134
 
 [SessionInfo]
