@@ -1,12 +1,17 @@
 \begin{thebibliography}{1}
 
-\bibitem{FreeRTOSAdvanced}
+\bibitem{FreeRtosAdvanced}
 R.~Barry.
-\newblock Freertos implemenation - advanced.
+\newblock Freertos.org implemenation - advanced.
 
-\bibitem{MasteringFreeRTOS}
+\bibitem{MasteringFreeRtos}
 R.~Barry.
 \newblock {\em Mastering the FreeRtos Real time Kernel}.
 \newblock Real time Engineers Ltd., pre-release 161204 edition edition, 2016.
+
+\bibitem{RTOSRevealed}
+C.~Walls.
+\newblock Rtos revealed.
+\newblock {\em Embedded.com}, 2016-2017.
 
 \end{thebibliography}

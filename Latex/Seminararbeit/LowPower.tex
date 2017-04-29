@@ -19,7 +19,7 @@ In einfachen Anwendung ist der Zustand in dem ein Gerät schlafen gehen kann, re
 \begin{lstlisting}[label=lst:defineIdleHook, numbers = none]
 #define configUSE_IDLE_HOOK  1; 
 \end{lstlisting}
-\begin{lstlisting}[caption={Aufruf der IdleTask Hook Funktion. Aus Task.c},captionpos=b, label=lst:xIdleTaskHook, float=htb!]
+\begin{lstlisting}[caption={Aufruf der IdleTask Hook Funktion durch die FreeRTOS Idle Task. Aus Task.c},captionpos=b, label=lst:xIdleTaskHook, float=htb!]
 static portTASK_FUNCTION( prvIdleTask, pvParameters )
 {
 	/* Stop warnings. */
@@ -30,7 +30,7 @@ static portTASK_FUNCTION( prvIdleTask, pvParameters )
 
 	for( ;; )	{
 //skipped some code
-#if ( configUSE_IDLE_HOOK == 1 )
+if ( configUSE_IDLE_HOOK == 1 )
 {
 	extern void vApplicationIdleHook( void );
 	/* Call the user defined function from within the idle task.  This
@@ -44,7 +44,7 @@ static portTASK_FUNCTION( prvIdleTask, pvParameters )
 //guess what.. skipped more code
 }     
 \end{lstlisting}
-kann die Idle-Hook Funktion aktiviert werden. Diese wird immer aufgerufen, sobald die Idle Task in den Zustand Running wechselt. Die Funktionalität der Idle-Hook Funktion kann frei vom Entwickler implementiert werden. Listing \ref{lst:xIdleHookExamp} zeigt Pseudocode zu einer beispielhaften Implementierung der Idle Hook Funktion. Bevor das System schlafen gelegt werden kann müssen alle GPIOS und IRQs konfiguriert werden, so dass das System nicht unnötiger weise aufwacht. Des Weiteren werden alle nicht benötigten GPIOS auf Analog gestellt um Energie zu sparen. Als einzige Interrupt-Quelle wird hier eine externe RTC konfiguriert. Mit dem Aufruf von HAL\_PWR\_EnterSTOPMode() wird der uProzessor in den Schlafmodus versetzt. Die Funktion wird erst wieder verlassen sobald der externe Interrupt der RTC ausgelöst wurde. Danach werden alle GPIOs rekonfiguriert. Ein weiterer Schritt der noch unternommen werden muss, ist das informieren einer User-Task z.B. mittels Notify oder Message, so dass das System nicht beim nächsten Tick Interrupt wieder die Idle Task aktiviert. Nachteil dieser Variante ist, dass die Nutzung von Software Timer nicht mehr möglich ist. Der FreeRTOS Kernel würde die Idle Hook Funktion auch aufrufen und sich schlafen legen, wenn noch Software Timer aktiv sind. Die Nutzung von absoluten Zeiten ist ebenfalls nicht mehr möglich, da nach der Deaktivierung des Tick Interrupts der Tickcount nicht mehr korrekt ist. Abhilfe schafft hier eine weitere Funktionalität die FreeRTOS zur Verfügung stell, den sogenannten Tickless Idle Mode. To be continued ....
+kann die Idle-Hook Funktion aktiviert werden. Diese wird immer aufgerufen, sobald die Idle Task in den Zustand Running wechselt. Die Funktionalität der Idle-Hook Funktion kann frei vom Entwickler implementiert werden. 
 \begin{lstlisting}[caption={Pseudocode für eine Idle Hook Funktion},captionpos=b, label=lst:xIdleHookExamp, float=hbt!]
 extern "C" void vApplicationIdleHook( void ){
 	/* Systick Interrupt deaktivieren */
@@ -68,3 +68,9 @@ extern "C" void vApplicationIdleHook( void ){
 	enableExternalInterrupts();	
 }
 \end{lstlisting}
+Listing \ref{lst:xIdleHookExamp} zeigt Pseudocode zu einer beispielhaften Implementierung der Idle Hook Funktion. Bevor das System schlafen gelegt werden kann müssen alle GPIOS und IRQs konfiguriert werden, so dass das System nicht unnötiger weise aufwacht. Des Weiteren werden alle nicht benötigten GPIOS auf Analog gestellt um Energie zu sparen. Als einzige Interrupt-Quelle wird hier eine externe RTC konfiguriert. Mit dem Aufruf von HAL\_PWR\_EnterSTOPMode() wird der uProzessor in den Schlafmodus versetzt. Die Funktion wird erst wieder verlassen sobald der externe Interrupt der RTC ausgelöst wurde. Danach werden alle GPIOs rekonfiguriert. Ein weiterer Schritt der noch unternommen werden muss, ist das informieren einer User-Task z.B. mittels Notify oder Message, so dass das System nicht beim nächsten Tick Interrupt wieder die Idle Task aktiviert. Nachteil dieser Variante ist, dass die Nutzung von Software Timer nicht mehr möglich ist. Der FreeRTOS Kernel würde die Idle Hook Funktion auch aufrufen und sich schlafen legen, wenn noch Software Timer aktiv sind. Die Nutzung von absoluten Zeiten ist ebenfalls nicht mehr möglich, da nach der Deaktivierung des Tick Interrupts der Tickcount nicht mehr korrekt ist. Abhilfe schafft hier eine weitere Funktionalität die FreeRTOS zur Verfügung stell, den sogenannten Tickless Idle Mode. Tickless idle kann durch das folgende Define in der FreeRTOSconfig.h aktiviert werden.  
+\begin{lstlisting}[label=lst:defineTicklessIdle, numbers = none]
+#define configUSE_TICKLESS_IDLE  1; 
+\end{lstlisting}
+Im Gegensatz zur gewöhnlichen Idle Hook Funktion be\-rück\-sich\-tigt der Tickless Idle Mode alle ausstehenden Timerfunktionen, dazu gehören alle Software Timer aber auch Tasks die nur für eine gewisse Zeit blockiert sind z.B. durch die Funktion xTaskWaitUntil(). Des Weiteren muss der Tickinterrupt nicht wie in Listing \ref{lst:xIdleHookExamp} explizit abgeschaltet werden, dies wird hier automatisch durch den Kernel gehandelt. Der Tickless Idle Mode bietet durch die Funktion vTaskStepTick() auch die Möglichkeit den TickCount nach dem Aufwachen anzupassen. Die verpassten TickCounts können beispielsweise durch einen externen Timer oder RTC bestimmt werden. So ist es auch möglich Software Timer für absolute Zeiten zu nutzen. Details und Beispiel Implementierungen hierzu findet man unter \cite{FreeRtosAdvanced}.  
+
