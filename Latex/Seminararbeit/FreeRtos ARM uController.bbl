@@ -9,6 +9,16 @@ R.~Barry.
 \newblock {\em Mastering the FreeRtos Real time Kernel}.
 \newblock Real time Engineers Ltd., pre-release 161204 edition edition, 2016.
 
+\bibitem{RealTimePerformance}
+D.~B. Stewart.
+\newblock Measuring execution time and real-time performance.
+\newblock In {\em Embedded System Conference}, 2006.
+
+\bibitem{9783827373427}
+A.~S. Tanenbaum.
+\newblock {\em Moderne Betriebssysteme}.
+\newblock Pearson Studium.
+
 \bibitem{RTOSRevealed}
 C.~Walls.
 \newblock Rtos revealed.

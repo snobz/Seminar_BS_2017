@@ -1,4 +1,20 @@
 %!TEX root = FreeRtos ARM uController.tex
 \subsection{Echtzeitanalyse}
-Uff :)
 \label{sec:Echtzeitanalyse} 
+\begin{equation}
+	\scriptstyle 
+		\sum \limits_{i=1}^m\frac{C_i}{P_1}\leq 1
+\label{eq:scheduable1}
+\end{equation}
+aus \cite{9783827373427}
+% \label{FormelZumReferenzieren}0 < m \le k(y,t) \le M < \infty.
+
+
+\begin{equation}
+\scriptstyle 
+	 \stackrel{min}{0 < 1 \leq D_i}\left(\sum \limits_{i=1}^{min(i,n_{intr})}\frac{C_j + 2\Delta_{intr}}{t}\left\lceil \frac{t}{T_j}\right\rceil+\\
+	\sum \limits_{j=n_{intr+1}}^{i}\frac{C_j + 2\Delta_{thr}}{t}\left\lceil \frac{t}{T_j}\right\rceil\right)\leq 1
+	\label{eq:scheduable2}
+\end{equation}
+aus \cite{RealTimePerformance}
+
