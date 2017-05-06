@@ -1,19 +1,68 @@
 %!TEX root = FreeRtos ARM uController.tex
 \subsection{Scheduling}
 \label{Scheduling}
-Under Construction :D
+Der Scheduler ist die Kernkomponente jedes Echtzeitbetriebssystem Kernels, da er eine quasi parallele Ausführung von Tasks ermöglicht. Eine Task stellt dabei ein ei\-gen\-stän\-di\-ge lauffähige Programmeinheit dar und wird gewöhnlich in einer Schleife ausgeführt. Listing \ref{lst:TaskExam1} zeigt ein minimal Beispiel einer Task und den Start des Schedulers durch vTaskStartScheduler() in der main function. 
+\begin{lstlisting}[caption={Minimal Beispiel für die Definition eine Task. }, linewidth=8cm,captionpos=b, label=lst:TaskExam1, float=hbt]
+ void main( void )
+ {
+	//Task werden oft vor dem Start des Schedulers erzeugt.
+	xTaskCreate( vTaskCode,
+							"NAME",
+							STACK_SIZE,
+							NULL,
+							tskIDLE_PRIORITY,
+							NULL );
+   // Scheduler wird gestartet
+   vTaskStartScheduler();
+   // Hier sollten wir nicht hinkommen, da der Scheduler laeuft.
+ }
 
-Der Scheduler ist die Kernkomponente jedes Echtzeitbetriebssystem Kernels. Der FreeRTOS Scheduler ermöglicht eine quasi parallele Ausführung von Tasks. Auf einem uProzessor mit nur einem Kern kann immer nur eine Task zur Zeit ausgeführt werden.  Welche Task als nächstes ausgeführt wird, wird durch den Schedulingalgorithmus bestimmt. Der Schedulingalgorithmus des FreeRTOS Kernels basiert auf Round Robin\cite{9783827373427}. Alle Tasks gleicher Priorität werden in einer Liste verwaltet. Jede Task erhält ein gewisses Zeitquantum, nach Ablauf des Zeitquantum wird ein Kontextwechsel durchgeführt und die nächste Task in der Liste erhält Prozessorzeit. Die Ausgelaufene Task wird hinten an die Liste angefügt.
-
+void vTaskCode( void * pvParameters )
+{
+    for( ;; ){
+        /* Task code wird hier Implementiert
+				 z.B. warten auf eine Nachricht*/
+    }
+		/* Hier sollten wir nicht hinkommen*/
+		vTaskDelete( NULL );
+}
+\end{lstlisting}
+Folgende Zu\-stän\-de kann eine FreeRTOS Task annehmen: 
+\begin{itemize}
+	\item Running
+	\item Blocked
+	\item Ready
+	\item Suspended
+\end{itemize}
+Abbildung \ref{fig:TaskStates} zeigt alle Tran\-si\-tions\-über\-gänge einer FreeRTOS Task. 
 \begin{figure}[ht!]
 	\centering
 		\includegraphics[width=0.3\textwidth]{Pictures/FreeRTOSOrg/taskStates.png}
-	\caption{Task States. Quelle~\protect\citeA{MasteringFreeRtos} - Not referenced yet}
+	\caption{Task States. Quelle~\protect\citeA{MasteringFreeRtos}}
 	\label{fig:TaskStates}
 \end{figure}
-
-Da in FreeRTOS jeder Task eine gewisse Priorität zugewiesen wird, gibt es auch für jede Priorität genau eine Liste, welche alle Task dieser Priorität verwaltet. Der FreeRTOS Scheduling Algorithmus kann durch Konfigurations Präprozessor-defines angepasst werden. Der Scheduler kann entweder im Coperative Modus oder im Preemption modus ausgeführt werden. Die Konfiguration wird durch das define configUSE\_PREEMPTION geändert. Im Preemtive Modus wird eine aktive Task mit niedriger Priorität sofort von einer Task mit höherer Priorität verdrängt und ein Kontextwechsel wird durchgeführte. Im kooperativen Modus hingegen wird ein Taskwechsel erst durchgeführt, wenn eine Task den Prozessor explizit abgibt z.B. durch TaskYield(). Abbildung \ref{PreVSCo} zeigt den Vergleich beider Modis durch einen beispielhaften Ablauf. Eine weitere Option die sich über das define configUSE\_TIME\_SLICING aktivieren lässt ist das Time Slicing. Durch Time Slicing wird die zugeteilte Prozessorzeit für Task gleicher Priorität gleichmäßig aufgeteilt. Dies geschieht durch Einführung fester TickInterrupt Intervalle. Bei jedem TickInterrupt überprüft der Scheduler ob sich eine Task gleicher Priorität im Ready Zustand befindet. Sollte es eine solche Task geben wird ein Kontextwechsel durchgeführt und die Task erhält den Prozessor zugeteilt. Die häufigst verwendete Scheduling Algorithmus nennt sich Prioritized Pre-emptive Scheduling with Time Slicing.
-
+Auf einem uProzessor mit einem Kern kann sich immer nur eine Task im Running Zustand befinden. Alle Tasks im Ready Zustand sind bereit und warten auf ihre Ausführung durch den Scheduler. Tasks die sich im Blocked Zustand befinden sind nicht bereit und warten auf ein Synchronisations- oder ein Timer Event. Eine Task die vTaskSuspend() aufruft wird vom Scheduling Vorgang ausgeschlossen und nimmt den Zustand Suspended an. Erst nach den Aufruf von vTaskResume() verlässt die Task den Suspended Zustand.  Welche Task als nächstes vom Zustand Ready in den Zustand Running wechselt, wird durch den Schedulingalgorithmus bestimmt. Der Schedulingalgorithmus des FreeRTOS Kernels basiert auf Round Robin\cite{9783827373427}. Alle Tasks gleicher Priorität werden in einer Liste verwaltet. Jede Task in der Liste erhält ein gewisses Zeitquantum, welches bestimmt wie lange einer Task der Prozessor zugeteilt wird. Nach Ablauf des Zeitquantum wird ein Kontextwechsel durchgeführt und die nächste Task in der Liste erhält Prozessorzeit. Die Ausgelaufene Task wird durch den Scheduler automatisch hinten an die Liste angefügt. 
+\begin{lstlisting}[caption={Pre-emptive List selection aus Task.c}, linewidth=8cm,captionpos=b, label=lst:nextTask, float=hbt]
+#define taskSELECT_HIGHEST_PRIORITY_TASK(){																									
+	UBaseType_t uxTopPriority = uxTopReadyPriority;														
+		/* Find the highest priority queue that contains ready tasks. */								
+		while(listLIST_IS_EMPTY(&(pxReadyTasksLists[ uxTopPriority ]))){																								
+			configASSERT( uxTopPriority );																
+			--uxTopPriority;																			
+		}																								
+		/* listGET_OWNER_OF_NEXT_ENTRY indexes through the list, so the tasks of						
+		the	same priority get an equal share of the processor time. */									
+		listGET_OWNER_OF_NEXT_ENTRY(pxCurrentTCB, &(pxReadyTasksLists[uxTopPriority]));			
+		uxTopReadyPriority = uxTopPriority;																
+	} /* taskSELECT_HIGHEST_PRIORITY_TASK */
+\end{lstlisting}
+Da in FreeRTOS jeder Task eine gewisse Priorität zugewiesen wird, gibt es auch für jede Priorität genau eine Liste. Der FreeRTOS Scheduling Algorithmus kann durch Konfigurations Präprozessor-defines angepasst werden. Der Scheduler kann entweder im Cooperative Modus oder im Preemption Modus ausgeführt werden. Die Konfiguration wird durch das define configUSE\_PREEMPTION geändert. Im Preemtive Modus wird eine aktive Task mit niedriger Priorität sofort von einer Task mit höherer Priorität verdrängt und ein Kontextwechsel wird durchgeführte. Im kooperativen Modus hingegen wird ein Taskwechsel erst durchgeführt, wenn eine Task den Prozessor explizit abgibt z.B. durch TaskYield(). Abbildung \ref{fig:PreVSCo} zeigt den Vergleich beider Modis durch einen beispielhaften Ablauf. Eine weitere Option die sich über das define configUSE\_TIME\_SLICING aktivieren lässt ist das sogenannte Zeitschlitzverfahren. Durch das Zeitschlitzverfahren wird die zugeteilte Prozessorzeit für Task gleicher Priorität gleichmäßig aufgeteilt. Dies geschieht durch Einführung fester TickInterrupt Intervalle. Bei jedem TickInterrupt überprüft der Scheduler ob sich eine Task gleicher Priorität im Ready Zustand befindet. Sollte es eine solche Task geben wird ein Kontextwechsel durchgeführt und die Task erhält den Prozessor zugeteilt. Die häufigst verwendete Scheduling Algorithmus nennt sich Prioritized Pre-emptive Scheduling with Time Slicing.
+\begin{figure}[ht!]
+	\centering
+		\includegraphics[width=0.5\textwidth]{Pictures/EMCUIT/PreemptiveCooperative.png}
+	\caption{Pre-emptive vs. Co-operative. Quelle~\protect\citeA{MasteringFreeRtos} - Not referenced yet}
+	\label{fig:PreVSCo}
+\end{figure}
 
 \begin{itemize}
 	\item Tickcount
@@ -21,26 +70,6 @@ Da in FreeRTOS jeder Task eine gewisse Priorität zugewiesen wird, gibt es auch 
 	\item IDLE Task
 	\item Priorität nicht durch Scheduler
 \end{itemize}
-                   
- 
-
-Idle Task darf nicht blockiert werden. Idle Task automatisch erstellt nach vTaskStartScheduler. Idle Task räumt auf.  
-Blocked - Running :D FSM fertig
-Scheduler ändert die Priorität nicht, Änderungen sind aber erlaubt.
-Pre-emption : hohe Prio haut low Prio raus
-Round Robin : Task dürfen sich abwechseln in dem der Kontext gesichert wird und der Kontext einer anderen Task geladen wird.
-Task mit gleicher Prio wechseln sich ab
-Time Slicing: verteilt die processing Zeit auf Task mit gleicher Prio, indem nach jedem Zeitschlitz ein Taskwechsel durchgeführt wird.
-
-Cooperative Scheduling in dem Preemption deaktiviert. task wechsel durch task yield.
-Leichter externe ressourcen zu managen in Coopoerative, da der task wechsel selbst bestimmt werden kann. 
-
-\begin{figure}[ht!]
-	\centering
-		\includegraphics[width=0.5\textwidth]{Pictures/EMCUIT/PreemptiveCooperative.png}
-	\caption{Pre-emptive vs. Co-operative. Quelle~\protect\citeA{MasteringFreeRtos} - Not referenced yet}
-	\label{fig:PreVSCo}
-\end{figure}
 
 \begin{lstlisting}[caption={Implementierung von SysTick aus Task.c}, linewidth=8cm,captionpos=b, label=lst:SysTickS, float=hbt]
 void xPortSysTickHandler( void ){
@@ -60,24 +89,8 @@ void xPortSysTickHandler( void ){
 	}
 	portENABLE_INTERRUPTS();
 }
-\begin{lstlisting}
-
-\begin{lstlisting}[caption={Pre-emptive List selection aus Task.c}, linewidth=8cm,captionpos=b, label=lst:nextTask, float=hbt]
-#define taskSELECT_HIGHEST_PRIORITY_TASK(){																									
-	UBaseType_t uxTopPriority = uxTopReadyPriority;														
-																										
-		/* Find the highest priority queue that contains ready tasks. */								
-		while( listLIST_IS_EMPTY( &( pxReadyTasksLists[ uxTopPriority ] ) ) )							
-		{																								
-			configASSERT( uxTopPriority );																
-			--uxTopPriority;																			
-		}																								
-		/* listGET_OWNER_OF_NEXT_ENTRY indexes through the list, so the tasks of						
-		the	same priority get an equal share of the processor time. */									
-		listGET_OWNER_OF_NEXT_ENTRY( pxCurrentTCB, &( pxReadyTasksLists[ uxTopPriority ] ) );			
-		uxTopReadyPriority = uxTopPriority;																
-	} /* taskSELECT_HIGHEST_PRIORITY_TASK */
 \end{lstlisting}
+
 
 \begin{lstlisting}[caption={Implementierung von Kontextwechsel aus Task.c}, linewidth=8cm,captionpos=b, label=lst:taskSwitch, float=hbt]
 void vTaskSwitchContext( void )
