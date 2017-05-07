@@ -64,9 +64,7 @@ void vPortFree( void *pv )
 	configASSERT( pv == NULL );
 }
 
-\end{lstlisting}
-
-   
+\end{lstlisting} 
 Diese stellen prinzipiell schon die ge\-läu\-figsten Implementierungen zur Speicherverwaltung. Es bleibt aber auch weiterhin die Möglichkeit seine eigene Speicherverwaltung zu implementieren. In dieser Arbeit werden wir Heap1 etwas genauer betrachten um ein grund\-sätz\-liches Verständnis für die FreeRTOS Speicherverwaltung zu bekommen. Heap2 - Heap 5 werden nur kurz beschrieben und können im Detail in \cite{MasteringFreeRtos}\cite{FreeRtosAdvanced} nachgelesen werden.      
 Wie schon am Anfang dieses Abschnitts beschrieben, werden für alle RTOS Objekte Speicher benötigt, der Speicher für Objekte wie Semaphore und Tasks wird automatisch in den Erzeugerfunktionen alloziert, in dem intern die Funktion \textit{pvPortMalloc()} aufgerufen wird. Die Erzeugerfunktion xTaskCreate() beispielsweise, erzeugt eine FreeRTOS Task. Listing \ref{lst:xTaskCreate} zeigt wie xTaskCreate() die Funktion pvPortMalloc() verwendet (Zeile 5, 11) um Speicher für den Stack und den Task Control Block zu allozieren.
 \begin{lstlisting}[caption={xTaskCreate() memory allocation. Aus Task.c}, linewidth=8cm,captionpos=b, label=lst:xTaskCreate, float=hbt]
@@ -91,7 +89,7 @@ if( pxStack != NULL )
 }
 \end{lstlisting}
 Alle Objekte die mittels pvPortMalloc() alloziert werden, darunter auch der Kernel selbst, teilen sich einen gemeinsamen Adressraum, siehe Abbildung \ref{fig:AddressSpace}. Eine Speicherzugriffsverletzung ist somit durchaus möglich. In Abschnitt \ref{sec:Memory Protection} wird gezeigt welche Möglichkeit der STM32F4 und FreeRTOS bieten um Speicherzugriffe sicherer zu gestalten.    
-\begin{figure}[htb!]
+\begin{figure}[htb]
 	\centering
 		\includegraphics[width=0.2\textwidth]{Pictures/EmbeddedCom/addressSpace.jpg}
 	\caption{Adressraum FreeRTOS und Tasks. Quelle~\protect\citeA{RTOSRevealed}}
