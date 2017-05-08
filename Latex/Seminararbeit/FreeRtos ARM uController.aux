@@ -27,8 +27,8 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Echtzeitsysteme und Echtzeitbetriebssysteme}{1}{subsection.1.1}}
 \newlabel{sec:Echtzeitsysteme}{{1.1}{1}{Echtzeitsysteme und Echtzeitbetriebssysteme}{subsection.1.1}{}}
 \newlabel{sec:Echtzeitsysteme@cref}{{[subsection][1][1]1.1}{1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \IeC {\"U}bersicht Programmabl\IeC {\"a}ufe in embedded Anwendungen. Quelle~\citeA {RTOSRevealed}}}{1}{figure.1}}
-\newlabel{fig:Programmablauf}{{1}{1}{Übersicht Programmabläufe in embedded Anwendungen. Quelle~\protect \citeA {RTOSRevealed}}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \IeC {\"U}bersicht Programmabl\IeC {\"a}ufe in embedded Anwendungen. Unterscheidung von zwei Hauptkategorien: Schleifen-gesteurte Anwendungen und Event-gesteurte Anwendungen. Bild-Quelle~\citeA {RTOSRevealed}}}{1}{figure.1}}
+\newlabel{fig:Programmablauf}{{1}{1}{Übersicht Programmabläufe in embedded Anwendungen. Unterscheidung von zwei Hauptkategorien: Schleifen-gesteurte Anwendungen und Event-gesteurte Anwendungen. Bild-Quelle~\protect \citeA {RTOSRevealed}}{figure.1}{}}
 \newlabel{fig:Programmablauf@cref}{{[figure][1][]1}{1}}
 \citation{MasteringFreeRtos}
 \@writefile{toc}{\contentsline {section}{\numberline {2}FreeRTOS}{2}{section.2}}
@@ -42,41 +42,42 @@
 \citation{MasteringFreeRtos}
 \citation{FreeRtosAdvanced}
 \citation{RTOSRevealed}
+\citation{RTOSRevealed}
 \citation{MasteringFreeRtos}
 \citation{MasteringFreeRtos}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Beispiele Echzeitsystem}}{3}{table.1}}
-\newlabel{tab:BeispieleEchzeitsystem}{{1}{3}{Beispiele Echzeitsystem}{table.1}{}}
-\newlabel{tab:BeispieleEchzeitsystem@cref}{{[table][1][]1}{3}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Beispiele von Echtzeitsystemen und deren Auswirkung beim \IeC {\"u}ber- oder unterschreiten der Anforderungsgrenzen}}{3}{table.1}}
+\newlabel{tab:BeispieleEchtzeitsystem}{{1}{3}{Beispiele von Echtzeitsystemen und deren Auswirkung beim über- oder unterschreiten der Anforderungsgrenzen}{table.1}{}}
+\newlabel{tab:BeispieleEchtzeitsystem@cref}{{[table][1][]1}{3}}
 \newlabel{lst:vPortMalloc1}{{2.5}{3}{}{lstlisting.-1}{}}
 \newlabel{lst:vPortMalloc1@cref}{{[subsection][5][2]2.5}{3}}
 \newlabel{lst:vPortFree1}{{2.5}{3}{}{lstlisting.-2}{}}
 \newlabel{lst:vPortFree1@cref}{{[subsection][5][2]2.5}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Einbindung von Heap1 in Eclipse CDT. Heap2 bis Heap5 sind vom Build ausgeschlossen}}{3}{figure.2}}
-\newlabel{fig:HeapsEclipse}{{2}{3}{Einbindung von Heap1 in Eclipse CDT. Heap2 bis Heap5 sind vom Build ausgeschlossen}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Einbindung des Speicheralgorithmus Heap1 in Eclipse CDT. Die Algortihmen Heap2 bis Heap5 sind vom Build ausgeschlossen}}{3}{figure.2}}
+\newlabel{fig:HeapsEclipse}{{2}{3}{Einbindung des Speicheralgorithmus Heap1 in Eclipse CDT. Die Algortihmen Heap2 bis Heap5 sind vom Build ausgeschlossen}{figure.2}{}}
 \newlabel{fig:HeapsEclipse@cref}{{[figure][2][]2}{3}}
 \newlabel{lst:malloc2}{{1}{3}{Implementierung von malloc() in Heap1.c}{lstlisting.1}{}}
 \newlabel{lst:malloc2@cref}{{[lstlisting][1][]1}{3}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {1}Implementierung von malloc() in Heap1.c}{3}{lstlisting.1}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.1}FreeRTOS Algorithmen zur Speicherverwaltung}{3}{subsubsection.2.5.1}}
-\citation{RTOSRevealed}
-\citation{RTOSRevealed}
-\newlabel{lst:free2}{{2}{4}{Implementierung von free in Heap1.c}{lstlisting.2}{}}
+\newlabel{lst:free2}{{2}{4}{FreeRTOS Source von vPortFree() in Heap1.c . Da eine Speicherfreigabe in Heap1 nicht vorgesehen ist, ist diese Funktion leer}{lstlisting.2}{}}
 \newlabel{lst:free2@cref}{{[lstlisting][2][]2}{4}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}Implementierung von free in Heap1.c}{4}{lstlisting.2}}
-\newlabel{lst:xTaskCreate}{{3}{4}{xTaskCreate() memory allocation. Aus Task.c}{lstlisting.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}FreeRTOS Source von vPortFree() in Heap1.c . Da eine Speicherfreigabe in Heap1 nicht vorgesehen ist, ist diese Funktion leer.}{4}{lstlisting.2}}
+\newlabel{lst:xTaskCreate}{{3}{4}{FreeRTOS Source von xTaskCreate() aus Task.c. Jede Task bestitzt einen Stack und einen Task Control Block, beide werden beim Aufruf von xTaskCreate (Zeile 5 und Zeile 11) erstellt}{lstlisting.3}{}}
 \newlabel{lst:xTaskCreate@cref}{{[lstlisting][3][]3}{4}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}xTaskCreate() memory allocation. Aus Task.c}{4}{lstlisting.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Adressraum FreeRTOS und Tasks. Quelle~\citeA {RTOSRevealed}}}{4}{figure.3}}
-\newlabel{fig:AddressSpace}{{3}{4}{Adressraum FreeRTOS und Tasks. Quelle~\protect \citeA {RTOSRevealed}}{figure.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}FreeRTOS Source von xTaskCreate() aus Task.c. Jede Task bestitzt einen Stack und einen Task Control Block, beide werden beim Aufruf von xTaskCreate (Zeile 5 und Zeile 11) erstellt.}{4}{lstlisting.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Task und Kernel teilen sich in FreeRTOS einen gemeinsamen Adressraum. Dies stellt eine potentielle Fehlerquelle dar. Bild-Quelle~\citeA {RTOSRevealed}}}{4}{figure.3}}
+\newlabel{fig:AddressSpace}{{3}{4}{Task und Kernel teilen sich in FreeRTOS einen gemeinsamen Adressraum. Dies stellt eine potentielle Fehlerquelle dar. Bild-Quelle~\protect \citeA {RTOSRevealed}}{figure.3}{}}
 \newlabel{fig:AddressSpace@cref}{{[figure][3][]3}{4}}
 \newlabel{lst:ucHeap}{{2.5.1}{4}{}{lstlisting.-3}{}}
 \newlabel{lst:ucHeap@cref}{{[subsubsection][1][2,5]2.5.1}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Beispiel Speicherbelegung nach drei Instanziierung von Tasks. Quelle~\citeA {MasteringFreeRtos}}}{4}{figure.4}}
-\newlabel{fig:Heap1}{{4}{4}{Beispiel Speicherbelegung nach drei Instanziierung von Tasks. Quelle~\protect \citeA {MasteringFreeRtos}}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Beispiel Speicherbelegung nach drei Instanziierung von Tasks durch die Erzeugerfunktion xTaskCreate() unter Verwendung des Speicheralgorithmus Heap1. Bild-Quelle~\citeA {MasteringFreeRtos}}}{4}{figure.4}}
+\newlabel{fig:Heap1}{{4}{4}{Beispiel Speicherbelegung nach drei Instanziierung von Tasks durch die Erzeugerfunktion xTaskCreate() unter Verwendung des Speicheralgorithmus Heap1. Bild-Quelle~\protect \citeA {MasteringFreeRtos}}{figure.4}{}}
 \newlabel{fig:Heap1@cref}{{[figure][4][]4}{4}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.2}Memory Protection}{4}{subsubsection.2.5.2}}
 \newlabel{sec:Memory Protection}{{2.5.2}{4}{Memory Protection}{subsubsection.2.5.2}{}}
 \newlabel{sec:Memory Protection@cref}{{[subsubsection][2][2,5]2.5.2}{4}}
+\citation{RTOSRevealed}
+\citation{RTOSRevealed}
 \citation{MasteringFreeRtos}
 \citation{9783827373427}
 \citation{MasteringFreeRtos}
@@ -110,17 +111,17 @@
 \newlabel{lst:taskSwitch}{{7}{6}{Implementierung von Kontextwechsel aus Task.c}{lstlisting.7}{}}
 \newlabel{lst:taskSwitch@cref}{{[lstlisting][7][]7}{6}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {7}Implementierung von Kontextwechsel aus Task.c}{6}{lstlisting.7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces FreeRTOS Pseudoimplementierung des Context - Switch. Quelle~\citeA {MasteringFreeRtos} - Not referenced yet}}{6}{figure.8}}
-\newlabel{fig:FreeRTOSFsm}{{8}{6}{FreeRTOS Pseudoimplementierung des Context - Switch. Quelle~\protect \citeA {MasteringFreeRtos} - Not referenced yet}{figure.8}{}}
-\newlabel{fig:FreeRTOSFsm@cref}{{[figure][8][]8}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Intertask Kommunikation}{6}{subsection.2.7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Interrupt Handling}{6}{subsection.2.8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.9}Low Power Modes auf Stm32F4}{6}{subsection.2.9}}
+\newlabel{sec:Low Power Modes}{{2.9}{6}{Low Power Modes auf Stm32F4}{subsection.2.9}{}}
+\newlabel{sec:Low Power Modes@cref}{{[subsection][9][2]2.9}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces FreeRTOS Pseudoimplementierung des Context - Switch. Quelle~\citeA {MasteringFreeRtos} - Not referenced yet}}{7}{figure.8}}
+\newlabel{fig:FreeRTOSFsm}{{8}{7}{FreeRTOS Pseudoimplementierung des Context - Switch. Quelle~\protect \citeA {MasteringFreeRtos} - Not referenced yet}{figure.8}{}}
+\newlabel{fig:FreeRTOSFsm@cref}{{[figure][8][]8}{7}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces FreeRTOS Pseudoimplementierung des Tick Interrupts. Quelle~\citeA {MasteringFreeRtos} - Not referenced yet}}{7}{figure.9}}
 \newlabel{fig:FreeRTOSFsm}{{9}{7}{FreeRTOS Pseudoimplementierung des Tick Interrupts. Quelle~\protect \citeA {MasteringFreeRtos} - Not referenced yet}{figure.9}{}}
 \newlabel{fig:FreeRTOSFsm@cref}{{[figure][9][]9}{7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Interrupt Handling}{7}{subsection.2.8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.9}Low Power Modes auf Stm32F4}{7}{subsection.2.9}}
-\newlabel{sec:Low Power Modes}{{2.9}{7}{Low Power Modes auf Stm32F4}{subsection.2.9}{}}
-\newlabel{sec:Low Power Modes@cref}{{[subsection][9][2]2.9}{7}}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Energieaufnahme f\IeC {\"u}r STM32F4 in SleepModes}}{7}{figure.10}}
 \newlabel{fig:powerconsum}{{10}{7}{Energieaufnahme für STM32F4 in SleepModes}{figure.10}{}}
 \newlabel{fig:powerconsum@cref}{{[figure][10][]10}{7}}

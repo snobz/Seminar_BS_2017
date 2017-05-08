@@ -20,7 +20,7 @@ ersetzt. Dies hat den Vorteil, dass die Implementierung dieser Funktionen an die
 \begin{figure}[htb]
 	\centering
 		\includegraphics[width=0.2\textwidth]{Pictures/Eclipse/Heaps.png}
-	\caption{Einbindung von Heap1 in Eclipse CDT. Heap2 bis Heap5 sind vom Build ausgeschlossen}
+	\caption{Einbindung des Speicheralgorithmus Heap1 in Eclipse CDT. Die Algortihmen Heap2 bis Heap5 sind vom Build ausgeschlossen}
 	\label{fig:HeapsEclipse}
 \end{figure}
 \begin{lstlisting}[caption={Implementierung von malloc() in Heap1.c}, linewidth=8cm,captionpos=b, label=lst:malloc2, float=hbt]
@@ -54,7 +54,7 @@ static uint8_t *pucAlignedHeap = NULL;
 	return pvReturn;
 }
 \end{lstlisting}
-\begin{lstlisting}[caption={Implementierung von free in Heap1.c}, linewidth=8cm,captionpos=b, label=lst:free2, float=hbt]
+\begin{lstlisting}[caption={FreeRTOS Source von vPortFree() in Heap1.c . Da eine Speicherfreigabe in Heap1 nicht vorgesehen ist, ist diese Funktion leer.}, linewidth=8cm,captionpos=b, label=lst:free2, float=hbt]
 //**FREE**
 void vPortFree( void *pv )
 {
@@ -65,7 +65,7 @@ void vPortFree( void *pv )
 }
 \end{lstlisting} 
 Diese stellen prinzipiell schon die ge\-läu\-figsten Implementierungen zur Speicherverwaltung. Es bleibt aber auch weiterhin die Möglichkeit eine eigene Speicherverwaltung zu implementieren. In dieser Arbeit werden wir Heap1 etwas genauer betrachten um ein grund\-sätz\-liches Verständnis für die FreeRTOS Speicherverwaltung zu bekommen. Heap2 - Heap 5 werden nur kurz beschrieben und können im Detail in \cite{MasteringFreeRtos} und \cite{FreeRtosAdvanced} nachgelesen werden. Wie schon am Anfang dieses Abschnitts beschrieben, werden für alle RTOS Objekte Speicher benötigt, der Speicher für Objekte wie Semaphore und Tasks wird automatisch in den Erzeugerfunktionen alloziert, in dem intern die Funktion \textit{pvPortMalloc()} aufgerufen wird. Die Erzeugerfunktion xTaskCreate() beispielsweise, erzeugt eine FreeRTOS Task. Listing \ref{lst:xTaskCreate} zeigt wie xTaskCreate() die Funktion pvPortMalloc() verwendet (Zeile 5, 11) um Speicher für den Stack und den Task Control Block zu allozieren.
-\begin{lstlisting}[caption={xTaskCreate() memory allocation. Aus Task.c}, linewidth=8cm,captionpos=b, label=lst:xTaskCreate, float=hbt]
+\begin{lstlisting}[caption={FreeRTOS Source von xTaskCreate() aus Task.c. Jede Task bestitzt einen Stack und einen Task Control Block, beide werden beim Aufruf von xTaskCreate (Zeile 5 und Zeile 11) erstellt.}, linewidth=8cm,captionpos=b, label=lst:xTaskCreate, float=hbt]
 StackType_t *pxStack;
 /* Allocate space for the stack 
 used by the task being created. */
@@ -90,7 +90,7 @@ Alle Objekte die mittels pvPortMalloc() alloziert werden, darunter auch der Kern
 \begin{figure}[htb]
 	\centering
 		\includegraphics[width=0.2\textwidth]{Pictures/EmbeddedCom/addressSpace.jpg}
-	\caption{Adressraum FreeRTOS und Tasks. Quelle~\protect\citeA{RTOSRevealed}}
+	\caption{Task und Kernel teilen sich in FreeRTOS einen gemeinsamen Adressraum. Dies stellt eine potentielle Fehlerquelle dar. Bild-Quelle~\protect\citeA{RTOSRevealed}}
 	\label{fig:AddressSpace}
 \end{figure}    
 \subsubsection{FreeRTOS Algorithmen zur Speicherverwaltung}
@@ -109,7 +109,7 @@ Die Speicherverwaltung durch Heap1 ist sehr einfach. Heap1 deklariert lediglich 
 \begin{figure}[ht!]
 	\centering
 		\includegraphics[width=0.3\textwidth]{Pictures/FreeRTOSOrg/heap1Alg.png}
-	\caption{Beispiel Speicherbelegung nach drei Instanziierung von Tasks. Quelle~\protect\citeA{MasteringFreeRtos}}
+	\caption{Beispiel Speicherbelegung nach drei Instanziierung von Tasks durch die Erzeugerfunktion xTaskCreate() unter Verwendung des Speicheralgorithmus Heap1. Bild-Quelle~\protect\citeA{MasteringFreeRtos}}
 	\label{fig:Heap1}
 \end{figure}
 Ein so einfacher Speicheralgorithmus wie Heap1 hat durchaus seine Berechtigung. Bei vielen embedded Anwendungen wird der Speicher für die benötigten Objekte vor dem Start des Schedulers erzeugt. Eine spätere Freigabe von belegten Ressourcen ist nicht nötig, da die Objekte über die gesamte Laufzeit des Programms bestehen sollen. Genau für solche Anwendungen steht Heap1 zur Verfügung. 
@@ -122,12 +122,12 @@ Nachfolgend ein Kurzüberblick über die nicht beschriebenen Speicheralgortihmen
 \end{itemize}
 \subsubsection{Memory Protection}
 \label{sec:Memory Protection}
-Embedded Softwaresysteme können einen weitere Steigerung der Zuverlässigkeit erreichen durch den Einsatz einer Memory Protection Unit (MPU). Die MPU bietet eine hardwarebasierende Lösung zur Detektion von ungewollten Speicherzugriffen. Für die MPU des STM32F4 uProzessors steht eine spezielle API Portierung von FreeRTOS zur Verfügung (FreeRTOS-MPU). Zur Erzeugung von Task die die MPU nutzen muss die Erzeugerfunktion xTaskCreateRestricted() genutzt werden. Beim Erzeugen der Task wird die Stackadresse der Task mitgeteilt, damit der Kernel die entsprecheden Zugriffsberechtigung der Speicheradressen konfigurieren kann. Die so erzeugten Task werden Ristricted Task genannt. Der Zugriff aus Restricted Task auf den Speicher (Task-Stack) einer anderen Restricted Task ist nicht erlaubt. Bei einem nicht erlaubten Speicherzugriff wird automatisch die entsprechende HookFunktion aufgerufen. Restricted Task können sich in einem der folgenden Modis befinden:
+Embedded Softwaresysteme können einen weitere Steigerung der Zuverlässigkeit erreichen durch den Einsatz einer Memory Protection Unit (MPU). Die MPU bietet eine hardwarebasierende Lösung zur Detektion von ungewollten Speicherzugriffen. Für die MPU des STM32F4 uProzessors steht eine spezielle API Portierung von FreeRTOS zur Verfügung (FreeRTOS-MPU). Zur Erzeugung von Task die die MPU nutzen sollen, muss die Erzeugerfunktion xTaskCreateRestricted() verwendet werden. Beim Aufruf der Erzeugerfunktion wird dem Kernel die Stackadresse der Task mitgeteilt, damit dieser die entsprecheden Zugriffsberechtigung der Speicheradressen konfigurieren kann. Die so erzeugten Task werden Ristricted Task genannt. Der Zugriff aus einer Restricted Task, auf den Speicher (Task-Stack) einer anderen Restricted Task ist nicht erlaubt. Bei einem nicht erlaubten Speicherzugriff wird automatisch die entsprechende HookFunktion aufgerufen und ermöglicht es so dem System entsprechend zu reagieren. Restricted Task können sich in einem der folgenden Modis befinden:
 \begin{itemize}
 	\item User Mode
 	\item Priviliged Mode 
 \end{itemize}
-Im User Mode ist es einer Task nicht erlaubt auf den Speicher des freeRTOS Kernels zuzugreifen, so wird verhindert das der Kernel nicht ungewollt modifiziert wird. Nur einer RestrictedTask die sich im Priviliged Mode befindet ist ein Zugriff auf den Kernel Speicher erlaubt. Dabei geschieht der Wechsel vom User Mode in den Priviliged Mode implizit durch den Aufruf einer freeRTOS API Funktion. Ein Wechsel durch die Task selbst in den Priviliged Mode ist nicht möglich.
+Im User Mode ist es einer Restricted Task nicht erlaubt auf den Speicher des FreeRTOS Kernels zuzugreifen, so wird verhindert das der Kernel nicht ungewollt modifiziert wird. Nur einer Restricted Task die sich im Priviliged Mode befindet ist ein Zugriff auf den Kernel Speicher erlaubt. Dabei geschieht der Wechsel vom User Mode in den Priviliged Mode implizit durch den Aufruf einer FreeRTOS API Funktion. Ein Wechsel durch die Task selbst in den Priviliged Mode ist nicht möglich.
 \begin{figure}[htb]
 	\centering
 		\includegraphics[width=0.3\textwidth]{Pictures/EmbeddedCom/addressSpaceMMU}
