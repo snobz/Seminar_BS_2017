@@ -61,22 +61,14 @@ Auf einem uProzessor mit einem Kern kann sich immer nur eine Task im Running Zus
 		uxTopReadyPriority = uxTopPriority;																
 	} /* taskSELECT_HIGHEST_PRIORITY_TASK */
 \end{lstlisting}
-Der FreeRTOS Scheduling Algorithmus kann durch Konfigurations Präprozessor-defines angepasst werden. Der Scheduler kann entweder im Cooperative Modus oder im Preemption Modus ausgeführt werden. Die Konfiguration wird durch das define configUSE\_PREEMPTION geändert. Im Preemtive Modus wird eine aktive Task mit niedriger Priorität sofort von einer Task mit höherer Priorität verdrängt und ein Kontextwechsel wird durchgeführte. Im kooperativen Modus hingegen wird ein Taskwechsel erst durchgeführt, wenn eine Task den Prozessor explizit abgibt z.B. durch TaskYield(). Abbildung \ref{fig:PreVSCo} zeigt den Vergleich beider Modis durch einen beispielhaften Ablauf. Eine weitere Option die sich über das define configUSE\_TIME\_SLICING aktivieren lässt ist das sogenannte Zeitschlitzverfahren. Durch das Zeitschlitzverfahren wird die zugeteilte Prozessorzeit für Task gleicher Priorität gleichmäßig aufgeteilt. Dies geschieht durch Einführung fester TickInterrupt Intervalle. Bei jedem TickInterrupt überprüft der Scheduler ob sich eine Task gleicher Priorität im Ready Zustand befindet. Sollte es eine solche Task geben wird ein Kontextwechsel durchgeführt und die Task erhält den Prozessor zugeteilt. Die häufigst verwendete Scheduling Algorithmus nennt sich Prioritized Pre-emptive Scheduling with Time Slicing.
-\begin{figure}[ht!]
+Eine Besonderheit ist die Idle Task, diese wird automatisch beim Starten des Schedulers erzeugt. Die Idle Task hat die niedrigste Priorität und wird immer dann ausgeführt, wenn sich keine User-Task im Ready oder Running Zustand befindet. Die Idle Task ist ein Indikator für überschüssige Prozessorzeit. Mittels der Idle-Hook Funktion kann der Idle Task Funktionalität durch den Entwickler hinzugefügt werden. Wie die Idle Task zum Energiesparen genutzt werden kann, wird in Abschnitt \ref{sec:Low Power Modes} gezeigt. Wie bereits weiter oben beschrieben, lässt sich der Scheduling Algorithmus in verschiedenen Modis ausführen. Der Scheduler kann entweder im Cooperative Modus oder im Preemption Modus ausgeführt werden. Welcher Modus vom Scheduler verwendet wird, wird durch das define configUSE\_PREEMPTION in der FreeRTOS config bestimmt. Im Preemtive Modus wird eine aktive Task mit niedriger Priorität sofort von einer Task mit höherer Priorität verdrängt und ein Kontextwechsel wird durchgeführte. Im kooperativen Modus hingegen wird ein Kontextwechsel erst durchgeführt, wenn eine Task den Prozessor explizit durch die Funktion xTaskYield() abgibt. Abbildung \ref{fig:PreVSCo} zeigt den Vergleich beider Modis durch einen beispielhaften Ablauf. Eine weitere Option die sich über das define configUSE\_TIME\_SLICING aktivieren lässt ist das sogenannte Zeitschlitzverfahren. Durch das Zeitschlitzverfahren wird die zugeteilte Prozessorzeit für Task gleicher Priorität gleichmäßig aufgeteilt. Dies geschieht durch Einführung eines festen Tick-Interrupt Intervalls. Bei jedem Tick Interrupt wird der FreeRTOS SysTickHandler aufgerufen. Listing \ref{lst:SysTickS} zeigt die Implementierung des FreeRTOS SysTicks. Der SysTickHandler ist Bestandteil des Schedulers und überprüft bei jeder Ausführung, ob sich eine Task gleicher Priorität im Ready Zustand befindet. Sollte es eine solche Task geben wird ein Kontextwechsel durchgeführt und die Task erhält den Prozessor zugeteilt. Des Weiteren kümmert sich der SysTickHandler um die Verwaltung des TickCount, welcher als Referenz für alle RTOS Timingfunktionen dient. Abbildung \ref{fig:SysTick} zeigt diesen Vorgang nochmal im zeitlichen Verlauf. Die häufigst verwendete Scheduling Algorithmus nennt sich Prioritized Pre-emptive Scheduling with Time Slicing.
+\begin{figure}[htb]
 	\centering
 		\includegraphics[width=0.5\textwidth]{Pictures/EMCUIT/PreemptiveCooperative.png}
-	\caption{Pre-emptive vs. Co-operative. Quelle~\protect\citeA{MasteringFreeRtos} - Not referenced yet}
+	\caption{Im Co-operative Modus wird der Prozessor von einer Task erst abgegeben, wenn diese explizit taskYield() aufruft. Selbst wenn eine Task mit höhrer Priorität in den Ready Zustand wechselt, läuft die Task mit niedrigerer Priorität weiter. Im Gegensatz dazu steht das Pre-Emptive Scheduling (hier mit Time-Slicing), es unterbricht die laufende Task mit niedriger Priorität sofort, sobald eine Task mit höherer Priorität Ready ist. Bild-Quelle~\protect\citeA{MasteringFreeRtos}}
 	\label{fig:PreVSCo}
 \end{figure}
-
-\begin{itemize}
-	\item Tickcount
-	\item FSM
-	\item IDLE Task
-	\item Priorität nicht durch Scheduler
-\end{itemize}
-
-\begin{lstlisting}[caption={Implementierung von SysTick aus Task.c}, linewidth=8cm,captionpos=b, label=lst:SysTickS, float=hbt]
+\begin{lstlisting}[caption={FreeRTOS Source des SysTickHandlers aus Task.c. Der SysTickHandler verwaltet den TickCount. Der TickCount dient allen Timingfunktionen des RTOS Kernels als Zeitreferenz. Des Weiteren wird bei aktivem Time Slicing überprüft ob ein Kontextwechsel nötig ist. Der Kontext wechsel wir dann ggf. durch den PendSVHandler durchgeführt.}, linewidth=8cm,captionpos=b, label=lst:SysTickS, float=hbt]
 void xPortSysTickHandler( void ){
 	/* The SysTick runs at the lowest interrupt priority, so when this interrupt
 	executes all interrupts must be unmasked.  There is therefore no need to
@@ -95,32 +87,12 @@ void xPortSysTickHandler( void ){
 	portENABLE_INTERRUPTS();
 }
 \end{lstlisting}
-
-
-\begin{lstlisting}[caption={Implementierung von Kontextwechsel aus Task.c}, linewidth=8cm,captionpos=b, label=lst:taskSwitch, float=hbt]
-void vTaskSwitchContext( void )
-{
-	if( uxSchedulerSuspended != ( UBaseType_t ) pdFALSE )
-	{
-		/* The scheduler is currently suspended - do not allow a context
-		switch. */
-		xYieldPending = pdTRUE;
-	}
-	else
-	{
-		xYieldPending = pdFALSE;
-		/* Check for stack overflow, if configured. */
-		taskCHECK_FOR_STACK_OVERFLOW();
-		/* Select a new task to run using either the generic C or port
-		optimised asm code. */
-		taskSELECT_HIGHEST_PRIORITY_TASK();
-		traceTASK_SWITCHED_IN();
-	}
-}
-\end{lstlisting}
-
-
-
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=0.4\textwidth]{Pictures/FreeRTOSOrg/TickISR.png}
+	\caption{Beispielhafter Ablauf eines SysTickInterrupts.(1) keine User Task ist ready, die Idle Task ist aktiv. (2) SysTickInterrupt. (3) SysTickHandler wird aufgerufen. (4) vControlTask ist ready und ein Kontext wechsel wird durchgeführt. vControlTask hat hier die gleiche Priorität wie die IdleTask. (5)vControlTask wird ausgeführt. Bild-Quelle~\protect\citeA{MasteringFreeRtos}}
+	\label{fig:SysTick}
+\end{figure}
 \begin{figure}[ht!]
 	\centering
 		\includegraphics[width=0.4\textwidth]{Pictures/FreeRTOSOrg/ExeContext.png}
@@ -129,9 +101,3 @@ void vTaskSwitchContext( void )
 	
 \end{figure}
 
-\begin{figure}[ht!]
-	\centering
-		\includegraphics[width=0.4\textwidth]{Pictures/FreeRTOSOrg/TickISR.png}
-	\caption{FreeRTOS Pseudoimplementierung des Tick Interrupts. Quelle~\protect\citeA{MasteringFreeRtos} - Not referenced yet}
-	\label{fig:FreeRTOSFsm}
-\end{figure}
