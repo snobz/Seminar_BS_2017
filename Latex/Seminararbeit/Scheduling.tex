@@ -1,7 +1,13 @@
 %!TEX root = FreeRtos ARM uController.tex
 \subsection{Scheduling}
 \label{Scheduling}
-Der Scheduler ist die Kernkomponente jedes Echtzeitbetriebssystem Kernels, da er eine quasi parallele Ausführung von Tasks ermöglicht. Eine Task stellt dabei ein ei\-gen\-stän\-di\-ge lauffähige Programmeinheit dar und wird gewöhnlich in einer Schleife ausgeführt. Der Scheduler kümmert sich darum das die nächste auszuführende Task rechtzeitig die CPU zugeteilt bekommt. Dieser Vorgang ist abhängig vom aktuellen Zustand der Tasks und des gewählten Scheduling Algorithmus.   
+Der Scheduler ist die Kernkomponente jedes Echtzeitbetriebssystem Kernels, da er eine quasi parallele Ausführung von Tasks ermöglicht. Eine Task stellt dabei ein ei\-gen\-stän\-di\-ge lauffähige Programmeinheit dar und wird gewöhnlich in einer Schleife ausgeführt. Abhängig vom aktuellen Zustand der Tasks und dem gewählten Schedulingalgorithmus, wählt der Scheduler die nächste Task, die ausgeführt werden soll. Auf einem uProzessor mit einem Kern kann dabei immer nur eine Task zur Zeit ausgeführt werden. Der Vorgang des Task-Wechsels durch den Scheduler wird Kontextwechsel oder Kontextswitch genannt. Der Kontextwechsel ist für eine Task die verdrängt wird nicht erkennbar. Die Task wird bei ihrer aktuell ausgeführten Instruktion unterbrochen und alle nötigen Register under Stack werden durch den Scheduler gesichert. Abbildung \ref{fig:ContextSwitch} zeigt eine beispielhafte Ausführung einer Task während des Kontextwechsels. Nachdem der Scheduler die verdrängte Task wieder zur Ausführung ausgewählt hat, werden alle Register und der Stack wieder hergestellt. Die Task wird danach ab der letzten Instruktion fortgeführt. 
+\begin{figure}[ht!]
+	\centering
+		\includegraphics[width=0.4\textwidth]{Pictures/FreeRTOSOrg/ExeContext.png}
+	\caption{FreeRTOS Pseudoimplementierung des Context - Switch. Quelle~\protect\citeA{MasteringFreeRtos} - Not referenced yet}
+	\label{fig:ContextSwitch}
+\end{figure}   
 Folgende Zu\-stän\-de kann eine FreeRTOS Task annehmen: 
 \begin{itemize}
 	\item Running
@@ -9,7 +15,7 @@ Folgende Zu\-stän\-de kann eine FreeRTOS Task annehmen:
 	\item Ready
 	\item Suspended
 \end{itemize}
-Auf einem uProzessor mit einem Kern kann sich immer nur eine Task im Running Zustand befinden. Alle Tasks im Ready Zustand sind bereit und warten auf ihre Ausführung durch den Scheduler. Tasks die sich im Blocked Zustand befinden sind nicht bereit und warten auf ein Synchronisations- oder ein Timer Event. Eine Task die vTaskSuspend() aufruft, wird vom Scheduling Vorgang ausgeschlossen und nimmt den Zustand Suspended an. Abbildung \ref{fig:TaskStates} zeigt das Zustandsdiagramm einer FreeRTOS Task. 
+ Alle Tasks im Ready Zustand sind bereit und warten auf ihre Ausführung durch den Scheduler. Tasks die sich im Blocked Zustand befinden sind nicht bereit und warten auf ein Synchronisations- oder ein Timer Event. Eine Task die vTaskSuspend() aufruft, wird vom Scheduling Vorgang ausgeschlossen und nimmt den Zustand Suspended an. Abbildung \ref{fig:TaskStates} zeigt das Zustandsdiagramm einer FreeRTOS Task. 
 \begin{figure}[ht!]
 	\centering
 		\includegraphics[width=0.3\textwidth]{Pictures/FreeRTOSOrg/taskStates.png}
@@ -68,12 +74,7 @@ void xPortSysTickHandler( void ){
 	\caption{Beispielhafter Ablauf eines SysTickInterrupts.(1) keine User Task ist ready, die Idle Task ist aktiv. (2) SysTickInterrupt. (3) SysTickHandler wird aufgerufen. (4) vControlTask ist ready und ein Kontext wechsel wird durchgeführt. vControlTask hat hier die gleiche Priorität wie die IdleTask. (5)vControlTask wird ausgeführt. Bild-Quelle~\protect\citeA{MasteringFreeRtos}}
 	\label{fig:SysTick}
 \end{figure}
-\begin{figure}[ht!]
-	\centering
-		\includegraphics[width=0.4\textwidth]{Pictures/FreeRTOSOrg/ExeContext.png}
-	\caption{FreeRTOS Pseudoimplementierung des Context - Switch. Quelle~\protect\citeA{MasteringFreeRtos} - Not referenced yet}
-	\label{fig:FreeRTOSFsm}
-\end{figure}
+
 
 Listing \ref{lst:TaskExam1} zeigt ein minimal Beispiel einer Task und den Start des Schedulers durch vTaskStartScheduler() in der main function. 
 \begin{lstlisting}[caption={Minimal Beispiel für die Definition eine Task. }, linewidth=8cm,captionpos=b, label=lst:TaskExam1, float=hbt]
