@@ -1,32 +1,7 @@
 %!TEX root = FreeRtos ARM uController.tex
 \subsection{Scheduling}
 \label{Scheduling}
-Der Scheduler ist die Kernkomponente jedes Echtzeitbetriebssystem Kernels, da er eine quasi parallele Ausführung von Tasks ermöglicht. Eine Task stellt dabei ein ei\-gen\-stän\-di\-ge lauffähige Programmeinheit dar und wird gewöhnlich in einer Schleife ausgeführt. Listing \ref{lst:TaskExam1} zeigt ein minimal Beispiel einer Task und den Start des Schedulers durch vTaskStartScheduler() in der main function. 
-\begin{lstlisting}[caption={Minimal Beispiel für die Definition eine Task. }, linewidth=8cm,captionpos=b, label=lst:TaskExam1, float=hbt]
- void main( void )
- {
-	//Task werden oft vor dem Start des Schedulers erzeugt.
-	xTaskCreate( vTaskCode,
-							"NAME",
-							STACK_SIZE,
-							NULL,
-							tskIDLE_PRIORITY,
-							NULL );
-   // Scheduler wird gestartet
-   vTaskStartScheduler();
-   // Hier sollten wir nicht hinkommen, da der Scheduler laeuft.
- }
-
-void vTaskCode( void * pvParameters )
-{
-    for( ;; ){
-        /* Task code wird hier Implementiert
-				 z.B. warten auf eine Nachricht*/
-    }
-		/* Hier sollten wir nicht hinkommen*/
-		vTaskDelete( NULL );
-}
-\end{lstlisting}
+Der Scheduler ist die Kernkomponente jedes Echtzeitbetriebssystem Kernels, da er eine quasi parallele Ausführung von Tasks ermöglicht. Eine Task stellt dabei ein ei\-gen\-stän\-di\-ge lauffähige Programmeinheit dar und wird gewöhnlich in einer Schleife ausgeführt. Der Scheduler kümmert sich darum das die nächste auszuführende Task rechtzeitig die CPU zugeteilt bekommt. Dieser Vorgang ist abhängig vom aktuellen Zustand der Tasks und des gewählten Scheduling Algorithmus.   
 Folgende Zu\-stän\-de kann eine FreeRTOS Task annehmen: 
 \begin{itemize}
 	\item Running
@@ -98,6 +73,32 @@ void xPortSysTickHandler( void ){
 		\includegraphics[width=0.4\textwidth]{Pictures/FreeRTOSOrg/ExeContext.png}
 	\caption{FreeRTOS Pseudoimplementierung des Context - Switch. Quelle~\protect\citeA{MasteringFreeRtos} - Not referenced yet}
 	\label{fig:FreeRTOSFsm}
-	
 \end{figure}
+
+Listing \ref{lst:TaskExam1} zeigt ein minimal Beispiel einer Task und den Start des Schedulers durch vTaskStartScheduler() in der main function. 
+\begin{lstlisting}[caption={Minimal Beispiel für die Definition eine Task. }, linewidth=8cm,captionpos=b, label=lst:TaskExam1, float=hbt]
+ void main( void )
+ {
+	//Task werden oft vor dem Start des Schedulers erzeugt.
+	xTaskCreate( vTaskCode,
+							"NAME",
+							STACK_SIZE,
+							NULL,
+							tskIDLE_PRIORITY,
+							NULL );
+   // Scheduler wird gestartet
+   vTaskStartScheduler();
+   // Hier sollten wir nicht hinkommen, da der Scheduler laeuft.
+ }
+
+void vTaskCode( void * pvParameters )
+{
+    for( ;; ){
+        /* Task code wird hier Implementiert
+				 z.B. warten auf eine Nachricht*/
+    }
+		/* Hier sollten wir nicht hinkommen*/
+		vTaskDelete( NULL );
+}
+\end{lstlisting}
 
