@@ -1,6 +1,7 @@
 %!TEX root = FreeRtos ARM uController.tex
 \subsection{Memory Allocation}
 Beim Erzeugen von RTOS Objekten wie Tasks, Queues oder Semaphore wird Speicher im RAM benötigt. Für die dynamische Speicherverwaltung wird in C und C++ ge\-wöhnlich die Standard C Funktionen malloc() und free() verwendet. Die Funktion malloc() dient zur Allozierung von freiem Speicher und free() zur Freigabe von alloziertem Speicher. Für Echtzeitsysteme die auf einem RTOS aufsetzen, sind diese Funktionen aufgrund der folgende Eigenschaften\cite{MasteringFreeRtos} ungeeignet\footnote{Heap3 stellt hier eine Ausnahme dar}:
+\needspace{3\baselineskip}
 \begin{itemize}
 	\item nicht thread safe
 	\item nicht deterministisch
@@ -23,7 +24,7 @@ ersetzt. Dies hat den Vorteil, dass die Implementierung dieser Funktionen an die
 	\caption{Einbindung des Speicheralgorithmus Heap1 in Eclipse CDT. Die Algortihmen Heap2 bis Heap5 sind vom Build ausgeschlossen}
 	\label{fig:HeapsEclipse}
 \end{figure}
-\begin{lstlisting}[caption={Implementierung von malloc() in Heap1.c}, linewidth=8cm,captionpos=b, label=lst:malloc2, float=hbt]
+\begin{lstlisting}[caption={FreeRTOS Source von pvPortMalloc() aus Heap1.c. Zuerst wird sichergestellt das die Startspeicheradresse dem byte-Alignment des uProzessors entspricht. Der STM32F4 ist ein 32Bit uProzessor und hat ein byte-Alignment von 4, so dass die Startadresse immer eine Potenz von 4 sein muss. Danach wird der Scheduler deaktiviert und geprüft ob genug Speicher zur Verfügung steht. Abschließend wird der Speicher im ucHeap reserviert.  }, linewidth=8cm,captionpos=b, label=lst:malloc2, float=hbt]
 //**MALLOC**
 void *pvPortMalloc( size_t xWantedSize )
 {
@@ -54,7 +55,7 @@ static uint8_t *pucAlignedHeap = NULL;
 	return pvReturn;
 }
 \end{lstlisting}
-\begin{lstlisting}[caption={FreeRTOS Source von vPortFree() in Heap1.c . Da eine Speicherfreigabe in Heap1 nicht vorgesehen ist, ist diese Funktion leer.}, linewidth=8cm,captionpos=b, label=lst:free2, float=hbt]
+\begin{lstlisting}[caption={FreeRTOS Source von vPortFree() aus Heap1.c . Da eine Speicherfreigabe in Heap1 nicht vorgesehen ist, ist diese Funktion leer.}, linewidth=8cm,captionpos=b, label=lst:free2, float=hbt]
 //**FREE**
 void vPortFree( void *pv )
 {
@@ -64,7 +65,7 @@ void vPortFree( void *pv )
 	configASSERT( pv == NULL );
 }
 \end{lstlisting} 
-Diese stellen prinzipiell schon die ge\-läu\-figsten Implementierungen zur Speicherverwaltung. Es bleibt aber auch weiterhin die Möglichkeit eine eigene Speicherverwaltung zu implementieren. In dieser Arbeit werden wir Heap1 etwas genauer betrachten um ein grund\-sätz\-liches Verständnis für die FreeRTOS Speicherverwaltung zu bekommen. Heap2 - Heap 5 werden nur kurz beschrieben und können im Detail in \cite{MasteringFreeRtos} und \cite{FreeRtosAdvanced} nachgelesen werden. Wie schon am Anfang dieses Abschnitts beschrieben, werden für alle RTOS Objekte Speicher benötigt, der Speicher für Objekte wie Semaphore und Tasks wird automatisch in den Erzeugerfunktionen alloziert, in dem intern die Funktion \textit{pvPortMalloc()} aufgerufen wird. Die Erzeugerfunktion xTaskCreate() beispielsweise, erzeugt eine FreeRTOS Task. Listing \ref{lst:xTaskCreate} zeigt wie xTaskCreate() die Funktion pvPortMalloc() verwendet (Zeile 5, 11) um Speicher für den Stack und den Task Control Block zu allozieren.
+Diese stellen prinzipiell schon die ge\-läu\-figsten Implementierungen zur Speicherverwaltung. Es bleibt aber auch weiterhin die Möglichkeit eine eigene Speicherverwaltung zu implementieren. In dieser Arbeit werden wir Heap1 etwas genauer betrachten um ein grund\-sätz\-liches Verständnis für die FreeRTOS Speicherverwaltung zu bekommen. Heap2 - Heap 5 werden nur kurz beschrieben und können im Detail in \cite{MasteringFreeRtos} und \cite{FreeRtosAdvanced} nachgelesen werden. Wie schon am Anfang dieses Abschnitts beschrieben, werden für alle RTOS Objekte Speicher benötigt. Der Speicher für Objekte wie Semaphore und Tasks wird automatisch in den statischen Erzeugerfunktionen der RTOS API alloziert, in dem intern die Funktion \textit{pvPortMalloc()} aufgerufen wird. Die Erzeugerfunktion xTaskCreate() beispielsweise, erzeugt eine FreeRTOS Task. Listing \ref{lst:xTaskCreate} zeigt wie xTaskCreate() die Funktion pvPortMalloc() verwendet um Speicher für den Stack und den Task Control Block zu allozieren.
 \begin{lstlisting}[caption={FreeRTOS Source von xTaskCreate() aus Task.c. Jede Task bestitzt einen Stack und einen Task Control Block, beide werden beim Aufruf von xTaskCreate (Zeile 5 und Zeile 11) erstellt.}, linewidth=8cm,captionpos=b, label=lst:xTaskCreate, float=hbt]
 StackType_t *pxStack;
 /* Allocate space for the stack 
@@ -86,7 +87,7 @@ if( pxStack != NULL )
 //...
 }
 \end{lstlisting}
-Alle Objekte die mittels pvPortMalloc() alloziert werden, darunter auch der Kernel selbst, teilen sich einen gemeinsamen Adressraum, siehe Abbildung \ref{fig:AddressSpace}. Eine Speicherzugriffsverletzung ist somit durchaus möglich. In Abschnitt \ref{sec:Memory Protection} wird gezeigt welche Möglichkeit der STM32F4 und FreeRTOS bieten um Speicherzugriffe sicherer zu gestalten.    
+Alle Objekte die mittels pvPortMalloc() alloziert werden, darunter auch der Kernel selbst, teilen sich einen gemeinsamen Adressraum, siehe Abbildung \ref{fig:AddressSpace}. Durch den gemeinsamen Adressraum ist es möglich aus einer Task, auf die Variablen einer anderen Task zuzugreifen. Eine ungewollter Speicherzugriff ist somit durchaus möglich. In Abschnitt \ref{sec:Memory Protection} wird gezeigt welche Möglichkeit der STM32F4 und FreeRTOS bieten um Speicherzugriffe sicherer zu gestalten.    
 \begin{figure}[htb]
 	\centering
 		\includegraphics[width=0.2\textwidth]{Pictures/EmbeddedCom/addressSpace.jpg}
@@ -94,19 +95,18 @@ Alle Objekte die mittels pvPortMalloc() alloziert werden, darunter auch der Kern
 	\label{fig:AddressSpace}
 \end{figure}    
 \subsubsection{FreeRTOS Algorithmen zur Speicherverwaltung}
-Bevor Objekte erzeugt werden können, muss ein Pool an Speicher für die Objekte definiert werden. Die einfachste Form einen Memory Pool zu erzeugen ist ein Array. In FreeRTOS nennt sich dieses Array ucHeap. 
-\begin{lstlisting}[label=lst:ucHeap, float=hbt, numbers = none]
+Bevor Objekte erzeugt werden können, muss ein Pool an Speicher für die Objekte definiert werden. Die einfachste Form einen Memory Pool zu erzeugen ist ein Array. In FreeRTOS nennt sich dieses Array ucHeap.
+\begin{lstlisting}[label=lst:ucHeap, float=htb, numbers = none]
 static uint8_t ucHeap[ configTOTAL_HEAP_SIZE ];
 \end{lstlisting}
-\newline
 Die Größe des Heaps wird durch das Prä\-pro\-zes\-sor-Define configTOTAL\_HEAP\_SIZE (FreeRTOS\_config.h) konfiguriert. Die Gesamtgröße berechnet sich wie folgt:
 \newline
 \newline
 MaxHeapSize $=$ configTOTAL\_HEAP\_SIZE $\ast$ Wortbreite\footnote{Beim STM32F4 ist die Wortbreite 32 bit} 
 \newline
 \newline
-Die Speicherverwaltung durch Heap1 ist sehr einfach. Heap1 deklariert lediglich die Funktion pvPortMalloc(). Die Funktion pvPortFree() wird nicht ausimplementiert. Abbildung \ref{fig:Heap1} zeigt wie sich der Speicher nach dem Erzeugen von zwei Tasks aussieht. Für jede Task wird ein TCB und ein Stack erzeugt, die Speicherobjekte liegen direkt hintereinander, da pvPortFree() nicht implementiert ist, kommt es auch nicht zu einer Fragmentierung des Speichers. Diese lineare Speicherzuweisung gilt für alle Objekte die mittels pvPortMalloc() alloziert werden, dazu gehören sowohl RTOS spezifische Objekte als auch Objekte die durch den Benutzer erzeugt werden. 
-\begin{figure}[ht!]
+Die Speicherverwaltung durch Heap1 ist sehr einfach. Heap1 deklariert lediglich die Funktion pvPortMalloc(). Die Funktion pvPortFree() wird nicht ausimplementiert. Abbildung \ref{fig:Heap1} zeigt wie sich der Speicher nach dem Erzeugen von zwei Tasks aussieht. Für jede Task wird ein TCB und ein Stack erzeugt, die Speicherobjekte liegen direkt hintereinander, da pvPortFree() nicht implementiert ist, kommt es auch nicht zu einer Fragmentierung des Speichers. Diese lineare Speicherzuweisung gilt für alle Objekte die mittels pvPortMalloc() alloziert werden, dazu gehören sowohl RTOS spezifische Objekte, als auch Objekte die durch den Entwickler erzeugt werden. 
+\begin{figure}[htb]
 	\centering
 		\includegraphics[width=0.3\textwidth]{Pictures/FreeRTOSOrg/heap1Alg.png}
 	\caption{Beispiel Speicherbelegung nach drei Instanziierung von Tasks durch die Erzeugerfunktion xTaskCreate() unter Verwendung des Speicheralgorithmus Heap1. Bild-Quelle~\protect\citeA{MasteringFreeRtos}}
@@ -131,7 +131,7 @@ Im User Mode ist es einer Restricted Task nicht erlaubt auf den Speicher des Fre
 \begin{figure}[htb]
 	\centering
 		\includegraphics[width=0.3\textwidth]{Pictures/EmbeddedCom/addressSpaceMMU}
-	\caption{Zugriffsrechte für Restricted Task auf gewisse Speicherbereiche wird durch den RTOS Kernel in der MPU konfiguriert. Der Zugriff wir automatisch durch MPU/ MMU überprüft und im Fehlerfall an den Kernel gemeldet. Bild-Quelle~\protect\citeA{RTOSRevealed}}
+	\caption{Zugriffsrechte für Restricted Task wird durch den RTOS Kernel in der MPU konfiguriert. Der Speicherzugriff wir automatisch durch MPU/ MMU überprüft und im Fehlerfall an den Kernel gemeldet. Bild-Quelle~\protect\citeA{RTOSRevealed}}
 	\label{fig:AddressSpaceMMU}
 \end{figure} 
 \subsubsection{Static Memory Allocation}
