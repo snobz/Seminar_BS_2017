@@ -1,10 +1,6 @@
 %!TEX root = FreeRtos ARM uController.tex
 
-%\subsection{Anforderung Desktop Betriebssystem vs. Anforderung Echtzeit Betriebssystem}
-%Desktop Betriebssysteme verwalten den Hardwarezugriff und stellen sicher, dass eingesetzte Software die benötigte Rechenzeit zur Verfügung gestellt bekommt. Gleichzeitig regeln Sie den Hardwarezugriff und organisieren den konkurrierenden Zugriff, beispielsweise auf Netzwerkkarten und Festplatten. Sie stellen Funktionen für die Interprozesskommunikation bereit und übernehmen grundlegende Aufgaben wie die Organisation von Arbeitsspeicher. Im Gegensatz zu einem gewöhnlichen Desktop Betriebssystem liegt der Anwendungsfokus bei Echzeit Betriebssystemen nicht auf der direkten Userinteraktion. Die wenigsten Echtzeitbetriebssysteme bieten eine Benutzeroberfläche. Die Interaktion mit der Umwelt geschieht durch spezielle Hardware und ist zumeist für genau eine Aufgabe ausgelegt. Viele Funktionen die eine Desktop Betriebssystem übernimmt wie z.B. das Verwalten von konkurrierenden Zugriffen auf externe Geräte müssen vom Entwickler selbst übernommen werden. Ein Echtzeitbetriebssystem bietet bei weitem nicht die Funktionalitäten eines Desktop Betriebssystems. Das liegt zum Einen an der Art von Zielsystemen, die zumeist nur einen beschränkten Speicher aufweisen und Zweitens an der Tatsache, dass die vom Echtzeitbetriebssystem bereitgestellten Funktionen deterministisch sein müssen.   
-%
-%WIP: Gefällt insgesamt noch nicht, benötigen wir Anforderungen an ein Destkop Betriebssystem ?? Echzeitbetriebsysteme unterscheiden sich erheblich von normalen Betriebssystemen. Wie schon angesprochen verwaltet ein RTOS nur die Zeit (Scheduler) + Speicher (Memory Allocation) 
-%
+
 \subsection{Echtzeitsysteme und Echtzeitbetriebssysteme}
 \label{sec:Echtzeitsysteme}
 Mit der steigenden Leis\-tungs\-fähig\-keit von modernen $\mu$\-Pro\-zesso\-ren, steigen auch die Anforderungen an die Software die auf diese Systeme aufsetzt. Viele dieser Systeme fordern trotz ihrer Komplexität, dass Teile des Programmablauf in bestimmten zeitlichen Grenzen ausgeführt wird und somit vorhersehbar und deterministisch sind. Systeme die solchen Anforderungen unterliegen werden Echtzeitsysteme genannt. Bezogen auf ihre Zuverlässigkeit unterliegen Echtzeitsysteme einer weiteren Unterteilung in Echtzeitsysteme mit weicher Echtzeitanforderungen (soft realtime systems) und Echtzeitsysteme mit harter Echtzeitanforderung (hard realtime systems). Ein weiches Echtzeitsystem soll eine Aufgabe in den vorgegeben zeitlichen Grenzen ausführen, ein über\-schreiten der zeitlichen Grenzen ist grundsätzlich nicht erlaubt, führt aber nicht unmittelbar zu einem Fehler oder einem Versagen des Gesamtsystems. Ein hartes Echtzeitsystem hingegen muss die gestellte Aufgabe in den vorgegebenen Grenzen aus\-füh\-ren. Durch eine Überschreitung wird das System unbrauchbar und führt dazu, dass das System nicht im vorgesehenen Szenario eingesetzt werden kann. Dabei ist ausdrücklich zu beachten, dass Echtzeit nicht bedeutet, dass ein Programm besonders schnell ausgeführt wird. Die Ausführung eines Programms kann beispielsweise auch gewollt langsam sein und gerade deshalb den gestellten Echtzeitanforderung genügen. Einige Beispielsysteme und deren Echtzeitzuordnung wird in Tabelle \ref{tab:BeispieleEchtzeitsystem} gezeigt. Um die grund\-sätz\-liche Funktionalität eines Echtzeitbetriebssystems zu erläutern, werden zuerst die Grundmodelle für den Programmablauf eingebetteter Systeme beschrieben. Der Programmablauf eingebetteter Systeme lässt sich auf drei Modelle zu\-rück\-füh\-ren (Abbildung \ref{fig:Programmablauf}). 
@@ -21,13 +17,13 @@ Eingebettete Anwendungen können in einer einzigen Schleife (mit oder ohne Inter
 		\hline
 		\textbf{Beispiel} & \textbf{Echtzeit Typ}  & \textbf{Auswirkung} \\
 		\hline
-		Tastatur Controller & Soft Realtime & kurzfristig verzögerte Ausgabe \\
+		Tastatur Controller & Soft Realtime & Kurzfristig verzögerte Ausgabe \\
 		\hline
 		Echtzeit Media Streaming  & Soft Realtime & Bild und Ton kurzfristig asynchron \\
 		\hline
 		Computer Numerical Control (CNC)  & Hard Realtime & Fehler bei der Fertigung des Teils\\
 		\hline
-		Airbag System  & Hard Realtime & möglicher Personenschaden\\
+		Airbag System  & Hard Realtime & Möglicher Personenschaden\\
 		\hline
 	\end{tabular}
 	\caption{Beispiele von Echtzeitsystemen und deren Auswirkung beim über- oder unterschreiten der Anforderungsgrenzen}

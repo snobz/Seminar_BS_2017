@@ -1,16 +1,16 @@
 %!TEX root = FreeRtos ARM uController.tex
 \subsection{Low Power Modes auf Stm32F4}
 \label{sec:Low Power Modes}
-Echtzeitbetriebssysteme kommen immer häufiger in akkubetriebenen embedded Systemen zum Einsatz. Solche Systeme verlangen eine effiziente Nutzung der Energieressourcen um einen möglichst langen Betrieb zu ge\-währ\-leis\-ten. Bezogen auf den uProzessor gibt es im Prinzip zwei Wege Energie einzusparen:
+Echtzeitbetriebssysteme kommen immer häufiger in akkubetriebenen embedded Systemen zum Einsatz. Solche Systeme verlangen eine effiziente Nutzung der Energieressourcen um einen möglichst langen Betrieb zu ge\-währ\-leis\-ten. Bezogen auf den $\mu$\-Pro\-zesso\-r gibt es im Prinzip zwei Wege Energie einzusparen:
 \begin{itemize}
-	\item Heruntertakten des uProzessors.
+	\item Heruntertakten des $\mu$\-Pro\-zesso\-rs.
 	\item Das System schlafenlegen, wenn keine weiteren Aufgaben anstehen.
 \end{itemize}
-Das Heruntertakten des uProzessors ist unabhängig vom Einsatz eines RTOS, daher werden wir hier nur den zweiten Punkt genauer betrachten, das Schlafenlegen des uProzessors. 
+Das Heruntertakten des $\mu$\-Pro\-zesso\-rs ist unabhängig vom Einsatz eines RTOS, daher werden wir hier nur den zweiten Punkt genauer betrachten, das Schlafenlegen des $\mu$\-Pro\-zesso\-rs. 
 \begin{figure}[htb!]
 	\centering
 		\includegraphics[width=0.4\textwidth]{Pictures/STM32F4/powerConsumption.png}
-	\caption{Energieaufnahme für STM32F4 in SleepModes}
+	\caption{Der STM32F4 bietet diverse LowPower Modes. Die Modes haben starke Auswirkung auf die Funktionalität des uControllers während der Schlafphase. Beispielsweise kann um Stop Mode keine UART Schnittstelle benutzt werden. Abhängig von der benötigten Peripherie, wählt der Entwickler einen dieser Modes. Die genutzte Taktfrequenz hat ebenfalls Einfluss auf die Stromaufnahme. Eine Anpassung der Takfrequenz zur Laufzeit ist ebenfalls möglich.}
 	\quelle{STM32F4 - Power Modes}
 	\label{fig:powerconsum}
 \end{figure}
@@ -33,12 +33,6 @@ static portTASK_FUNCTION( prvIdleTask, pvParameters )
 if ( configUSE_IDLE_HOOK == 1 )
 {
 	extern void vApplicationIdleHook( void );
-	/* Call the user defined function from within the idle task.  This
-	allows the application designer to add background functionality
-	without the overhead of a separate task.
-	NOTE: vApplicationIdleHook() MUST NOT, UNDER ANY CIRCUMSTANCES,
-	CALL A FUNCTION THAT MIGHT BLOCK. */
-	
 	vApplicationIdleHook();
 }
 //guess what.. skipped more code
@@ -68,7 +62,7 @@ extern "C" void vApplicationIdleHook( void ){
 	enableExternalInterrupts();	
 }
 \end{lstlisting}
-Listing \ref{lst:xIdleHookExamp} zeigt Pseudocode zu einer beispielhaften Implementierung der Idle Hook Funktion. Bevor das System schlafen gelegt werden kann müssen alle GPIOS und IRQs konfiguriert werden, so dass das System nicht unnötiger weise aufwacht. Des Weiteren werden alle nicht benötigten GPIOS auf Analog gestellt um Energie zu sparen. Als einzige Interrupt-Quelle wird hier eine externe RTC konfiguriert. Mit dem Aufruf von HAL\_PWR\_EnterSTOPMode() wird der uProzessor in den Schlafmodus versetzt. Die Funktion wird erst wieder verlassen sobald der externe Interrupt der RTC ausgelöst wurde. Danach werden alle GPIOs rekonfiguriert. Ein weiterer Schritt der noch unternommen werden muss, ist das informieren einer User-Task z.B. mittels Notify oder Message, so dass das System nicht beim nächsten Tick Interrupt wieder die Idle Task aktiviert. Nachteil dieser Variante ist, dass die Nutzung von Software Timer nicht mehr möglich ist. Der FreeRTOS Kernel würde die Idle Hook Funktion auch aufrufen und sich schlafen legen, wenn noch Software Timer aktiv sind. Die Nutzung von absoluten Zeiten ist ebenfalls nicht mehr möglich, da nach der Deaktivierung des Tick Interrupts der Tickcount nicht mehr korrekt ist. Abhilfe schafft hier eine weitere Funktionalität die FreeRTOS zur Verfügung stell, den sogenannten Tickless Idle Mode. Tickless idle kann durch das folgende Define in der FreeRTOSconfig.h aktiviert werden.  
+Listing \ref{lst:xIdleHookExamp} zeigt Pseudocode zu einer beispielhaften Implementierung der Idle Hook Funktion. Bevor das System schlafen gelegt werden kann müssen alle GPIOS und IRQs konfiguriert werden, so dass das System nicht unnötiger weise aufwacht. Des Weiteren werden alle nicht benötigten GPIOS auf Analog gestellt um Energie zu sparen. Als einzige Interrupt-Quelle wird hier eine externe RTC konfiguriert. Mit dem Aufruf von HAL\_PWR\_EnterSTOPMode() wird der $\mu$\-Pro\-zesso\-r in den Schlafmodus versetzt. Die Funktion wird erst wieder verlassen sobald der externe Interrupt der RTC ausgelöst wurde. Danach werden alle GPIOs rekonfiguriert. Ein weiterer Schritt der noch unternommen werden muss, ist das informieren einer User-Task z.B. mittels Notify oder Message, so dass das System nicht beim nächsten Tick Interrupt wieder die Idle Task aktiviert. Nachteil dieser Variante ist, dass die Nutzung von Software Timer nicht mehr möglich ist. Der FreeRTOS Kernel würde die Idle Hook Funktion auch aufrufen und sich schlafen legen, wenn noch Software Timer aktiv sind. Die Nutzung von absoluten Zeiten ist ebenfalls nicht mehr möglich, da nach der Deaktivierung des Tick Interrupts der Tickcount nicht mehr korrekt ist. Abhilfe schafft hier eine weitere Funktionalität die FreeRTOS zur Verfügung stell, den sogenannten Tickless Idle Mode. Tickless idle kann durch das folgende Define in der FreeRTOSconfig.h aktiviert werden.  
 \begin{lstlisting}[label=lst:defineTicklessIdle, numbers = none]
 #define configUSE_TICKLESS_IDLE  1; 
 \end{lstlisting}
