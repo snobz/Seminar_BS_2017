@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=2185
-NormalPos.bottom=870
+NormalPos.right=1545
+NormalPos.bottom=510
 Class=LaTeXView
-Document=FreeRtos ARM uController.tex
+Document=InterTaskKommunikation.tex
 
 [Frame0_View0,0]
-TopLine=0
-Cursor=868
+TopLine=12
+Cursor=1689
 
 [SessionInfo]
 FrameCount=1
