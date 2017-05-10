@@ -1,21 +1,9 @@
 %!TEX root = FreeRtos ARM uController.tex
 \subsection{Einrichten und Konfiguration}
 \label{sec:Einrichtung und Konfiguration}
-Ausgangspunkt für die nachfolgenden Codebeispiele ist die derzeit aktuelle Entwicklungsumgebung Eclipse Neon. Diese wird in der C/C++ Variante (CDT) auf dem Entwicklungssystem (Windows 7 Professional) installiert. Im Anschluss werden die GNU ARM-Tools als Plugin hinzugefügt. Als Pluginquelle wird die Webadresse gnuarm.eclipse.sourceforge.net/updates verwendet. Um direkt aus der Entwicklungsumgebung auf dem Entwicklungsboard entwickeln und debuggen zu können werden die USB Treiber für das Board von der Herstellerseite aus heruntergeladen und installiert. Ebenso wird das JLink Software Package nachinstalliert. Der auf dem Board montierte Programmer muss mit einer geänderten Firmware geflashed werden, in diesem Fall mit Hilfe der Software "'SEGGER STLink reflash'", um als JLink Debugger einen direkten Zugriff auf den Prozessor zu ermöglichen.
+Ausgangspunkt für die nachfolgenden Codebeispiele ist die derzeit aktuelle Entwicklungsumgebung Eclipse Neon. Diese wird in der C/C++ Variante (CDT) auf dem Entwicklungssystem (Windows 7 Professional) installiert. Im Anschluss werden die GNU ARM-Tools als Plugin hinzugefügt. Als Pluginquelle wird die Webadresse 
+\newline
+gnuarm.eclipse.sourceforge.net/updates verwendet. Um direkt aus der Entwicklungsumgebung auf dem Entwicklungsboard entwickeln und debuggen zu können werden die USB Treiber für das Board von der Herstellerseite aus heruntergeladen und installiert. Ebenso wird das JLink Software Package nachinstalliert. Der auf dem Board montierte Programmer muss mit einer geänderten Firmware geflashed werden, in diesem Fall mit Hilfe der Software "'SEGGER STLink reflash'", um als JLink Debugger einen direkten Zugriff auf den Prozessor zu ermöglichen.
 Nachdem die Basiskonfiguration abgeschlossen ist, kann auf freertos.org/ die gepackte Variante der Demoprojekte heruntergeladen werden. Es handelt sich hierbei um eine selbstextrahierende .exe-Datei, die im Anschluss an den Entpackvorgang die in Abbildung X gezeigte Dateistruktur zur Verfügung stellt.
 Innerhalb des Verzeichnisses FreeRTOS findet sich die aktuelle Variante des Kernel Codes inderhalb des Source Ordners. Demoprojekte, die sich ausschließlich auf den FreeRTOS Kernel beziehen finden sich im Demo Ordner des selben Verzeichnisses. Eine ähnliche Struktur findet sich im FreeRTOS-Plus Verzeichnis, hier werden jedoch zusätzliche Kernelfunktionen wie bspw. die Eco-Funktionen mitgeliefert, die nicht zwingend für den Betrieb des FreeRTOS erforderlich sind. 
 Seitens der Entwickler wird an mehreren Stellen darauf hingewiesen, dass keine Änderungen der Verzeichnisstruktur durchgeführt werden sollen. Im Anschluss an solche Änderungen können Projekte unter Umständen nicht mehr vollständig kompiliert werden. Auch empfehlen die Entwickler neue Projekte aus den Demo-Projekten heraus zu entwickeln. So werden 
-WIP: Eclipse CTD, RTOS AwareNess , Debugger, FileStructure
-\begin{itemize}
-	\item https://eclipse.org/cdt/
-	\item https://launchpad.net/gcc-arm-embedded
-\item http://gnuarmeclipse.github.io/plugins/download/
-\item http://gnuarmeclipse.github.io/windows-build-tools/
-\item http://gnuarmeclipse.github.io/debug/jlink/
-\item http://gnuarmeclipse.github.io/debug/openocd/
-\item http://freescale.com/lgfiles/updates/Eclipse/KDS
-\item Thread Aware 
-\item Beispiel Projekt
-\item STM32 Cube MX
-\item FreeRTOS.org
-\end{itemize}

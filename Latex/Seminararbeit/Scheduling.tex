@@ -1,13 +1,14 @@
 %!TEX root = FreeRtos ARM uController.tex
 \subsection{Scheduling}
 \label{Scheduling}
-Der Scheduler ist die Kernkomponente jedes Echtzeitbetriebssystem Kernels, da er eine quasi parallele Aus\-füh\-rung von Tasks ermöglicht. Eine Task stellt dabei ein ei\-gen\-stän\-di\-ge lauffähige Programmeinheit dar und wird ge\-wöhn\-lich in einer Schleife ausgeführt. Abhängig vom aktuellen Zustand der Tasks und dem gewählten Schedulingalgorithmus, wählt der Scheduler die nächste Task, die ausgeführt werden soll. Auf einem uProzessor mit einem Kern kann dabei immer nur eine Task zur Zeit ausgeführt werden. Der Vorgang des Task-Wechsels durch den Scheduler wird Kontextwechsel oder Contextswitch genannt. Der Kontextwechsel beeinflusst die Instruktionsfolge der Task nicht. Zum Zeitpunkt der Unterbrechung wird durch den Scheduler eine Art Schnappschuss der Task erstellt, alle Register und der Stack der Task werden gesichert. Nachdem der Scheduler die verdrängte Task wieder zur Ausführung ausgewählt hat, werden alle Register und der Stack wieder hergestellt und in die entsprechenden uProzessor Register geladen. Die Task wird danach ab der letzten Instruktion fortgeführt. Abbildung \ref{fig:ContextSwitch} zeigt wie eine Task während ihrer Ausführung unterbrochen wird.
+Der Scheduler ist die Kernkomponente jedes Echtzeitbetriebssystem Kernels, da er eine quasi parallele Aus\-füh\-rung von Tasks ermöglicht. Eine Task stellt dabei ein ei\-gen\-stän\-di\-ge lauffähige Programmeinheit dar und wird ge\-wöhn\-lich in einer Schleife ausgeführt. Abhängig vom aktuellen Zustand der Tasks und dem gewählten Schedulingalgorithmus, wählt der Scheduler die nächste Task, die ausgeführt werden soll. Auf einem uProzessor mit einem Kern kann dabei immer nur eine Task zur Zeit ausgeführt werden. Der Vorgang des Task-Wechsels durch den Scheduler wird Kontextwechsel oder Contextswitch genannt. Der Kontextwechsel beeinflusst nicht die Instruktionsfolge der Task. Zum Zeitpunkt der Unterbrechung wird durch den Scheduler eine Art Schnappschuss der Task erstellt, alle Register und der Stack der Task werden gesichert. Nachdem der Scheduler die verdrängte Task wieder zur Ausführung ausgewählt hat, werden alle Register und der Stack wieder hergestellt und in die entsprechenden uProzessor Register geladen. Die Task wird danach ab der letzten Instruktion fortgeführt. Abbildung \ref{fig:ContextSwitch} zeigt wie eine Task während ihrer Ausführung unterbrochen wird.
 \begin{figure}[ht!]
 	\centering
 		\includegraphics[width=0.4\textwidth]{Pictures/FreeRTOSOrg/ExeContext.png}
 	\caption{Der Kontextwechsel einer Task findet mitten in der Ausführung statt. Alle Register die für die weitere Ausführung benötigt werden, werden durch den Scheduler gesichert. Bild-Quelle~\protect\citeA{MasteringFreeRtos} }
 	\label{fig:ContextSwitch}
-\end{figure}   
+\end{figure}
+\newline   
 Folgende Zu\-stän\-de kann eine FreeRTOS Task im Scheduling annehmen: 
 \begin{itemize}
 	\item Running: Die Task wird zur Zeit vom Scheduler ausgeführt
@@ -21,7 +22,9 @@ Folgende Zu\-stän\-de kann eine FreeRTOS Task im Scheduling annehmen:
 		\includegraphics[width=0.3\textwidth]{Pictures/FreeRTOSOrg/taskStates.png}
 	\caption{Übersicht aller Task Zustandstransitionen in FreeRTOS. Der Zustandswechsel findet entweder durch den Aufruf einer FreeRTOS API Funktion statt oder aber durch Event z.B. Interrupts, Timer-Events. Der Wechsel in den Zustand Running wird durch den Scheduler bestimmt und ist durch den Schedulingalgorithmus definiert.  Bild-Quelle~\protect\citeA{MasteringFreeRtos}}
 	\label{fig:TaskStates}
-\end{figure}Wie bereits oben beschrieben bestimmt der Scheduling Algorithmus welche Task als nächstes vom Ready Zustand in den Running Zustand wechselt. Der Scheduling Algorithmus des FreeRTOS Schedulers bietet unterschiedliche Kon\-fi\-gu\-ra\-tions\-mög\-lich\-kei\-ten, auf die wir im Laufe dieses Abschnittes genauer eingehen werden. Unabhängig von der gewählten Konfiguration, basieren alle Schedulingalgorithmen auf dem Round Robin Verfahren\cite{9783827373427}. Dabei werden alle lauf\-fäh\-igen Tasks (Ready) gleicher Priorität in einer Liste verwaltet. Jede Task in der Liste erhält ein gewisses Zeitquantum\footnote{Round Robin definiert nicht die Länge des Zeitquantums}, welches bestimmt wie lange einer Task der Prozessor zugeteilt wird. Nach Ablauf des Zeitquantum wird ein Kontextwechsel durchgeführt und die näch\-ste Task in der Liste erhält Prozessorzeit. Die ausgelaufene Task wird durch den Scheduler automatisch hinten an die Liste angefügt. Da jeder Task in FreeRTOS eine gewisse Priorität zugewiesen wird, ist auch für jede Priorität eine eigene Round Robin-Liste nötig. Dieses Verfahren wird auch Priority Scheduling \cite{9783827373427} genannt. Abbildung \ref{fig:PrioList1} veranschaulicht den Aufbau dieser Listen und in Listing \ref{lst:nextTask} wird gezeigt wie das Priority Scheduling im FreeRTOS Source Code umgesetzt wurde. 
+\end{figure} 
+\newline
+Die Grundlage aller zur Verfügung stehenden Schedulingalgorithmen, ist das Round Robin Verfahren\cite{9783827373427}. Dabei werden alle lauf\-fäh\-igen Tasks (Ready) gleicher Priorität in einer Liste verwaltet. Jede Task in der Liste erhält ein gewisses Zeitquantum\footnote{Round Robin definiert nicht die Länge des Zeitquantums}, welches bestimmt wie lange einer Task der Prozessor zugeteilt wird. Nach Ablauf des Zeitquantum wird ein Kontextwechsel durchgeführt und die näch\-ste Task in der Liste erhält Prozessorzeit. Die ausgelaufene Task wird durch den Scheduler automatisch hinten an die Liste angefügt. Da jeder Task in FreeRTOS eine gewisse Priorität zugewiesen wird, ist auch für jede Priorität eine eigene Round Robin-Liste nötig. Dieses Verfahren wird auch Priority Scheduling \cite{9783827373427} genannt. Abbildung \ref{fig:PrioList1} veranschaulicht den Aufbau dieser Listen und in Listing \ref{lst:nextTask} wird gezeigt wie das Priority Scheduling im FreeRTOS Source Code umgesetzt wurde. 
 \begin{figure}[ht!]
 	\centering
 		\includegraphics[width=0.3\textwidth]{Pictures/Scheduling/PrioList1.png}
@@ -42,13 +45,16 @@ Folgende Zu\-stän\-de kann eine FreeRTOS Task im Scheduling annehmen:
 		uxTopReadyPriority = uxTopPriority;																
 	} /* taskSELECT_HIGHEST_PRIORITY_TASK */
 \end{lstlisting}
-Der Scheduler kann entweder im Cooperative Modus oder im Preemptive Modus ausgeführt werden. Welcher Modus vom Scheduler verwendet wird, wird durch das define configUSE\_PREEMPTION in der FreeRTOS config bestimmt. Im Preemptive Modus wird eine aktive Task mit niedriger Priorität sofort von einer Task mit höherer Priorität verdrängt und ein Kontextwechsel wird durchgeführte. Im kooperativen Modus hingegen wird ein Kontextwechsel erst durchgeführt, wenn eine Task den Prozessor explizit durch die Funktion xTaskYield() abgibt. Abbildung \ref{fig:PreVSCo} zeigt den Vergleich beider Modis durch einen beispielhaften Ablauf. Eine weitere Option die sich über das define configUSE\_TIME\_SLICING aktivieren lässt ist das sogenannte Zeitschlitzverfahren. Durch das Zeitschlitzverfahren wird die zugeteilte Prozessorzeit für Task gleicher Priorität gleichmäßig aufgeteilt. Dies geschieht durch Ein\-füh\-rung eines festen Tick-Interrupt Intervalls. Bei jedem Tick Interrupt wird der FreeRTOS SysTickHandler aufgerufen. Listing \ref{lst:SysTickS} zeigt die Implementierung des FreeRTOS SysTicks. Der SysTickHandler ist Bestandteil des Schedulers und überprüft bei jeder Ausführung, ob sich eine Task gleicher Priorität im Ready Zustand befindet. Sollte es eine solche Task geben wird ein Kontextwechsel durchgeführt und die Task erhält den Prozessor zugeteilt. Des Weiteren kümmert sich der SysTickHandler um die Verwaltung des TickCount, welcher als Referenz für alle RTOS Timingfunktionen dient. Abbildung \ref{fig:SysTick} zeigt diesen Vorgang nochmal im zeitlichen Verlauf. Die häufigst verwendete Scheduling Algorithmus nennt sich Prioritized Pre-emptive Scheduling with Time Slicing.
+\newline
+Dem Entwickler stehen zwei Konfigurationsmöglichkeiten des FreeRTOS Scheduler zur Auswahl. Der Scheduler kann entweder im Cooperative Modus oder im Preemptive Modus ausgeführt werden. Welcher Modus vom Scheduler als Schedulingalgorithmus verwendet wird, wird durch das define configUSE\_PREEMPTION in der FreeRTOS config bestimmt. Im Preemptive Modus wird eine aktive Task mit niedriger Priorität sofort von einer Task mit höherer Priorität verdrängt und ein Kontextwechsel wird durchgeführte. Im kooperativen Modus hingegen wird ein Kontextwechsel erst durchgeführt, wenn eine Task den Prozessor explizit durch die Funktion xTaskYield() abgibt. Abbildung \ref{fig:PreVSCo} zeigt den Vergleich beider Modis durch einen beispielhaften Ablauf. 
 \begin{figure}[htb]
 	\centering
 		\includegraphics[width=0.5\textwidth]{Pictures/EMCUIT/PreemptiveCooperative.png}
 	\caption{Im Co-operative Modus wird der Prozessor von einer Task erst abgegeben, wenn diese explizit taskYield() aufruft. Selbst wenn eine Task mit höhrer Priorität in den Ready Zustand wechselt, läuft die Task mit niedrigerer Priorität weiter. Im Gegensatz dazu steht das Pre-Emptive Scheduling (hier mit Time-Slicing), es unterbricht die laufende Task mit niedriger Priorität sofort, sobald eine Task mit höherer Priorität Ready ist. Bild-Quelle~\protect\citeA{MasteringFreeRtos}}
 	\label{fig:PreVSCo}
 \end{figure}
+\newline
+FreeRTOS bietet für den Preemptive Modus über das define configUSE\_TIME\_SLICING die Möglichkeit eine Zeitschlitzverfahren zu aktivieren. Durch das Zeitschlitzverfahren wird die zugeteilte Prozessorzeit für Task gleicher Priorität gleichmäßig aufgeteilt. Dies geschieht durch Ein\-füh\-rung eines festen Tick-Interrupt Intervalls. Bei jedem Tick Interrupt wird der FreeRTOS SysTickHandler aufgerufen. Listing \ref{lst:SysTickS} zeigt die Implementierung des FreeRTOS SysTicks. Der SysTickHandler ist Bestandteil des Schedulers und überprüft bei jeder Ausführung, ob sich eine Task gleicher Priorität im Ready Zustand befindet. Sollte es eine solche Task geben wird ein Kontextwechsel durchgeführt und die Task erhält den Prozessor zugeteilt. Des Weiteren kümmert sich der SysTickHandler um die Verwaltung des TickCount, welcher als Referenz für alle RTOS Timingfunktionen dient. Abbildung \ref{fig:SysTick} zeigt diesen Vorgang nochmal im zeitlichen Verlauf. 
 \begin{lstlisting}[caption={FreeRTOS Source des SysTickHandlers aus Task.c. Der SysTickHandler verwaltet den TickCount. Der TickCount dient allen Timingfunktionen des RTOS Kernels als Zeitreferenz. Des Weiteren wird bei aktivem Time Slicing überprüft ob ein Kontextwechsel nötig ist. Der Kontext wechsel wir dann ggf. durch den PendSVHandler durchgeführt.}, linewidth=8cm,captionpos=b, label=lst:SysTickS, float=hbt]
 void xPortSysTickHandler( void ){
 	/* The SysTick runs at the lowest interrupt priority, so when this interrupt
@@ -74,33 +80,25 @@ void xPortSysTickHandler( void ){
 	\caption{Beispielhafter Ablauf eines SysTickInterrupts.(1) keine User Task ist ready, die Idle Task ist aktiv. (2) SysTickInterrupt. (3) SysTickHandler wird aufgerufen. (4) vControlTask ist ready und ein Kontext wechsel wird durchgeführt. vControlTask hat hier die gleiche Priorität wie die IdleTask. (5)vControlTask wird ausgeführt. Bild-Quelle~\protect\citeA{MasteringFreeRtos}}
 	\label{fig:SysTick}
 \end{figure}
+\newline
+Die wohl am häufigsten verwendete Konfiguration ist wohl der Preemptive Modus mit aktivem Zeitschlitzverfahren.
+\newline
+\#define configUSE\_PREEMPTION 1
+\newline
+\#define configUSE\_TIME\_SLICING 1
+\newline
+Diese Einstellung wird üblicherweise Prioritized Pre-emptive Scheduling with Time Slicing genannt.
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=0.5\textwidth]{Pictures/Scheduling/timeslice.png}
+	\caption{Timeslice. Bild-Quelle~\protect\citeA{MasteringFreeRtos}}
+	\label{fig:timeslice}
+\end{figure}
 
 
-Listing \ref{lst:TaskExam1} zeigt ein minimal Beispiel einer Task und den Start des Schedulers durch vTaskStartScheduler() in der main function. 
-\begin{lstlisting}[caption={Minimal Beispiel für die Definition eine Task. }, linewidth=8cm,captionpos=b, label=lst:TaskExam1, float=hbt]
- void main( void )
- {
-	//Task werden oft vor dem Start des Schedulers erzeugt.
-	xTaskCreate( vTaskCode,
-							"NAME",
-							STACK_SIZE,
-							NULL,
-							tskIDLE_PRIORITY,
-							NULL );
-   // Scheduler wird gestartet
-   vTaskStartScheduler();
-   // Hier sollten wir nicht hinkommen, da der Scheduler laeuft.
- }
 
-void vTaskCode( void * pvParameters )
-{
-    for( ;; ){
-        /* Task code wird hier Implementiert
-				 z.B. warten auf eine Nachricht*/
-    }
-		/* Hier sollten wir nicht hinkommen*/
-		vTaskDelete( NULL );
-}
-\end{lstlisting}
+
+
+
 
 Eine Besonderheit ist die Idle Task, diese wird automatisch beim Starten des Schedulers erzeugt. Die Idle Task hat die niedrigste Priorität und wird immer dann ausgeführt, wenn sich keine User-Task im Ready oder Running Zustand befindet. Die Idle Task ist ein Indikator für überschüssige Prozessorzeit. Mittels der Idle-Hook Funktion kann der Idle Task Funktionalität durch den Entwickler hinzugefügt werden. Wie die Idle Task zum Energiesparen genutzt werden kann, wird in Abschnitt \ref{sec:Low Power Modes} gezeigt.

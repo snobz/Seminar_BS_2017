@@ -53,36 +53,36 @@
 \newlabel{lst:vPortMalloc1@cref}{{[subsection][5][2]2.5}{3}}
 \newlabel{lst:vPortFree1}{{2.5}{3}{}{lstlisting.-2}{}}
 \newlabel{lst:vPortFree1@cref}{{[subsection][5][2]2.5}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Einbindung des Speicheralgorithmus Heap1 in Eclipse CDT. Die Algortihmen Heap2 bis Heap5 sind vom Build ausgeschlossen}}{3}{figure.3}}
+\newlabel{fig:HeapsEclipse}{{3}{3}{Einbindung des Speicheralgorithmus Heap1 in Eclipse CDT. Die Algortihmen Heap2 bis Heap5 sind vom Build ausgeschlossen}{figure.3}{}}
+\newlabel{fig:HeapsEclipse@cref}{{[figure][3][]3}{3}}
 \citation{MasteringFreeRtos}
 \citation{MasteringFreeRtos}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Einbindung des Speicheralgorithmus Heap1 in Eclipse CDT. Die Algortihmen Heap2 bis Heap5 sind vom Build ausgeschlossen}}{4}{figure.3}}
-\newlabel{fig:HeapsEclipse}{{3}{4}{Einbindung des Speicheralgorithmus Heap1 in Eclipse CDT. Die Algortihmen Heap2 bis Heap5 sind vom Build ausgeschlossen}{figure.3}{}}
-\newlabel{fig:HeapsEclipse@cref}{{[figure][3][]3}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Task und Kernel teilen sich in FreeRTOS einen gemeinsamen Adressraum. Dies stellt eine potentielle Fehlerquelle dar. Bild-Quelle~\citeA {RTOSRevealed}}}{4}{figure.4}}
-\newlabel{fig:AddressSpace}{{4}{4}{Task und Kernel teilen sich in FreeRTOS einen gemeinsamen Adressraum. Dies stellt eine potentielle Fehlerquelle dar. Bild-Quelle~\protect \citeA {RTOSRevealed}}{figure.4}{}}
-\newlabel{fig:AddressSpace@cref}{{[figure][4][]4}{4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.1}FreeRTOS Algorithmen zur Speicherverwaltung}{4}{subsubsection.2.5.1}}
 \newlabel{lst:malloc2}{{1}{4}{FreeRTOS Source von pvPortMalloc() aus Heap1.c. Zuerst wird sichergestellt das die Startspeicheradresse dem byte-Alignment des uProzessors entspricht. Der STM32F4 ist ein 32Bit uProzessor und hat ein byte-Alignment von 4, so dass die Startadresse immer eine Potenz von 4 sein muss. Danach wird der Scheduler deaktiviert und geprüft ob genug Speicher zur Verfügung steht. Abschließend wird der Speicher im ucHeap reserviert}{lstlisting.1}{}}
 \newlabel{lst:malloc2@cref}{{[lstlisting][1][]1}{4}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {1}FreeRTOS Source von pvPortMalloc() aus Heap1.c. Zuerst wird sichergestellt das die Startspeicheradresse dem byte-Alignment des uProzessors entspricht. Der STM32F4 ist ein 32Bit uProzessor und hat ein byte-Alignment von 4, so dass die Startadresse immer eine Potenz von 4 sein muss. Danach wird der Scheduler deaktiviert und gepr\IeC {\"u}ft ob genug Speicher zur Verf\IeC {\"u}gung steht. Abschlie\IeC {\ss }end wird der Speicher im ucHeap reserviert.}{4}{lstlisting.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.1}FreeRTOS Algorithmen zur Speicherverwaltung}{4}{subsubsection.2.5.1}}
+\newlabel{lst:free2}{{2}{4}{FreeRTOS Source von vPortFree() aus Heap1.c . Da eine Speicherfreigabe in Heap1 nicht vorgesehen ist, ist diese Funktion leer}{lstlisting.2}{}}
+\newlabel{lst:free2@cref}{{[lstlisting][2][]2}{4}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}FreeRTOS Source von vPortFree() aus Heap1.c . Da eine Speicherfreigabe in Heap1 nicht vorgesehen ist, ist diese Funktion leer.}{4}{lstlisting.2}}
+\newlabel{lst:xTaskCreate}{{3}{4}{FreeRTOS Source von xTaskCreate() aus Task.c. Jede Task bestitzt einen Stack und einen Task Control Block, beide werden beim Aufruf von xTaskCreate (Zeile 5 und Zeile 11) erstellt}{lstlisting.3}{}}
+\newlabel{lst:xTaskCreate@cref}{{[lstlisting][3][]3}{4}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}FreeRTOS Source von xTaskCreate() aus Task.c. Jede Task bestitzt einen Stack und einen Task Control Block, beide werden beim Aufruf von xTaskCreate (Zeile 5 und Zeile 11) erstellt.}{4}{lstlisting.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Task und Kernel teilen sich in FreeRTOS einen gemeinsamen Adressraum. Dies stellt eine potentielle Fehlerquelle dar. Bild-Quelle~\citeA {RTOSRevealed}}}{4}{figure.4}}
+\newlabel{fig:AddressSpace}{{4}{4}{Task und Kernel teilen sich in FreeRTOS einen gemeinsamen Adressraum. Dies stellt eine potentielle Fehlerquelle dar. Bild-Quelle~\protect \citeA {RTOSRevealed}}{figure.4}{}}
+\newlabel{fig:AddressSpace@cref}{{[figure][4][]4}{4}}
 \citation{RTOSRevealed}
 \citation{RTOSRevealed}
 \citation{MasteringFreeRtos}
 \citation{MasteringFreeRtos}
-\newlabel{lst:free2}{{2}{5}{FreeRTOS Source von vPortFree() aus Heap1.c . Da eine Speicherfreigabe in Heap1 nicht vorgesehen ist, ist diese Funktion leer}{lstlisting.2}{}}
-\newlabel{lst:free2@cref}{{[lstlisting][2][]2}{5}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}FreeRTOS Source von vPortFree() aus Heap1.c . Da eine Speicherfreigabe in Heap1 nicht vorgesehen ist, ist diese Funktion leer.}{5}{lstlisting.2}}
-\newlabel{lst:xTaskCreate}{{3}{5}{FreeRTOS Source von xTaskCreate() aus Task.c. Jede Task bestitzt einen Stack und einen Task Control Block, beide werden beim Aufruf von xTaskCreate (Zeile 5 und Zeile 11) erstellt}{lstlisting.3}{}}
-\newlabel{lst:xTaskCreate@cref}{{[lstlisting][3][]3}{5}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}FreeRTOS Source von xTaskCreate() aus Task.c. Jede Task bestitzt einen Stack und einen Task Control Block, beide werden beim Aufruf von xTaskCreate (Zeile 5 und Zeile 11) erstellt.}{5}{lstlisting.3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.2}Memory Protection}{5}{subsubsection.2.5.2}}
-\newlabel{sec:Memory Protection}{{2.5.2}{5}{Memory Protection}{subsubsection.2.5.2}{}}
-\newlabel{sec:Memory Protection@cref}{{[subsubsection][2][2,5]2.5.2}{5}}
 \newlabel{lst:ucHeap}{{2.5.1}{5}{}{lstlisting.-3}{}}
 \newlabel{lst:ucHeap@cref}{{[subsubsection][1][2,5]2.5.1}{5}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Beispiel Speicherbelegung nach drei Instanziierung von Tasks durch die Erzeugerfunktion xTaskCreate() unter Verwendung des Speicheralgorithmus Heap1. Bild-Quelle~\citeA {MasteringFreeRtos}}}{5}{figure.5}}
 \newlabel{fig:Heap1}{{5}{5}{Beispiel Speicherbelegung nach drei Instanziierung von Tasks durch die Erzeugerfunktion xTaskCreate() unter Verwendung des Speicheralgorithmus Heap1. Bild-Quelle~\protect \citeA {MasteringFreeRtos}}{figure.5}{}}
 \newlabel{fig:Heap1@cref}{{[figure][5][]5}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.2}Memory Protection}{5}{subsubsection.2.5.2}}
+\newlabel{sec:Memory Protection}{{2.5.2}{5}{Memory Protection}{subsubsection.2.5.2}{}}
+\newlabel{sec:Memory Protection@cref}{{[subsubsection][2][2,5]2.5.2}{5}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Zugriffsrechte f\IeC {\"u}r Restricted Task wird durch den RTOS Kernel in der MPU konfiguriert. Der Speicherzugriff wir automatisch durch MPU/ MMU \IeC {\"u}berpr\IeC {\"u}ft und im Fehlerfall an den Kernel gemeldet. Bild-Quelle~\citeA {RTOSRevealed}}}{5}{figure.6}}
 \newlabel{fig:AddressSpaceMMU}{{6}{5}{Zugriffsrechte für Restricted Task wird durch den RTOS Kernel in der MPU konfiguriert. Der Speicherzugriff wir automatisch durch MPU/ MMU überprüft und im Fehlerfall an den Kernel gemeldet. Bild-Quelle~\protect \citeA {RTOSRevealed}}{figure.6}{}}
 \newlabel{fig:AddressSpaceMMU@cref}{{[figure][6][]6}{5}}
@@ -98,6 +98,7 @@
 \citation{MasteringFreeRtos}
 \citation{MasteringFreeRtos}
 \citation{MasteringFreeRtos}
+\citation{MasteringFreeRtos}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Der Kontextwechsel einer Task findet mitten in der Ausf\IeC {\"u}hrung statt. Alle Register die f\IeC {\"u}r die weitere Ausf\IeC {\"u}hrung ben\IeC {\"o}tigt werden, werden durch den Scheduler gesichert. Bild-Quelle~\citeA {MasteringFreeRtos} }}{6}{figure.7}}
 \newlabel{fig:ContextSwitch}{{7}{6}{Der Kontextwechsel einer Task findet mitten in der Ausführung statt. Alle Register die für die weitere Ausführung benötigt werden, werden durch den Scheduler gesichert. Bild-Quelle~\protect \citeA {MasteringFreeRtos}}{figure.7}{}}
 \newlabel{fig:ContextSwitch@cref}{{[figure][7][]7}{6}}
@@ -107,9 +108,9 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Aufbau der Priorit\IeC {\"a}tenliste nach Round Robin in FreeRTOS. Alle aufgef\IeC {\"u}hrten Task sind bereit zur Ausf\IeC {\"u}hrung. Task A wird aktuell durch den Scheduler ausgef\IeC {\"u}hrt. Nach dem Ablauf des Zeitquantums, wird A hinter B einsortiert. Die Maximale Priorit\IeC {\"a}t wird durch configMaxPrio bestimmt. Die Idle Task wird automatisch durch den Kernel erzeugt und hat immer die niedrigste Priorit\IeC {\"a}t. }}{6}{figure.9}}
 \newlabel{fig:PrioList1}{{9}{6}{Aufbau der Prioritätenliste nach Round Robin in FreeRTOS. Alle aufgeführten Task sind bereit zur Ausführung. Task A wird aktuell durch den Scheduler ausgeführt. Nach dem Ablauf des Zeitquantums, wird A hinter B einsortiert. Die Maximale Priorität wird durch configMaxPrio bestimmt. Die Idle Task wird automatisch durch den Kernel erzeugt und hat immer die niedrigste Priorität}{figure.9}{}}
 \newlabel{fig:PrioList1@cref}{{[figure][9][]9}{6}}
-\newlabel{lst:nextTask}{{4}{7}{FreeRTOS Source zur Priroty Task Selection aus Task.c. Alle lauffähigen Task werden in einem Array vewaltet pxReadyTaskLists. Die Listen verwalten sich durch Referenz-Pointer in den TCBs der einzelnen Tasks}{lstlisting.4}{}}
-\newlabel{lst:nextTask@cref}{{[lstlisting][4][]4}{7}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}FreeRTOS Source zur Priroty Task Selection aus Task.c. Alle lauff\IeC {\"a}higen Task werden in einem Array vewaltet pxReadyTaskLists. Die Listen verwalten sich durch Referenz-Pointer in den TCBs der einzelnen Tasks}{7}{lstlisting.4}}
+\newlabel{lst:nextTask}{{4}{6}{FreeRTOS Source zur Priroty Task Selection aus Task.c. Alle lauffähigen Task werden in einem Array vewaltet pxReadyTaskLists. Die Listen verwalten sich durch Referenz-Pointer in den TCBs der einzelnen Tasks}{lstlisting.4}{}}
+\newlabel{lst:nextTask@cref}{{[lstlisting][4][]4}{6}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}FreeRTOS Source zur Priroty Task Selection aus Task.c. Alle lauff\IeC {\"a}higen Task werden in einem Array vewaltet pxReadyTaskLists. Die Listen verwalten sich durch Referenz-Pointer in den TCBs der einzelnen Tasks}{6}{lstlisting.4}}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Im Co-operative Modus wird der Prozessor von einer Task erst abgegeben, wenn diese explizit taskYield() aufruft. Selbst wenn eine Task mit h\IeC {\"o}hrer Priorit\IeC {\"a}t in den Ready Zustand wechselt, l\IeC {\"a}uft die Task mit niedrigerer Priorit\IeC {\"a}t weiter. Im Gegensatz dazu steht das Pre-Emptive Scheduling (hier mit Time-Slicing), es unterbricht die laufende Task mit niedriger Priorit\IeC {\"a}t sofort, sobald eine Task mit h\IeC {\"o}herer Priorit\IeC {\"a}t Ready ist. Bild-Quelle~\citeA {MasteringFreeRtos}}}{7}{figure.10}}
 \newlabel{fig:PreVSCo}{{10}{7}{Im Co-operative Modus wird der Prozessor von einer Task erst abgegeben, wenn diese explizit taskYield() aufruft. Selbst wenn eine Task mit höhrer Priorität in den Ready Zustand wechselt, läuft die Task mit niedrigerer Priorität weiter. Im Gegensatz dazu steht das Pre-Emptive Scheduling (hier mit Time-Slicing), es unterbricht die laufende Task mit niedriger Priorität sofort, sobald eine Task mit höherer Priorität Ready ist. Bild-Quelle~\protect \citeA {MasteringFreeRtos}}{figure.10}{}}
 \newlabel{fig:PreVSCo@cref}{{[figure][10][]10}{7}}
@@ -119,44 +120,48 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Beispielhafter Ablauf eines SysTickInterrupts.(1) keine User Task ist ready, die Idle Task ist aktiv. (2) SysTickInterrupt. (3) SysTickHandler wird aufgerufen. (4) vControlTask ist ready und ein Kontext wechsel wird durchgef\IeC {\"u}hrt. vControlTask hat hier die gleiche Priorit\IeC {\"a}t wie die IdleTask. (5)vControlTask wird ausgef\IeC {\"u}hrt. Bild-Quelle~\citeA {MasteringFreeRtos}}}{7}{figure.11}}
 \newlabel{fig:SysTick}{{11}{7}{Beispielhafter Ablauf eines SysTickInterrupts.(1) keine User Task ist ready, die Idle Task ist aktiv. (2) SysTickInterrupt. (3) SysTickHandler wird aufgerufen. (4) vControlTask ist ready und ein Kontext wechsel wird durchgeführt. vControlTask hat hier die gleiche Priorität wie die IdleTask. (5)vControlTask wird ausgeführt. Bild-Quelle~\protect \citeA {MasteringFreeRtos}}{figure.11}{}}
 \newlabel{fig:SysTick@cref}{{[figure][11][]11}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Timeslice. Bild-Quelle~\citeA {MasteringFreeRtos}}}{7}{figure.12}}
+\newlabel{fig:timeslice}{{12}{7}{Timeslice. Bild-Quelle~\protect \citeA {MasteringFreeRtos}}{figure.12}{}}
+\newlabel{fig:timeslice@cref}{{[figure][12][]12}{7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Intertask Kommunikation}{7}{subsection.2.7}}
-\newlabel{lst:TaskExam1}{{6}{8}{Minimal Beispiel für die Definition eine Task}{lstlisting.6}{}}
-\newlabel{lst:TaskExam1@cref}{{[lstlisting][6][]6}{8}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6}Minimal Beispiel f\IeC {\"u}r die Definition eine Task.}{8}{lstlisting.6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Interrupt Handling}{9}{subsection.2.8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.9}Low Power Modes auf Stm32F4}{9}{subsection.2.9}}
-\newlabel{sec:Low Power Modes}{{2.9}{9}{Low Power Modes auf Stm32F4}{subsection.2.9}{}}
-\newlabel{sec:Low Power Modes@cref}{{[subsection][9][2]2.9}{9}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Energieaufnahme f\IeC {\"u}r STM32F4 in SleepModes}}{9}{figure.12}}
-\newlabel{fig:powerconsum}{{12}{9}{Energieaufnahme für STM32F4 in SleepModes}{figure.12}{}}
-\newlabel{fig:powerconsum@cref}{{[figure][12][]12}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Interrupt Handling}{8}{subsection.2.8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.9}Low Power Modes auf Stm32F4}{8}{subsection.2.9}}
+\newlabel{sec:Low Power Modes}{{2.9}{8}{Low Power Modes auf Stm32F4}{subsection.2.9}{}}
+\newlabel{sec:Low Power Modes@cref}{{[subsection][9][2]2.9}{8}}
+\citation{FreeRtosAdvanced}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Energieaufnahme f\IeC {\"u}r STM32F4 in SleepModes}}{9}{figure.13}}
+\newlabel{fig:powerconsum}{{13}{9}{Energieaufnahme für STM32F4 in SleepModes}{figure.13}{}}
+\newlabel{fig:powerconsum@cref}{{[figure][13][]13}{9}}
 \newlabel{lst:defineIdleHook}{{2.9}{9}{}{lstlisting.-4}{}}
 \newlabel{lst:defineIdleHook@cref}{{[subsection][9][2]2.9}{9}}
-\newlabel{lst:xIdleTaskHook}{{7}{9}{Aufruf der IdleTask Hook Funktion durch die FreeRTOS Idle Task. Aus Task.c}{lstlisting.7}{}}
-\newlabel{lst:xIdleTaskHook@cref}{{[lstlisting][7][]7}{9}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}Aufruf der IdleTask Hook Funktion durch die FreeRTOS Idle Task. Aus Task.c}{9}{lstlisting.7}}
-\newlabel{lst:xIdleHookExamp}{{8}{9}{Pseudocode für eine Idle Hook Funktion}{lstlisting.8}{}}
-\newlabel{lst:xIdleHookExamp@cref}{{[lstlisting][8][]8}{9}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8}Pseudocode f\IeC {\"u}r eine Idle Hook Funktion}{9}{lstlisting.8}}
-\citation{FreeRtosAdvanced}
+\newlabel{lst:xIdleTaskHook}{{6}{9}{Aufruf der IdleTask Hook Funktion durch die FreeRTOS Idle Task. Aus Task.c}{lstlisting.6}{}}
+\newlabel{lst:xIdleTaskHook@cref}{{[lstlisting][6][]6}{9}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6}Aufruf der IdleTask Hook Funktion durch die FreeRTOS Idle Task. Aus Task.c}{9}{lstlisting.6}}
+\newlabel{lst:xIdleHookExamp}{{7}{9}{Pseudocode für eine Idle Hook Funktion}{lstlisting.7}{}}
+\newlabel{lst:xIdleHookExamp@cref}{{[lstlisting][7][]7}{9}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}Pseudocode f\IeC {\"u}r eine Idle Hook Funktion}{9}{lstlisting.7}}
+\newlabel{lst:defineTicklessIdle}{{2.9}{9}{}{lstlisting.-5}{}}
+\newlabel{lst:defineTicklessIdle@cref}{{[subsection][9][2]2.9}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}FreeRTOS in der Praxis}{9}{section.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Komplexit\IeC {\"a}t durch Nebenl\IeC {\"a}ufigkeit - Debugging von Echtzeitsystemen}{9}{subsection.3.1}}
+\newlabel{sec:Debugging von Echtzeitsystemen}{{3.1}{9}{Komplexität durch Nebenläufigkeit - Debugging von Echtzeitsystemen}{subsection.3.1}{}}
+\newlabel{sec:Debugging von Echtzeitsystemen@cref}{{[subsection][1][3]3.1}{9}}
 \citation{9783827373427}
 \citation{9783827373427}
 \citation{RealTimePerformance}
-\newlabel{lst:defineTicklessIdle}{{2.9}{10}{}{lstlisting.-5}{}}
-\newlabel{lst:defineTicklessIdle@cref}{{[subsection][9][2]2.9}{10}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}FreeRTOS in der Praxis}{10}{section.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Komplexit\IeC {\"a}t durch Nebenl\IeC {\"a}ufigkeit - Debugging von Echtzeitsystemen}{10}{subsection.3.1}}
-\newlabel{sec:Debugging von Echtzeitsystemen}{{3.1}{10}{Komplexität durch Nebenläufigkeit - Debugging von Echtzeitsystemen}{subsection.3.1}{}}
-\newlabel{sec:Debugging von Echtzeitsystemen@cref}{{[subsection][1][3]3.1}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Segger Systemview - Not referenced yet}}{10}{figure.13}}
-\newlabel{fig:Systemview}{{13}{10}{Segger Systemview - Not referenced yet}{figure.13}{}}
-\newlabel{fig:Systemview@cref}{{[figure][13][]13}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Segger Systemview Target - Not referenced yet}}{10}{figure.14}}
-\newlabel{fig:SystemviewTarget}{{14}{10}{Segger Systemview Target - Not referenced yet}{figure.14}{}}
-\newlabel{fig:SystemviewTarget@cref}{{[figure][14][]14}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Segger Thread Awareness- Not referenced yet}}{10}{figure.15}}
-\newlabel{fig:ThreadAware}{{15}{10}{Segger Thread Awareness- Not referenced yet}{figure.15}{}}
-\newlabel{fig:ThreadAware@cref}{{[figure][15][]15}{10}}
+\bibstyle{abbrv}
+\bibdata{literatur}
+\bibcite{FreeRtosAdvanced}{1}
+\bibcite{MasteringFreeRtos}{2}
+\bibcite{RealTimePerformance}{3}
+\bibcite{9783827373427}{4}
+\bibcite{RTOSRevealed}{5}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Segger Systemview - Not referenced yet}}{10}{figure.14}}
+\newlabel{fig:Systemview}{{14}{10}{Segger Systemview - Not referenced yet}{figure.14}{}}
+\newlabel{fig:Systemview@cref}{{[figure][14][]14}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Segger Systemview Target - Not referenced yet}}{10}{figure.15}}
+\newlabel{fig:SystemviewTarget}{{15}{10}{Segger Systemview Target - Not referenced yet}{figure.15}{}}
+\newlabel{fig:SystemviewTarget@cref}{{[figure][15][]15}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Echtzeitanalyse}{10}{subsection.3.2}}
 \newlabel{sec:Echtzeitanalyse}{{3.2}{10}{Echtzeitanalyse}{subsection.3.2}{}}
 \newlabel{sec:Echtzeitanalyse@cref}{{[subsection][2][3]3.2}{10}}
@@ -165,10 +170,6 @@
 \newlabel{eq:scheduable2}{{2}{10}{Echtzeitanalyse}{equation.3.2}{}}
 \newlabel{eq:scheduable2@cref}{{[equation][2][]2}{10}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Zusammenfassung}{10}{section.4}}
-\bibstyle{abbrv}
-\bibdata{literatur}
-\bibcite{FreeRtosAdvanced}{1}
-\bibcite{MasteringFreeRtos}{2}
-\bibcite{RealTimePerformance}{3}
-\bibcite{9783827373427}{4}
-\bibcite{RTOSRevealed}{5}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Segger Thread Awareness- Not referenced yet}}{10}{figure.16}}
+\newlabel{fig:ThreadAware}{{16}{10}{Segger Thread Awareness- Not referenced yet}{figure.16}{}}
+\newlabel{fig:ThreadAware@cref}{{[figure][16][]16}{10}}
