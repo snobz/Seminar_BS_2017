@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  11 MAY 2017 09:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  11 MAY 2017 11:34
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -1159,7 +1159,51 @@ Underfull \vbox (badness 1406) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ) (LowPower.tex
-<Pictures/STM32F4/powerConsumption.png, id=332, 505.89pt x 348.55219pt>
+Overfull \hbox (22.97209pt too wide) in paragraph at lines 3--2
+\OT1/ptm/m/n/10 durch das Set-zen von con-fi-gU-SE[]COUNTING[]SEMAPHORES
+ []
+
+
+Overfull \hbox (113.47008pt too wide) in paragraph at lines 3--2
+\OT1/ptm/m/n/10 kann die Se-ma-pho-re mit-tels xSe-ma-pho-re-Crea-te-Coun-ting(uxMaxCount,uxInitialCount)
+ []
+
+
+Overfull \hbox (8.3221pt too wide) in paragraph at lines 3--2
+\OT1/ptm/m/n/10 bei als Queue an-ge-legt, die je-doch ver-gleich-bar ei-nem Z[]ahler
+ []
+
+
+Overfull \hbox (12.95163pt too wide) in paragraph at lines 3--2
+\OT1/ptm/m/n/10 pho-re-Ta-ke() holt hier-bei ein Se-ma-pho-re-n-ob-jekt aus der Queue
+ []
+
+
+Overfull \hbox (3.66225pt too wide) in paragraph at lines 3--2
+\OT1/ptm/m/n/10 um gan-ze Grup-pen von In-ter-rupts zu sind die Event Groups.
+ []
+
+
+Overfull \hbox (19.35522pt too wide) in paragraph at lines 3--2
+\OT1/ptm/m/n/10 ken. In-ner-halb ei-ner Task kann ei-ne []unblock con-di-ti-on"definiert
+ []
+
+
+Overfull \hbox (4.44284pt too wide) in paragraph at lines 3--2
+\OT1/ptm/m/n/10 wer-den, die be-schreibt, ob der Task nur bei ei-ner vollst[]andig
+ []
+
+
+Overfull \hbox (22.19453pt too wide) in paragraph at lines 3--2
+\OT1/ptm/m/n/10 er-zeugt. Mit-tels xE-vent-Group-Set-Bits(EventGroup,uxBitsToSet)
+ []
+
+
+Overfull \hbox (15.5616pt too wide) in paragraph at lines 3--2
+\OT1/ptm/m/n/10 wer-den die Bits ux-Bit-sTo-Set in-ner-halb der Event-group <Event-
+ []
+
+[9] <Pictures/STM32F4/powerConsumption.png, id=336, 505.89pt x 348.55219pt>
 File: Pictures/STM32F4/powerConsumption.png Graphic file (type png)
  <use Pictures/STM32F4/powerConsumption.png>
 Package pdftex.def Info: Pictures/STM32F4/powerConsumption.png used on input line 12.
@@ -1169,7 +1213,7 @@ Overfull \hbox (16.80164pt too wide) in paragraph at lines 9--19
 \OT1/ptm/m/n/10 auf un-ter-schied-li-che Res-sour-cen war-ten, wird es schon schwie-
  []
 
-[9 <./Pictures/STM32F4/powerConsumption.png>]
+
 Overfull \hbox (5.18478pt too wide) in paragraph at lines 41--66
 \OT1/ptm/m/n/10 n[]achsten Tick In-ter-rupt wie-der die Id-le Task ak-ti-viert. Nach-
  []
@@ -1179,7 +1223,7 @@ Overfull \hbox (3.4717pt too wide) in paragraph at lines 41--66
 \OT1/ptm/m/n/10 das fol-gen-de De-fi-ne in der Fre-eR-TOS-con-fig.h ak-ti-viert wer-
  []
 
-
+[10 <./Pictures/STM32F4/powerConsumption.png>]
 Overfull \hbox (4.7822pt too wide) in paragraph at lines 69--70
 \OT1/ptm/m/n/10 mer-funk-tio-nen, da-zu geh[]oren al-le Soft-wa-re Ti-mer aber auch
  []
@@ -1189,45 +1233,63 @@ Overfull \hbox (7.70152pt too wide) in paragraph at lines 2--2
 []\secfnt Komplexit[]at durch Ne-benl[]aufigkeit - De-bug-ging von
  []
 
-<Pictures/Segger/systemview.png, id=346, 883.04906pt x 362.85562pt>
-File: Pictures/Segger/systemview.png Graphic file (type png)
- <use Pictures/Segger/systemview.png>
-Package pdftex.def Info: Pictures/Segger/systemview.png used on input line 21.
-(pdftex.def)             Requested size: 243.60645pt x 100.09842pt.
-
-Overfull \hbox (12.0pt too wide) in paragraph at lines 21--22
- [][] 
- []
-
-<Pictures/Segger/SystemViewTarget.png, id=347, 183.084pt x 228.25275pt>
-File: Pictures/Segger/SystemViewTarget.png Graphic file (type png)
- <use Pictures/Segger/SystemViewTarget.png>
-Package pdftex.def Info: Pictures/Segger/SystemViewTarget.png used on input line 27.
-(pdftex.def)             Requested size: 146.16534pt x 182.22977pt.
-
-<Pictures/Segger/freertosThreadAwareness.png, id=348, 441.90094pt x 353.82187pt>
+<Pictures/Segger/freertosThreadAwareness.png, id=394, 441.90094pt x 353.82187pt>
 File: Pictures/Segger/freertosThreadAwareness.png Graphic file (type png)
 
 <use Pictures/Segger/freertosThreadAwareness.png>
-Package pdftex.def Info: Pictures/Segger/freertosThreadAwareness.png used on input line 33.
+Package pdftex.def Info: Pictures/Segger/freertosThreadAwareness.png used on input line 8.
 (pdftex.def)             Requested size: 243.60645pt x 195.05074pt.
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 33--34
+Overfull \hbox (12.0pt too wide) in paragraph at lines 8--9
  [][] 
  []
 
-) (EchtzeitAnalyze.tex
-Overfull \hbox (21.95216pt too wide) detected at line 18
+<Pictures/Segger/systemview.png, id=396, 883.04906pt x 362.85562pt>
+File: Pictures/Segger/systemview.png Graphic file (type png)
+ <use Pictures/Segger/systemview.png>
+Package pdftex.def Info: Pictures/Segger/systemview.png used on input line 15.
+(pdftex.def)             Requested size: 243.60645pt x 100.09842pt.
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 15--16
+ [][] 
+ []
+
+<Pictures/Segger/SystemViewTarget.png, id=398, 183.084pt x 228.25275pt>
+File: Pictures/Segger/SystemViewTarget.png Graphic file (type png)
+ <use Pictures/Segger/SystemViewTarget.png>
+Package pdftex.def Info: Pictures/Segger/SystemViewTarget.png used on input line 22.
+(pdftex.def)             Requested size: 146.16534pt x 182.22977pt.
+)
+(EchtzeitAnalyze.tex
+Overfull \hbox (4.03134pt too wide) in paragraph at lines 4--2
+\OT1/ptm/m/n/10 nat[]urlich auch gew[]ohnliche Syn-chro-ni-sa-ti-ons-pro-ble-me auf-
+ []
+
+
+Overfull \hbox (2.15163pt too wide) in paragraph at lines 4--2
+\OT1/ptm/m/n/10 schnitt dar-um, wel-che M[]oglichkeiten ei-nem Ent-wick-ler zur
+ []
+
+
+Overfull \hbox (2.42177pt too wide) in paragraph at lines 4--2
+\OT1/ptm/m/n/10 die Re-gis-ter ei-ner ver-dr[]angten Task wer-den durch das Echt-
+ []
+
+
+Overfull \hbox (21.95216pt too wide) detected at line 16
 [][][]\OMS/cmsy/m/n/7 \OT1/cmr/m/n/7 1
  []
 
-[10]) (Zusammenfassung.tex)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11 <./Pictures/Segger/freertosThreadAwareness.png (PNG copy)> <./Pictures/Segger/systemview.png>]) (Zusammenfassung.te
+x)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  ("FreeRtos ARM uController.bbl")
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 76.
- [11 <./Pictures/Segger/systemview.png> <./Pictures/Segger/SystemViewTarget.png> <./Pictures/Segger/freertosThreadAwaren
-ess.png (PNG copy)>]
+ [12 <./Pictures/Segger/SystemViewTarget.png>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
  ("FreeRtos ARM uController.aux"
 Package cleveref Info: loaded `ngerman' language definitions on input line 22.
@@ -1239,10 +1301,10 @@ Package rerunfilecheck Info: File `"FreeRtos ARM uController".out' has not chang
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 76.
  ) 
 Here is how much of TeX's memory you used:
- 11199 strings out of 493333
- 169446 string characters out of 3139173
+ 11206 strings out of 493333
+ 169543 string characters out of 3139173
  541637 words of memory out of 3000000
- 14283 multiletter control sequences out of 15000+200000
+ 14288 multiletter control sequences out of 15000+200000
  37077 words of font info for 81 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,12n,58p,3441b,1435s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1256,9 +1318,9 @@ c/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 ogram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/ut
 mr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (11 pages, 1530392 bytes).
+Output written on "FreeRtos ARM uController.pdf" (12 pages, 1537727 bytes).
 PDF statistics:
- 514 PDF objects out of 1000 (max. 8388607)
- 211 named destinations out of 1000 (max. 500000)
+ 523 PDF objects out of 1000 (max. 8388607)
+ 213 named destinations out of 1000 (max. 500000)
  248 words of extra memory for PDF output out of 10000 (max. 10000000)
 

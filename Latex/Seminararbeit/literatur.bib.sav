@@ -121,7 +121,6 @@
 @Misc{FreeRtosAdvanced,
   author = {Richard Barry},
   title  = {FreeRtos.org Implemenation - Advanced},
-	year  = {2017},
   url    = {http://www.freertos.org/implementation/a00003.html},
 }
 
@@ -155,7 +154,6 @@
 
 @Misc{gbdRecord,
   title = {GDB Record - Free Software Foundation},
-	author    = {Free Software Foundation},
   year  = {2017},
   url   = {https://sourceware.org/gdb/onlinedocs/gdb/Process-Record-and-Replay.html},
 }

@@ -139,15 +139,12 @@
 \newlabel{fig:timeslice}{{15}{8}{Durch das Zeitschlitzverfahren wechseln sich Task1 und Idle Task bei jedem SysTick Interrupt ab, da beide die gleiche Priorität haben. Bei T6 ist Task 1 bereit und verdrängt (preempt) aufgrund ihrer höheren Priorität Task2. Nachdem Task 1 blockiert, wird Task 2 fortgeführt. Bild-Quelle~\protect \citeA {MasteringFreeRtos}}{figure.15}{}}
 \newlabel{fig:timeslice@cref}{{[figure][15][]15}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Interrupt Handling}{9}{subsection.2.8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.9}Low Power Modes auf Stm32F4}{9}{subsection.2.9}}
-\newlabel{sec:Low Power Modes}{{2.9}{9}{Low Power Modes auf Stm32F4}{subsection.2.9}{}}
-\newlabel{sec:Low Power Modes@cref}{{[subsection][9][2]2.9}{9}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Der STM32F4 bietet diverse LowPower Modes. Die Modes haben starke Auswirkung auf die Funktionalit\IeC {\"a}t des uControllers w\IeC {\"a}hrend der Schlafphase. Beispielsweise kann um Stop Mode keine UART Schnittstelle benutzt werden. Abh\IeC {\"a}ngig von der ben\IeC {\"o}tigten Peripherie, w\IeC {\"a}hlt der Entwickler einen dieser Modes. Die genutzte Taktfrequenz hat ebenfalls Einfluss auf die Stromaufnahme. Eine Anpassung der Takfrequenz zur Laufzeit ist ebenfalls m\IeC {\"o}glich.}}{9}{figure.16}}
-\newlabel{fig:powerconsum}{{16}{9}{Der STM32F4 bietet diverse LowPower Modes. Die Modes haben starke Auswirkung auf die Funktionalität des uControllers während der Schlafphase. Beispielsweise kann um Stop Mode keine UART Schnittstelle benutzt werden. Abhängig von der benötigten Peripherie, wählt der Entwickler einen dieser Modes. Die genutzte Taktfrequenz hat ebenfalls Einfluss auf die Stromaufnahme. Eine Anpassung der Takfrequenz zur Laufzeit ist ebenfalls möglich}{figure.16}{}}
-\newlabel{fig:powerconsum@cref}{{[figure][16][]16}{9}}
-\citation{FreeRtosAdvanced}
-\citation{9783827373427}
-\citation{9783827373427}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.9}Low Power Modes auf Stm32F4}{10}{subsection.2.9}}
+\newlabel{sec:Low Power Modes}{{2.9}{10}{Low Power Modes auf Stm32F4}{subsection.2.9}{}}
+\newlabel{sec:Low Power Modes@cref}{{[subsection][9][2]2.9}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Der STM32F4 bietet diverse LowPower Modes. Die Modes haben starke Auswirkung auf die Funktionalit\IeC {\"a}t des uControllers w\IeC {\"a}hrend der Schlafphase. Beispielsweise kann um Stop Mode keine UART Schnittstelle benutzt werden. Abh\IeC {\"a}ngig von der ben\IeC {\"o}tigten Peripherie, w\IeC {\"a}hlt der Entwickler einen dieser Modes. Die genutzte Taktfrequenz hat ebenfalls Einfluss auf die Stromaufnahme. Eine Anpassung der Takfrequenz zur Laufzeit ist ebenfalls m\IeC {\"o}glich.}}{10}{figure.16}}
+\newlabel{fig:powerconsum}{{16}{10}{Der STM32F4 bietet diverse LowPower Modes. Die Modes haben starke Auswirkung auf die Funktionalität des uControllers während der Schlafphase. Beispielsweise kann um Stop Mode keine UART Schnittstelle benutzt werden. Abhängig von der benötigten Peripherie, wählt der Entwickler einen dieser Modes. Die genutzte Taktfrequenz hat ebenfalls Einfluss auf die Stromaufnahme. Eine Anpassung der Takfrequenz zur Laufzeit ist ebenfalls möglich}{figure.16}{}}
+\newlabel{fig:powerconsum@cref}{{[figure][16][]16}{10}}
 \newlabel{lst:defineIdleHook}{{2.9}{10}{}{lstlisting.-8}{}}
 \newlabel{lst:defineIdleHook@cref}{{[subsection][9][2]2.9}{10}}
 \newlabel{lst:xIdleTaskHook}{{6}{10}{Aufruf der IdleTask Hook Funktion durch die FreeRTOS Idle Task. Aus Task.c}{lstlisting.6}{}}
@@ -156,34 +153,39 @@
 \newlabel{lst:xIdleHookExamp}{{7}{10}{Pseudocode für eine Idle Hook Funktion}{lstlisting.7}{}}
 \newlabel{lst:xIdleHookExamp@cref}{{[lstlisting][7][]7}{10}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {7}Pseudocode f\IeC {\"u}r eine Idle Hook Funktion}{10}{lstlisting.7}}
-\newlabel{lst:defineTicklessIdle}{{2.9}{10}{}{lstlisting.-9}{}}
-\newlabel{lst:defineTicklessIdle@cref}{{[subsection][9][2]2.9}{10}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}FreeRTOS in der Praxis}{10}{section.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Komplexit\IeC {\"a}t durch Nebenl\IeC {\"a}ufigkeit - Debugging von Echtzeitsystemen}{10}{subsection.3.1}}
-\newlabel{sec:Debugging von Echtzeitsystemen}{{3.1}{10}{Komplexität durch Nebenläufigkeit - Debugging von Echtzeitsystemen}{subsection.3.1}{}}
-\newlabel{sec:Debugging von Echtzeitsystemen@cref}{{[subsection][1][3]3.1}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Echtzeitanalyse}{10}{subsection.3.2}}
-\newlabel{sec:Echtzeitanalyse}{{3.2}{10}{Echtzeitanalyse}{subsection.3.2}{}}
-\newlabel{sec:Echtzeitanalyse@cref}{{[subsection][2][3]3.2}{10}}
-\newlabel{eq:scheduable1}{{1}{10}{Echtzeitanalyse}{equation.3.1}{}}
-\newlabel{eq:scheduable1@cref}{{[equation][1][]1}{10}}
+\citation{FreeRtosAdvanced}
+\citation{9783827373427}
+\citation{9783864902222}
+\citation{9783827373427}
+\newlabel{lst:defineTicklessIdle}{{2.9}{11}{}{lstlisting.-9}{}}
+\newlabel{lst:defineTicklessIdle@cref}{{[subsection][9][2]2.9}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}FreeRTOS in der Praxis}{11}{section.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Komplexit\IeC {\"a}t durch Nebenl\IeC {\"a}ufigkeit - Debugging von Echtzeitsystemen}{11}{subsection.3.1}}
+\newlabel{sec:Debugging von Echtzeitsystemen}{{3.1}{11}{Komplexität durch Nebenläufigkeit - Debugging von Echtzeitsystemen}{subsection.3.1}{}}
+\newlabel{sec:Debugging von Echtzeitsystemen@cref}{{[subsection][1][3]3.1}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces In diesem Beispiel ist die IDLE Task running, alle anderen Task blockieren (Hier wird f\IeC {\"u}r den Zustand Blocked die bezeichnung Suspended verwendet). Es kann dennoch durch die Thread Awareness auf den Stacktrace der anderen Task zugegriffen werden }}{11}{figure.17}}
+\newlabel{fig:ThreadAware}{{17}{11}{In diesem Beispiel ist die IDLE Task running, alle anderen Task blockieren (Hier wird für den Zustand Blocked die bezeichnung Suspended verwendet). Es kann dennoch durch die Thread Awareness auf den Stacktrace der anderen Task zugegriffen werden}{figure.17}{}}
+\newlabel{fig:ThreadAware@cref}{{[figure][17][]17}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Trace Tool Segger Systemview erm\IeC {\"o}glicht die Aufnahme aller Schedulingvorg\IeC {\"a}nge und stellt diese im zeitlichen Verlauf dar. Dem Entwickler ist es somit m\IeC {\"o}glich alle RTOS Operationen r\IeC {\"u}ckblickend zu betrachten.}}{11}{figure.18}}
+\newlabel{fig:Systemview}{{18}{11}{Trace Tool Segger Systemview ermöglicht die Aufnahme aller Schedulingvorgänge und stellt diese im zeitlichen Verlauf dar. Dem Entwickler ist es somit möglich alle RTOS Operationen rückblickend zu betrachten}{figure.18}{}}
+\newlabel{fig:Systemview@cref}{{[figure][18][]18}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Echtzeitanalyse}{11}{subsection.3.2}}
+\newlabel{sec:Echtzeitanalyse}{{3.2}{11}{Echtzeitanalyse}{subsection.3.2}{}}
+\newlabel{sec:Echtzeitanalyse@cref}{{[subsection][2][3]3.2}{11}}
+\newlabel{eq:scheduable1}{{1}{11}{Echtzeitanalyse}{equation.3.1}{}}
+\newlabel{eq:scheduable1@cref}{{[equation][1][]1}{11}}
 \citation{RealTimePerformance}
 \bibstyle{abbrv}
 \bibdata{literatur}
-\bibcite{FreeRtosAdvanced}{1}
-\bibcite{MasteringFreeRtos}{2}
-\bibcite{RealTimePerformance}{3}
-\bibcite{9783827373427}{4}
-\bibcite{RTOSRevealed}{5}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Segger Systemview - Not referenced yet}}{11}{figure.17}}
-\newlabel{fig:Systemview}{{17}{11}{Segger Systemview - Not referenced yet}{figure.17}{}}
-\newlabel{fig:Systemview@cref}{{[figure][17][]17}{11}}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Segger Systemview Target - Not referenced yet}}{11}{figure.18}}
-\newlabel{fig:SystemviewTarget}{{18}{11}{Segger Systemview Target - Not referenced yet}{figure.18}{}}
-\newlabel{fig:SystemviewTarget@cref}{{[figure][18][]18}{11}}
-\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Segger Thread Awareness- Not referenced yet}}{11}{figure.19}}
-\newlabel{fig:ThreadAware}{{19}{11}{Segger Thread Awareness- Not referenced yet}{figure.19}{}}
-\newlabel{fig:ThreadAware@cref}{{[figure][19][]19}{11}}
-\newlabel{eq:scheduable2}{{2}{11}{Echtzeitanalyse}{equation.3.2}{}}
-\newlabel{eq:scheduable2@cref}{{[equation][2][]2}{11}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Zusammenfassung}{11}{section.4}}
+\bibcite{MasteringFreeRtos}{1}
+\bibcite{FreeRtosAdvanced}{2}
+\bibcite{9783864902222}{3}
+\bibcite{RealTimePerformance}{4}
+\bibcite{9783827373427}{5}
+\bibcite{RTOSRevealed}{6}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Die ben\IeC {\"o}tigten Target Files f\IeC {\"u}r die Trace Tools bilden eine weitere Middleware Schicht }}{12}{figure.19}}
+\newlabel{fig:SystemviewTarget}{{19}{12}{Die benötigten Target Files für die Trace Tools bilden eine weitere Middleware Schicht}{figure.19}{}}
+\newlabel{fig:SystemviewTarget@cref}{{[figure][19][]19}{12}}
+\newlabel{eq:scheduable2}{{2}{12}{Echtzeitanalyse}{equation.3.2}{}}
+\newlabel{eq:scheduable2@cref}{{[equation][2][]2}{12}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Zusammenfassung}{12}{section.4}}

@@ -1,36 +1,26 @@
 %!TEX root = FreeRtos ARM uController.tex
 \subsection{Komplexität durch Nebenläufigkeit - Debugging von Echtzeitsystemen}
 \label{sec:Debugging von Echtzeitsystemen}
-Under Construction :D
-
-Durch die Einsatz eines Echtzeitbetriebssystems erhält der Entwickler einige Vorteile die bereits in Abschnitt \ref{sec:Echtzeitsysteme} beschrieben wurden. Im Gegenzug entstehen aber durch die Nebenläufigkeit neue mögliche Fehlerquellen. Viele dieser Fehler, lassen sich nicht einfach analysieren und enden beispielsweise im HardFault Handler. Welche Hilfsmittel einem Entwickler speziell bei FreeRTOS (auf STM32F4) zur Verfügung stehen und welche Fehler häufig auftreten ist der Inhalt dieses Abschnitts. Die Arten von Fehler die in einem Echtzeitsystem häufig auftreten lassen sich grob in zwei Kategorien aufteilen:
-\begin{itemize}
-	\item Stackoverflow
-	\item Synchronisatiosfehler
-\end{itemize}
-Bekannte Probleme detailliert erklärt in \cite{9783827373427}
-\begin{itemize}
-	\item dining philosopherproblem
-	\item reader and writers problem
-	\item producer consumer problem (starvation)
-\end{itemize}
-     
-
-\begin{figure}[ht!]
-	\centering
-		\includegraphics[width=0.5\textwidth]{Pictures/Segger/systemview.png}
-	\caption{Segger Systemview - Not referenced yet}
-	\label{fig:Systemview}
-\end{figure}
-\begin{figure}[ht!]
-	\centering
-		\includegraphics[width=0.3\textwidth]{Pictures/Segger/SystemViewTarget.png}
-	\caption{Segger Systemview Target - Not referenced yet}
-	\label{fig:SystemviewTarget}
-\end{figure}
-\begin{figure}[ht!]
+Durch die Einsatz eines Echtzeitbetriebssystems erhält der Entwickler einige Vorteile die bereits in Abschnitt \ref{sec:Echtzeitsysteme} beschrieben wurden. Im Gegenzug entstehen aber durch die Nebenläufigkeit neue mögliche Fehlerquellen. Viele dieser Fehler, lassen sich nicht einfach analysieren und enden nicht selten im HardFault Handler. Der HardFault Handler ist dabei eine Art Endstation und wird aufgerufen, sobald uProzessor feststellt, dass eine schwerwiegende fehlerhafte Operation stattgefunden hat. Des Weiteren können natürlich auch gewöhnliche Synchronisationsprobleme auftreten, wie Starvation oder Deadlocks. Dieser Abschnitt soll dabei nicht erklären, wie solche Probleme im Detail gelöst werden könne, dies wir bereits hinlänglich in der Literatur behandelt z.B. in \cite{9783827373427} \cite{9783864902222}. Es geht in diesem Abschnitt darum, welche Möglichkeiten einem Entwickler zur Verfügung stehen, um solche Probleme ausfindig zu machen.
+Beim Debuggen einer Anwendung kann der Entwickler gewöhnlich durch die Nutzung eines ISPs auf die aktuellen Registerinhalte und der Stack des uProzessors zugreifen. Das Problem ist, dass eine FreeRTOS Anwendung gewöhnlich aus mehreren Task besteht und jede Task eine eigene Anwendungseinheit darstellt. Der Stack und die Register einer verdrängten Task werden durch das Echtzeitbetriebssystem gesichert und sind für den ISP nicht mehr sichtbar. Daher bieten einige ISP Hersteller spezielle Thread Aware Packete. Diese ermöglichen das Auslesen von Daten einer blockierten Task, siehe Abbildung \ref{fig:ThreadAware}.
+\begin{figure}[htb]
 	\centering
 		\includegraphics[width=0.5\textwidth]{Pictures/Segger/freertosThreadAwareness}
-	\caption{Segger Thread Awareness- Not referenced yet}
+	\caption{In diesem Beispiel ist die IDLE Task running, alle anderen Task blockieren (Hier wird für den Zustand Blocked die bezeichnung Suspended verwendet). Es kann dennoch durch die Thread Awareness auf den Stacktrace der anderen Task zugegriffen werden }
 	\label{fig:ThreadAware}
 \end{figure}
+Ein weiteres sehr mächtiges Tool zur Analyse von Anwendungen die auf einem Echtzeitbetriebssystem aufsetzen, sind die sogenannten Trace Tools. Diese ermöglichen die Aufnahme der Scheduling Vorgänge zur Programmlaufzeit, wie in Abbildung \ref {fig:Systemview}. 
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=0.5\textwidth]{Pictures/Segger/systemview.png}
+	\caption{Trace Tool Segger Systemview ermöglicht die Aufnahme aller Schedulingvorgänge und stellt diese im zeitlichen Verlauf dar. Dem Entwickler ist es somit möglich alle RTOS Operationen rückblickend zu betrachten.}
+	\label{fig:Systemview}
+\end{figure}
+Besonders in Anwendungen in den viele Task interagieren, ist der Einsatz eines solchen Tools fast unabdingbar. Viele dieser Trace Tools ermöglichen eine ununterbrochene Aufzeichnung des RTOS Kernels. Besonders Fehler die erst nach sehr langer Programmlaufzeit auftreten oder aber nur sporadisch stattfinden, können so entdeckt und analysiert werden. Für die Nutzung von Trace Tools werden weitere Bibliotheken benötigt, die eine weitere Schicht zwischen Hardware und Echtzeitbetriebssystem bilden, siehe Abbildung \ref{fig:SystemviewTarget}. 
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=0.3\textwidth]{Pictures/Segger/SystemViewTarget.png}
+	\caption{Die benötigten Target Files für die Trace Tools bilden eine weitere Middleware Schicht }
+	\label{fig:SystemviewTarget}
+\end{figure}
+Eine noch bessere Möglichkeit zum Aufzeichnen der Vorgänge auf dem embedded System, sind die sogenannten Trace Recorder. Dabei handelt es sich um ISP Programmer mit integriertem Trace Buffer (z.B. Segger J-Trace). Mit einem Trace Recorder kann der gesamte Programmablauf aufgenommen werden. Der Trace Rekorder nimmt nicht nur FreeRTOS spezifische Abläufe auf sonder alle Instruktionen des uProzessors. Dadurch ist es möglich Rückwärts durch den Instruktionsverlauf zu springen, man kann die Anwendung also quasi zurückspulen.

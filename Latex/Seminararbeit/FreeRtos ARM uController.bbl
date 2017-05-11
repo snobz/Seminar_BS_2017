@@ -1,13 +1,18 @@
 \begin{thebibliography}{1}
 
-\bibitem{FreeRtosAdvanced}
-R.~Barry.
-\newblock Freertos.org implemenation - advanced.
-
 \bibitem{MasteringFreeRtos}
 R.~Barry.
 \newblock {\em Mastering the FreeRtos Real time Kernel}.
 \newblock Real time Engineers Ltd., pre-release 161204 edition edition, 2016.
+
+\bibitem{FreeRtosAdvanced}
+R.~Barry.
+\newblock Freertos.org implemenation - advanced, 2017.
+
+\bibitem{9783864902222}
+E.~Glatz.
+\newblock {\em Betriebssysteme}.
+\newblock Dpunkt.Verlag GmbH, 2015.
 
 \bibitem{RealTimePerformance}
 D.~B. Stewart.
