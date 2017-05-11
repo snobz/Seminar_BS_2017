@@ -8,10 +8,12 @@
 \usepackage{cleveref} % für bequeme Referenzen, siehe \cref unten
 
 %Own Code
+\usepackage{placeins}
 \usepackage{needspace}	
 \usepackage{amsmath}
 \usepackage{listings}
 \usepackage{xcolor}
+
 \lstset { %
     language=C++,
 		commentstyle=\color{gray},
@@ -63,6 +65,7 @@ Im Rahmen dieser Arbeit wird das Echtzeitbetriebssystem FreeRTOS vorgestellt. Hi
 \input{Einrichten}
 \input{MemoryManagement} 
 \input{Scheduling}
+\FloatBarrier
 \input{InterTaskKommunikation}
 \input{Interrupt}
 \input{LowPower}
@@ -70,7 +73,6 @@ Im Rahmen dieser Arbeit wird das Echtzeitbetriebssystem FreeRTOS vorgestellt. Hi
 \input{Debugging}
 %\input{EchtzeitAnalyze}
 \input{Zusammenfassung}
-\pagebreak
 \bibliographystyle{abbrv}
 \bibliography{literatur} % Daten aus der Datei literatur.bib verwenden.
 \end{document}

@@ -1,5 +1,4 @@
 %!TEX root = FreeRtos ARM uController.tex
-\pagebreak
 \subsection{Einrichten und Konfiguration}
 \label{sec:Einrichtung und Konfiguration}
 Dieser Abschnitt beschreibt die Einrichtung eines FreeRTOS Projektes für den STM32F4. Die Beschreibung dabei ist nicht vollständig und versteht sich eher als eine Art Leitfaden. Alle anwendungsspezifischen Konfigurationen können in den zur Verfügung gestellten Links nachgelesen werden. Hierbei ist besonders die Seite des GNU ARM Plugins hervorzuheben, da diese einen guten Einstieg für die Erstellung eines ARM Projekts bietet. Als Entwicklungsumgebung wird Eclipse CDT verwendet, welches bereits in Abschnitt \ref{ref:Entwicklungsumgebung} beschrieben wurde. Nach der Installation von Eclipse muss das GNU ARM Plugin für Eclipse CDT installiert werden. Dies ist entweder über den Pluginmanager oder über den folgenden Link erhältlich: 
@@ -17,7 +16,7 @@ https://launchpad.net/gcc-arm-embedded
 https://github.com/gnuarmeclipse/windows-build-tools/
 \newline
 \newline
-Die Toolchain und die Buildtools stellen nötigen Anwendungen die zum Compilieren und Debuggen der C und C++ Dateien benötigt werden. Zur Toolchain gehören unter anderem GCC als Cross Compiler und GDB (GNU Debugger) zum Debuggen der Anwendung auf der Zielplattform. GNU Buildtools beinhalte make und rm, die zum Organisieren des Builds benötigt werden. Nach der Installation müssen die Verzeichnisse der Toolchain und der Buildtools im Plugin konfiguriert werden. Mit dieser Konfiguration ist das System nun in der Lage C und C++ Dateien für die Zielplattform zu kompilieren und als Binary File (.elf) bereitzustellen. Zum Übertragen und Debuggen der Anwendung auf dem Zielsystem wird ein ISP-Programmer für ARM benötigt. Folgende ISP-Programmer werden häufig verwendet, dabei ist Liste weder vollständig, noch stellt eine Empfehlung dar. 
+Die Toolchain und die Buildtools stellen nötigen Anwendungen die zum Compilieren und Debuggen der C und C++ Dateien benötigt werden. Zur Toolchain gehören unter anderem GCC als Cross Compiler und GDB (GNU Debugger) zum Debuggen der Anwendung auf der Zielplattform. GNU Buildtools beinhalte make und rm, die zum Organisieren des Builds benötigt werden. Nach der Installation müssen die Verzeichnisse der Toolchain und der Buildtools im Plugin konfiguriert werden. Mit dieser Konfiguration ist das System nun in der Lage C und C++ Dateien für die Zielplattform zu kompilieren und als Binary File (.elf) bereitzustellen. Zum Übertragen und Debuggen der Anwendung auf dem Zielsystem wird ein ISP-Programmer für ARM benötigt.\needspace{5\baselineskip} Folgende ISP-Programmer werden häufig verwendet, dabei ist Liste weder vollständig, noch stellt eine Empfehlung dar.
 \begin{itemize}
 	\item Segger J-Link:
 	\newline
@@ -42,7 +41,7 @@ Nachdem die Konfiguration der Entwicklungstools abgeschlossen ist, kann nun eine
 	\caption{Erstellung eines Basisprojekts für den STM32F4 durch das GNU ARM Plugin. Ein Wizzard Konfigurator führt den Anwender durch alle nötigen Einstellungen. Nach Abschluss erhält man ein fertiges C / C++ ARM Projekt welches passend zum Zielsystem konfiguriert ist.}
 	\label{fig:NewProj}
 \end{figure}
-Das Templateprojekt beinhaltet bereits alle benötigten Hardware Librarys wie die STM HAL (siehe Abschnitt \ref{sec:Zielsysteme}) oder das ARM CMSIS (Cortex Microcontroller Software Interface Standard).
+Das Templateprojekt beinhaltet bereits alle benötigten Hardware Librarys (Abbildung \ref{fig:CMSIS}) wie die STM HAL (siehe Abschnitt \ref{sec:Zielsysteme}) oder das ARM CMSIS (Cortex Microcontroller Software Interface Standard).
 \begin{figure}[htb]
 	\centering
 		\includegraphics[width=0.4\textwidth]{Pictures/Einrichtung/CMSISv4_small.jpg}
@@ -54,7 +53,7 @@ Im nächsten Schritt wird FreeRTOS in das Templateprojekt eingebunden. Hierfür 
 \begin{figure}[htb]
 	\centering
 		\includegraphics[width=0.4\textwidth]{Pictures/Einrichtung/sourceTree.png}
-	\caption{Die Basiskonfiguration die durch das GNU ARM Plugin zur Verfügung gestellt werden, besteht aus den Verzeichnissen: Startup, Config und HAL. Startup beinhaltet alle Files zum Starten der Hardware und die main. Im Config Verzeichnisse befinden sich alle Files zur Konfiguration des uControllers und die FreeRTOS Config. Die HAL und CMSIS sind die Grundlage des Systems und werden ebenfalls durch das GNU ARM Plugin eingefügt. FreeRTOS wird danach manuell dem Projekt hinzugefügt.}
+	\caption{Die Basiskonfiguration die durch das GNU ARM Plugin zur Verfügung gestellt wird, besteht aus den Verzeichnissen: Startup, Config und HAL. Startup beinhaltet alle Files zum Starten der Hardware und die main. Im Config Verzeichnisse befinden sich alle Files zur Konfiguration des uControllers und die FreeRTOS Config. Die HAL und CMSIS sind die Grundlage des Systems und werden ebenfalls durch das GNU ARM Plugin eingefügt. FreeRTOS wird danach manuell dem Projekt hinzugefügt.}
 	\label{fig:SourceTree}
 \end{figure}
 Nach der Anpassung der Include Pfade für den GCC Compiler und der Konfiguration der FreeRTOS Config ist das System bereit für den Einsatz von FreeRTOS. 
