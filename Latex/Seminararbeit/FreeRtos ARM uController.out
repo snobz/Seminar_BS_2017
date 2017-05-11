@@ -15,5 +15,4 @@
 \BOOKMARK [2][-]{subsection.2.9}{2.9 Low Power Modes auf Stm32F4}{section.2}% 15
 \BOOKMARK [1][-]{section.3}{3 FreeRTOS in der Praxis}{}% 16
 \BOOKMARK [2][-]{subsection.3.1}{3.1 Komplexit\344t durch Nebenl\344ufigkeit - Debugging von Echtzeitsystemen}{section.3}% 17
-\BOOKMARK [2][-]{subsection.3.2}{3.2 Echtzeitanalyse}{section.3}% 18
-\BOOKMARK [1][-]{section.4}{4 Zusammenfassung}{}% 19
+\BOOKMARK [1][-]{section.4}{4 Zusammenfassung}{}% 18
