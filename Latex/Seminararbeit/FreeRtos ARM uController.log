@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  11 MAY 2017 11:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  11 MAY 2017 12:07
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -1284,14 +1284,15 @@ Overfull \hbox (21.95216pt too wide) detected at line 16
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11 <./Pictures/Segger/freertosThreadAwareness.png (PNG copy)> <./Pictures/Segger/systemview.png>]) (Zusammenfassung.te
-x)
+x) ("FreeRtos ARM uController.bbl"
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- ("FreeRtos ARM uController.bbl")
+)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 76.
  [12 <./Pictures/Segger/SystemViewTarget.png>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
- ("FreeRtos ARM uController.aux"
+
+("FreeRtos ARM uController.aux"
 Package cleveref Info: loaded `ngerman' language definitions on input line 22.
 )
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 76.
@@ -1318,7 +1319,7 @@ c/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 ogram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/ut
 mr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (12 pages, 1537727 bytes).
+Output written on "FreeRtos ARM uController.pdf" (12 pages, 1538736 bytes).
 PDF statistics:
  523 PDF objects out of 1000 (max. 8388607)
  213 named destinations out of 1000 (max. 500000)
