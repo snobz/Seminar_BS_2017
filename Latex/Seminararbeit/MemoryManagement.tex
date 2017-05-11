@@ -99,7 +99,7 @@ Bevor Objekte erzeugt werden können, muss ein Pool an Speicher für die Objekte
 \begin{lstlisting}[label=lst:ucHeap, float=htb, numbers = none]
 static uint8_t ucHeap[ configTOTAL_HEAP_SIZE ];
 \end{lstlisting}
-Die Größe des Heaps wird durch das Prä\-pro\-zes\-sor-Define configTOTAL\_HEAP\_SIZE (FreeRTOS\_config.h) konfiguriert. Die Gesamtgröße berechnet sich wie folgt:
+Die Größe des Heaps wird durch das Prä\-pro\-zes\-sor-Define configTOTAL\_HEAP\_SIZE (FreeRTOS\_config.h) konfiguriert. \needspace{3\baselineskip}Die Gesamtgröße berechnet sich wie folgt:
 \newline
 \newline
 MaxHeapSize $=$ configTOTAL\_HEAP\_SIZE $\ast$ Wortbreite\footnote{Beim STM32F4 ist die Wortbreite 32 bit} 

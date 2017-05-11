@@ -58,8 +58,6 @@
 \citation{FreeRtosAdvanced}
 \citation{RTOSRevealed}
 \citation{RTOSRevealed}
-\citation{MasteringFreeRtos}
-\citation{MasteringFreeRtos}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Die Basiskonfiguration die durch das GNU ARM Plugin zur Verf\IeC {\"u}gung gestellt werden, besteht aus den Verzeichnissen: Startup, Config und HAL. Startup beinhaltet alle Files zum Starten der Hardware und die main. Im Config Verzeichnisse befinden sich alle Files zur Konfiguration des uControllers und die FreeRTOS Config. Die HAL und CMSIS sind die Grundlage des Systems und werden ebenfalls durch das GNU ARM Plugin eingef\IeC {\"u}gt. FreeRTOS wird danach manuell dem Projekt hinzugef\IeC {\"u}gt.}}{4}{figure.5}}
 \newlabel{fig:SourceTree}{{5}{4}{Die Basiskonfiguration die durch das GNU ARM Plugin zur Verfügung gestellt werden, besteht aus den Verzeichnissen: Startup, Config und HAL. Startup beinhaltet alle Files zum Starten der Hardware und die main. Im Config Verzeichnisse befinden sich alle Files zur Konfiguration des uControllers und die FreeRTOS Config. Die HAL und CMSIS sind die Grundlage des Systems und werden ebenfalls durch das GNU ARM Plugin eingefügt. FreeRTOS wird danach manuell dem Projekt hinzugefügt}{figure.5}{}}
 \newlabel{fig:SourceTree@cref}{{[figure][5][]5}{4}}
@@ -72,6 +70,8 @@
 \newlabel{fig:HeapsEclipse}{{6}{4}{Einbindung des Speicheralgorithmus Heap1 in Eclipse CDT. Die Algortihmen Heap2 bis Heap5 sind vom Build ausgeschlossen}{figure.6}{}}
 \newlabel{fig:HeapsEclipse@cref}{{[figure][6][]6}{4}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.1}FreeRTOS Algorithmen zur Speicherverwaltung}{4}{subsubsection.2.5.1}}
+\citation{MasteringFreeRtos}
+\citation{MasteringFreeRtos}
 \newlabel{lst:malloc2}{{1}{5}{FreeRTOS Source von pvPortMalloc() aus Heap1.c. Zuerst wird sichergestellt das die Startspeicheradresse dem byte-Alignment des $\mu $\-Pro\-zesso\-rs entspricht. Der STM32F4 ist ein 32Bit $\mu $\-Pro\-zesso\-r und hat ein byte-Alignment von 4, so dass die Startadresse immer eine Potenz von 4 sein muss. Danach wird der Scheduler deaktiviert und geprüft ob genug Speicher zur Verfügung steht. Abschließend wird der Speicher im ucHeap reserviert}{lstlisting.1}{}}
 \newlabel{lst:malloc2@cref}{{[lstlisting][1][]1}{5}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {1}FreeRTOS Source von pvPortMalloc() aus Heap1.c. Zuerst wird sichergestellt das die Startspeicheradresse dem byte-Alignment des $\mu $\discretionary {-}{}{}Pro\discretionary {-}{}{}zesso\discretionary {-}{}{}rs entspricht. Der STM32F4 ist ein 32Bit $\mu $\discretionary {-}{}{}Pro\discretionary {-}{}{}zesso\discretionary {-}{}{}r und hat ein byte-Alignment von 4, so dass die Startadresse immer eine Potenz von 4 sein muss. Danach wird der Scheduler deaktiviert und gepr\IeC {\"u}ft ob genug Speicher zur Verf\IeC {\"u}gung steht. Abschlie\IeC {\ss }end wird der Speicher im ucHeap reserviert.}{5}{lstlisting.1}}
@@ -109,8 +109,6 @@
 \citation{9783827373427}
 \citation{MasteringFreeRtos}
 \citation{MasteringFreeRtos}
-\citation{MasteringFreeRtos}
-\citation{MasteringFreeRtos}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Der Kontextwechsel einer Task findet mitten in der Ausf\IeC {\"u}hrung statt. Alle Register die f\IeC {\"u}r die weitere Ausf\IeC {\"u}hrung ben\IeC {\"o}tigt werden, werden durch den Scheduler gesichert. Bild-Quelle~\citeA {MasteringFreeRtos} }}{7}{figure.10}}
 \newlabel{fig:ContextSwitch}{{10}{7}{Der Kontextwechsel einer Task findet mitten in der Ausführung statt. Alle Register die für die weitere Ausführung benötigt werden, werden durch den Scheduler gesichert. Bild-Quelle~\protect \citeA {MasteringFreeRtos}}{figure.10}{}}
 \newlabel{fig:ContextSwitch@cref}{{[figure][10][]10}{7}}
@@ -125,19 +123,21 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {4}FreeRTOS Source zur Priroty Task Selection aus Task.c. Alle lauff\IeC {\"a}higen Task werden in einem Array vewaltet pxReadyTaskLists. Die Listen verwalten sich durch Referenz-Pointer in den TCBs der einzelnen Tasks}{7}{lstlisting.4}}
 \citation{MasteringFreeRtos}
 \citation{MasteringFreeRtos}
+\citation{MasteringFreeRtos}
+\citation{MasteringFreeRtos}
 \@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Im Co-operative Modus wird der Prozessor von einer Task erst abgegeben, wenn diese explizit taskYield() aufruft. Selbst wenn eine Task mit h\IeC {\"o}hrer Priorit\IeC {\"a}t in den Ready Zustand wechselt, l\IeC {\"a}uft die Task mit niedrigerer Priorit\IeC {\"a}t weiter. Im Gegensatz dazu steht das Pre-Emptive Scheduling (hier mit Time-Slicing), es unterbricht die laufende Task mit niedriger Priorit\IeC {\"a}t sofort, sobald eine Task mit h\IeC {\"o}herer Priorit\IeC {\"a}t Ready ist. Bild-Quelle~\citeA {MasteringFreeRtos}}}{8}{figure.13}}
 \newlabel{fig:PreVSCo}{{13}{8}{Im Co-operative Modus wird der Prozessor von einer Task erst abgegeben, wenn diese explizit taskYield() aufruft. Selbst wenn eine Task mit höhrer Priorität in den Ready Zustand wechselt, läuft die Task mit niedrigerer Priorität weiter. Im Gegensatz dazu steht das Pre-Emptive Scheduling (hier mit Time-Slicing), es unterbricht die laufende Task mit niedriger Priorität sofort, sobald eine Task mit höherer Priorität Ready ist. Bild-Quelle~\protect \citeA {MasteringFreeRtos}}{figure.13}{}}
 \newlabel{fig:PreVSCo@cref}{{[figure][13][]13}{8}}
 \newlabel{lst:SysTickS}{{5}{8}{FreeRTOS Source des SysTickHandlers aus Task.c. Der SysTickHandler verwaltet den TickCount. Der TickCount dient allen Timingfunktionen des RTOS Kernels als Zeitreferenz. Des Weiteren wird bei aktivem Time Slicing überprüft ob ein Kontextwechsel nötig ist. Der Kontext wechsel wir dann ggf. durch den PendSVHandler durchgeführt}{lstlisting.5}{}}
 \newlabel{lst:SysTickS@cref}{{[lstlisting][5][]5}{8}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {5}FreeRTOS Source des SysTickHandlers aus Task.c. Der SysTickHandler verwaltet den TickCount. Der TickCount dient allen Timingfunktionen des RTOS Kernels als Zeitreferenz. Des Weiteren wird bei aktivem Time Slicing \IeC {\"u}berpr\IeC {\"u}ft ob ein Kontextwechsel n\IeC {\"o}tig ist. Der Kontext wechsel wir dann ggf. durch den PendSVHandler durchgef\IeC {\"u}hrt.}{8}{lstlisting.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Intertask Kommunikation}{8}{subsection.2.7}}
 \@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Beispielhafter Ablauf eines SysTickInterrupts.(1) keine User Task ist ready, die Idle Task ist aktiv. (2) SysTickInterrupt. (3) SysTickHandler wird aufgerufen. (4) vControlTask ist ready und ein Kontext wechsel wird durchgef\IeC {\"u}hrt. vControlTask hat hier die gleiche Priorit\IeC {\"a}t wie die IdleTask. (5)vControlTask wird ausgef\IeC {\"u}hrt. Bild-Quelle~\citeA {MasteringFreeRtos}}}{8}{figure.14}}
 \newlabel{fig:SysTick}{{14}{8}{Beispielhafter Ablauf eines SysTickInterrupts.(1) keine User Task ist ready, die Idle Task ist aktiv. (2) SysTickInterrupt. (3) SysTickHandler wird aufgerufen. (4) vControlTask ist ready und ein Kontext wechsel wird durchgeführt. vControlTask hat hier die gleiche Priorität wie die IdleTask. (5)vControlTask wird ausgeführt. Bild-Quelle~\protect \citeA {MasteringFreeRtos}}{figure.14}{}}
 \newlabel{fig:SysTick@cref}{{[figure][14][]14}{8}}
 \@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Durch das Zeitschlitzverfahren wechseln sich Task1 und Idle Task bei jedem SysTick Interrupt ab, da beide die gleiche Priorit\IeC {\"a}t haben. Bei T6 ist Task 1 bereit und verdr\IeC {\"a}ngt (preempt) aufgrund ihrer h\IeC {\"o}heren Priorit\IeC {\"a}t Task2. Nachdem Task 1 blockiert, wird Task 2 fortgef\IeC {\"u}hrt. Bild-Quelle~\citeA {MasteringFreeRtos}}}{8}{figure.15}}
 \newlabel{fig:timeslice}{{15}{8}{Durch das Zeitschlitzverfahren wechseln sich Task1 und Idle Task bei jedem SysTick Interrupt ab, da beide die gleiche Priorität haben. Bei T6 ist Task 1 bereit und verdrängt (preempt) aufgrund ihrer höheren Priorität Task2. Nachdem Task 1 blockiert, wird Task 2 fortgeführt. Bild-Quelle~\protect \citeA {MasteringFreeRtos}}{figure.15}{}}
 \newlabel{fig:timeslice@cref}{{[figure][15][]15}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Intertask Kommunikation}{8}{subsection.2.7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Interrupt Handling}{9}{subsection.2.8}}
 \newlabel{sec:Interrupt}{{2.8}{9}{Interrupt Handling}{subsection.2.8}{}}
 \newlabel{sec:Interrupt@cref}{{[subsection][8][2]2.8}{9}}
@@ -147,20 +147,18 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Der STM32F4 bietet diverse LowPower Modes. Die Modes haben starke Auswirkung auf die Funktionalit\IeC {\"a}t des uControllers w\IeC {\"a}hrend der Schlafphase. Beispielsweise kann um Stop Mode keine UART Schnittstelle benutzt werden. Abh\IeC {\"a}ngig von der ben\IeC {\"o}tigten Peripherie, w\IeC {\"a}hlt der Entwickler einen dieser Modes. Die genutzte Taktfrequenz hat ebenfalls Einfluss auf die Stromaufnahme. Eine Anpassung der Takfrequenz zur Laufzeit ist ebenfalls m\IeC {\"o}glich.}}{10}{figure.16}}
 \newlabel{fig:powerconsum}{{16}{10}{Der STM32F4 bietet diverse LowPower Modes. Die Modes haben starke Auswirkung auf die Funktionalität des uControllers während der Schlafphase. Beispielsweise kann um Stop Mode keine UART Schnittstelle benutzt werden. Abhängig von der benötigten Peripherie, wählt der Entwickler einen dieser Modes. Die genutzte Taktfrequenz hat ebenfalls Einfluss auf die Stromaufnahme. Eine Anpassung der Takfrequenz zur Laufzeit ist ebenfalls möglich}{figure.16}{}}
 \newlabel{fig:powerconsum@cref}{{[figure][16][]16}{10}}
-\newlabel{lst:defineIdleHook}{{2.9}{10}{}{lstlisting.-8}{}}
+\newlabel{lst:defineIdleHook}{{2.9}{10}{}{lstlisting.-11}{}}
 \newlabel{lst:defineIdleHook@cref}{{[subsection][9][2]2.9}{10}}
 \newlabel{lst:xIdleTaskHook}{{6}{10}{Aufruf der IdleTask Hook Funktion durch die FreeRTOS Idle Task. Aus Task.c}{lstlisting.6}{}}
 \newlabel{lst:xIdleTaskHook@cref}{{[lstlisting][6][]6}{10}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {6}Aufruf der IdleTask Hook Funktion durch die FreeRTOS Idle Task. Aus Task.c}{10}{lstlisting.6}}
-\newlabel{lst:xIdleHookExamp}{{7}{10}{Pseudocode für eine Idle Hook Funktion}{lstlisting.7}{}}
-\newlabel{lst:xIdleHookExamp@cref}{{[lstlisting][7][]7}{10}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}Pseudocode f\IeC {\"u}r eine Idle Hook Funktion}{10}{lstlisting.7}}
 \citation{FreeRtosAdvanced}
 \citation{9783827373427}
 \citation{9783864902222}
-\bibstyle{abbrv}
-\bibdata{literatur}
-\newlabel{lst:defineTicklessIdle}{{2.9}{11}{}{lstlisting.-9}{}}
+\newlabel{lst:xIdleHookExamp}{{7}{11}{Pseudocode für eine Idle Hook Funktion}{lstlisting.7}{}}
+\newlabel{lst:xIdleHookExamp@cref}{{[lstlisting][7][]7}{11}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}Pseudocode f\IeC {\"u}r eine Idle Hook Funktion}{11}{lstlisting.7}}
+\newlabel{lst:defineTicklessIdle}{{2.9}{11}{}{lstlisting.-12}{}}
 \newlabel{lst:defineTicklessIdle@cref}{{[subsection][9][2]2.9}{11}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}FreeRTOS in der Praxis}{11}{section.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Komplexit\IeC {\"a}t durch Nebenl\IeC {\"a}ufigkeit - Debugging von Echtzeitsystemen}{11}{subsection.3.1}}
@@ -172,7 +170,8 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Trace Tool Segger Systemview erm\IeC {\"o}glicht die Aufnahme aller Schedulingvorg\IeC {\"a}nge und stellt diese im zeitlichen Verlauf dar. Dem Entwickler ist es somit m\IeC {\"o}glich alle RTOS Operationen r\IeC {\"u}ckblickend zu betrachten.}}{11}{figure.18}}
 \newlabel{fig:Systemview}{{18}{11}{Trace Tool Segger Systemview ermöglicht die Aufnahme aller Schedulingvorgänge und stellt diese im zeitlichen Verlauf dar. Dem Entwickler ist es somit möglich alle RTOS Operationen rückblickend zu betrachten}{figure.18}{}}
 \newlabel{fig:Systemview@cref}{{[figure][18][]18}{11}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Zusammenfassung}{11}{section.4}}
+\bibstyle{abbrv}
+\bibdata{literatur}
 \bibcite{MasteringFreeRtos}{1}
 \bibcite{FreeRtosAdvanced}{2}
 \bibcite{9783864902222}{3}
@@ -181,3 +180,4 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Die ben\IeC {\"o}tigten Target Files f\IeC {\"u}r die Trace Tools bilden eine weitere Middleware Schicht }}{12}{figure.19}}
 \newlabel{fig:SystemviewTarget}{{19}{12}{Die benötigten Target Files für die Trace Tools bilden eine weitere Middleware Schicht}{figure.19}{}}
 \newlabel{fig:SystemviewTarget@cref}{{[figure][19][]19}{12}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Zusammenfassung}{12}{section.4}}

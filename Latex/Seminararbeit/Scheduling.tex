@@ -10,7 +10,8 @@ Der Scheduler ist die Kernkomponente jedes Echtzeitbetriebssystem Kernels, da er
 \end{figure}
 \newline
 Neben den User-Tasks, die durch den Entwickler erstellt werden, gibt es noch die Idle Task. Diese wird automatisch beim Start des Schedulers erstellt. Die Idle Task hat immer die niedrigste Priorität (0) und wird immer dann ausgeführt, wenn keine User-Task zur Ausführung bereit steht. Die Idle Task ist ein Indikator für über\-schüss\-ige Prozessorzeit. Mittels der Idle-Hook Funktion kann der Idle Task Funktionalität durch den Entwickler hinzugefügt werden. Wie die Idle Task zum Energiesparen genutzt werden kann, wird in Abschnitt \ref{sec:Low Power Modes} beschrieben.
-\newline   
+\newline
+\needspace{3\baselineskip}   
 Folgende Zu\-stän\-de kann eine FreeRTOS Task im Scheduling annehmen: 
 \begin{itemize}
 	\item Running: Die Task wird zur Zeit vom Scheduler ausgeführt
@@ -60,8 +61,7 @@ Im Preemptive Modus wird eine aktive Task mit niedriger Priorität sofort von ei
 	\caption{Im Co-operative Modus wird der Prozessor von einer Task erst abgegeben, wenn diese explizit taskYield() aufruft. Selbst wenn eine Task mit höhrer Priorität in den Ready Zustand wechselt, läuft die Task mit niedrigerer Priorität weiter. Im Gegensatz dazu steht das Pre-Emptive Scheduling (hier mit Time-Slicing), es unterbricht die laufende Task mit niedriger Priorität sofort, sobald eine Task mit höherer Priorität Ready ist. Bild-Quelle~\protect\citeA{MasteringFreeRtos}}
 	\label{fig:PreVSCo}
 \end{figure}
-\newline
-Für den Preemptive Modus bietet FreeRTOS eine weitere Konfigurationsmöglichkeit. Mit der nachfolgenden Pre-Prozessordirektive lässt sich ein Zeitschlitzverfahren (time slicing) aktivieren. 
+Für den Preemptive Modus bietet FreeRTOS eine weitere Konfigurationsmöglichkeit. \needspace{3\baselineskip}Mit der nachfolgenden Pre-Prozessordirektive lässt sich ein Zeitschlitzverfahren (time slicing) aktivieren. 
 \begin{lstlisting}[numbers = none]
 #define configUSE_TIME_SLICING 1
 \end{lstlisting}
