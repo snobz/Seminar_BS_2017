@@ -15,7 +15,7 @@ Das Heruntertakten des $\mu$\-Pro\-zesso\-rs ist unabhängig vom Einsatz eines R
 	\label{fig:powerconsum}
 \end{figure}
 Abbildung \ref{fig:powerconsum} zeigt wie sich die Stromaufnahme beim STM32F4 von 40mA im Normalbetrieb(@168 MHz) auf 2,2$\mu$A im Tiefschlafmodus reduzieren lässt. 
-In einfachen Anwendungen ist der Zustand in dem ein Gerät schlafen gehen kann relativ leicht zu ermitteln. In komplexen Systemen, die auf einem Echtzeitbetriebssystem wie FreeRTOS aufsetzen und mehrere Task mög\-li\-cherweise auf unterschiedliche Ressourcen warten, wird es schon schwierig. In diesem Abschnitt wird gezeigt welche Funktionen FreeRTOS zur Ver\-fü\-gung stellt, um einen energieeffizienten Betrieb zu ge\-währ\-leis\-ten. Eine Mög\-lich\-keit ist die Idle - Hook Funktion. Wie bereits in Abschnitt \ref{Scheduling} beschrieben, wird die IDLE Task von FreeRTOS aktiviert, sobald sich alle User-Tasks im Blocked Zustand befinden. Durch konfigurieren des Präprozessor-Defines        
+In einfachen Anwendungen ist der Zustand in dem ein Gerät schlafen gehen kann relativ leicht zu ermitteln.\newline In komplexen Systemen, die auf einem Echtzeitbetriebssystem wie FreeRTOS aufsetzen und mehrere Task mög\-li\-cherweise auf unterschiedliche Ressourcen warten, wird es schon schwierig. In diesem Abschnitt wird gezeigt welche Funktionen FreeRTOS zur Ver\-fü\-gung stellt, um einen energieeffizienten Betrieb zu ge\-währ\-leis\-ten. Eine Mög\-lich\-keit ist die Idle - Hook Funktion. Wie bereits in Abschnitt \ref{Scheduling} beschrieben, wird die IDLE Task von FreeRTOS aktiviert, sobald sich alle User-Tasks im Blocked Zustand befinden. Durch konfigurieren des Präprozessor-Defines        
 \begin{lstlisting}[label=lst:defineIdleHook, numbers = none]
 #define configUSE_IDLE_HOOK  1; 
 \end{lstlisting}
@@ -24,10 +24,8 @@ static portTASK_FUNCTION( prvIdleTask, pvParameters )
 {
 	/* Stop warnings. */
 	( void ) pvParameters;
-
 	/** THIS IS THE RTOS IDLE TASK - WHICH IS CREATED AUTOMATICALLY WHEN THE
 	SCHEDULER IS STARTED. **/
-
 	for( ;; )	{
 //skipped some code
 if ( configUSE_IDLE_HOOK == 1 )
