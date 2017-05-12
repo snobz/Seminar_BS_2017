@@ -1,5 +1,5 @@
 %!TEX root = FreeRtos ARM uController.tex
-\pagebreak
+%\pagebreak
 \subsection{Memory Allocation}
 Beim Erzeugen von RTOS Objekten wie Tasks, Queues oder Semaphore wird Speicher im RAM benötigt. Für die dynamische Speicherverwaltung wird in C und C++ ge\-wöhnlich die Standard C Funktionen malloc() und free() verwendet. Die Funktion malloc() dient zur Allozierung von freiem Speicher und free() zur Freigabe von alloziertem Speicher. Für Echtzeitsysteme, die auf einem RTOS aufsetzen, sind diese Funktionen aufgrund der folgende Eigenschaften\cite{MasteringFreeRtos} ungeeignet\footnote{Heap3 stellt hier eine Ausnahme dar}:
 \needspace{3\baselineskip}
