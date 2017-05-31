@@ -9,10 +9,20 @@ R.~Barry.
 R.~Barry.
 \newblock Freertos.org implemenation - advanced, 2017.
 
+\bibitem{9780128015070}
+X.~Fan.
+\newblock {\em Real-Time Embedded Systems}.
+\newblock Elsevier LTD, Oxford, 2015.
+
 \bibitem{9783864902222}
 E.~Glatz.
 \newblock {\em Betriebssysteme}.
 \newblock Dpunkt.Verlag GmbH, 2015.
+
+\bibitem{RealTimePerformance}
+D.~B. Stewart.
+\newblock Measuring execution time and real-time performance.
+\newblock In {\em Embedded System Conference}, 2006.
 
 \bibitem{9783827373427}
 A.~S. Tanenbaum.
