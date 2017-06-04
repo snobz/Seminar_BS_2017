@@ -1,7 +1,7 @@
 %!TEX root = FreeRtos ARM uController.tex
 \subsection{Einrichten und Konfiguration}
 \label{sec:Einrichtung und Konfiguration}
-Dieser Abschnitt beschreibt die Einrichtung eines FreeRTOS Projektes für den STM32F4. Die Beschreibung dabei ist nicht vollständig und versteht sich eher als eine Art Leitfaden. Alle anwendungsspezifischen Konfigurationen können in den zur Verfügung gestellten Links nachgelesen werden. Hierbei ist besonders die Seite des GNU ARM Plugins hervorzuheben, da diese einen guten Einstieg für die Erstellung eines ARM Projekts bietet. Als Entwicklungsumgebung wird Eclipse CDT verwendet, welches bereits in Abschnitt \ref{ref:Entwicklungsumgebung} beschrieben wurde. Nach der Installation von Eclipse muss das GNU ARM Plugin für Eclipse CDT installiert werden. Dieses ist entweder über den Pluginmanager oder über den folgenden Link erhältlich: 
+Dieser Abschnitt beschreibt die Einrichtung eines FreeRTOS Projektes für den STM32F4. Die Beschreibung dabei ist nicht vollständig und versteht sich eher als eine Art Leitfaden. Alle anwendungsspezifischen Konfigurationen können in den zur Verfügung gestellten Links nachgelesen werden. Hierbei ist besonders die Seite des GNU ARM Plugins hervorzuheben, da diese einen guten Einstieg für die Erstellung eines ARM Projekts bietet. Als Entwicklungsumgebung wird Eclipse CDT verwendet, welches bereits in Abschnitt \ref{ref:Entwicklungsumgebung} beschrieben wurde. Als Host System wird hier Windows verwendet, die Einrichtung unter Linux ist aber ähnlich.Nach der Installation von Eclipse muss das GNU ARM Plugin für Eclipse CDT installiert werden. Dieses ist entweder über den Pluginmanager oder über den folgenden Link erhältlich: 
 \newline
 \newline
 http://gnuarmeclipse.github.io/
@@ -38,7 +38,7 @@ Nachdem die Konfiguration der Entwicklungstools abgeschlossen ist, kann nun ein 
 \begin{figure}[htb]
 	\centering
 		\includegraphics[width=0.4\textwidth]{Pictures/Einrichtung/NewF4Project.png}
-	\caption{Erstellung eines Basisprojekts für den STM32F4 durch das GNU ARM Plugin. Ein Wizzard Konfigurator führt den Anwender durch alle nötigen Einstellungen. Nach Abschluss erhält man ein fertiges C / C++ ARM Projekt welches passend zum Zielsystem konfiguriert ist.}
+	\caption{Erstellung eines Basisprojekts für den STM32F4 durch das GNU ARM Plugin. Ein Wizard Konfigurator führt den Anwender durch alle nötigen Einstellungen. Nach Abschluss erhält man ein fertiges C / C++ ARM Projekt welches passend zum Zielsystem konfiguriert ist.}
 	\label{fig:NewProj}
 \end{figure}
 Das Templateprojekt beinhaltet bereits alle benötigten Hardware Bibliotheken (Abbildung \ref{fig:CMSIS}) wie den STM HAL (siehe Abschnitt \ref{sec:Zielsysteme}) oder das ARM CMSIS (Cortex Microcontroller Software Interface Standard).
@@ -49,7 +49,7 @@ Das Templateprojekt beinhaltet bereits alle benötigten Hardware Bibliotheken (A
 	%Ist HAL hier singular oder plural?
 	\label{fig:CMSIS}
 \end{figure}
-Das Templateprojekt sollte jetzt kompilieren und mittels ISP-Programmer auf dem Zielsystem ausgeführt werden können.
+Das Templateprojekt sollte jetzt kompilieren und mittels ISP-Programmer\footnote{In System Programmer} auf dem Zielsystem ausgeführt werden können.
 Im nächsten Schritt wird FreeRTOS in das Templateprojekt eingebunden. Hierfür kann auf www.freertos.org die gepackte Variante der Demoprojekte heruntergeladen werden. Für den STM32F4 stehen spezielle Cortex M4 Portierungen zur Verfügung. Die Verzeichnisstruktur sollte dabei der Abbildung \ref{fig:SourceTree} ähneln.
 \begin{figure}[htb]
 	\centering

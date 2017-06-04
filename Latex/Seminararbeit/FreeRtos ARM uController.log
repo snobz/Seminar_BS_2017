@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  31 MAY 2017 13:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  4 JUN 2017 12:18
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -794,8 +794,8 @@ Overfull \hbox (16.09114pt too wide) in paragraph at lines 12--61
  []
 
 
-Overfull \hbox (3.68134pt too wide) in paragraph at lines 12--61
-\OT1/ptm/m/n/10 Dies erm[]oglicht auch den Ein-satz von agi-len Ent-wick-lungs-
+Overfull \hbox (1.25557pt too wide) in paragraph at lines 12--61
+\OT1/ptm/m/n/10 ge-sam-te Co-de von die-ser []Anderungen be-trof-fen. Ein RTOS
  []
 
 [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
@@ -803,17 +803,8 @@ Overfull \hbox (3.68134pt too wide) in paragraph at lines 12--61
 
 Non-PDF special ignored!
 
- <./Pictures/EmbeddedCom/cwrtos2f5c.jpg>] (Geschichte.tex
-Overfull \hbox (15.635pt too wide) in paragraph at lines 3--4
-\OT1/ptm/m/n/10 Com-mu-ni-ty of-fen-le-gen. In der kom-mer-zi-el-len Li-zenz (OpenR-
- []
-
-
-Overfull \hbox (12.36478pt too wide) in paragraph at lines 3--4
-\OT1/ptm/m/n/10 eR-TOS di-ver-se Er-wei-te-run-gen wie Trei-ber und Tools. Gef[]uhrt
- []
-
-) (Entwicklungsumgebung.tex) (STM32F4.tex
+ <./Pictures/EmbeddedCom/cwrtos2f5c.jpg>] (Geschichte.tex) (Entwicklungsumgebung.tex)
+(STM32F4.tex
 Overfull \hbox (1.0815pt too wide) in paragraph at lines 4--2
 \OT1/ptm/m/n/10 Verf[]ugung ge-stellt und ver-gleich-bar ei-ner dy-na-mi-schen Bi-
  []
@@ -824,8 +815,8 @@ Overfull \hbox (4.04135pt too wide) in paragraph at lines 4--2
  []
 
 
-Overfull \hbox (11.29555pt too wide) in paragraph at lines 4--2
-\OT1/ptm/m/n/10 so ein-fach ist, wie bei den pro-priet[]aren IDEs. RTOS-awarness
+Overfull \hbox (3.9511pt too wide) in paragraph at lines 4--2
+\OT1/ptm/m/n/10 RTOS-awarness wird bei Eclip-se durch die In-stal-la-ti-on wei-
  []
 
 <Pictures/STM32F4/LibraryEntry.png, id=107, 490.83376pt x 326.72063pt>
@@ -834,13 +825,7 @@ File: Pictures/STM32F4/LibraryEntry.png Graphic file (type png)
 Package pdftex.def Info: Pictures/STM32F4/LibraryEntry.png used on input line 8.
 (pdftex.def)             Requested size: 194.88219pt x 129.71877pt.
 )
-(Einrichten.tex
-Overfull \hbox (15.84709pt too wide) in paragraph at lines 4--2
-\OT1/ptm/m/n/10 son-ders gut, da spe-zi-ell f[]ur die-sen $\OML/cmm/m/it/10 $\OT1/ptm/m/n/10 Controller vie-le Hardware
--
- []
-
-[2]
+(Einrichten.tex [2]
 Underfull \hbox (badness 10000) in paragraph at lines 4--19
 
  []
@@ -882,7 +867,7 @@ File: Pictures/Einrichtung/CMSISv4_small.jpg Graphic file (type jpg)
 Package pdftex.def Info: Pictures/Einrichtung/CMSISv4_small.jpg used on input line 47.
 (pdftex.def)             Requested size: 194.88219pt x 111.86136pt.
 
-<Pictures/Einrichtung/sourceTree.png, id=123, 460.119pt x 470.558pt>
+<Pictures/Einrichtung/sourceTree.png, id=124, 460.119pt x 470.558pt>
 File: Pictures/Einrichtung/sourceTree.png Graphic file (type png)
  <use Pictures/Einrichtung/sourceTree.png>
 Package pdftex.def Info: Pictures/Einrichtung/sourceTree.png used on input line 56.
@@ -907,7 +892,7 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
 
-<Pictures/Eclipse/Heaps.png, id=136, 117.43875pt x 169.8345pt>
+<Pictures/Eclipse/Heaps.png, id=138, 117.43875pt x 169.8345pt>
 File: Pictures/Eclipse/Heaps.png Graphic file (type png)
  <use Pictures/Eclipse/Heaps.png>
 Package pdftex.def Info: Pictures/Eclipse/Heaps.png used on input line 24.
@@ -921,7 +906,7 @@ File: omlptm.fd
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 45.
 
-<Pictures/EmbeddedCom/addressSpace.jpg, id=141, 681.29532pt x 831.105pt>
+<Pictures/EmbeddedCom/addressSpace.jpg, id=143, 681.29532pt x 831.105pt>
 File: Pictures/EmbeddedCom/addressSpace.jpg Graphic file (type jpg)
  <use Pictures/EmbeddedCom/addressSpace.jpg>
 Package pdftex.def Info: Pictures/EmbeddedCom/addressSpace.jpg used on input line 80.
@@ -932,10 +917,7 @@ Overfull \hbox (3.08574pt too wide) in paragraph at lines 21--91
  []
 
 [4 <./Pictures/Einrichtung/CMSISv4_small.jpg> <./Pictures/Einrichtung/sourceTree.png> <./Pictures/Eclipse/Heaps.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-<Pictures/FreeRTOSOrg/heap1Alg.png, id=166, 216.81pt x 159.59625pt>
+<Pictures/FreeRTOSOrg/heap1Alg.png, id=167, 216.81pt x 159.59625pt>
 File: Pictures/FreeRTOSOrg/heap1Alg.png Graphic file (type png)
  <use Pictures/FreeRTOSOrg/heap1Alg.png>
 Package pdftex.def Info: Pictures/FreeRTOSOrg/heap1Alg.png used on input line 106.
@@ -955,12 +937,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 96--111
 
  []
 
-[5 <./Pictures/EmbeddedCom/addressSpace.jpg>]
+[5 <./Pictures/EmbeddedCom/addressSpace.jpg> <./Pictures/FreeRTOSOrg/heap1Alg.png>]
 Overfull \hbox (9.93188pt too wide) in paragraph at lines 114--115
 []\OT1/ptm/m/n/10 Heap4 - []Ahnlicher Al-go-rith-mus wie bei Heap1 und Heap2.
  []
 
-<Pictures/EmbeddedCom/addressSpaceMMU.jpg, id=224, 1163.0953pt x 981.6675pt>
+<Pictures/EmbeddedCom/addressSpaceMMU.jpg, id=227, 1163.0953pt x 981.6675pt>
 File: Pictures/EmbeddedCom/addressSpaceMMU.jpg Graphic file (type jpg)
 
 <use Pictures/EmbeddedCom/addressSpaceMMU.jpg>
@@ -972,8 +954,8 @@ Overfull \hbox (4.24135pt too wide) in paragraph at lines 120--128
  []
 
 
-Overfull \hbox (17.5447pt too wide) in paragraph at lines 120--128
-\OT1/ptm/m/n/10 erm[]oglicht ent-spre-chend zu rea-gie-ren. Re-stric-ted Tasks k[]onnen
+Overfull \hbox (6.43471pt too wide) in paragraph at lines 120--128
+\OT1/ptm/m/n/10 erm[]oglicht ent-spre-chend zu rea-gie-ren. Re-stric-ted Tasks k[]on-
  []
 
 
@@ -986,97 +968,98 @@ Overfull \hbox (3.7515pt too wide) in paragraph at lines 134--2
 \OT1/ptm/m/n/10 zes-sor-Define con-figS-UP-PORT[]STATIC[]ALLOCATION 1
  []
 
-<Pictures/FreeRTOSOrg/ExeContext.png, id=228, 361.35pt x 289.08pt>
+<Pictures/FreeRTOSOrg/ExeContext.png, id=235, 361.35pt x 289.08pt>
 File: Pictures/FreeRTOSOrg/ExeContext.png Graphic file (type png)
  <use Pictures/FreeRTOSOrg/ExeContext.png>
-Package pdftex.def Info: Pictures/FreeRTOSOrg/ExeContext.png used on input line 8.
+Package pdftex.def Info: Pictures/FreeRTOSOrg/ExeContext.png used on input line 26.
 (pdftex.def)             Requested size: 194.88219pt x 155.90678pt.
 
-Underfull \hbox (badness 1430) in paragraph at lines 9--9
+Underfull \hbox (badness 1430) in paragraph at lines 27--27
 \OT1/ptm/b/n/8 ben[]otigt wer-den, wer-den durch den Sche-du-ler ge-si-chert. Bild-
  []
 
 
-Overfull \hbox (26.75154pt too wide) in paragraph at lines 5--15
-\OT1/ptm/m/n/10 vom ak-tu-el-len Zu-stand der Tasks und dem gew[]ahlten Scheduling-
+Overfull \hbox (2.60176pt too wide) in paragraph at lines 6--33
+\OT1/ptm/m/n/10 wirk-lich par-al-lel, son-dern ei-ne se-quen-ti-el-les Ausf[]uhren von
  []
 
 
-Overfull \hbox (5.52165pt too wide) in paragraph at lines 5--15
-\OT1/ptm/m/n/10 wird durch den Sche-du-ler ei-ne Art Schnapp-schuss des Tasks
+Overfull \hbox (1.42528pt too wide) in paragraph at lines 6--33
+\OT1/ptm/m/n/10 Kon-text-wech-sel oder Con-texts-witch ge-nannt. Der Kon-text-
  []
 
-[6 <./Pictures/FreeRTOSOrg/heap1Alg.png> <./Pictures/EmbeddedCom/addressSpaceMMU.jpg>]
-Overfull \hbox (4.25394pt too wide) in paragraph at lines 19--20
+
+Overfull \hbox (16.92516pt too wide) in paragraph at lines 6--33
+\OT1/ptm/m/n/10 struk-ti-on fort-gef[]uhrt. Ab-bil-dung [][]10[][] zeigt wie ein Task w[]ahrend
+ []
+
+[6 <./Pictures/EmbeddedCom/addressSpaceMMU.jpg>]
+Overfull \hbox (4.25394pt too wide) in paragraph at lines 37--38
 []\OT1/ptm/m/n/10 Suspended: Der Task hat vTaskSus-pend() auf-ge-ru-fen und
  []
 
-<Pictures/FreeRTOSOrg/taskStates.png, id=240, 274.02374pt x 344.03531pt>
+<Pictures/FreeRTOSOrg/taskStates.png, id=260, 274.02374pt x 344.03531pt>
 File: Pictures/FreeRTOSOrg/taskStates.png Graphic file (type png)
  <use Pictures/FreeRTOSOrg/taskStates.png>
-Package pdftex.def Info: Pictures/FreeRTOSOrg/taskStates.png used on input line 24.
+Package pdftex.def Info: Pictures/FreeRTOSOrg/taskStates.png used on input line 42.
 (pdftex.def)             Requested size: 97.44109pt x 122.3355pt.
 
-<Pictures/Scheduling/PrioList1.png, id=248, 383.834pt x 228.052pt>
+<Pictures/Scheduling/PrioList1.png, id=268, 383.834pt x 228.052pt>
 File: Pictures/Scheduling/PrioList1.png Graphic file (type png)
  <use Pictures/Scheduling/PrioList1.png>
-Package pdftex.def Info: Pictures/Scheduling/PrioList1.png used on input line 32.
+Package pdftex.def Info: Pictures/Scheduling/PrioList1.png used on input line 50.
 (pdftex.def)             Requested size: 146.16534pt x 86.8416pt.
 
-<Pictures/EMCUIT/PreemptiveCooperative.png, id=250, 451.6875pt x 280.79906pt>
+<Pictures/EMCUIT/PreemptiveCooperative.png, id=270, 451.6875pt x 280.79906pt>
 File: Pictures/EMCUIT/PreemptiveCooperative.png Graphic file (type png)
 
 <use Pictures/EMCUIT/PreemptiveCooperative.png>
-Package pdftex.def Info: Pictures/EMCUIT/PreemptiveCooperative.png used on input line 57.
+Package pdftex.def Info: Pictures/EMCUIT/PreemptiveCooperative.png used on input line 75.
 (pdftex.def)             Requested size: 194.88219pt x 121.15256pt.
-
-Overfull \hbox (45.7342pt too wide) in paragraph at lines 54--62
-\OT1/ptm/m/n/10 fi-gu-ra-ti-onsm[]oglichkeit. Mit der nach-fol-gen-den Pre-Prozessordirektive
- []
-
-[7 <./Pictures/FreeRTOSOrg/ExeContext.png> <./Pictures/FreeRTOSOrg/taskStates.png> <./Pictures/Scheduling/PrioList1.png>
-] <Pictures/FreeRTOSOrg/TickISR.png, id=281, 398.08725pt x 151.16475pt>
+ [7 <./Pictures/FreeRTOSOrg/ExeContext.png> <./Pictures/FreeRTOSOrg/taskStates.png> <./Pictures/Scheduling/PrioList1.png
+>] <Pictures/FreeRTOSOrg/TickISR.png, id=291, 398.08725pt x 151.16475pt>
 File: Pictures/FreeRTOSOrg/TickISR.png Graphic file (type png)
- <use Pictures/FreeRTOSOrg/TickISR.png>
-Package pdftex.def Info: Pictures/FreeRTOSOrg/TickISR.png used on input line 82.
+
+<use Pictures/FreeRTOSOrg/TickISR.png>
+Package pdftex.def Info: Pictures/FreeRTOSOrg/TickISR.png used on input line 100.
 (pdftex.def)             Requested size: 194.88219pt x 74.00217pt.
 
-Underfull \hbox (badness 1097) in paragraph at lines 83--83
+Underfull \hbox (badness 1097) in paragraph at lines 101--101
 []\OT1/ptm/b/n/8 Abbildung 14. []Beispielhafter Ab-lauf ei-nes Sy-sTickIn-ter-rupts.(1)
  []
 
 
-Overfull \hbox (2.77446pt too wide) in paragraph at lines 65--88
+Overfull \hbox (2.77446pt too wide) in paragraph at lines 83--106
 \OT1/ptm/m/n/10 ple-men-tie-rung des Fre-eR-TOS Sy-sTicks. Der Sy-sTick-Hand-
  []
 
-<Pictures/Scheduling/timeslice2.png, id=285, 526.96875pt x 146.79843pt>
+<Pictures/Scheduling/timeslice2.png, id=295, 526.96875pt x 146.79843pt>
 File: Pictures/Scheduling/timeslice2.png Graphic file (type png)
  <use Pictures/Scheduling/timeslice2.png>
-Package pdftex.def Info: Pictures/Scheduling/timeslice2.png used on input line 95.
+Package pdftex.def Info: Pictures/Scheduling/timeslice2.png used on input line 113.
 (pdftex.def)             Requested size: 243.60645pt x 67.86185pt.
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 95--96
+Overfull \hbox (12.0pt too wide) in paragraph at lines 113--114
  [][] 
  []
 
-)
-Overfull \hbox (10.79053pt too wide) in paragraph at lines 92--68
+
+Overfull \hbox (10.79053pt too wide) in paragraph at lines 110--117
 \OT1/ptm/m/n/10 Diese Ein-stel-lung wird []ublicherweise Prio-ri-ti-zed Pre-emptive
  []
 
-
-Overfull \hbox (3.48247pt too wide) in paragraph at lines 92--68
-\OT1/ptm/m/n/10 zu wer-den, m[]ussten di-ver-se Mes-sun-gen vor-ge-nom-men wer-
+)
+Overfull \hbox (2.36234pt too wide) in paragraph at lines 118--68
+\OT1/ptm/m/n/10 vor-han-den, kann ei-ne un-pas-sen-de Prio-rit[]atenzuweisung da-
  []
 
 
-Overfull \hbox (1.09235pt too wide) in paragraph at lines 92--68
-\OT1/ptm/m/n/10 den, um die Echtzeit-Performance zu be-stim-men, dies wird
+Overfull \hbox (2.45215pt too wide) in paragraph at lines 118--68
+\OT1/ptm/m/n/10 Echt-zeitan-for-de-run-gen ge-eig-net, da-durch dass die Aus-wahl
  []
 
-(InterTaskKommunikation.tex [8 <./Pictures/EMCUIT/PreemptiveCooperative.png> <./Pictures/FreeRTOSOrg/TickISR.png> <./Pic
-tures/Scheduling/timeslice2.png>]) (Interrupt.tex
+[8 <./Pictures/EMCUIT/PreemptiveCooperative.png> <./Pictures/FreeRTOSOrg/TickISR.png> <./Pictures/Scheduling/timeslice2.
+png>] (InterTaskKommunikation.tex) (Interrupt.tex
 Overfull \hbox (6.85571pt too wide) in paragraph at lines 7--2
 \OT1/ptm/m/n/10 ein-schrei-ben wol-len, in den Zu-stand Blocked ver-setzt. Eben-
  []
@@ -1087,14 +1070,9 @@ Overfull \hbox (8.65193pt too wide) in paragraph at lines 7--2
  []
 
 
-Overfull \hbox (24.24207pt too wide) in paragraph at lines 7--2
-\OT1/ptm/m/n/10 Mail-box, bis es von ei-nem da-ten-er-zeu-gen-den Task []uberschrieben
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
+ [9]
 Overfull \hbox (1.47392pt too wide) in paragraph at lines 4--8
 \OT1/ptm/m/n/10 ei-ner Fre-eR-TOS Task mit-tels In-ter-taskkom-mu-ni-ka-ti-on. Die
  []
@@ -1109,7 +1087,7 @@ Overfull \hbox (6.73451pt too wide) in paragraph at lines 4--8
 \OT1/ptm/m/n/10 n[]achste Zu-griffs-va-ri-an-te auf In-ter-rupts dar-stel-len. Die Coun-
  []
 
-[9]) (LowPower.tex
+) (LowPower.tex
 Overfull \hbox (3.52504pt too wide) in paragraph at lines 15--2
 \OT1/ptm/m/n/10 Event-groups. Hier-bei ge-schieht die Task-steue-rung []uber Bit-
  []
@@ -1119,22 +1097,17 @@ Overfull \hbox (2.98512pt too wide) in paragraph at lines 15--2
 \OT1/ptm/m/n/10 ux-Bit-sTo-Set in-ner-halb der Event-group ge-setzt. Die-se Funk-
  []
 
-<Pictures/STM32F4/powerConsumption.png, id=325, 505.89pt x 348.55219pt>
+<Pictures/STM32F4/powerConsumption.png, id=354, 505.89pt x 348.55219pt>
 File: Pictures/STM32F4/powerConsumption.png Graphic file (type png)
  <use Pictures/STM32F4/powerConsumption.png>
 Package pdftex.def Info: Pictures/STM32F4/powerConsumption.png used on input line 12.
 (pdftex.def)             Requested size: 194.88219pt x 134.27011pt.
 
-Overfull \hbox (10.38504pt too wide) in paragraph at lines 39--65
+Overfull \hbox (10.38504pt too wide) in paragraph at lines 22--48
 \OT1/ptm/m/n/10 men-tie-rung der Idle-Hook Funk-ti-on. Be-vor das Sys-tem schla-
  []
 
-[10 <./Pictures/STM32F4/powerConsumption.png>]) (Debugging.tex
-Overfull \hbox (7.70152pt too wide) in paragraph at lines 2--2
-[]\secfnt Komplexit[]at durch Ne-benl[]aufigkeit - De-bug-ging von
- []
-
-<Pictures/Segger/freertosThreadAwareness.png, id=364, 441.90094pt x 353.82187pt>
+[10]) (Debugging.tex <Pictures/Segger/freertosThreadAwareness.png, id=375, 441.90094pt x 353.82187pt>
 File: Pictures/Segger/freertosThreadAwareness.png Graphic file (type png)
 
 <use Pictures/Segger/freertosThreadAwareness.png>
@@ -1145,7 +1118,7 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 9--10
  [][] 
  []
 
-<Pictures/Segger/systemview.png, id=366, 883.04906pt x 362.85562pt>
+<Pictures/Segger/systemview.png, id=377, 883.04906pt x 362.85562pt>
 File: Pictures/Segger/systemview.png Graphic file (type png)
  <use Pictures/Segger/systemview.png>
 Package pdftex.def Info: Pictures/Segger/systemview.png used on input line 16.
@@ -1155,11 +1128,11 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 16--17
  [][] 
  []
 
-<Pictures/Segger/SystemViewTarget.png, id=368, 183.084pt x 228.25275pt>
+<Pictures/Segger/SystemViewTarget.png, id=379, 183.084pt x 228.25275pt>
 File: Pictures/Segger/SystemViewTarget.png Graphic file (type png)
  <use Pictures/Segger/SystemViewTarget.png>
 Package pdftex.def Info: Pictures/Segger/SystemViewTarget.png used on input line 23.
-(pdftex.def)             Requested size: 194.88219pt x 242.96722pt.
+(pdftex.def)             Requested size: 146.16534pt x 182.22977pt.
 )
 (Zusammenfassung.tex
 Overfull \hbox (4.03134pt too wide) in paragraph at lines 4--3
@@ -1171,7 +1144,7 @@ Overfull \hbox (9.27496pt too wide) in paragraph at lines 4--3
 \OT1/ptm/m/n/10 Tools fast un-ab-ding-bar. Vie-le die-ser Trace Tools erm[]oglichen
  []
 
-[11 <./Pictures/Segger/freertosThreadAwareness.png (PNG copy)>]) ("FreeRtos ARM uController.bbl"
+[11 <./Pictures/STM32F4/powerConsumption.png>]) ("FreeRtos ARM uController.bbl"
 Overfull \hbox (3.45065pt too wide) in paragraph at lines 4--1
 \OT1/ptm/m/n/10 FreeRTOS kann als frei-es, pro-fes-sio-nel-les Echt-zeit-be-triebs-
  []
@@ -1181,27 +1154,35 @@ Overfull \hbox (4.88098pt too wide) in paragraph at lines 4--1
 \OT1/ptm/m/n/10 spie-le oder Tem-pla-te Pro-jek-te f[]ur Fre-eR-TOS zur Verf[]ugung.
  []
 
+
+Overfull \hbox (19.17966pt too wide) in paragraph at lines 29--32
+\OT1/ptm/m/n/10 http://jcsites.juniata.edu/faculty/rhodes/smui/realtime.htm.  
+ []
+
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 78.
- [12 <./Pictures/Segger/systemview.png> <./Pictures/Segger/SystemViewTarget.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 78.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
+ [12 <./Pictures/Segger/freertosThreadAwareness.png (PNG copy)> <./Pictures/Segger/systemview.png> <./Pictures/Segger/Sy
+stemViewTarget.png>] [13
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
  ("FreeRtos ARM uController.aux"
 Package cleveref Info: loaded `ngerman' language definitions on input line 25.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 78.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 78.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 77.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
 Package rerunfilecheck Info: File `"FreeRtos ARM uController".out' has not changed.
-(rerunfilecheck)             Checksum: C4F641780D206E72537FF7AA1904EC27;1412.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 78.
+(rerunfilecheck)             Checksum: 2D2A4B1AF7575B9ADF5DCBFF7A7CF47A;1412.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 77.
  ) 
 Here is how much of TeX's memory you used:
- 11205 strings out of 493333
- 169675 string characters out of 3139173
- 480724 words of memory out of 3000000
- 14301 multiletter control sequences out of 15000+200000
+ 11214 strings out of 493333
+ 169899 string characters out of 3139173
+ 490724 words of memory out of 3000000
+ 14307 multiletter control sequences out of 15000+200000
  37077 words of font info for 81 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,58p,2584b,1435s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,12n,58p,2952b,1435s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/M
@@ -1209,9 +1190,9 @@ iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/
 Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utm
 ri8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (12 pages, 1589475 bytes).
+Output written on "FreeRtos ARM uController.pdf" (13 pages, 1588330 bytes).
 PDF statistics:
- 482 PDF objects out of 1000 (max. 8388607)
- 198 named destinations out of 1000 (max. 500000)
+ 501 PDF objects out of 1000 (max. 8388607)
+ 201 named destinations out of 1000 (max. 500000)
  240 words of extra memory for PDF output out of 10000 (max. 10000000)
 

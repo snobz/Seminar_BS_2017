@@ -19,23 +19,6 @@ In einfachen Anwendungen ist der Zustand, in dem ein Gerät schlafen gehen kann,
 \begin{lstlisting}[label=lst:defineIdleHook, numbers = none]
 #define configUSE_IDLE_HOOK  1; 
 \end{lstlisting}
-\begin{lstlisting}[caption={Aufruf der Idle-Hook Funktion durch den FreeRTOS Idle Task. Aus Task.c},captionpos=b, label=lst:xIdleTaskHook, float=htb!]
-static portTASK_FUNCTION( prvIdleTask, pvParameters )
-{
-	/* Stop warnings. */
-	( void ) pvParameters;
-	/** THIS IS THE RTOS IDLE TASK - WHICH IS CREATED AUTOMATICALLY WHEN THE
-	SCHEDULER IS STARTED. **/
-	for( ;; )	{
-//skipped some code
-if ( configUSE_IDLE_HOOK == 1 )
-{
-	extern void vApplicationIdleHook( void );
-	vApplicationIdleHook();
-}
-//guess what.. skipped more code
-}     
-\end{lstlisting}
 kann die Idle-Hook Funktion aktiviert werden. Diese wird immer aufgerufen, sobald der Idle Task in den Zustand Running wechselt. Die Funktionalität der Idle-Hook Funktion kann frei vom Entwickler implementiert werden. 
 \begin{lstlisting}[caption={Pseudocode für eine Idle-Hook Funktion},captionpos=b, label=lst:xIdleHookExamp, float=hbt!]
 extern "C" void vApplicationIdleHook( void ){

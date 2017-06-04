@@ -85,7 +85,7 @@ Durch den gemeinsamen Adressraum ist es bei fehlerhaften Verwendungen von Speich
 %Ein ungewollter Speicherzugriff ist somit durchaus möglich. Durch die Umschreibung des vorherhigen Satzes jetzt doppelt.
 \newline
 In Abschnitt \ref{sec:Memory Protection} wird gezeigt welche Möglichkeit der STM32F4 und FreeRTOS bieten um Speicherzugriffe sicherer zu gestalten.    
-\pagebreak 
+%\pagebreak 
 %\cleardoublepage
 %\FloatBarrier
 \subsubsection{FreeRTOS Algorithmen zur Speicherverwaltung}
@@ -124,7 +124,7 @@ Embedded Softwaresysteme können durch den Einsatz einer Memory Protection Unit 
 	\caption{Zugriffsrechte für eine Restricted Task werden durch den RTOS Kernel in der MPU konfiguriert. Der Speicherzugriff wird automatisch durch MPU überprüft und im Fehlerfall an den Kernel gemeldet. Bild-Quelle~\protect\citeA{RTOSRevealed}}
 	\label{fig:AddressSpaceMMU}
 \end{figure} 
-Für die MPU des STM32F4 $\mu$\-Pro\-zesso\-rs steht eine spezielle API Portierung von FreeRTOS zur Verfügung (FreeRTOS-MPU). Zur Erzeugung von Tasks, die die MPU nutzen sollen, muss die Erzeugerfunktion xTaskCreateRestricted() verwendet werden. Beim Aufruf der Erzeugerfunktion wird dem Kernel die Stackadresse der Task mitgeteilt, damit dieser die entsprechenden Zugriffsberechtigungen der Speicheradressen konfigurieren kann. Die so erzeugten Tasks werden Ristricted Tasks genannt. Der Zugriff aus einer Restricted Task auf den Speicher (Task-Stack) einer anderen Restricted Task, ist nicht erlaubt. Bei einem nicht erlaubten Speicherzugriff wird automatisch die entsprechende Hook-Funktion aufgerufen. Dem System wird so ermöglicht entsprechend zu reagieren. Restricted Tasks können sich in einem der folgenden Modis befinden:
+Für die MPU des STM32F4 $\mu$\-Pro\-zesso\-rs steht eine spezielle API Portierung von FreeRTOS zur Verfügung (FreeRTOS-MPU). Zur Erzeugung von Tasks, die die MPU nutzen sollen, muss die Erzeugerfunktion xTaskCreateRestricted() verwendet werden. Beim Aufruf der Erzeugerfunktion wird dem Kernel die Stackadresse der Task mitgeteilt, damit dieser die entsprechenden Zugriffsberechtigungen der Speicheradressen konfigurieren kann. Die so erzeugten Tasks werden Ristricted Tasks genannt. Der Zugriff aus einer Restricted Task auf den Speicher (Task-Stack) einer anderen Restricted Task, ist nicht erlaubt. Bei einem nicht erlaubten Speicherzugriff wird automatisch die entsprechende Hook-Funktion aufgerufen. Dem System wird so ermöglicht entsprechend zu reagieren. Restricted Tasks kön\-nen sich in einem der folgenden Modis befinden:
 \begin{itemize}
 	\item User Mode
 	\item Priviliged Mode 
