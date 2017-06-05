@@ -7,7 +7,7 @@ FreeRTOS bietet verschiedene Mög\-lich\-keit\-en an, um Tasks einen Zugriff auf
 Zuerst die binären Semaphore, die mit xSemaphoreCreateBinary(void) erstellt werden. Hierbei handelt es sich um Speichervariablen, die einen binären Wert annehmen können. In dem Moment, in dem die Variable den Wert TRUE annimmt, ändert die Task ihren Zustand von Blocked auf Ready. Die Task kann in den Wartezustand gebracht werden, indem xSemaphoreTake() aufgerufen wird. Der Semaphor selbst wird durch eine ISR gesetzt. 
 %Was meinst du damit ? Der Semaphor selbst wird durch eine ISR gesetzt. 
 Binäre Semaphore werden meist zu Synchronisationszwecken zwischen einem Task und einem Interrupt eingesetzt.
-%Michael: Das wurde im Abschnitt vorher eigetlich schon gesagt. Wie gesagt eigentlich dient es zur synchroisierung von Zugriffen auf Ressourcen. 
+%Michael: Das wurde im Abschnitt vorher schon beschrieben. Wie gesagt eigentlich dient es zur synchroisierung von Zugriffen auf Ressourcen. 
 Da nicht sichergestellt ist, dass die Task innerhalb der Zeitspanne, in der ein weiterer Interrupt auftreten kann, den vorhandenen Interrupt verarbeiteten kann, ist es möglich, dass ein Interrupt bei binären Semaphoren "'verloren'" geht.
 %Michael: Das verstehe ich nicht, wie hilft hier ein Counting Semaphor, wenn man einen Interrupt verpasst? Ein counting Semphor würde sich doch auch verzählen. Ein counting semphaor wird doch für ressource genutzt die zählbar sind. z.B. es dürfen nur 5 Teilnehmer auf den Bus zugreifen. 
 \newline Abhilfe schaffen hier die Counting Semaphore, die die nächste Zugriffsvariante auf Interrupts darstellen. Die Counting Semaphore werden durch das Setzen der folgenden Pre-Prozessor Direktive in der FreeRTOS Config aktiviert.
