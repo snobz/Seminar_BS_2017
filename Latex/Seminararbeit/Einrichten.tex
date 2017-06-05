@@ -1,7 +1,7 @@
 %!TEX root = FreeRtos ARM uController.tex
 \subsection{Einrichten und Konfiguration}
 \label{sec:Einrichtung und Konfiguration}
-Dieser Abschnitt beschreibt die Einrichtung eines FreeRTOS Projektes für den STM32F4. Die Beschreibung dabei ist nicht vollständig und versteht sich eher als eine Art Leitfaden. Alle anwendungsspezifischen Konfigurationen können in den zur Verfügung gestellten Links nachgelesen werden. Hierbei ist besonders die Seite des GNU ARM Plugins hervorzuheben, da diese einen guten Einstieg für die Erstellung eines ARM Projekts bietet. Als Entwicklungsumgebung wird Eclipse CDT verwendet, welches bereits in Abschnitt \ref{ref:Entwicklungsumgebung} beschrieben wurde. Als Host System wird hier Windows verwendet, die Einrichtung unter Linux ist aber ähnlich.Nach der Installation von Eclipse muss das GNU ARM Plugin für Eclipse CDT installiert werden. Dieses ist entweder über den Pluginmanager oder über den folgenden Link erhältlich: 
+Dieser Abschnitt beschreibt die Einrichtung eines FreeRTOS Projektes für den STM32F4. Die Beschreibung dabei ist nicht vollständig und versteht sich eher als eine Art Leitfaden. Alle anwendungsspezifischen Konfigurationen können in den zur Verfügung gestellten Links nachgelesen werden. Hierbei ist besonders die Seite des GNU ARM Plugins hervorzuheben, da diese einen guten Einstieg für die Erstellung eines ARM Projekts bietet. Als Entwicklungsumgebung wird Eclipse CDT verwendet, welches bereits in Abschnitt \ref{ref:Entwicklungsumgebung} beschrieben wurde. Als Host System wird hier Windows verwendet, die Einrichtung unter Linux ist aber ähnlich. Nach der Installation von Eclipse muss das GNU ARM Plugin für Eclipse CDT installiert werden. Dieses ist entweder über den Pluginmanager oder über den folgenden Link erhältlich: 
 \newline
 \newline
 http://gnuarmeclipse.github.io/
@@ -16,7 +16,7 @@ https://launchpad.net/gcc-arm-embedded
 https://github.com/gnuarmeclipse/windows-build-tools/
 \newline
 \newline
-Die Toolchain und die Buildtools stellen Anwendungen bereit, die zum Kompilieren und Debuggen der C und C++ Dateien benötigt werden. Zur Toolchain gehören unter anderem GCC als Cross Compiler und GDB (GNU Debugger) zum Debuggen der Anwendung auf der Zielplattform. Die GNU Buildtools beinhalten make und rm, die zum Organisieren des Builds benötigt werden. Nach der Installation müssen die Verzeichnisse der Toolchain und der Buildtools im Plugin konfiguriert werden. Mit dieser Konfiguration ist das System nun in der Lage C und C++ Dateien für die Zielplattform zu kompilieren und als Binary File (.elf) bereitzustellen. Zum Übertragen und Debuggen der Anwendung auf dem Zielsystem wird ein ISP-Programmer für ARM benötigt.\needspace{5\baselineskip} Folgende ISP-Programmer werden häufig verwendet, dabei ist Liste weder vollständig, noch stellt sie eine Empfehlung dar.
+Die Toolchain und die Buildtools stellen Anwendungen bereit, die zum Kompilieren und Debuggen der C und C++ Dateien benötigt werden. Zur Toolchain gehören unter anderem GCC als Cross Compiler und GDB (GNU Debugger) zum Debuggen der Anwendung auf der Zielplattform. Die GNU Buildtools beinhalten make und rm, die zum Organisieren des Builds benötigt werden. Nach der Installation müssen die Verzeichnisse der Toolchain und der Buildtools im Plugin konfiguriert werden. Mit dieser Konfiguration ist das System nun in der Lage C und C++ Dateien für die Zielplattform zu kompilieren und als Binary File (.elf) bereitzustellen. Zum Übertragen und Debuggen der Anwendung auf dem Zielsystem wird ein ISP-Programmer\footnote{In System Programmer} für ARM benötigt. Folgende ISP-Programmer werden häu\-fig verwendet, dabei ist Liste weder vollständig, noch stellt sie eine Empfehlung dar.
 \begin{itemize}
 	\item Segger J-Link:
 	\newline
@@ -47,9 +47,10 @@ Das Templateprojekt beinhaltet bereits alle benötigten Hardware Bibliotheken (A
 		\includegraphics[width=0.4\textwidth]{Pictures/Einrichtung/CMSISv4_small.jpg}
 	\caption{ARM embedded Anwendungen setzten auf unterschiedliche Abstraktionsschichten auf. Die untersten beiden Abstraktionsschichten sind CMSIS, welches Funktionen für ARM Devices bereitstellt, und der HAL des $\mu$Controller Herstellers. CMSIS steht für alle ARM Systeme zur Verfügung, wohingegen der HAL $\mu$Controller spezifisch ist. }
 	%Ist HAL hier singular oder plural?
+	%die Ingeneure von STM haben auf der Messe immer "`die HAL"' gesagt. Ich denke es bleibt einem selbst überlassen. Können wir gerne so lassen, wie du es geschrieben hast.  
 	\label{fig:CMSIS}
 \end{figure}
-Das Templateprojekt sollte jetzt kompilieren und mittels ISP-Programmer\footnote{In System Programmer} auf dem Zielsystem ausgeführt werden können.
+Das Templateprojekt sollte jetzt kompilieren und mittels ISP-Programmer auf dem Zielsystem ausgeführt werden können.
 Im nächsten Schritt wird FreeRTOS in das Templateprojekt eingebunden. Hierfür kann auf www.freertos.org die gepackte Variante der Demoprojekte heruntergeladen werden. Für den STM32F4 stehen spezielle Cortex M4 Portierungen zur Verfügung. Die Verzeichnisstruktur sollte dabei der Abbildung \ref{fig:SourceTree} ähneln.
 \begin{figure}[htb]
 	\centering

@@ -81,10 +81,11 @@ Alle Objekte, die mittels pvPortMalloc() alloziert werden, darunter auch der Ker
 	\caption{Task und Kernel teilen sich in FreeRTOS einen gemeinsamen Adressraum. Dies stellt eine potentielle Fehlerquelle dar. Bild-Quelle~\protect\citeA{RTOSRevealed}}
 	\label{fig:AddressSpace}
 \end{figure} 
-Durch den gemeinsamen Adressraum ist es bei fehlerhaften Verwendungen von Speicherzugriffsfunktionen möglich aus einer Task auf die Variablen einer anderen Task zuzugreifen. 
-%Ein ungewollter Speicherzugriff ist somit durchaus möglich. Durch die Umschreibung des vorherhigen Satzes jetzt doppelt.
-\newline
-In Abschnitt \ref{sec:Memory Protection} wird gezeigt welche Möglichkeit der STM32F4 und FreeRTOS bieten um Speicherzugriffe sicherer zu gestalten.    
+Durch den gemeinsamen Adressraum ist es beispielsweise mög\-lich, dass durch Überläufen oder ungewollten Speicherzugriffen, Daten einer anderen Task oder des Kernels ver\-än\-dert werden.   
+%Christoph: Ein ungewollter Speicherzugriff ist somit durchaus möglich. Durch die Umschreibung des vorherhigen Satzes jetzt doppelt.
+%Christoph:Durch den gemeinsamen Adressraum ist es bei fehlerhaften Verwendungen von Speicherzugriffsfunktionen möglich aus einer Task auf die Variablen einer anderen Task zuzugreifen. 
+%Michael: Ich habe das nochmal umformuliert. Es ist nicht durch die fehlerhafte Verwendung möglich auf Variablen einer anderen Task zuzugreifen. Das ist grundsätzlich möglich und auch gewollt.  
+In Abschnitt \ref{sec:Memory Protection} wird gezeigt welche Mög\-lich\-keit der STM32F4 und FreeRTOS bieten um Speicherzugriffe sicherer zu gestalten.    
 %\pagebreak 
 %\cleardoublepage
 %\FloatBarrier
@@ -113,7 +114,8 @@ Für jede Task wird ein TCB und ein Stack erzeugt. Die Speicherobjekte liegen di
 	\item Heap3 - Verwendet C Library Malloc() und free() und deaktiviert den Scheduler zur Speicherallozierung.
 	\item Heap4 - Ähnlicher Algorithmus wie bei Heap1 und Heap2. Verwendet First Fit Algorithmus zur Speicherallozierung. Verbindet mehrere kleinere Speicherblöcke zu einem Großen. Minimiert Speicherfragmentierung.
 	\item Heap5 - Gleicher Algorithmus wie Heap4. Es kön\-nen mehrere Memory Pools erzeugt werden.
-	%Ich habe versucht die Aufzählung etwas zu vereinheitlichen. Ggf. muss du noch etwas nachsteuern
+	%Christoph: Ich habe versucht die Aufzählung etwas zu vereinheitlichen. Ggf. muss du noch etwas nachsteuern
+	%Michael: Okay :)
 \end{itemize}
 \subsubsection{Memory Protection}
 \label{sec:Memory Protection}
@@ -131,4 +133,4 @@ Für die MPU des STM32F4 $\mu$\-Pro\-zesso\-rs steht eine spezielle API Portieru
 \end{itemize}
 Im User Mode ist es einer Restricted Task nicht erlaubt auf den Speicher des FreeRTOS Kernels zuzugreifen. So wird verhindert, dass der Kernel ungewollt modifiziert wird. Nur einer Restricted Task, die sich im Priviliged Mode befindet, ist ein Zugriff auf den Kernel Speicher erlaubt. Dabei geschieht der Wechsel vom User Mode in den Priviliged Mode implizit durch den Aufruf einer FreeRTOS API Funktion. Ein Wechsel durch die Task selbst in den Priviliged Mode ist nicht möglich.
 \subsubsection{Static Memory Allocation}
-Die statische Speicherverwaltung wird durch das Prä\-pro\-zes\-sor-Define configSUPPORT\_STATIC\_ALLOCATION 1 in der FreeRTOS\_config aktiviert. Für die statische Objekterzeugung können die dynamischen Erzeugerfunktionen nicht mehr verwendet werden, daher stehen spezielle Erzeugerfunktionen für die statische Speicherallozierung zur Verfügung. Beispiele hierfür sind: xTaskCreateStatic() statt xTaskCreate() oder xSemaphoreCreateBinaryStatic() statt xSemaphoreCreateBinary(). Der Vorteil der statischen Speicherverwaltung ist, dass der belegte Speicher im RAM schon zur Übersetzungszeit bekannt ist und die potenzielle Fehlerquelle der dynamischen Speicherverwaltung vermieden\newline wird. Der Nachteil besteht darin, dass mehr RAM verwendet wird, als bei den meisten Heap Implementierungen. Heap1 stellt eine geeignete Alternative in der dynamischen Speicherverwaltung dar, da es die Risiken der dynamischen Speicherverwaltung auf ein Minimum reduziert.   
+Die statische Speicherverwaltung wird durch das Prä\-pro\-zes\-sor-Define configSUPPORT\_STATIC\_ALLOCATION 1 in der FreeRTOS\_config aktiviert. Für die statische Objekterzeugung können die dynamischen Erzeugerfunktionen nicht mehr verwendet werden, daher stehen spezielle Erzeugerfunktionen für die statische Speicherallozierung zur Verfügung. Beispiele hierfür sind: xTaskCreateStatic() statt xTaskCreate() oder xSemaphoreCreateBinaryStatic() statt xSemaphoreCreateBinary(). Der Vorteil der statischen Speicherverwaltung ist, dass der belegte Speicher im RAM schon zur Übersetzungszeit bekannt ist und die potenzielle Fehlerquelle der dynamischen Speicherverwaltung vermieden wird. Der Nachteil besteht darin, dass mehr RAM verwendet wird, als bei den meisten Heap Implementierungen. Heap1 stellt eine geeignete Alternative in der dynamischen Speicherverwaltung dar, da es die Risiken der dynamischen Speicherverwaltung auf ein Minimum reduziert.   
