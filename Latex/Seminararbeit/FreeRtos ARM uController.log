@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  5 JUN 2017 21:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  5 JUN 2017 21:07
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -1057,12 +1057,12 @@ Overfull \hbox (10.79053pt too wide) in paragraph at lines 109--116
 Underfull \vbox (badness 1158) has occurred while \output is active []
 
 )
-Overfull \hbox (2.36234pt too wide) in paragraph at lines 117--68
+Overfull \hbox (2.36234pt too wide) in paragraph at lines 118--68
 \OT1/ptm/m/n/10 vor-han-den, kann ei-ne un-pas-sen-de Prio-rit[]atenzuweisung da-
  []
 
 
-Overfull \hbox (2.45215pt too wide) in paragraph at lines 117--68
+Overfull \hbox (2.45215pt too wide) in paragraph at lines 118--68
 \OT1/ptm/m/n/10 Echt-zeitan-for-de-run-gen ge-eig-net, da-durch dass die Aus-wahl
  []
 
@@ -1211,7 +1211,7 @@ iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/
 Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utm
 ri8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (12 pages, 1587774 bytes).
+Output written on "FreeRtos ARM uController.pdf" (12 pages, 1587775 bytes).
 PDF statistics:
  496 PDF objects out of 1000 (max. 8388607)
  200 named destinations out of 1000 (max. 500000)

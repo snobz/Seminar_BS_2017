@@ -9,7 +9,7 @@ Zuerst die binären Semaphore, die mit xSemaphoreCreateBinary(void) erstellt wer
 Binäre Semaphore werden meist zu Synchronisationszwecken zwischen einem Task und einem Interrupt eingesetzt.
 %Michael: Das wurde im Abschnitt vorher schon beschrieben. Wie gesagt eigentlich dient es zur synchroisierung von Zugriffen auf Ressourcen. 
 Da nicht sichergestellt ist, dass die Task innerhalb der Zeitspanne, in der ein weiterer Interrupt auftreten kann, den vorhandenen Interrupt verarbeiteten kann, ist es möglich, dass ein Interrupt bei binären Semaphoren "'verloren'" geht.
-%Michael: Das verstehe ich nicht, wie hilft hier ein Counting Semaphor, wenn man einen Interrupt verpasst? Ein counting Semphor würde sich doch auch verzählen. Ein counting semphaor wird doch für ressource genutzt die zählbar sind. z.B. es dürfen nur 5 Teilnehmer auf den Bus zugreifen. 
+%Michael: Das verstehe ich nicht, wie hilft hier ein Counting Semaphor, wenn man einen Interrupt verpasst? Ein counting Semphor würde sich doch auch verzählen. Ein counting semaphor wird doch für ressource genutzt die zählbar sind. z.B. es dürfen nur 5 Teilnehmer auf den Bus zugreifen. 
 \newline Abhilfe schaffen hier die Counting Semaphore, die die nächste Zugriffsvariante auf Interrupts darstellen. Die Counting Semaphore werden durch das Setzen der folgenden Pre-Prozessor Direktive in der FreeRTOS Config aktiviert.
 \begin{lstlisting}[numbers = none]
 #define configUSE_COUNTING_SEMAPHORES  1
