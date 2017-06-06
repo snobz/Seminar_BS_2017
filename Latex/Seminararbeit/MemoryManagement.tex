@@ -1,7 +1,7 @@
 %!TEX root = FreeRtos ARM uController.tex
 %\pagebreak
 \subsection{Memory Allocation}
-Beim Erzeugen von RTOS Objekten wie Tasks, Queues oder Semaphore wird Speicher im RAM benötigt. Für die dynamische Speicherverwaltung werden in C und C++ ge\-wöhnlich die Standard C Funktionen malloc() und free() verwendet. Die Funktion malloc() dient zur Allozierung von freiem Speicher und free() zur Freigabe von alloziertem Speicher. Für Echtzeitsysteme, die auf einem RTOS aufsetzen, sind diese Funktionen aufgrund der folgende Eigenschaften\cite{MasteringFreeRtos} ungeeignet\footnote{Heap3 stellt hier eine Ausnahme dar}:
+Beim Erzeugen von RTOS Objekten wie Tasks, Queues oder Semaphore wird Speicher im RAM benötigt. Für die dynamische Speicherverwaltung werden in C und C++ ge\-wöhnlich die Standard C-Funktionen malloc() und free() verwendet. Die Funktion malloc() dient zur Allokation von freiem Speicher und free() zur Freigabe von alloziertem Speicher. Für Echtzeitsysteme, die auf einem RTOS aufsetzen, sind diese Funktionen aufgrund der folgenden Eigenschaften\cite{MasteringFreeRtos} ungeeignet\footnote{Heap3 stellt hier eine Ausnahme dar}:
 \needspace{3\baselineskip}
 \begin{itemize}
 	\item nicht thread safe
@@ -10,7 +10,7 @@ Beim Erzeugen von RTOS Objekten wie Tasks, Queues oder Semaphore wird Speicher i
 	\item schwer zu debuggen
 	\item Bibliotheksfunktionen benötigen viel Speicher
 \end{itemize}
-Des Weiteren sind für einige Einsatzgebiete von embedded Anwendungen Zertifikate erforderlich.\newline Speziell in sicherheitskritischen Anwendungen (Medical, Military) ist die dynamische Speicherverwaltung als eine potentielle Fehlerquelle auszuschließen. Für einen solchen Fall bietet FreeRTOS ab Version 9.0 die Möglichkeit der statischen Speicherallozierung. Diese wird am Ende dieses Abschnitts betrachtet. In FreeRTOS werden malloc() und free() durch die Funktionen  
+Des Weiteren sind für einige Einsatzgebiete von embedded Anwendungen Zertifikate erforderlich.\newline Speziell in sicherheitskritischen Anwendungen (z.B. Medical, Military) ist die dynamische Speicherverwaltung als eine potentielle Fehlerquelle auszuschließen. Für einen solchen Fall bietet FreeRTOS ab Version 9.0 die Möglichkeit der statischen Speicherallokation. Diese wird am Ende des Kapitels betrachtet. In FreeRTOS werden malloc() und free() durch die Funktionen  
 \begin{lstlisting}[label=lst:vPortMalloc1, numbers = none]
 void *pvPortMalloc( size_t xSize );
 \end{lstlisting}
@@ -18,11 +18,11 @@ und
 \begin{lstlisting}[label=lst:vPortFree1, numbers = none]
 void vPortFree( void *pv );
 \end{lstlisting}
-ersetzt. Dies hat den Vorteil, dass die Implementierung dieser Funktionen an die jeweilige Anwendung angepasst werden kann. FreeRTOS stellt dem Entwickler fünf unterschiedliche Implementierungen von Speicheralgorithmen (Heap\_1.c bis Heap\_5.c) zur Verfügung, siehe Abbildung \ref{fig:HeapsEclipse}. 
+ersetzt. Dies hat den Vorteil, dass die Implementierung dieser Funktionen an die jeweilige Anwendung angepasst werden kann. FreeRTOS stellt dem Entwickler fünf unterschiedliche Implementierungen von Speicheralgorithmen (Heap\_1.c bis Heap\_5.c) zur Verfügung (siehe Abbildung \ref{fig:HeapsEclipse}). 
 \begin{figure}[htb]
 	\centering
 		\includegraphics[width=0.2\textwidth]{Pictures/Eclipse/Heaps.png}
-	\caption{Einbindung des Speicheralgorithmus Heap1 in Eclipse CDT. Die Algortihmen Heap2 bis Heap5 sind vom Build ausgeschlossen}
+	\caption{Einbindung des Speicheralgorithmus Heap1 in Eclipse CDT. Die Algortihmen Heap2 bis Heap5 sind vom Build ausgeschlossen.}
 	\label{fig:HeapsEclipse}
 \end{figure}
 \begin{lstlisting}[caption={FreeRTOS Source von pvPortMalloc() aus Heap1.c. Zuerst wird sichergestellt, dass die Startspeicheradresse dem byte-Alignment des $\mu$\-Pro\-zesso\-rs entspricht. Der STM32F4 ist ein 32Bit $\mu$\-Pro\-zesso\-r und hat ein byte-Alignment von 4, sodass die Startadresse immer eine Potenz von 4 sein muss. Danach wird der Scheduler deaktiviert und geprüft, ob genug Speicher zur Verfügung steht. Abschließend wird der Speicher im ucHeap reserviert.  }, linewidth=8cm,captionpos=b, label=lst:malloc2, float=htb]
@@ -59,7 +59,7 @@ void vPortFree( void *pv )
 	configASSERT( pv == NULL );
 }
 \end{lstlisting} 
-Diese stellen prinzipiell schon die ge\-läu\-figsten Implementierungen zur Speicherverwaltung dar. Es bleibt aber auch weiterhin die Möglichkeit eine eigene Speicherverwaltung zu implementieren. In dieser Arbeit werden wir Heap1 etwas genauer betrachten, um ein grund\-sätz\-liches Verständnis für die FreeRTOS Speicherverwaltung zu bekommen. Heap2 - Heap 5 werden nur kurz beschrieben und können im Detail in \cite{MasteringFreeRtos} und \cite{FreeRtosAdvanced} nachgelesen werden. Wie schon am Anfang dieses Abschnitts beschrieben, wird für alle RTOS Objekte Speicher benötigt. Der Speicher für Objekte wie Semaphore und Tasks wird automatisch in den statischen Erzeugerfunktionen der RTOS API alloziert, indem intern die Funktion \textit{pvPortMalloc()} aufgerufen wird. Die Erzeugerfunktion xTaskCreate() beispielsweise erzeugt eine FreeRTOS Task. Listing \ref{lst:xTaskCreate} zeigt wie xTaskCreate() die Funktion pvPortMalloc() verwendet, um Speicher für den Stack und den Task Control Block zu allozieren.
+Diese stellen prinzipiell schon die ge\-läu\-figsten Implementierungen zur Speicherverwaltung dar. Es bleibt aber auch weiterhin die Möglichkeit eine eigene Speicherverwaltung zu implementieren. In dieser Arbeit werden wir Heap1 genauer betrachten, um ein grund\-sätz\-liches Verständnis für die FreeRTOS Speicherverwaltung zu bekommen. Heap2 - Heap 5 werden nur kurz beschrieben und können im Detail in \cite{MasteringFreeRtos} und \cite{FreeRtosAdvanced} nachgelesen werden. Wie bereits am Anfang dieses Kapitels beschrieben, wird für alle RTOS Objekte Speicher benötigt. Der Speicher für Objekte wie Semaphore und Tasks wird automatisch in den statischen Erzeugerfunktionen der RTOS API alloziert, indem intern die Funktion \textit{pvPortMalloc()} aufgerufen wird. Die Erzeugerfunktion xTaskCreate() beispielsweise erzeugt einen FreeRTOS Task. Listing \ref{lst:xTaskCreate} zeigt wie xTaskCreate() die Funktion pvPortMalloc() verwendet, um Speicher für den Stack und den Task Control Block zu allozieren.
 \begin{lstlisting}[caption={FreeRTOS Source von xTaskCreate() aus Task.c. Jede Task besitzt einen Stack und einen Task Control Block, beide werden beim Aufruf von xTaskCreate (Zeile 5 und Zeile 11) erstellt.}, linewidth=8cm,captionpos=b, label=lst:xTaskCreate, float=htb]
 StackType_t *pxStack;
 pxStack = ( StackType_t * ) pvPortMalloc(( ( ( size_t ) usStackDepth ) 
@@ -74,14 +74,14 @@ if( pxStack != NULL )
 
 }
 \end{lstlisting}
-Alle Objekte, die mittels pvPortMalloc() alloziert werden, darunter auch der Kernel selbst, teilen sich einen gemeinsamen Adressraum, siehe Abbildung \ref{fig:AddressSpace}. 
+Alle Objekte, die mittels pvPortMalloc() alloziert werden, darunter auch der Kernel selbst, teilen sich einen gemeinsamen Adressraum (siehe Abbildung \ref{fig:AddressSpace}). 
 \begin{figure}[hbt]
 	\centering
 		\includegraphics[width=0.2\textwidth]{Pictures/EmbeddedCom/addressSpace.jpg}
 	\caption{Task und Kernel teilen sich in FreeRTOS einen gemeinsamen Adressraum. Dies stellt eine potentielle Fehlerquelle dar. Bild-Quelle~\protect\citeA{RTOSRevealed}}
 	\label{fig:AddressSpace}
 \end{figure} 
-Durch den gemeinsamen Adressraum ist es beispielsweise mög\-lich, dass durch Überläufen oder ungewollten Speicherzugriffen, Daten einer anderen Task oder des Kernels ver\-än\-dert werden.   
+Durch den gemeinsamen Adressraum ist es beispielsweise mög\-lich, dass durch einen Überlauf oder einem ungewollten Speicherzugriff, Daten einer anderen Task oder des Kernels ver\-än\-dert werden.   
 %Christoph: Ein ungewollter Speicherzugriff ist somit durchaus möglich. Durch die Umschreibung des vorherhigen Satzes jetzt doppelt.
 %Christoph:Durch den gemeinsamen Adressraum ist es bei fehlerhaften Verwendungen von Speicherzugriffsfunktionen möglich aus einer Task auf die Variablen einer anderen Task zuzugreifen. 
 %Michael: Ich habe das nochmal umformuliert. Es ist nicht durch die fehlerhafte Verwendung möglich auf Variablen einer anderen Task zuzugreifen. Das ist grundsätzlich möglich und auch gewollt.  
