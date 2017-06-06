@@ -104,6 +104,8 @@
 \newlabel{fig:AddressSpaceMMU}{{9}{6}{Zugriffsrechte für einen Restricted Task werden durch den RTOS Kernel in der MPU konfiguriert. Der Speicherzugriff wird automatisch durch MPU überprüft und im Fehlerfall an den Kernel gemeldet. Bild-Quelle~\protect \citeA {RTOSRevealed}}{figure.9}{}}
 \newlabel{fig:AddressSpaceMMU@cref}{{[figure][9][]9}{6}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.3}Static Memory Allocation}{6}{subsubsection.2.5.3}}
+\newlabel{lst:staticMemory}{{2.5.3}{6}{}{lstlisting.-4}{}}
+\newlabel{lst:staticMemory@cref}{{[subsubsection][3][2,5]2.5.3}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Scheduling}{6}{subsection.2.6}}
 \newlabel{Scheduling}{{2.6}{6}{Scheduling}{subsection.2.6}{}}
 \newlabel{Scheduling@cref}{{[subsection][6][2]2.6}{6}}
@@ -165,12 +167,12 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Der STM32F4 bietet diverse LowPower Modes. Die Modes haben starke Auswirkung auf die Funktionalit\IeC {\"a}t des uControllers w\IeC {\"a}hrend der Schlafphase. Beispielsweise kann im Stop Mode keine UART Schnittstelle benutzt werden. Abh\IeC {\"a}ngig von der ben\IeC {\"o}tigten Peripherie, w\IeC {\"a}hlt der Entwickler einen dieser Modes. Die genutzte Taktfrequenz hat ebenfalls Einfluss auf die Stromaufnahme. Eine Anpassung der Takfrequenz zur Laufzeit ist ebenfalls m\IeC {\"o}glich.}}{11}{figure.16}}
 \newlabel{fig:powerconsum}{{16}{11}{Der STM32F4 bietet diverse LowPower Modes. Die Modes haben starke Auswirkung auf die Funktionalität des uControllers während der Schlafphase. Beispielsweise kann im Stop Mode keine UART Schnittstelle benutzt werden. Abhängig von der benötigten Peripherie, wählt der Entwickler einen dieser Modes. Die genutzte Taktfrequenz hat ebenfalls Einfluss auf die Stromaufnahme. Eine Anpassung der Takfrequenz zur Laufzeit ist ebenfalls möglich}{figure.16}{}}
 \newlabel{fig:powerconsum@cref}{{[figure][16][]16}{11}}
-\newlabel{lst:defineIdleHook}{{2.10}{11}{}{lstlisting.-10}{}}
+\newlabel{lst:defineIdleHook}{{2.10}{11}{}{lstlisting.-11}{}}
 \newlabel{lst:defineIdleHook@cref}{{[subsection][10][2]2.10}{11}}
 \newlabel{lst:xIdleHookExamp}{{7}{11}{Pseudocode für eine Idle-Hook Funktion}{lstlisting.7}{}}
 \newlabel{lst:xIdleHookExamp@cref}{{[lstlisting][7][]7}{11}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}Pseudocode f\IeC {\"u}r eine Idle-Hook Funktion}{11}{lstlisting.7}}
-\newlabel{lst:defineTicklessIdle}{{2.10}{11}{}{lstlisting.-11}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}Pseudocode f\IeC {\"u}r eine Idle-Hook Funktion.}{11}{lstlisting.7}}
+\newlabel{lst:defineTicklessIdle}{{2.10}{11}{}{lstlisting.-12}{}}
 \newlabel{lst:defineTicklessIdle@cref}{{[subsection][10][2]2.10}{11}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Komplexit\IeC {\"a}t durch Nebenl\IeC {\"a}ufigkeit - Debugging von Echtzeitsystemen}{11}{section.3}}
 \newlabel{sec:Debugging von Echtzeitsystemen}{{3}{11}{Komplexität durch Nebenläufigkeit - Debugging von Echtzeitsystemen}{section.3}{}}
@@ -182,6 +184,7 @@
 \bibcite{9780128015070}{3}
 \bibcite{9783864902222}{4}
 \bibcite{Jones:1997:CRT:269005.266689}{5}
+\bibcite{LorenK.Rhodes2017}{6}
 \@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces In diesem Beispiel ist die IDLE Task running, alle anderen Task blockieren (Hier wird f\IeC {\"u}r den Zustand Blocked die Bezeichnung Suspended verwendet). Es kann jedoch durch die Thread Awareness auf den Stacktrace der anderen Task zugegriffen werden }}{12}{figure.17}}
 \newlabel{fig:ThreadAware}{{17}{12}{In diesem Beispiel ist die IDLE Task running, alle anderen Task blockieren (Hier wird für den Zustand Blocked die Bezeichnung Suspended verwendet). Es kann jedoch durch die Thread Awareness auf den Stacktrace der anderen Task zugegriffen werden}{figure.17}{}}
 \newlabel{fig:ThreadAware@cref}{{[figure][17][]17}{12}}
@@ -192,7 +195,6 @@
 \newlabel{fig:SystemviewTarget}{{19}{12}{Die benötigten Target Files für die Trace Tools bilden eine weitere Middleware Schicht}{figure.19}{}}
 \newlabel{fig:SystemviewTarget@cref}{{[figure][19][]19}{12}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Zusammenfassung}{12}{section.4}}
-\bibcite{LorenK.Rhodes2017}{6}
 \bibcite{Regehr:2001:ACR:882481.883779}{7}
 \bibcite{RealTimePerformance}{8}
 \bibcite{9783827373427}{9}
