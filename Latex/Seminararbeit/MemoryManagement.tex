@@ -81,7 +81,7 @@ Alle Objekte, die mittels pvPortMalloc() alloziert werden, darunter auch der Ker
 	\caption{Task und Kernel teilen sich in FreeRTOS einen gemeinsamen Adressraum. Dies stellt eine potentielle Fehlerquelle dar. Bild-Quelle~\protect\citeA{RTOSRevealed}}
 	\label{fig:AddressSpace}
 \end{figure} 
-Durch den gemeinsamen Adressraum ist es beispielsweise mög\-lich, dass durch einen Überlauf oder einem ungewollten Speicherzugriff, Daten eines anderen Tasks oder des Kernels ver\-än\-dert werden.   
+Durch den gemeinsamen Adressraum ist es beispielsweise mög\-lich, dass durch einen Überlauf oder einen ungewollten Speicherzugriff, Daten eines anderen Tasks oder des Kernels ver\-än\-dert werden.   
 %Christoph: Ein ungewollter Speicherzugriff ist somit durchaus möglich. Durch die Umschreibung des vorherhigen Satzes jetzt doppelt.
 %Christoph:Durch den gemeinsamen Adressraum ist es bei fehlerhaften Verwendungen von Speicherzugriffsfunktionen möglich aus einer Task auf die Variablen einer anderen Task zuzugreifen. 
 %Michael: Ich habe das nochmal umformuliert. Es ist nicht durch die fehlerhafte Verwendung möglich auf Variablen einer anderen Task zuzugreifen. Das ist grundsätzlich möglich und auch gewollt.  
