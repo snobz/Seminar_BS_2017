@@ -25,7 +25,7 @@ ersetzt. Dies hat den Vorteil, dass die Implementierung dieser Funktionen an die
 	\caption{Einbindung des Speicheralgorithmus Heap1 in Eclipse CDT. Die Algortihmen Heap2 bis Heap5 sind vom Build ausgeschlossen.}
 	\label{fig:HeapsEclipse}
 \end{figure}
-\begin{lstlisting}[caption={FreeRTOS Source von pvPortMalloc() aus Heap1.c. Zuerst wird sichergestellt, dass die Startspeicheradresse dem byte-Alignment des $\mu$\-Pro\-zesso\-rs entspricht. Der STM32F4 ist ein 32Bit $\mu$\-Pro\-zesso\-r und hat ein byte-Alignment von 4, sodass die Startadresse immer eine Potenz von 4 sein muss. Danach wird der Scheduler deaktiviert und geprüft, ob genug Speicher zur Verfügung steht. Abschließend wird der Speicher im ucHeap reserviert.  }, linewidth=8cm,captionpos=b, label=lst:malloc2, float=htb]
+\begin{lstlisting}[caption={FreeRTOS Source von pvPortMalloc() aus Heap1.c. Zuerst wird sichergestellt, dass die Startspeicheradresse dem byte-Alignment des $\mu$\-Pro\-zesso\-rs entspricht. Der STM32F4 basiert auf einem 32Bit $\mu$\-Pro\-zesso\-r und hat ein byte-Alignment von 4, sodass die Startadresse immer eine Potenz von 4 sein muss. Danach wird der Scheduler deaktiviert und geprüft, ob genug Speicher zur Verfügung steht. Abschließend wird der Speicher im ucHeap reserviert.  }, linewidth=8cm,captionpos=b, label=lst:malloc2, float=htb]
 void *pvPortMalloc( size_t xWantedSize )
 {
 void *pvReturn = NULL;
@@ -60,7 +60,7 @@ void vPortFree( void *pv )
 }
 \end{lstlisting} 
 Diese stellen prinzipiell schon die ge\-läu\-figsten Implementierungen zur Speicherverwaltung dar. Es bleibt aber auch weiterhin die Möglichkeit eine eigene Speicherverwaltung zu implementieren. In dieser Arbeit werden wir Heap1 genauer betrachten, um ein grund\-sätz\-liches Ver\-ständ\-nis für die FreeRTOS Speicherverwaltung zu bekommen. Heap2 - Heap 5 werden nur kurz beschrieben und können im Detail in \cite{MasteringFreeRtos} und \cite{FreeRtosAdvanced} nachgelesen werden. Wie bereits am Anfang dieses Abschnitts beschrieben, wird für alle RTOS Objekte Speicher benötigt. Der Speicher für Objekte wie Semaphore und Tasks wird automatisch in den statischen Erzeugerfunktionen der RTOS API alloziert, indem intern die Funktion \textit{pvPortMalloc()} aufgerufen wird. Die Erzeugerfunktion xTaskCreate() beispielsweise erzeugt einen FreeRTOS Task. Listing \ref{lst:xTaskCreate} zeigt wie xTaskCreate() die Funktion pvPortMalloc() verwendet, um Speicher für den Stack und den Task Control Block zu allozieren.
-\begin{lstlisting}[caption={FreeRTOS Source von xTaskCreate() aus Task.c. Jeder Task besitzt einen Stack und einen Task Control Block, beide werden beim Aufruf von xTaskCreate (Zeile 5 und Zeile 11) erstellt.}, linewidth=8cm,captionpos=b, label=lst:xTaskCreate, float=htb]
+\begin{lstlisting}[caption={FreeRTOS Source von xTaskCreate() aus Task.c. Jeder Task besitzt einen Stack und einen Task Control Block, beide werden beim Aufruf von xTaskCreate (Zeile 2 und Zeile 6) erstellt.}, linewidth=8cm,captionpos=b, label=lst:xTaskCreate, float=htb]
 StackType_t *pxStack;
 pxStack = ( StackType_t * ) pvPortMalloc(( ( ( size_t ) usStackDepth ) 
 * sizeof( StackType_t ) ) );
@@ -126,7 +126,7 @@ Embedded Softwaresysteme können durch den Einsatz einer Memory Protection Unit 
 	\caption{Zugriffsrechte für einen Restricted Task werden durch den RTOS Kernel in der MPU konfiguriert. Der Speicherzugriff wird automatisch durch MPU überprüft und im Fehlerfall an den Kernel gemeldet. Bild-Quelle~\protect\citeA{RTOSRevealed}}
 	\label{fig:AddressSpaceMMU}
 \end{figure} 
-Für die MPU des STM32F4 $\mu$\-Pro\-zesso\-rs steht eine spezielle API Portierung von FreeRTOS zur Verfügung (FreeRTOS-MPU). Zur Erzeugung von Tasks, die die MPU nutzen sollen, muss die Erzeugerfunktion xTaskCreateRestricted() verwendet werden. Beim Aufruf der Erzeugerfunktion wird dem Kernel die Stackadresse des Tasks mitgeteilt, damit dieser die entsprechenden Zugriffsberechtigungen der Speicheradressen konfigurieren kann. Die so erzeugten Tasks werden Restricted Tasks genannt. Der Zugriff aus einem Restricted Task auf den Speicher (Task-Stack) eines anderen Restricted Tasks ist nicht erlaubt. Bei einem nicht erlaubten Speicherzugriff wird automatisch die entsprechende Hook-Funk\-tion aufgerufen. Dem System wird so ermöglicht, entsprechend zu reagieren. Restricted Tasks kön\-nen sich in einem der folgenden Modi befinden:
+Für die MPU des STM32F4 $\mu$Controllers steht eine spezielle API Portierung von FreeRTOS zur Verfügung (FreeRTOS-MPU). Zur Erzeugung von Tasks, die die MPU nutzen sollen, muss die Erzeugerfunktion xTaskCreateRestricted() verwendet werden. Beim Aufruf der Erzeugerfunktion wird dem Kernel die Stackadresse des Tasks mitgeteilt, damit dieser die entsprechenden Zugriffsberechtigungen der Speicheradressen konfigurieren kann. Die so erzeugten Tasks werden Restricted Tasks genannt. Der Zugriff aus einem Restricted Task auf den Speicher (Task-Stack) eines anderen Restricted Tasks ist nicht erlaubt. Bei einem nicht erlaubten Speicherzugriff wird automatisch die entsprechende Hook-Funk\-tion aufgerufen. Dem System wird so ermöglicht, entsprechend zu reagieren. Restricted Tasks kön\-nen sich in einem der folgenden Modi befinden:
 \begin{itemize}
 	\item User Mode
 	\item Privileged Mode 
@@ -137,8 +137,7 @@ Die statische Speicherverwaltung wird durch das Prä\-pro\-zes\-sor-Define:
 \begin{lstlisting}[label=lst:staticMemory, numbers = none]
 #define configSUPPORT_STATIC_ALLOCATION
 \end{lstlisting}
-in der FreeRTOS Config aktiviert. Für die statische Objekterzeugung können die dynamischen Erzeugerfunktionen nicht mehr verwendet werden, daher stehen spezielle Erzeugerfunktionen für die statische Speicherallokation zur Verfügung. Beispiele hierfür sind: xTaskCreateStatic() statt xTaskCreate() oder xSemaphoreCreateBinaryStatic() statt xSemaphoreCreateBinary(). Der Vorteil der statischen Speicherverwaltung ist, dass der belegte Speicher im RAM schon zur Übersetzungszeit bekannt ist und die potenzielle Fehlerquelle der dynamischen Speicherverwaltung vermieden wird. Der Nachteil besteht darin, dass mehr RAM verwendet wird, als bei den meisten Heap Implementierungen. Heap1 stellt eine geeignete Alternative in der dynamischen Speicherverwaltung dar, da es die Risiken der dynamischen Speicherverwaltung auf ein Minimum reduziert.   
-Für die statische Objekterzeugung können die dynamischen Erzeugerfunktionen nicht mehr verwendet werden. Daher stehen spezielle Erzeugerfunktionen für die statische Speicherallokation zur Verfügung. Beispiele hierfür sind: 
+in der FreeRTOS Config aktiviert. Für die statische Objekterzeugung können die dynamischen Erzeugerfunktionen nicht mehr verwendet werden. Daher stehen spezielle Erzeugerfunktionen für die statische Speicherallokation zur Verfügung. Beispiele hierfür sind: 
 \begin{itemize}
 	\item xTaskCreateStatic() statt xTaskCreate()
 	\item xSemaphoreCreateBinaryStatic() statt xSemaphoreCreateBinary()

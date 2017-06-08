@@ -13,6 +13,6 @@
 \BOOKMARK [2][-]{subsection.2.7}{2.7 Echtzeitf\344higkeit}{section.2}% 13
 \BOOKMARK [2][-]{subsection.2.8}{2.8 Intertask Kommunikation}{section.2}% 14
 \BOOKMARK [2][-]{subsection.2.9}{2.9 Interrupt Handling}{section.2}% 15
-\BOOKMARK [2][-]{subsection.2.10}{2.10 Low Power Modes auf Stm32F4}{section.2}% 16
+\BOOKMARK [2][-]{subsection.2.10}{2.10 Low Power Modes auf dem STM32F4}{section.2}% 16
 \BOOKMARK [1][-]{section.3}{3 Komplexit\344t durch Nebenl\344ufigkeit - Debugging von Echtzeitsystemen}{}% 17
 \BOOKMARK [1][-]{section.4}{4 Zusammenfassung}{}% 18
