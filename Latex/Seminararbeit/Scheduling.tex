@@ -3,22 +3,7 @@
 \label{Scheduling}
 %Ich hab im Duden nachgeschlagen, es heißt wohl der Task. Ich versuche das im ganzen Dokument glatt zu ziehen
 %Michael: Ok
-Der Scheduler ist die Kernkomponente eines Echtzeitbetriebssystem Kernels, da er eine quasi parallele Aus\-füh\-rung von Tasks ermöglicht. Ein Task stellt dabei eine ei\-gen\-stän\-di\-ge lauffähige Programmeinheit dar. Gewöhnlich implementiert ein Task eine endlose Schleife, die bis zur ihrer Ausführung auf ein Timingevent oder ein Synchronisierungsevent blockiert (Listing \ref{lst:taskPseudo}). Die einmalige Aus\-füh\-rung eines Tasks wird Job\cite{9780128015070} genannt. 
-\begin{lstlisting}[caption={Pseudocode für die Implementierungsmuster eines periodischen (zeitgesteuert) Tasks und sporadischen (eventgesteuert) Tasks ~\protect\citeA{LorenK.Rhodes2017}}, linewidth=8cm,captionpos=b, label=lst:taskPseudo, float=hbt]
-//Periodische Task
-while(true)
-{
-   waitForStartOfNextCycle; //the period is p msec
-   ExecProcess();  //takes c msec in the worst case
-}
-
-//Sporadische Task
-while(true)
-{
-   waitForEvent;   //successive events won't occur in less than p msec
-   ExecResponseProcess();   //takes c msec worst case
-}
-\end{lstlisting}
+Der Scheduler ist die Kernkomponente eines Echtzeitbetriebssystem Kernels, da er eine quasi parallele Aus\-füh\-rung von Tasks ermöglicht. Ein Task stellt dabei eine ei\-gen\-stän\-di\-ge lauffähige Programmeinheit dar. Gewöhnlich implementiert ein Task eine endlose Schleife, die bis zur ihrer Ausführung auf ein Timingevent oder ein Synchronisierungsevent blockiert. Die einmalige Aus\-füh\-rung eines Tasks wird Job\cite{9780128015070} genannt. 
 Abhängig vom aktuellen Zustand aller Tasks und dem gewählten Scheduling\-algorithmus wählt der Scheduler den nächsten Task, der ausgeführt werden soll. Auf einem $\mu$Controller mit einem Kern (Prozessoreinheit) kann dabei immer nur ein Task ausgeführt werden. Die Ausführung ist also nicht wirklich parallel, sondern eine sequentielles Ausführen von Task Jobs, die durch den Scheduler organisiert werden. Der Vorgang des Task-Wechsels durch den Scheduler wird Kontextwechsel oder Contextswitch genannt. Der Kontextwechsel beeinflusst die Instruktionsfolge des Tasks nicht. Zum Zeitpunkt der Unterbrechung wird durch den Scheduler eine Art Schnappschuss des Tasks erstellt. Alle Register und der Stack des Tasks werden gesichert. Nachdem der Scheduler den verdrängten Task wieder zur Aus\-füh\-rung ausgewählt hat, werden alle Register und der Stack wiederhergestellt und in die entsprechenden $\mu$\-Pro\-zes\-sor\-re\-gis\-ter geladen. Der Task wird danach ab der letzten Instruktion fortgeführt. Abbildung \ref{fig:ContextSwitch} zeigt wie ein Task wäh\-rend seiner Ausführung unterbrochen wird.
 %Michael in einer Zeiteinheit habe ich wieder entfernt, da es das ganze mit Timeslicing und Tick interrupts durcheinader bringt. 
 \begin{figure}[ht!]
@@ -39,11 +24,10 @@ Folgende Zu\-stän\-de kann ein FreeRTOS Task im Scheduling annehmen:
  Abbildung \ref{fig:TaskStates} zeigt ein vollständiges Zustandsdiagramm eines FreeRTOS Tasks.
 \begin{figure}[ht!]
 	\centering
-		\includegraphics[width=0.2\textwidth]{Pictures/FreeRTOSOrg/taskStates.png}
+		\includegraphics[width=0.3\textwidth]{Pictures/FreeRTOSOrg/taskStates.png}
 	\caption{Übersicht aller Task-Zustandstransitionen in FreeRTOS. Der Zustandswechsel findet entweder durch den Aufruf einer FreeRTOS API Funktion statt oder aber durch Events (z.B. Interrupts, Timer-Events). Der Wechsel in den Zustand Running wird durch den Scheduler bestimmt und ist durch den Schedulingalgorithmus definiert.  Bild-Quelle~\protect\citeA{MasteringFreeRtos}}
 	\label{fig:TaskStates}
 \end{figure} 
-\newline
 Die Grundlage aller zur Verfügung stehenden Scheduling\-algorithmen ist das Round Robin Verfahren\cite{9783827373427}. Dabei werden alle lauf\-fäh\-igen Tasks (Ready) gleicher Priorität in einer Liste verwaltet. Jeder Task in der Liste erhält ein gewisses Zeitquantum\footnote{Round Robin definiert nicht die Länge des Zeitquantums}, welches bestimmt, wie lange einem Task der Prozessor zugeteilt wird. Nach Ablauf des Zeitquantums wird ein Kontextwechsel durchgeführt. Der näch\-ste Task in der Liste erhält Prozessorzeit und der ausgelaufene Task wird durch den Scheduler automatisch hinten an die Liste angefügt. Da jedem Task in FreeRTOS eine gewisse Priorität zugewiesen wird, ist auch für jede Priorität eine eigene Round Robin-Liste nötig. Dieses Verfahren wird auch Priority Scheduling \cite{9783827373427} genannt. Abbildung \ref{fig:PrioList1} veranschaulicht den Aufbau dieser Listen und in Listing \ref{lst:nextTask} wird gezeigt wie das Priority Scheduling im FreeRTOS Source Code umgesetzt wird. 
 \begin{figure}[htb]
 	\centering
@@ -114,8 +98,7 @@ Diese Einstellung wird üblicherweise Prioritized Pre-emptive Scheduling with Ti
 	\label{fig:timeslice}
 \end{figure}
 \subsection{Echtzeitfähigkeit}
-%---------------------------------------Work in Progress--------------------------------------
-Ein Echtzeitbetriebssystem zeichnet sich dadurch aus, dass es auf ein eintreffendes Ereignis eine deterministische und somit vorhersehbare Reaktion gibt. Dies wird bei FreeRTOS, wie bei allen anderen Echtzeitbetriebssystemen unter anderem durch geeignete Scheduling Stategien und nicht blockierende Interprozesskommunikation erreicht\cite{9780128015070} \cite{Jones:1997:CRT:269005.266689} \cite{Regehr:2001:ACR:882481.883779}. In FreeRTOS wird beispielsweise fixed priorty preemtive Scheduling als Schedulerstrategie verwendet. Bei prioritätenbasierenden Verfahren erhalten Task mit Echtzeitanforderung (Echtzeittask) eine höhere Priorität als Tasks ohne Echtzeitanforderungen. So kann garantiert werden, dass ein Echtzeittask nicht von einem Task ohne Echtzeitanforderungen blockiert wird. Durch die Zuweisung einer höheren Priorität ist aber noch nicht sichergestellt, dass der Echtzeittask die geforderten Deadlines einhält. Sind mehrere Echtzeittasks in einer Anwendung vorhanden, kann eine unpassende Prioritätenzuweisung dazu füh\-ren, dass die Anwendung ihre Deadlines nicht einhalten kann\cite{9780128015070}. Ob die gesamte Anwendung theoretisch "`schedulbar"' , d.h. ob alle geforderten Deadlines und Perioden eingehalten werden, wird gewöhnlich zu Beginn einer Entwicklung (Designphase) in einer Schedulinganalyse bestimmt. Die Schedulinganalyse umfasst unter anderem die Bestimmung von worst case runtimes und worst case response times der Tasks, sowie die Festlegung der Prioritäten durch spezielle Verfahren, wie rate monotonic assignment (RMA) oder deadline monotonic assignment (DMA). Eine sehr gute Beschreibung zur Scheduling Analyse und den Verfahren zur Prioritätenvergabe finden sich in \cite{9780128015070}.
+Ein Echtzeitbetriebssystem zeichnet sich dadurch aus, dass es auf ein eintreffendes Ereignis eine deterministische und somit vorhersehbare Reaktion gibt. Dies wird bei FreeRTOS, wie bei allen anderen Echtzeitbetriebssystemen unter anderem durch geeignete Scheduling Stategien und nicht blockierende Interprozesskommunikation erreicht\cite{9780128015070}\cite{Jones:1997:CRT:269005.266689}\cite{Regehr:2001:ACR:882481.883779}. In FreeRTOS wird beispielsweise fixed priorty preemtive Scheduling als Schedulerstrategie verwendet. Bei prioritätenbasierenden Verfahren erhalten Task mit Echtzeitanforderung (Echtzeittask) eine höhere Priorität als Tasks ohne Echtzeitanforderungen. So kann garantiert werden, dass ein Echtzeittask nicht von einem Task ohne Echtzeitanforderungen blockiert wird. Durch die Zuweisung einer höheren Priorität ist aber noch nicht sichergestellt, dass der Echtzeittask die geforderten Deadlines einhält. Sind mehrere Echtzeittasks in einer Anwendung vorhanden, kann eine unpassende Prioritätenzuweisung dazu füh\-ren, dass die Anwendung ihre Deadlines nicht einhalten kann\cite{9780128015070}. Ob die gesamte Anwendung theoretisch "`schedulbar"' , d.h. ob alle geforderten Deadlines und Perioden eingehalten werden, wird gewöhnlich zu Beginn einer Entwicklung (Designphase) in einer Schedulinganalyse bestimmt. Die Schedulinganalyse umfasst unter anderem die Bestimmung von worst case runtimes und worst case response times der Tasks, sowie die Festlegung der Prioritäten durch spezielle Verfahren, wie rate monotonic assignment (RMA) oder deadline monotonic assignment (DMA). Eine sehr gute Beschreibung zur Scheduling Analyse und den Verfahren zur Prioritätenvergabe finden sich in \cite{9780128015070}.
 FreeRTOS bietet alle Techniken, die für die Implementierung von Echtzeitsystem benötigt werden, daher kann man sagen, dass FreeRTOS für weiche Echtzeitsysteme geeignet ist. 
 Bei harten Echtzeitanforderungen hängt dies stark vom Kontext der Zielanwendung ab. In harten Echtzeitsystemen ist die Performance des Schedulers (Ein/Auslagern einer Task) und der API Funktionen ebenfalls zu berücksichtigen, diese werde aber von Real Time Engineers nicht veröffentlicht. Um zu gewährleisten, dass ein Echtzeitanwendung die auf FreeRTOS aufsetzt, harten Echtzeitanforderungen genügt, wird die Echtzeitfähigkeit durch die Messung von Ausführungszeiten bestimmt\cite{RealTimePerformance}.  
 

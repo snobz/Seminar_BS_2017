@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{1}
 
 \bibitem{MasteringFreeRtos}
 R.~Barry.
@@ -24,11 +24,6 @@ M.~B. Jones, D.~Ro\c{s}u, and M.-C. Ro\c{s}u.
 \newblock Cpu reservations and time constraints: Efficient, predictable
   scheduling of independent activities.
 \newblock {\em SIGOPS Oper. Syst. Rev.}, 31(5):198--211, Oct. 1997.
-
-\bibitem{LorenK.Rhodes2017}
-P.~Loren K.~Rhodes.
-\newblock Real-time issues, 2017.
-\newblock http://jcsites.juniata.edu/faculty/rhodes/smui/realtime.htm.
 
 \bibitem{Regehr:2001:ACR:882481.883779}
 J.~Regehr and J.~A. Stankovic.
