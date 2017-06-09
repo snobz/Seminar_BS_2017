@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  9 JUN 2017 14:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  9 JUN 2017 16:05
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -1083,6 +1083,16 @@ Overfull \hbox (11.15074pt too wide) in paragraph at lines 118--121
 \OT1/ptm/m/n/10 gnment (RMA) oder dead-li-ne mo-no-to-nic as-si-gnment (DMA).
  []
 
+
+Overfull \hbox (6.45142pt too wide) in paragraph at lines 118--121
+\OT1/ptm/m/n/10 Echt-zeit-an-wen-dung die auf Fre-eR-TOS auf-setzt, har-ten Echt-
+ []
+
+
+Overfull \hbox (1.90204pt too wide) in paragraph at lines 118--121
+\OT1/ptm/m/n/10 zeitan-for-de-run-gen gen[]ugt, wird die Echt-zeitf[]ahigkeit durch
+ []
+
 [8 <./Pictures/EMCUIT/PreemptiveCooperative.png> <./Pictures/FreeRTOSOrg/TickISR.png> <./Pictures/Scheduling/timeslice2.
 png>]) (InterTaskKommunikation.tex) (Interrupt.tex
 Overfull \hbox (6.85571pt too wide) in paragraph at lines 8--2
@@ -1232,10 +1242,6 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 77.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
 Package rerunfilecheck Info: File `"FreeRtos ARM uController".out' has not changed.
 (rerunfilecheck)             Checksum: 960E4C2D8314A42676A744DD847A3826;1416.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 77.
  ) 
 Here is how much of TeX's memory you used:
@@ -1253,7 +1259,7 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/
 uhvro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/t
 imes/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (12 pages, 1602913 bytes).
+Output written on "FreeRtos ARM uController.pdf" (12 pages, 1602917 bytes).
 PDF statistics:
  503 PDF objects out of 1000 (max. 8388607)
  203 named destinations out of 1000 (max. 500000)
