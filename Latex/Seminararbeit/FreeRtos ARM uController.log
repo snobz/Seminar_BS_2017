@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  9 JUN 2017 08:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  9 JUN 2017 14:51
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -1068,23 +1068,23 @@ Overfull \hbox (10.79053pt too wide) in paragraph at lines 109--116
 \OT1/ptm/m/n/10 Diese Ein-stel-lung wird []ublicherweise Prio-ri-ti-zed Pre-emptive
  []
 
-)
-Overfull \hbox (2.36234pt too wide) in paragraph at lines 118--68
-\OT1/ptm/m/n/10 vor-han-den, kann ei-ne un-pas-sen-de Prio-rit[]atenzuweisung da-
+
+Overfull \hbox (4.8315pt too wide) in paragraph at lines 118--121
+\OT1/ptm/m/n/10 ter an-de-rem durch ge-eig-ne-te Sche-du-ling State-gi-en und nicht
  []
 
 
-Overfull \hbox (3.20119pt too wide) in paragraph at lines 118--68
-\OT1/ptm/m/n/10 ca-se Ti-ming In-for-ma-tio-nen f[]ur den Sche-du-ler und API Fun-
+Overfull \hbox (7.7712pt too wide) in paragraph at lines 118--121
+\OT1/ptm/m/n/10 blo-ckie-ren-de In-ter-pro-zess-kom-mu-ni-ka-ti-on er-reicht[[][]3[][]] [[][]5[][]] [[][]7[][]].
  []
 
 
-Overfull \hbox (2.26067pt too wide) in paragraph at lines 118--68
-\OT1/ptm/m/n/10 ten Echt-zeit-sys-te-men m[]ussen die-se al-ler-dings be-kannt sein,
+Overfull \hbox (11.15074pt too wide) in paragraph at lines 118--121
+\OT1/ptm/m/n/10 gnment (RMA) oder dead-li-ne mo-no-to-nic as-si-gnment (DMA).
  []
 
 [8 <./Pictures/EMCUIT/PreemptiveCooperative.png> <./Pictures/FreeRTOSOrg/TickISR.png> <./Pictures/Scheduling/timeslice2.
-png>] (InterTaskKommunikation.tex) (Interrupt.tex
+png>]) (InterTaskKommunikation.tex) (Interrupt.tex
 Overfull \hbox (6.85571pt too wide) in paragraph at lines 8--2
 \OT1/ptm/m/n/10 ein-schrei-ben wol-len, in den Zu-stand Blocked ver-setzt. Eben-
  []
@@ -1127,7 +1127,7 @@ Overfull \hbox (2.88477pt too wide) in paragraph at lines 22--2
 \OT1/ptm/m/n/10 bei-spiels-wei-se zur Tasksyn-chro-ni-sa-ti-on. Ein Task kann sich
  []
 
-<Pictures/STM32F4/powerConsumption.png, id=359, 505.89pt x 348.55219pt>
+<Pictures/STM32F4/powerConsumption.png, id=358, 505.89pt x 348.55219pt>
 File: Pictures/STM32F4/powerConsumption.png Graphic file (type png)
  <use Pictures/STM32F4/powerConsumption.png>
 Package pdftex.def Info: Pictures/STM32F4/powerConsumption.png used on input line 12.
@@ -1137,7 +1137,7 @@ Underfull \hbox (badness 1248) in paragraph at lines 13--13
 []\OT1/ptm/b/n/8 Abbildung 16. []Der STM32F4 bie-tet di-ver-se Low-Power Mo-des.
  []
 
-[10]
+[10 <./Pictures/STM32F4/powerConsumption.png>]
 Overfull \hbox (10.38504pt too wide) in paragraph at lines 21--47
 \OT1/ptm/m/n/10 men-tie-rung der Idle-Hook Funk-ti-on. Be-vor das Sys-tem schla-
  []
@@ -1200,7 +1200,7 @@ Overfull \hbox (4.05138pt too wide) in paragraph at lines 4--3
 \OT1/ptm/m/n/10 wei-te-re Bi-blio-the-ken ben[]otigt, die ei-ne wei-te-re Schicht zwi-
  []
 
-[11 <./Pictures/STM32F4/powerConsumption.png>]) ("FreeRtos ARM uController.bbl"
+[11]) ("FreeRtos ARM uController.bbl"
 Overfull \hbox (3.45065pt too wide) in paragraph at lines 4--1
 \OT1/ptm/m/n/10 FreeRTOS kann als frei-es, pro-fes-sio-nel-les Echt-zeit-be-triebs-
  []
@@ -1232,6 +1232,10 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 77.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
 Package rerunfilecheck Info: File `"FreeRtos ARM uController".out' has not changed.
 (rerunfilecheck)             Checksum: 960E4C2D8314A42676A744DD847A3826;1416.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 77.
  ) 
 Here is how much of TeX's memory you used:
@@ -1249,9 +1253,9 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/
 uhvro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/t
 imes/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (12 pages, 1603887 bytes).
+Output written on "FreeRtos ARM uController.pdf" (12 pages, 1602913 bytes).
 PDF statistics:
- 504 PDF objects out of 1000 (max. 8388607)
+ 503 PDF objects out of 1000 (max. 8388607)
  203 named destinations out of 1000 (max. 500000)
  240 words of extra memory for PDF output out of 10000 (max. 10000000)
 
