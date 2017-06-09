@@ -17,7 +17,7 @@ Mutexe werden benutzt um Zugriffe auf gemeinsam genutzte Ressourcen zu steuern. 
 Im Gegensatz zu Semaphoren bieten Mutexe die Möglichkeit einen Task, der den Mutex besitzt kurzzeitig höher zu priorisieren, sodass eine zeitnahe Abarbeitung stattfinden kann. Hierdurch können Wartezeiten von hoch priorisierten Tasks auf niedriger priorisierte Tasks reduziert werden. Es kann jedoch zu Laufzeitproblemen kommen.  
 \begin{figure}[ht!]
 	\centering
-		\includegraphics[width=0.2\textwidth]{Pictures/Intertask/Deadlock.png}
+		\includegraphics[width=0.3\textwidth]{Pictures/Intertask/Deadlock.png}
 	\caption{Entstehung eines Deadlocks. 1) Task 1 erhält Mutex A; 2) Task 1 wird im Rahmen des Schedulings verdrängt, Task 2 wird aktiv; 3) Task 2 erhält Mutex B; 4) Task 2 versucht Mutex A zu erhalten, dieser ist durch Task 1 belegt. Task 2 wird daher in den Zustand "`Wait"' versetzt und Task 1 wird wieder gestartet 5) Task 1 versucht Mutex B zu erhalten, dieser ist durch Task 2 belegt. Der Deadlock entsteht.}
 	\label{fig:Deadlock}
 \end{figure}
