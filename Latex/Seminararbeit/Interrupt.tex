@@ -19,7 +19,7 @@ Der Semaphor wird durch einen anderen Task gesetzt. Dieser kann entweder ein eig
 Bei binären Semaphoren ist zu beachten, dass diese nur angefordert oder gesetzt werden können. Es besteht keine Mög\-lich\-keit zuverlässig zu prüfen, ob ein Semaphor zwischen einem Setzen und einer erneuten Abfrage ggf. mehrmals gesetzt wurde. Daher kann es passieren, dass Ereignisse mehrmals stattfinden, ein verarbeitender Task jedoch nur einmal darauf reagiert. Beispielsweise kann eine ISR mehrmals gestartet werden, der verarbeitende Task "`reagiert"' jedoch nur einmal auf den Interrupt.
 %Da nicht sichergestellt ist, dass der Task, der  innerhalb der Zeitspanne, in der eine Semaphore gesetzt wird, die erneute Anfrage an den Semaphor %stellen kann, ist es möglich, dass ein zusätzliches Setzen der binären Semaphore "'verloren'" geht.
 %Michael: Das verstehe ich nicht, wie hilft hier ein Counting Semaphor, wenn man einen Interrupt verpasst? Ein counting Semphor würde sich doch auch verzählen. Ein counting semaphor wird doch für ressource genutzt die zählbar sind. z.B. es dürfen nur 5 Teilnehmer auf den Bus zugreifen. 
-Abhilfe schaffen hier die Counting Semaphore, die die nächste Zugriffsvariante auf Interrupts darstellen. Die Counting Semaphore werden durch das Setzen der folgenden Pre-Prozessor Direktive in der FreeRTOS Config aktiviert:
+Abhilfe schaffen hier die Counting Semaphore, die in der Lage sind mehrmals auftretende Events zu verwalten. Die Counting Semaphore werden durch das Setzen der folgenden Pre-Prozessor Direktive in der FreeRTOS Config aktiviert:
 \begin{lstlisting}[numbers = none]
 #define configUSE_COUNTING_SEMAPHORES  1
 \end{lstlisting}
