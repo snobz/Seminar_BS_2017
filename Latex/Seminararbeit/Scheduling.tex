@@ -38,13 +38,9 @@ Die Grundlage aller zur Verfügung stehenden Scheduling\-algorithmen ist das Rou
 \begin{lstlisting}[caption={FreeRTOS Source zur Priroty Task Selection aus Task.c. Alle lauffähigen Tasks werden in einem Array verwaltet pxReadyTaskLists. Die Listen verwalten sich durch Referenz-Pointer in den TCBs der einzelnen Tasks.}, linewidth=8cm,captionpos=b, label=lst:nextTask, float=hbt]
 #define taskSELECT_HIGHEST_PRIORITY_TASK(){																									
 	UBaseType_t uxTopPriority = uxTopReadyPriority;														
-		/* Find the highest priority queue that contains ready tasks. */								
 		while(listLIST_IS_EMPTY(&(pxReadyTasksLists[ uxTopPriority ]))){																								
-			configASSERT( uxTopPriority );																
 			--uxTopPriority;																			
 		}																								
-		/* listGET_OWNER_OF_NEXT_ENTRY indexes through the list, so the tasks of						
-		the	same priority get an equal share of the processor time. */									
 		listGET_OWNER_OF_NEXT_ENTRY(pxCurrentTCB, &(pxReadyTasksLists[uxTopPriority]));			
 		uxTopReadyPriority = uxTopPriority;																
 	} /* taskSELECT_HIGHEST_PRIORITY_TASK */
@@ -60,6 +56,7 @@ Im Preemptive Mode wird ein aktiver Task mit niedriger Priorität sofort von ein
 	\caption{Im Cooperative Mode wird der Prozessor von einem Task erst abgegeben, wenn dieser explizit taskYield() aufruft. Selbst wenn ein Task mit höherer Priorität in den Ready Zustand wechselt, läuft der Task mit niedrigerer Priorität weiter. Im Gegensatz dazu steht das Pre-Emptive Scheduling (hier mit Time-Slicing). Es unterbricht den laufenden Task mit niedrigerer Priorität sofort, sobald ein Task mit höherer Priorität in den Zustand Ready wechselt. Bild-Quelle~\protect\citeA{MasteringFreeRtos}}
 	\label{fig:PreVSCo}
 \end{figure}
+\pagebreak
 Für den Preemptive Mode bietet FreeRTOS eine weitere Konfigurationsmöglichkeit. Mit der nachfolgenden Pre-Prozessordirektive lässt sich das Zeitschlitzverfahren (time slicing) aktivieren: 
 \begin{lstlisting}[numbers = none]
 #define configUSE_TIME_SLICING 1
@@ -97,6 +94,7 @@ Diese Einstellung wird üblicherweise Prioritized Pre-emptive Scheduling with Ti
 	\caption{Durch das Zeitschlitzverfahren wechseln sich Task 1 und Idle Task bei jedem SysTick Interrupt ab, da beide die gleiche Priorität haben. Bei T6 ist Task 1 bereit und verdrängt (preempt) aufgrund seiner höheren Priorität Task 2. Nachdem Task 1 blockiert, wird Task 2 fortgeführt. Bild-Quelle~\protect\citeA{MasteringFreeRtos}}
 	\label{fig:timeslice}
 \end{figure}
+\pagebreak
 \subsection{Echtzeitfähigkeit}
 Ein Echtzeitbetriebssystem zeichnet sich dadurch aus, dass es auf ein eintreffendes Ereignis eine deterministische und somit vorhersehbare Reaktion gibt. Dies wird bei FreeRTOS, wie bei allen anderen Echtzeitbetriebssystemen unter anderem durch geeignete Scheduling Stategien und nicht blockierende Interprozesskommunikation erreicht\cite{9780128015070}\cite{Jones:1997:CRT:269005.266689}\cite{Regehr:2001:ACR:882481.883779}. In FreeRTOS wird beispielsweise fixed priorty preemtive Scheduling als Schedulerstrategie verwendet. Bei prioritätenbasierenden Verfahren erhalten Tasks mit Echtzeitanforderung (Echtzeittasks) eine höhere Priorität als Tasks ohne Echtzeitanforderungen. So kann garantiert werden, dass ein Echtzeittask nicht von einem Task ohne Echtzeitanforderungen blockiert wird. Durch die Zuweisung einer höheren Priorität ist aber noch nicht sichergestellt, dass der Echtzeittask die geforderten Deadlines einhält. Sind mehrere Echtzeittasks in einer Anwendung vorhanden, kann eine unpassende Prioritätenzuweisung dazu füh\-ren, dass die Anwendung ihre Deadlines nicht einhalten kann\cite{9780128015070}. Ob die gesamte Anwendung theoretisch "`schedulbar"' , d.h. ob alle geforderten Deadlines und Perioden eingehalten werden, wird gewöhnlich zu Beginn einer Entwicklung (Designphase) in einer Schedulinganalyse bestimmt. Die Schedulinganalyse umfasst unter anderem die Bestimmung von worst case runtimes und worst case response times der Tasks, sowie die Festlegung der Prioritäten durch spezielle Verfahren, wie rate monotonic assignment (RMA) oder deadline monotonic assignment (DMA). Eine sehr gute Beschreibung zur Scheduling Analyse und den Verfahren zur Prioritätenvergabe finden sich in \cite{9780128015070}.
 FreeRTOS bietet alle Techniken, die für die Implementierung von Echtzeitsystem benötigt werden, daher kann man sagen, dass FreeRTOS für weiche Echtzeitsysteme geeignet ist. 

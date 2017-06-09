@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  9 JUN 2017 18:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  9 JUN 2017 18:33
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -809,7 +809,7 @@ Overfull \hbox (4.04135pt too wide) in paragraph at lines 4--2
 \OT1/ptm/m/n/10 Ein Ge-gen-spie-ler zu den pro-priet[]aren IDEs ist Eclip-se CDT.
  []
 
-<Pictures/STM32F4/LibraryEntry.png, id=108, 490.83376pt x 326.72063pt>
+<Pictures/STM32F4/LibraryEntry.png, id=109, 490.83376pt x 326.72063pt>
 File: Pictures/STM32F4/LibraryEntry.png Graphic file (type png)
  <use Pictures/STM32F4/LibraryEntry.png>
 Package pdftex.def Info: Pictures/STM32F4/LibraryEntry.png used on input line 11.
@@ -855,19 +855,19 @@ Overfull \hbox (3.74065pt too wide) in paragraph at lines 27--30
 \OT1/ptm/m/n/10 http://www.st.com/en/development-tools/st-link-v2.html 
  []
 
-<Pictures/Einrichtung/NewF4Project.png, id=122, 751.80875pt x 777.90625pt>
+<Pictures/Einrichtung/NewF4Project.png, id=124, 751.80875pt x 777.90625pt>
 File: Pictures/Einrichtung/NewF4Project.png Graphic file (type png)
  <use Pictures/Einrichtung/NewF4Project.png>
 Package pdftex.def Info: Pictures/Einrichtung/NewF4Project.png used on input line 40.
 (pdftex.def)             Requested size: 194.88219pt x 201.64548pt.
 
-<Pictures/Einrichtung/CMSISv4_small.jpg, id=125, 501.875pt x 288.07625pt>
+<Pictures/Einrichtung/CMSISv4_small.jpg, id=127, 501.875pt x 288.07625pt>
 File: Pictures/Einrichtung/CMSISv4_small.jpg Graphic file (type jpg)
  <use Pictures/Einrichtung/CMSISv4_small.jpg>
 Package pdftex.def Info: Pictures/Einrichtung/CMSISv4_small.jpg used on input line 47.
 (pdftex.def)             Requested size: 194.88219pt x 111.86136pt.
 
-<Pictures/Einrichtung/sourceTree.png, id=127, 460.119pt x 470.558pt>
+<Pictures/Einrichtung/sourceTree.png, id=129, 460.119pt x 470.558pt>
 File: Pictures/Einrichtung/sourceTree.png Graphic file (type png)
  <use Pictures/Einrichtung/sourceTree.png>
 Package pdftex.def Info: Pictures/Einrichtung/sourceTree.png used on input line 61.
@@ -905,7 +905,7 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
 
-<Pictures/Eclipse/Heaps.png, id=141, 117.43875pt x 169.8345pt>
+<Pictures/Eclipse/Heaps.png, id=143, 117.43875pt x 169.8345pt>
 File: Pictures/Eclipse/Heaps.png Graphic file (type png)
  <use Pictures/Eclipse/Heaps.png>
 Package pdftex.def Info: Pictures/Eclipse/Heaps.png used on input line 24.
@@ -919,7 +919,7 @@ File: omlptm.fd
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 45.
 
-<Pictures/EmbeddedCom/addressSpace.jpg, id=146, 681.29532pt x 831.105pt>
+<Pictures/EmbeddedCom/addressSpace.jpg, id=148, 681.29532pt x 831.105pt>
 File: Pictures/EmbeddedCom/addressSpace.jpg Graphic file (type jpg)
  <use Pictures/EmbeddedCom/addressSpace.jpg>
 Package pdftex.def Info: Pictures/EmbeddedCom/addressSpace.jpg used on input line 80.
@@ -930,7 +930,7 @@ Overfull \hbox (1.07211pt too wide) in paragraph at lines 21--92
  []
 
 [4 <./Pictures/Einrichtung/CMSISv4_small.jpg> <./Pictures/Einrichtung/sourceTree.png> <./Pictures/Eclipse/Heaps.png>]
-<Pictures/FreeRTOSOrg/heap1Alg.png, id=168, 216.81pt x 159.59625pt>
+<Pictures/FreeRTOSOrg/heap1Alg.png, id=169, 216.81pt x 159.59625pt>
 File: Pictures/FreeRTOSOrg/heap1Alg.png Graphic file (type png)
  <use Pictures/FreeRTOSOrg/heap1Alg.png>
 Package pdftex.def Info: Pictures/FreeRTOSOrg/heap1Alg.png used on input line 107.
@@ -966,7 +966,7 @@ Overfull \hbox (6.79495pt too wide) in paragraph at lines 97--112
  []
 
 [5 <./Pictures/EmbeddedCom/addressSpace.jpg> <./Pictures/FreeRTOSOrg/heap1Alg.png>]
-<Pictures/EmbeddedCom/addressSpaceMMU.jpg, id=230, 1163.0953pt x 981.6675pt>
+<Pictures/EmbeddedCom/addressSpaceMMU.jpg, id=231, 1163.0953pt x 981.6675pt>
 File: Pictures/EmbeddedCom/addressSpaceMMU.jpg Graphic file (type jpg)
 
 <use Pictures/EmbeddedCom/addressSpaceMMU.jpg>
@@ -992,7 +992,7 @@ Overfull \hbox (3.81076pt too wide) in paragraph at lines 143--144
 []\OT1/ptm/m/n/10 xSemaphoreCreateBinaryStatic() statt xSe-ma-pho-re-Crea-
  []
 
-) (Scheduling.tex <Pictures/FreeRTOSOrg/ExeContext.png, id=235, 361.35pt x 289.08pt>
+) (Scheduling.tex <Pictures/FreeRTOSOrg/ExeContext.png, id=236, 361.35pt x 289.08pt>
 File: Pictures/FreeRTOSOrg/ExeContext.png Graphic file (type png)
 
 <use Pictures/FreeRTOSOrg/ExeContext.png>
@@ -1018,90 +1018,93 @@ Overfull \hbox (4.25394pt too wide) in paragraph at lines 22--23
 []\OT1/ptm/m/n/10 Suspended: Der Task hat vTaskSus-pend() auf-ge-ru-fen und
  []
 
-<Pictures/FreeRTOSOrg/taskStates.png, id=247, 274.02374pt x 344.03531pt>
+<Pictures/FreeRTOSOrg/taskStates.png, id=248, 274.02374pt x 344.03531pt>
 File: Pictures/FreeRTOSOrg/taskStates.png Graphic file (type png)
  <use Pictures/FreeRTOSOrg/taskStates.png>
 Package pdftex.def Info: Pictures/FreeRTOSOrg/taskStates.png used on input line 27.
 (pdftex.def)             Requested size: 146.16534pt x 183.51373pt.
 
-<Pictures/Scheduling/PrioList1.png, id=255, 383.834pt x 228.052pt>
+<Pictures/Scheduling/PrioList1.png, id=256, 383.834pt x 228.052pt>
 File: Pictures/Scheduling/PrioList1.png Graphic file (type png)
  <use Pictures/Scheduling/PrioList1.png>
 Package pdftex.def Info: Pictures/Scheduling/PrioList1.png used on input line 34.
 (pdftex.def)             Requested size: 146.16534pt x 86.8416pt.
 
-Overfull \hbox (4.02144pt too wide) in paragraph at lines 24--53
+Overfull \hbox (4.02144pt too wide) in paragraph at lines 24--49
 \OT1/ptm/m/n/10 ste-hen-den Scheduling-algorithmen ist das Round Ro-bin Ver-
  []
 
-<Pictures/EMCUIT/PreemptiveCooperative.png, id=257, 451.6875pt x 280.79906pt>
+<Pictures/EMCUIT/PreemptiveCooperative.png, id=258, 451.6875pt x 280.79906pt>
 File: Pictures/EMCUIT/PreemptiveCooperative.png Graphic file (type png)
 
 <use Pictures/EMCUIT/PreemptiveCooperative.png>
-Package pdftex.def Info: Pictures/EMCUIT/PreemptiveCooperative.png used on input line 59.
+Package pdftex.def Info: Pictures/EMCUIT/PreemptiveCooperative.png used on input line 55.
 (pdftex.def)             Requested size: 194.88219pt x 121.15256pt.
- [7 <./Pictures/FreeRTOSOrg/ExeContext.png> <./Pictures/FreeRTOSOrg/taskStates.png> <./Pictures/Scheduling/PrioList1.png
->] <Pictures/FreeRTOSOrg/TickISR.png, id=278, 398.08725pt x 151.16475pt>
-File: Pictures/FreeRTOSOrg/TickISR.png Graphic file (type png)
 
-<use Pictures/FreeRTOSOrg/TickISR.png>
-Package pdftex.def Info: Pictures/FreeRTOSOrg/TickISR.png used on input line 84.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7 <./Pictures/FreeRTOSOrg/ExeContext.png> <./Pictures/FreeRTOSOrg/taskStates.png> <./Pictures/Scheduling/PrioList1.png
+>]
+<Pictures/FreeRTOSOrg/TickISR.png, id=279, 398.08725pt x 151.16475pt>
+File: Pictures/FreeRTOSOrg/TickISR.png Graphic file (type png)
+ <use Pictures/FreeRTOSOrg/TickISR.png>
+Package pdftex.def Info: Pictures/FreeRTOSOrg/TickISR.png used on input line 81.
 (pdftex.def)             Requested size: 194.88219pt x 74.00217pt.
 
-Underfull \hbox (badness 1097) in paragraph at lines 85--85
+Underfull \hbox (badness 1097) in paragraph at lines 82--82
 []\OT1/ptm/b/n/8 Abbildung 14. []Beispielhafter Ab-lauf ei-nes Sy-sTickIn-ter-rupts.(1)
  []
 
 
-Overfull \hbox (2.77446pt too wide) in paragraph at lines 67--89
+Overfull \hbox (2.77446pt too wide) in paragraph at lines 64--86
 \OT1/ptm/m/n/10 ple-men-tie-rung des Fre-eR-TOS Sy-sTicks. Der Sy-sTick-Hand-
  []
 
-<Pictures/Scheduling/timeslice2.png, id=282, 526.96875pt x 146.79843pt>
+<Pictures/Scheduling/timeslice2.png, id=283, 526.96875pt x 146.79843pt>
 File: Pictures/Scheduling/timeslice2.png Graphic file (type png)
  <use Pictures/Scheduling/timeslice2.png>
-Package pdftex.def Info: Pictures/Scheduling/timeslice2.png used on input line 96.
+Package pdftex.def Info: Pictures/Scheduling/timeslice2.png used on input line 93.
 (pdftex.def)             Requested size: 243.60645pt x 67.86185pt.
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 96--97
+Overfull \hbox (12.0pt too wide) in paragraph at lines 93--94
  [][] 
  []
 
 
-Overfull \hbox (10.79053pt too wide) in paragraph at lines 93--100
+Overfull \hbox (10.79053pt too wide) in paragraph at lines 90--98
 \OT1/ptm/m/n/10 Diese Ein-stel-lung wird []ublicherweise Prio-ri-ti-zed Pre-emptive
  []
 
 
-Underfull \vbox (badness 1158) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (4.8315pt too wide) in paragraph at lines 101--104
+Overfull \hbox (4.8315pt too wide) in paragraph at lines 99--102
 \OT1/ptm/m/n/10 ter an-de-rem durch ge-eig-ne-te Sche-du-ling State-gi-en und nicht
  []
 
 
-Overfull \hbox (3.97115pt too wide) in paragraph at lines 101--104
+Overfull \hbox (3.97115pt too wide) in paragraph at lines 99--102
 \OT1/ptm/m/n/10 blo-ckie-ren-de In-ter-pro-zess-kom-mu-ni-ka-ti-on er-reicht[[][]3[][]][[][]5[][]][[][]6[][]].
  []
 
 
-Overfull \hbox (4.14076pt too wide) in paragraph at lines 101--104
+Overfull \hbox (4.14076pt too wide) in paragraph at lines 99--102
 \OT1/ptm/m/n/10 rit[]atenbasierenden Ver-fah-ren er-hal-ten Tasks mit Echt-zeitan-
  []
 
 
-Overfull \hbox (11.15074pt too wide) in paragraph at lines 101--104
+Overfull \hbox (11.15074pt too wide) in paragraph at lines 99--102
 \OT1/ptm/m/n/10 gnment (RMA) oder dead-li-ne mo-no-to-nic as-si-gnment (DMA).
  []
 
 [8 <./Pictures/EMCUIT/PreemptiveCooperative.png> <./Pictures/FreeRTOSOrg/TickISR.png> <./Pictures/Scheduling/timeslice2.
-png>]) (InterTaskKommunikation.tex <Pictures/Intertask/Deadlock.png, id=335, 192.72pt x 203.25937pt>
+png>]) (InterTaskKommunikation.tex <Pictures/Intertask/Deadlock.png, id=332, 191.21437pt x 204.765pt>
 File: Pictures/Intertask/Deadlock.png Graphic file (type png)
 
 <use Pictures/Intertask/Deadlock.png>
 Package pdftex.def Info: Pictures/Intertask/Deadlock.png used on input line 20.
-(pdftex.def)             Requested size: 146.16534pt x 154.15926pt.
+(pdftex.def)             Requested size: 146.16534pt x 156.53221pt.
 
 Overfull \hbox (6.85571pt too wide) in paragraph at lines 8--24
 \OT1/ptm/m/n/10 ein-schrei-ben wol-len, in den Zu-stand Blocked ver-setzt. Eben-
@@ -1132,7 +1135,7 @@ Overfull \hbox (2.93161pt too wide) in paragraph at lines 8--24
 \OT1/ptm/m/n/10 Hier-durch k[]onnen War-te-zei-ten von hoch prio-ri-sier-ten Tasks
  []
 
-<Pictures/Intertask/Gatekeeper.png, id=340, 359.09157pt x 73.77562pt>
+<Pictures/Intertask/Gatekeeper.png, id=337, 359.09157pt x 73.77562pt>
 File: Pictures/Intertask/Gatekeeper.png Graphic file (type png)
  <use Pictures/Intertask/Gatekeeper.png>
 Package pdftex.def Info: Pictures/Intertask/Gatekeeper.png used on input line 30.
@@ -1172,7 +1175,7 @@ Overfull \hbox (7.66275pt too wide) in paragraph at lines 30--2
 \OT1/ptm/m/n/10 ei-ne []un-block con-di-ti-on\ de-fi-niert wer-den, die fest-legt, wann
  []
 
-<Pictures/STM32F4/powerConsumption.png, id=353, 505.89pt x 348.55219pt>
+<Pictures/STM32F4/powerConsumption.png, id=350, 505.89pt x 348.55219pt>
 File: Pictures/STM32F4/powerConsumption.png Graphic file (type png)
  <use Pictures/STM32F4/powerConsumption.png>
 Package pdftex.def Info: Pictures/STM32F4/powerConsumption.png used on input line 12.
@@ -1187,7 +1190,7 @@ Overfull \hbox (10.38504pt too wide) in paragraph at lines 21--47
 \OT1/ptm/m/n/10 men-tie-rung der Idle-Hook Funk-ti-on. Be-vor das Sys-tem schla-
  []
 
-) (Debugging.tex <Pictures/Segger/freertosThreadAwareness.png, id=378, 441.90094pt x 353.82187pt>
+) (Debugging.tex <Pictures/Segger/freertosThreadAwareness.png, id=375, 441.90094pt x 353.82187pt>
 File: Pictures/Segger/freertosThreadAwareness.png Graphic file (type png)
 
 <use Pictures/Segger/freertosThreadAwareness.png>
@@ -1198,7 +1201,7 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 9--10
  [][] 
  []
 
-<Pictures/Segger/systemview.png, id=380, 883.04906pt x 362.85562pt>
+<Pictures/Segger/systemview.png, id=377, 883.04906pt x 362.85562pt>
 File: Pictures/Segger/systemview.png Graphic file (type png)
  <use Pictures/Segger/systemview.png>
 Package pdftex.def Info: Pictures/Segger/systemview.png used on input line 16.
@@ -1208,7 +1211,7 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 16--17
  [][] 
  []
 
-<Pictures/Segger/SystemViewTarget.png, id=382, 183.084pt x 228.25275pt>
+<Pictures/Segger/SystemViewTarget.png, id=379, 183.084pt x 228.25275pt>
 File: Pictures/Segger/SystemViewTarget.png Graphic file (type png)
  <use Pictures/Segger/SystemViewTarget.png>
 Package pdftex.def Info: Pictures/Segger/SystemViewTarget.png used on input line 23.
@@ -1275,8 +1278,8 @@ Package rerunfilecheck Info: File `"FreeRtos ARM uController".out' has not chang
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 77.
  ) 
 Here is how much of TeX's memory you used:
- 11215 strings out of 493333
- 170166 string characters out of 3139173
+ 11211 strings out of 493333
+ 170111 string characters out of 3139173
  485724 words of memory out of 3000000
  14312 multiletter control sequences out of 15000+200000
  37077 words of font info for 81 fonts, out of 3000000 for 9000
@@ -1289,9 +1292,9 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/
 uhvro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/t
 imes/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (12 pages, 1623703 bytes).
+Output written on "FreeRtos ARM uController.pdf" (12 pages, 1622766 bytes).
 PDF statistics:
- 503 PDF objects out of 1000 (max. 8388607)
- 194 named destinations out of 1000 (max. 500000)
+ 499 PDF objects out of 1000 (max. 8388607)
+ 190 named destinations out of 1000 (max. 500000)
  250 words of extra memory for PDF output out of 10000 (max. 10000000)
 
