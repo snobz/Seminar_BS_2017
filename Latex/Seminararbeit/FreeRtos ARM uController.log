@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  9 JUN 2017 18:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.26)  9 JUN 2017 18:05
 entering extended mode
 **"./FreeRtos ARM uController.tex"
 ("FreeRtos ARM uController.tex"
@@ -1167,6 +1167,11 @@ Overfull \hbox (1.10513pt too wide) in paragraph at lines 30--2
 \OT1/ptm/m/n/10 Task-steue-rung []uber Bit-mas-ken. In-ner-halb ei-nes Tasks kann
  []
 
+
+Overfull \hbox (7.66275pt too wide) in paragraph at lines 30--2
+\OT1/ptm/m/n/10 ei-ne []un-block con-di-ti-on\ de-fi-niert wer-den, die fest-legt, wann
+ []
+
 <Pictures/STM32F4/powerConsumption.png, id=353, 505.89pt x 348.55219pt>
 File: Pictures/STM32F4/powerConsumption.png Graphic file (type png)
  <use Pictures/STM32F4/powerConsumption.png>
@@ -1284,7 +1289,7 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/
 uhvro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/t
 imes/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "FreeRtos ARM uController.pdf" (12 pages, 1623726 bytes).
+Output written on "FreeRtos ARM uController.pdf" (12 pages, 1623703 bytes).
 PDF statistics:
  503 PDF objects out of 1000 (max. 8388607)
  194 named destinations out of 1000 (max. 500000)
