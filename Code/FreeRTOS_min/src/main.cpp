@@ -79,8 +79,10 @@ extern "C"  void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTas
 }
 /*-----------------------------------------------------------*/
 /* The task functions. */
-void vTask1( void *pvParameters );
-void vTask2( void *pvParameters );
+void vTaskA( void *pvParameters );
+void vTaskB( void *pvParameters );
+void vTaskC( void *pvParameters );
+void vTaskD( void *pvParameters );
 
 int
 main(int argc, char* argv[])
@@ -88,15 +90,17 @@ main(int argc, char* argv[])
     SEGGER_SYSVIEW_Conf();
     /* Create one of the two tasks. */
 
-        xTaskCreate(    vTask1,     /* Pointer to the function that implements the task. */
-                        "Task 1",   /* Text name for the task.  This is to facilitate debugging only. */
+        xTaskCreate(    vTaskA,     /* Pointer to the function that implements the task. */
+                        "Task A",   /* Text name for the task.  This is to facilitate debugging only. */
                         1000,       /* Stack depth - most small microcontrollers will use much less stack than this. */
                         NULL,       /* We are not using the task parameter. */
                         1,          /* This task will run at priority 1. */
                         NULL );     /* We are not using the task handle. */
 
         /* Create the other task in exactly the same way. */
-        xTaskCreate( vTask2, "Task 2", 1000, NULL, 1, NULL );
+        xTaskCreate( vTaskB, "Task B", 1000, NULL, 1, NULL );
+        xTaskCreate( vTaskC, "Task C", 1000, NULL, 1, NULL );
+        xTaskCreate( vTaskD, "Task D", 1000, NULL, 2, NULL );
 
         /* Start the scheduler to start the tasks executing. */
         vTaskStartScheduler();
@@ -109,9 +113,9 @@ main(int argc, char* argv[])
         return 0;
 }
 
-void vTask1( void *pvParameters )
+void vTaskA( void *pvParameters )
 {
-const char *pcTaskName = "Task 1 is running\r\n";
+const char *pcTaskName = "Task A is running\r\n";
 volatile uint32_t ul;
 
     /* As per most tasks, this task is implemented in an infinite loop. */
@@ -121,14 +125,15 @@ volatile uint32_t ul;
         trace_printf( pcTaskName );
 
         /* Delay for a period. */
-       vTaskDelay(5);
+        HAL_Delay(30);
+       vTaskDelay(10);
     }
 }
 /*-----------------------------------------------------------*/
 
-void vTask2( void *pvParameters )
+void vTaskB( void *pvParameters )
 {
-const char *pcTaskName2 = "Task 2 is running\r\n";
+const char *pcTaskName2 = "Task B is running\r\n";
 volatile uint32_t ul;
 
     /* As per most tasks, this task is implemented in an infinite loop. */
@@ -138,13 +143,50 @@ volatile uint32_t ul;
         trace_printf( pcTaskName2);
 
         /* Delay for a period. */
-        vTaskDelay(5);
+        HAL_Delay(30);
+        vTaskDelay(10);
     }
 }
 
 /*-----------------------------------------------------------*/
 
 
+void vTaskC( void *pvParameters )
+{
+const char *pcTaskName3 = "Task C is running\r\n";
+volatile uint32_t ul;
+
+    /* As per most tasks, this task is implemented in an infinite loop. */
+    for( ;; )
+    {
+        /* Print out the name of this task. */
+        trace_printf( pcTaskName3);
+
+        /* Delay for a period. */
+        HAL_Delay(30);
+        vTaskDelay(10);
+    }
+}
+
+/*-----------------------------------------------------------*/
+
+void vTaskD( void *pvParameters )
+{
+const char *pcTaskName4 = "Task D is running\r\n (High Prio)";
+volatile uint32_t ul;
+
+    /* As per most tasks, this task is implemented in an infinite loop. */
+    for( ;; )
+    {
+        vTaskDelay(150);
+        /* Print out the name of this task. */
+        trace_printf( pcTaskName4);
+
+        /* Delay for a period. */
+        HAL_Delay(100);
+
+    }
+}
 
 
 
